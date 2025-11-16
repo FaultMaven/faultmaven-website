@@ -123,10 +123,10 @@ export default function WaitlistPage() {
         <div className="max-w-3xl w-full px-6">
           <div className="rounded-2xl shadow-xl bg-white/90 dark:bg-slate-900/90 p-10 border border-slate-200 dark:border-slate-800 text-center">
             <h1 id="hero-heading" className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-              Get Early Access to FaultMaven & Help Shape the Future of AI Troubleshooting
+              Apply for Early Access
             </h1>
             <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              You&apos;re one step closer to transforming how you tackle complex operational challenges. FaultMaven 1.0, your personal AI Copilot, is currently in active development, and we&apos;re inviting forward-thinking engineers like you to be among the first to experience its power.
+              FaultMaven is in private beta with design partners. Join our waitlist to be among the first to experience AI-powered troubleshooting that reduces MTTR.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function WaitlistPage() {
               Ready to get started?
             </h2>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
-              We invite you to join our waitlist and be part of FaultMaven&apos;s early journey. Please provide your email address below to receive exclusive updates on our progress and to be considered for early access opportunities. We&apos;re excited to connect with you!
+              Join our waitlist to receive exclusive updates and be considered for early access opportunities.
             </p>
             <form 
               onSubmit={handleSubmit} 
@@ -229,11 +229,8 @@ export default function WaitlistPage() {
             <h3 id="expectations-heading" className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
               What to Expect After Signing Up:
             </h3>
-            <p className="text-base text-slate-700 dark:text-slate-300 mb-2">
-              We&apos;ll send you a confirmation email shortly. After that, we&apos;ll keep you informed about FaultMaven&apos;s journey and notify you personally when early access programs matching your interest open up. We respect your privacy, and you can unsubscribe at any time.
-            </p>
             <p className="text-base text-slate-700 dark:text-slate-300">
-              Thank you for your interest in FaultMaven!
+              We&apos;ll send you a confirmation email and keep you updated on our progress. You&apos;ll be notified when early access spots become available. You can unsubscribe at any time.
             </p>
           </div>
         </div>

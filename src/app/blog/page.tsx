@@ -9,13 +9,13 @@ export default function BlogPage() {
       <section className="py-20 text-center bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            The FaultMaven Blog: Insights on AIOps & Troubleshooting
+            FaultMaven Blog
           </h1>
           <h2 className="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-8">
-            We&apos;re Preparing Your New Resource for Operational Excellence
+            Coming Soon
           </h2>
           <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-0">
-            We&apos;re excited to be launching the official FaultMaven Blog shortly. This space will be dedicated to sharing deep insights, practical guides, and forward-thinking perspectives on the intersection of AI and modern operations. Our goal is to create a valuable resource for the SRE, DevOps, and broader engineering community.
+            We&apos;re launching the FaultMaven Blog to share insights, guides, and perspectives on AI-powered operations for SRE and DevOps teams.
           </p>
         </div>
       </section>
@@ -59,10 +59,10 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">Be the First to Read Our Insights</h3>
           <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-            Want to be notified when our first posts go live? Join our waitlist to receive all major FaultMaven announcements, including the launch of our blog and early access opportunities.
+            Join our waitlist to be notified when we launch the blog and to receive early access opportunities.
           </p>
           <Button asChild href="/waitlist" variant="primary">
-            Join the Waitlist & Get Updates
+            Apply for Early Access
           </Button>
         </div>
       </section>
@@ -70,9 +70,9 @@ export default function BlogPage() {
       {/* Alternative Navigation */}
       <section className="py-12 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-6 text-center text-lg text-slate-700 dark:text-slate-300">
-          In the meantime, feel free to explore{' '}
+          In the meantime, explore{' '}
           <Link href="/roadmap">Our Vision</Link>{' '}or check out our{' '}
-          <Link href="/resources/faq">FAQ Page</Link>.
+          <Link href="/faq">FAQ</Link>.
         </div>
       </section>
     </main>

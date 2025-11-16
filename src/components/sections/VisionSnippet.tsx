@@ -10,10 +10,10 @@ export default function VisionSnippet() {
           Your AI Copilot Today, Your Team&apos;s Collective Brain Tomorrow
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-          FaultMaven 1.0 delivers powerful personal AI assistance right now. Looking ahead, we&apos;re developing FaultMaven into an integrated AI solution that transforms collaborative problem-solving and amplifies your entire team&apos;s effectiveness by fostering a shared, intelligent understanding. We&apos;re releasing details in phases as this vision matures, and <strong className="text-slate-700 dark:text-slate-300">we invite forward-thinking engineers and organizations to help shape this journey with us.</strong>
+          FaultMaven 1.0 is your personal AI copilot today. FaultMaven 2.0 will be your team&apos;s collective intelligence—capturing, sharing, and amplifying expertise across your entire organization. <strong className="text-slate-700 dark:text-slate-300">Join our design partners in shaping this future.</strong>
         </p>
         <Button asChild href="/roadmap" variant="secondary">
-          Explore Our Full Vision & Learn How to Participate
+          See Our Vision
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 ml-2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
