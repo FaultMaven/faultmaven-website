@@ -46,27 +46,45 @@ export default function PricingPage() {
       <section className="py-20 text-center bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Fair Pricing, Built Together: Our Commitment to Value
+            Transparent, Value-Driven Pricing
           </h1>
-          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-            At FaultMaven, our very existence is dedicated to delivering exceptional value to you, our fellow engineers and operations professionals. While we&apos;re currently focused on perfecting FaultMaven 1.0 in close collaboration with our early design partners, we believe it&apos;s important to share our philosophy on pricing—an approach grounded in fairness, transparency, and mutual success. We&apos;re taking the time to get this right, just as we are with the product itself.
+          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+            We&apos;re finalizing pricing with our design partners to ensure it reflects the value FaultMaven delivers.
           </p>
+          <div className="inline-block bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 max-w-xl mx-auto">
+            <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+              Expected: $49-99/user/month
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              Less than the cost of 1 hour of downtime • Team discounts available
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Guiding Principles Section */}
+      {/* Pricing Model Section */}
       <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-10 text-center md:text-left">
-            Our Guiding Principles on Value & Future Pricing:
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
+            What to Expect
           </h2>
-          <div className="space-y-8">
-            {guidingPrinciples.map((principle, index) => (
-              <div key={index} className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">{principle.title}</h3>
-                <p className="text-slate-700 dark:text-slate-300">{principle.text}</p>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Pricing Model</h3>
+              <p className="text-slate-700 dark:text-slate-300">Per-user subscription with team volume discounts. No hidden fees or complex tiers.</p>
+            </div>
+            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Free Tier</h3>
+              <p className="text-slate-700 dark:text-slate-300">Generous free tier planned for individual engineers and open-source projects.</p>
+            </div>
+            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">ROI Promise</h3>
+              <p className="text-slate-700 dark:text-slate-300">Pricing designed to deliver measurable ROI through reduced MTTR and saved engineering time.</p>
+            </div>
+            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Transparent & Fair</h3>
+              <p className="text-slate-700 dark:text-slate-300">Clear pricing that scales with value. Grandfather pricing for early adopters.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -101,7 +119,7 @@ export default function PricingPage() {
               We invite you to join us as we build. Be the first to receive updates on FaultMaven&apos;s development, early access programs, and our approach to pricing as it solidifies.
             </p>
             <Button asChild href="/waitlist" variant="primary" className="mt-4">
-              Join the Waitlist for Updates & Early Access Opportunities
+              Apply for Early Access
             </Button>
           </div>
         </div>

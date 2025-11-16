@@ -10,26 +10,28 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="text-left">
+            <div className="inline-block mb-4 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-full">
+              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                🚀 Now in Private Beta with Design Partners
+              </span>
+            </div>
             <h1
               id="hero-heading"
-              className="font-bold mb-6"
-              style={{
-                fontSize: 36,
-                color: '#0F172A',
-                lineHeight: 1.2,
-              }}
+              className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-50 leading-tight"
             >
-              Troubleshoot Faster, Smarter, with FaultMaven
+              AI-Powered Troubleshooting That Reduces MTTR
             </h1>
-            <p
-              className="text-lg mb-10 max-w-2xl text-slate-600 dark:text-slate-400"
-            >
-              Your evolving AI Copilot—built <span className="italic">with</span> engineers like you—delivering real-time insights and guided solutions to dramatically reduce{' '}
-              <span style={{ fontWeight: 600 }}>Mean Time To Resolution (MTTR)</span> across your toughest operational challenges.
+            <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
+              Your AI Copilot for faster incident resolution. Analyze logs, diagnose issues, and resolve problems—directly in your browser with <span className="font-semibold text-slate-700 dark:text-slate-300">zero integration required</span>.
             </p>
-            <Button asChild href="/waitlist" variant="primary" className="max-w-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-              Get Early Access Updates & Help Shape FaultMaven
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild href="/waitlist" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                Apply for Early Access
+              </Button>
+              <Button asChild href="/product" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                See How It Works
+              </Button>
+            </div>
           </div>
           <div className="relative">
             <Image
@@ -45,25 +47,9 @@ export default function Hero() {
         </div>
         <div className="text-center mt-24">
           <hr className="my-10 border-slate-200 dark:border-slate-700" />
-          <div
-            className="mx-auto"
-            style={{
-              maxWidth: '40rem',
-              marginTop: '2.5rem',
-            }}
-          >
-            <p
-              className="text-sm"
-              style={{
-                fontSize: '0.875rem',
-                fontWeight: 400,
-                color: 'var(--tw-prose-body, #64748b)',
-                lineHeight: 1.4,
-                marginBottom: 0,
-              }}
-            >
-              Forged by seasoned SREs, Operations specialists, and AI experts,<br />
-              grounded in deep tech landscape experience and real-world operational insights.
+          <div className="mx-auto max-w-2xl mt-10">
+            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              Built by seasoned SREs and AI experts with real-world operational experience
             </p>
           </div>
         </div>

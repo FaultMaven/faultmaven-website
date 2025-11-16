@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FaultMaven | AI Copilot for Operations',
+    default: 'FaultMaven | AI-Powered Troubleshooting for SREs',
     template: '%s | FaultMaven'
   },
-  description: 'FaultMaven is an AI Copilot built with engineers for smarter incident response and troubleshooting. Reduce MTTR and improve operational efficiency.',
-  keywords: ['AI Copilot', 'Operations', 'Incident Response', 'Troubleshooting', 'MTTR', 'SRE', 'DevOps'],
+  description: 'AI Copilot for faster incident resolution. Analyze logs, diagnose issues, and reduce MTTR—directly in your browser with zero integration. Now in private beta.',
+  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
   publisher: 'FaultMaven',
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://faultmaven.com',
-    title: 'FaultMaven | AI Copilot for Operations',
-    description: 'FaultMaven is an AI Copilot built with engineers for smarter incident response and troubleshooting.',
+    title: 'FaultMaven | AI-Powered Troubleshooting for SREs',
+    description: 'AI Copilot for faster incident resolution. Reduce MTTR with intelligent root cause analysis—no integration required.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FaultMaven | AI Copilot for Operations',
-    description: 'FaultMaven is an AI Copilot built with engineers for smarter incident response and troubleshooting.',
+    title: 'FaultMaven | AI-Powered Troubleshooting for SREs',
+    description: 'AI Copilot for faster incident resolution. Reduce MTTR with intelligent root cause analysis—no integration required.',
     creator: '@faultmaven',
   },
   robots: {
@@ -59,8 +59,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <title>FaultMaven | AI Copilot for Operations</title>
-        <meta name="description" content="FaultMaven is an AI Copilot built with engineers for smarter incident response and troubleshooting." />
         <meta name="color-scheme" content="light dark" />
       </head>
       <body className="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 flex flex-col min-h-screen">

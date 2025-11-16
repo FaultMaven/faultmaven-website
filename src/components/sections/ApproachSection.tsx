@@ -10,40 +10,40 @@ export default function ApproachSection() {
   return (
     <section className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-slate-50 mb-8">
-          What Makes FaultMaven&apos;s Approach Different?
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-8">
+          Why FaultMaven Is Different
         </h2>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-4xl mx-auto text-center">
-          We&apos;re not just applying AI to old problems; we&apos;re fundamentally rethinking how engineers can overcome operational complexity. FaultMaven is built on a core belief: the most powerful solutions emerge when human expertise is actively augmented by specialized AI, in a partnership where you remain firmly in command.
+        <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto text-center">
+          Unlike generic AI tools, FaultMaven is purpose-built for operations—augmenting your expertise while keeping you in control.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800">
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-              Your AI Teammate: Intelligent Partnership, Not Impersonal Automation
+          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              AI Copilot, Not Autopilot
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Team up with FaultMaven, your expert AI Copilot. It rapidly sifts through complexity to surface critical insights and illuminate potential paths, <strong className="font-semibold text-slate-800 dark:text-slate-200">inspiring new perspectives and amplifying your expertise, not sidelining it.</strong> While it dramatically accelerates your workflow, <strong className="font-semibold text-slate-800 dark:text-slate-200">you direct the investigation and make all final calls.</strong> This human-centric control ensures an effective, <strong className="font-semibold text-slate-800 dark:text-slate-200">safe, and accountable</strong> approach to resolving complex challenges, harnessing AI&apos;s power while keeping your critical judgment firmly in charge.
+              FaultMaven rapidly analyzes data and surfaces insights, but <strong className="font-semibold text-slate-800 dark:text-slate-200">you stay in control</strong>. You direct the investigation and make all final decisions—ensuring safe, accountable troubleshooting.
             </p>
           </div>
-          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800">
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-              Purpose-Built for Operational Complexity
+          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              Built for Operations, Not Adapted
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              This isn&apos;t a generic AI adapted for troubleshooting. FaultMaven is being developed from the ground up by seasoned engineers and domain experts who understand the unique pressures and data intricacies of modern operations. It&apos;s tailored to &quot;think&quot; like an experienced SRE, focusing on the signals and contexts that truly matter.
+              Developed from the ground up by seasoned SREs who understand operational pressures. FaultMaven thinks like an experienced engineer, focusing on the signals that matter most.
             </p>
           </div>
-          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800">
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-              Clarity and Action, Not Just Data Lakes
+          <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              Actionable Insights, Not Data Overload
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Our focus isn&apos;t just on analyzing vast amounts of data, but on transforming that data into clear, understandable insights and concrete, actionable recommendations. FaultMaven aims to cut through the noise, providing the clarity you need to act decisively and effectively.
+              Transform complex data into clear recommendations. FaultMaven cuts through the noise to deliver the insights you need to act decisively.
             </p>
           </div>
         </div>
         <p className="text-center text-lg text-slate-600 dark:text-slate-400 mt-12">
-          This philosophy guides every stage of FaultMaven&apos;s development, from its initial 1.0 offering to its future as an integrated team expert. We&apos;re committed to building an AI that you can trust to make your toughest challenges more manageable.
+          From 1.0 to team-wide intelligence, we&apos;re building an AI you can trust.
         </p>
       </div>
     </section>

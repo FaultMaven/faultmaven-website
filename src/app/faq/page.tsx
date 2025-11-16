@@ -4,15 +4,15 @@ import Link from '@/components/ui/Link';
 const faqItems = [
   {
     question: `What is FaultMaven 1.0, and how can I get involved early?`,
-    answer: `FaultMaven 1.0 is your personal AI Copilot, accessed via a simple browser extension, designed to help you troubleshoot complex operational issues with no initial system integration. We're currently inviting experienced SREs and Ops engineers to <span class="font-semibold text-slate-800 dark:text-slate-200">apply for our early access/design partner program</span> to provide crucial feedback as we finalize 1.0. <Link href='/waitlist' class='text-[#2563EB] hover:underline'>Link to Waitlist/Application Form</Link>.`,
+    answer: `FaultMaven 1.0 is your personal AI Copilot, accessed via a simple browser extension, designed to help you troubleshoot complex operational issues with no initial system integration. We're currently in private beta with design partners—experienced SREs and Ops engineers who are helping us refine the product. <Link href='/waitlist' class='text-[#2563EB] hover:underline'>Apply for early access</Link> to join the next cohort.`,
   },
   {
     question: `What kinds of operational challenges does FaultMaven 1.0 address?`,
-    answer: `FaultMaven 1.0 is being built to help you diagnose a variety of operational issues faster – from investigating incident alerts and user-reported problems to understanding performance degradations. It assists by analyzing the context you provide, summarizing information, and leveraging stored knowledge to guide your troubleshooting process.`,
+    answer: `FaultMaven 1.0 helps you diagnose operational issues faster—from incident alerts and user-reported problems to performance degradations. It analyzes the context you provide, generates summaries, and leverages your stored knowledge to guide troubleshooting.`,
   },
   {
     question: `Why isn't everything about FaultMaven public yet?`,
-    answer: `FaultMaven is pioneering new approaches in AI-driven troubleshooting, and we're developing rapidly. We're sharing our vision and progress in stages while we work closely with early partners to refine core technology. For those interested in a deeper look – select design partners, potential investors, and future team members – we're happy to start a conversation. <Link href='/contact' class='text-[#2563EB] hover:underline'>Link to Contact</Link>.`,
+    answer: `FaultMaven is pioneering new approaches in AI-driven troubleshooting, and we're refining rapidly with our design partners. We're sharing our vision in stages as we validate our technology. For those interested in a deeper look—design partners, potential investors, or future team members—<Link href='/contact' class='text-[#2563EB] hover:underline'>contact us</Link>.`,
   },
   {
     question: `How does FaultMaven handle my data securely?`,

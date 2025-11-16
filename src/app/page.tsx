@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
 import CapabilitiesSection from "@/components/sections/CapabilitiesSection";
+import ComparisonSection from "@/components/sections/ComparisonSection";
 import GettingStartedSection from "@/components/sections/GettingStartedSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
 
@@ -56,8 +57,9 @@ export default function Home() {
     <main>
       <Hero />
       <ProblemSection />
-      <ApproachSection />
       <CapabilitiesSection />
+      <ComparisonSection />
+      <ApproachSection />
       <GettingStartedSection />
       <VisionSnippet />
       <FAQSnippet />
