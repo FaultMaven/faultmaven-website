@@ -2,9 +2,11 @@
 
 ![FaultMaven Logo](public/images/fmlogo-light.svg)
 
-> **FaultMaven: AI-powered troubleshooting companion for Engineers, SREs, and DevOps professionals**
+> **FaultMaven: AI Copilot for faster incident resolution**
 
-This is the official public repository for the FaultMaven marketing website and product documentation.
+This is the official public repository for the FaultMaven marketing website.
+
+**Status**: 🚀 Now in Private Beta with Design Partners | [Apply for Early Access](https://faultmaven.com/waitlist)
 
 ---
 
@@ -16,12 +18,15 @@ This is the official public repository for the FaultMaven marketing website and 
 
 ## 📖 About
 
-This repository contains:
-- **Marketing Landing Page**: Product information, features, and use cases
-- **Product Documentation**: Comprehensive guides, API docs, and tutorials
-- **Blog**: Technical articles and updates
+This repository contains the FaultMaven marketing website with:
+- **Marketing Pages**: Product features, capabilities, and competitive positioning
+- **Vision & Roadmap**: Long-term product evolution (1.0 → 2.0)
+- **Private Beta Application**: Design partner program signup
+- **About & FAQ**: Company background and common questions
 
-We welcome community contributions, especially for documentation improvements, typo fixes, and translations!
+**Note**: Product documentation will be available at [docs.faultmaven.com](https://docs.faultmaven.com) (planned).
+
+We welcome contributions for website improvements, typo fixes, and clarifications!
 
 ---
 
@@ -70,26 +75,27 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ```
 ├── src/
 │   ├── app/                 # Next.js App Router pages
-│   │   ├── (marketing)/     # Public marketing pages
 │   │   ├── about/           # About page
-│   │   ├── blog/            # Blog section
+│   │   ├── blog/            # Blog section (planned)
 │   │   ├── contact/         # Contact page
+│   │   ├── faq/             # FAQ page
+│   │   ├── pricing/         # Pricing page
 │   │   ├── privacy/         # Privacy policy
+│   │   ├── product/         # Product details
+│   │   ├── roadmap/         # Product roadmap & vision
 │   │   ├── terms/           # Terms of service
 │   │   ├── use-cases/       # Use cases
-│   │   └── roadmap/         # Product roadmap
+│   │   ├── waitlist/        # Beta application
+│   │   └── page.tsx         # Homepage
 │   ├── components/          # React components
-│   │   ├── auth/            # Authentication components
 │   │   ├── icons/           # Icon components
-│   │   ├── layout/          # Layout components
-│   │   ├── sections/        # Page sections
-│   │   └── ui/              # UI primitives
+│   │   ├── layout/          # Header, Footer
+│   │   ├── sections/        # Homepage sections (Hero, Problem, etc.)
+│   │   └── ui/              # Reusable UI components (Button, Card, etc.)
 │   ├── lib/                 # Utility functions
-│   ├── middleware/          # Middleware functions
 │   └── types/               # TypeScript definitions
 ├── public/                  # Static assets
-│   ├── images/              # Image files
-│   └── fonts/               # Font files
+│   └── images/              # Image files
 └── middleware.ts            # Next.js middleware
 ```
 
@@ -224,10 +230,13 @@ vercel --prod
 
 ---
 
-## 🔗 Related Repositories
+## 🔗 Related Projects
 
-- **Backend API**: [FaultMaven Backend](https://github.com/FaultMaven/faultmaven) (Private)
-- **Browser Extension**: [FaultMaven Extension](https://github.com/FaultMaven/browser-extension) (Private)
+FaultMaven includes additional components currently in private development:
+- **Backend API** - Core troubleshooting engine (Private)
+- **Browser Extension** - Chrome/Firefox extension for FaultMaven 1.0 (Private)
+
+These repositories are not open source at this time.
 
 ---
 

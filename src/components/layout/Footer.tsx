@@ -34,7 +34,7 @@ export default function Footer() {
               <a href="https://x.com/faultmaven" target="_blank" rel="noopener noreferrer" aria-label="X" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
                 <IconX className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
-              <a href="https://github.com/sterlanyu/FaultMaven" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
+              <a href="https://github.com/FaultMaven/faultmaven-website" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
                 <IconGithub className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
               <a href="https://linkedin.com/company/faultmaven" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
