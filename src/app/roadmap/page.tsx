@@ -50,7 +50,7 @@ export default function RoadmapPage() {
           </h2>
           <div className="max-w-3xl mx-auto text-lg text-slate-600 dark:text-slate-400 space-y-6">
             <p>
-              In today&apos;s complex digital landscape, maintaining system reliability and rapidly resolving issues is more critical—and more challenging—than ever. DevOps engineers, SREs, and support teams are on the front lines, often facing:
+              In today&apos;s complex digital landscape, maintaining system reliability and rapidly resolving issues is more critical—and more challenging—than ever. Developers, SREs, and DevOps engineers are on the front lines, often facing:
             </p>
             <ul className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-left mb-2">
               <li className="flex items-start gap-3"><Search className="w-6 h-6 text-blue-500 mt-1 flex-shrink-0" /><span><strong className="text-slate-800 dark:text-slate-200">Overwhelming Data:</strong> Navigating a deluge of logs, metrics, traces, and alerts to find the crucial signals.</span></li>

@@ -15,7 +15,7 @@ export default function BlogPage() {
             Coming Soon
           </h2>
           <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-0">
-            We&apos;re launching the FaultMaven Blog to share insights, guides, and perspectives on AI-powered operations for SRE and DevOps teams.
+            We&apos;re launching the FaultMaven Blog to share insights, guides, and perspectives on AI-powered operations for Developers, SREs, and DevOps engineers.
           </p>
         </div>
       </section>

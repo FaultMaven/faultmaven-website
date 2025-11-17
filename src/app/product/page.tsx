@@ -62,7 +62,7 @@ export default function ProductPage() {
           </h2>
           <div className="text-lg text-slate-600 dark:text-slate-400 space-y-6 max-w-3xl mx-auto">
             <p>
-              Welcome to FaultMaven 1.0, the foundational release of your personal AI Copilot, engineered to transform how individual DevOps engineers, SREs, and operations specialists tackle complex troubleshooting. Our core mission with this initial version is to provide you with an intelligent, immediately accessible assistant that augments your expertise, streamlines your diagnostic workflow, and helps you resolve issues faster – all without requiring complex upfront system integrations.
+              Welcome to FaultMaven 1.0, the foundational release of your personal AI Copilot, engineered to transform how Developers, SREs, and DevOps engineers tackle complex troubleshooting. Our core mission with this initial version is to provide you with an intelligent, immediately accessible assistant that augments your expertise, streamlines your diagnostic workflow, and helps you resolve issues faster – all without requiring complex upfront system integrations.
             </p>
             <p>
               FaultMaven 1.0 is built on the principle that you, the engineer, remain in command, with AI serving to enhance your capabilities. Core prototyping for these foundational features is complete, and active development is well underway. We are now moving into a phase of selective engagement, inviting experienced professionals to get an early look and provide crucial feedback that will help us perfect this powerful new tool. Get ready to experience a smarter, more efficient way to approach your daily operational challenges.
