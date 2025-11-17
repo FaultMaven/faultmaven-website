@@ -3,6 +3,8 @@ import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
 import CapabilitiesSection from "@/components/sections/CapabilitiesSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
+import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
+import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
 import GettingStartedSection from "@/components/sections/GettingStartedSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
 
@@ -58,6 +60,8 @@ export default function Home() {
       <Hero />
       <ProblemSection />
       <CapabilitiesSection />
+      <DeploymentOptionsSection />
+      <OpenSourceTrustSection />
       <ComparisonSection />
       <ApproachSection />
       <GettingStartedSection />

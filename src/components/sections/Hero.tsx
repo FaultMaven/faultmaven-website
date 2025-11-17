@@ -19,19 +19,22 @@ export default function Hero() {
               id="hero-heading"
               className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-50 leading-tight"
             >
-              AI-Powered Troubleshooting That Reduces MTTR
+              The AI-Powered Troubleshooting Copilot for Modern Engineering
             </h1>
             <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
-              Your AI Copilot for faster incident resolution. Analyze logs, diagnose issues, and resolve problems—directly in your browser with <span className="font-semibold text-slate-700 dark:text-slate-300">zero integration required</span>.
+              Reduce MTTR with intelligent root cause analysis. Available as a <span className="font-semibold text-slate-700 dark:text-slate-300">privacy-first self-hosted tool</span> or a <span className="font-semibold text-slate-700 dark:text-slate-300">fully managed collaborative SaaS</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="/waitlist" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                Apply for Early Access
+                Request Enterprise Access
               </Button>
               <Button asChild href="/product" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
                 See How It Works
               </Button>
             </div>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
+              Or <a href="https://github.com/FaultMaven/FaultMaven" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">deploy self-hosted open source</a>
+            </p>
           </div>
           <div className="relative">
             <Image

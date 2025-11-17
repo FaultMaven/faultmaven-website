@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FaultMaven | AI-Powered Troubleshooting for SREs',
+    default: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
     template: '%s | FaultMaven'
   },
-  description: 'AI Copilot for faster incident resolution. Analyze logs, diagnose issues, and reduce MTTR—directly in your browser with zero integration. Now in private beta.',
-  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot'],
+  description: 'Reduce MTTR with intelligent root cause analysis. Available as a privacy-first self-hosted tool (open source) or fully managed collaborative SaaS. Built on our open-source microservices foundation.',
+  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'Self-Hosted', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
   publisher: 'FaultMaven',
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://faultmaven.com',
-    title: 'FaultMaven | AI-Powered Troubleshooting for SREs',
-    description: 'AI Copilot for faster incident resolution. Reduce MTTR with intelligent root cause analysis—no integration required.',
+    title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
+    description: 'Reduce MTTR with intelligent root cause analysis. Self-hosted open source or fully managed SaaS—your choice.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FaultMaven | AI-Powered Troubleshooting for SREs',
-    description: 'AI Copilot for faster incident resolution. Reduce MTTR with intelligent root cause analysis—no integration required.',
+    title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
+    description: 'Reduce MTTR with intelligent root cause analysis. Self-hosted open source or fully managed SaaS—your choice.',
     creator: '@faultmaven',
   },
   robots: {
