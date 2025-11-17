@@ -22,7 +22,7 @@ export default function Hero() {
               The AI-Powered Troubleshooting Copilot for Modern Engineering
             </h1>
             <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
-              Reduce MTTR with intelligent root cause analysis. Available as a <span className="font-semibold text-slate-700 dark:text-slate-300">privacy-first self-hosted tool</span> or a <span className="font-semibold text-slate-700 dark:text-slate-300">fully managed collaborative SaaS</span>.
+              Empower software and operations engineers to diagnose incidents faster with <span className="font-semibold text-slate-700 dark:text-slate-300">privacy-first AI and a local knowledge base</span>. Available as self-hosted open source or fully managed SaaS.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="/waitlist" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">

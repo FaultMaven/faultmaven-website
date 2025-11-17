@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
     template: '%s | FaultMaven'
   },
-  description: 'Reduce MTTR with intelligent root cause analysis. Available as a privacy-first self-hosted tool (open source) or fully managed collaborative SaaS. Built on our open-source microservices foundation.',
+  description: 'Open-source AI troubleshooting assistant that helps Developers, SREs, and DevOps engineers diagnose complex issues and capture troubleshooting context. Privacy-first AI with local knowledge base. Available as self-hosted or fully managed SaaS.',
   keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'Self-Hosted', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://faultmaven.com',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'Reduce MTTR with intelligent root cause analysis. Self-hosted open source or fully managed SaaS—your choice.',
+    description: 'Diagnose incidents faster with privacy-first AI and a local knowledge base. Self-hosted open source or fully managed SaaS.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'Reduce MTTR with intelligent root cause analysis. Self-hosted open source or fully managed SaaS—your choice.',
+    description: 'Diagnose incidents faster with privacy-first AI and a local knowledge base. Self-hosted open source or fully managed SaaS.',
     creator: '@faultmaven',
   },
   robots: {
