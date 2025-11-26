@@ -69,7 +69,7 @@ export default function Header() {
 
         {/* Right-aligned: Sign In + Join Waitlist */}
         <nav className="hidden md:flex space-x-4 text-base font-medium items-center">
-          <Link href="http://localhost:5173/login?source=website" className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
+          <Link href={process.env.NEXT_PUBLIC_DASHBOARD_URL ? `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/login?source=website` : "http://localhost:5173/login?source=website"} className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
           <Link
             href="/waitlist"
             className="px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
@@ -99,7 +99,7 @@ export default function Header() {
             <Link href="/faq" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">FAQ</Link>
             <Link href="/pricing" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link>
             <Link href="/contact" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
-            <Link href="http://localhost:5173/login?source=website" className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
+            <Link href={process.env.NEXT_PUBLIC_DASHBOARD_URL ? `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/login?source=website` : "http://localhost:5173/login?source=website"} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
             <Link
               href="/waitlist"
               className="block px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
