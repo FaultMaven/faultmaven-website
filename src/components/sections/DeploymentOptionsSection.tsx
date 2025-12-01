@@ -57,7 +57,7 @@ export default function DeploymentOptionsSection() {
 
             <Button
               asChild
-              href="https://github.com/FaultMaven/FaultMaven"
+              href="https://github.com/FaultMaven/faultmaven"
               variant="secondary"
               className="w-full"
             >

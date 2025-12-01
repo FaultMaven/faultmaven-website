@@ -59,7 +59,7 @@ export default function PricingPage() {
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
                 Self-hosted • Apache 2.0 License • Full privacy control
               </p>
-              <Button asChild href="https://github.com/FaultMaven/FaultMaven" variant="secondary" className="w-full">
+              <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary" className="w-full">
                 View on GitHub
               </Button>
             </div>

@@ -33,7 +33,7 @@ export default function Hero() {
               </Button>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
-              Or <a href="https://github.com/FaultMaven/FaultMaven" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">deploy self-hosted open source</a>
+              Or <a href="https://github.com/FaultMaven/faultmaven" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">deploy self-hosted open source</a>
             </p>
           </div>
           <div className="relative">
