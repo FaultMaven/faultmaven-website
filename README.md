@@ -2,11 +2,11 @@
 
 ![FaultMaven Logo](public/images/fmlogo-light.svg)
 
-> **FaultMaven: AI Copilot for faster incident resolution**
+> **FaultMaven: Stop Solving the Same Problem Twice**
 
-This is the official public repository for the FaultMaven marketing website.
+This is the official marketing website for FaultMaven—the open-source AI troubleshooting copilot that remembers your infrastructure and past incidents.
 
-**Status**: 🚀 Now in Private Beta with Design Partners | [Apply for Early Access](https://faultmaven.com/waitlist)
+**Status**: ✨ Open Source & Available Now | [Get Started](https://github.com/FaultMaven/faultmaven#quick-start)
 
 ---
 
@@ -19,12 +19,14 @@ This is the official public repository for the FaultMaven marketing website.
 ## 📖 About
 
 This repository contains the FaultMaven marketing website with:
-- **Marketing Pages**: Product features, capabilities, and competitive positioning
-- **Vision & Roadmap**: Long-term product evolution (1.0 → 2.0)
-- **Private Beta Application**: Design partner program signup
-- **About & FAQ**: Company background and common questions
 
-**Note**: Product documentation will be available at [docs.faultmaven.com](https://docs.faultmaven.com) (planned).
+- **Product Pages**: Features, capabilities, and how FaultMaven differs from generic AI tools
+- **Use Cases**: Real-world troubleshooting scenarios
+- **Pricing**: Open source (free forever) vs. Enterprise Cloud
+- **Roadmap**: Product vision and upcoming features
+- **FAQ**: Everything you need to know about getting started
+
+**Note**: Full product documentation is available in the [main FaultMaven repository](https://github.com/FaultMaven/faultmaven).
 
 We welcome contributions for website improvements, typo fixes, and clarifications!
 
@@ -232,11 +234,14 @@ vercel --prod
 
 ## 🔗 Related Projects
 
-FaultMaven includes additional components currently in private development:
-- **Backend API** - Core troubleshooting engine (Private)
-- **Browser Extension** - Chrome/Firefox extension for FaultMaven 1.0 (Private)
+The FaultMaven ecosystem includes:
 
-These repositories are not open source at this time.
+- **[faultmaven](https://github.com/FaultMaven/faultmaven)** - Main repository with microservices backend (Open Source)
+- **[faultmaven-dashboard](https://github.com/FaultMaven/faultmaven-dashboard)** - Web-based dashboard UI (Open Source)
+- **[faultmaven-copilot](https://github.com/FaultMaven/faultmaven-copilot)** - Browser extension for incident capture (Open Source)
+- **[faultmaven-deploy](https://github.com/FaultMaven/faultmaven-deploy)** - Deployment configurations and tooling (Open Source)
+
+All FaultMaven components are Apache 2.0 licensed and fully open source.
 
 ---
 

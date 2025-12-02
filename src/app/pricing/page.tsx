@@ -1,142 +1,176 @@
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 
-const guidingPrinciples = [
-  {
-    title: 'Value First, Always:',
-    text: 'Your success truly defines ours. When we introduce pricing, it will directly reflect the significant, measurable benefits you gain from your AI Copilot: substantially reduced MTTR, critical time saved for your engineering teams, enhanced problem-solving capabilities, and the power of easily accessible, collaborative knowledge. We aim for FaultMaven to be an investment that pays for itself many times over.'
-  },
-  {
-    title: 'Fueling Sustainable Innovation:',
-    text: 'Fair and thoughtful pricing ensures we can continuously invest in the cutting-edge research, development, and features that FaultMaven needs to evolve and consistently meet your most demanding operational challenges. This sustainability is key to our long-term partnership with you.'
-  },
-  {
-    title: 'Transparency & Scalable Fairness:',
-    text: 'Expect no convoluted schemes or hidden costs. Our future pricing will be clear, straightforward, and designed to scale intuitively with your needs—from empowering individual engineers with FaultMaven 1.0 to supporting the collaborative intelligence of entire teams with our 2.0 vision.'
-  },
-  {
-    title: 'Partnership at Our Core:',
-    text: 'Your insights, especially as an early partner, are invaluable. We are genuinely building FaultMaven with you, not just for you. This collaborative spirit means we listen intently and adapt, ensuring the product and its value grow in alignment with your real-world experiences.'
-  },
-  {
-    title: 'Commitment to the Community:',
-    text: 'We believe in the power of the engineering community and the strategic value of giving back. As FaultMaven grows, we are committed to supporting the AIOps and SRE ecosystems, actively exploring opportunities for open-source contributions and the sharing of knowledge and resources.'
-  }
-];
-
-const earlyPartnerBenefits = [
-  {
-    title: 'Shape the Tool:',
-    text: 'Directly influence the development of a solution designed to solve your toughest operational challenges.'
-  },
-  {
-    title: 'Gain Early Expertise:',
-    text: 'Become proficient with a groundbreaking AI Copilot and lead the way in AI-augmented troubleshooting.'
-  },
-  {
-    title: 'Earn Founding Member Status:',
-    text: 'Be recognized as an integral part of the pioneering FaultMaven community, with a voice in its evolution.'
-  }
-];
-
 export default function PricingPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
-      {/* Hero Section */}
+      {/* Hero Section - The 3 AM Test */}
       <section className="py-20 text-center bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Choose Your Deployment Path
+            The 3 AM Test: What's Your Sleep Worth?
           </h1>
-          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8">
-            FaultMaven is available as free open-source software or a fully managed enterprise SaaS.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-6">
-              <p className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-                Open Source: Free Forever
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-                Self-hosted • Apache 2.0 License • Full privacy control
-              </p>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary" className="w-full">
-                View on GitHub
-              </Button>
-            </div>
-            <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
-              <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                Enterprise Cloud: $49-99/user/month
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-                Fully managed • Team collaboration • SSO • Priority support
-              </p>
-              <Button asChild href="/waitlist" variant="primary" className="w-full">
-                Request Enterprise Access
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Pricing Model Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
-            Enterprise Cloud Details
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Pricing Model</h3>
-              <p className="text-slate-700 dark:text-slate-300">Per-user subscription with team volume discounts. No hidden fees or complex tiers.</p>
-            </div>
-            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">ROI Promise</h3>
-              <p className="text-slate-700 dark:text-slate-300">Pricing designed to deliver measurable ROI through reduced MTTR and saved engineering time.</p>
-            </div>
-            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Transparent & Fair</h3>
-              <p className="text-slate-700 dark:text-slate-300">Clear pricing that scales with value. Grandfather pricing for early adopters.</p>
-            </div>
-            <div className="p-6 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-900 shadow-sm">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">Built on Open Source</h3>
-              <p className="text-slate-700 dark:text-slate-300">Enterprise Cloud extends the same auditable open-source foundation with managed infrastructure and team features.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Early Partner Benefits Section */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8 text-center md:text-left">
-            Why Partner with FaultMaven Early?
-          </h2>
-          <div className="prose prose-lg max-w-none text-slate-700 dark:text-slate-300 space-y-4 mb-8">
-            <p>
-              Joining us during these foundational stages offers a unique opportunity beyond just early access:
+          <div className="text-left max-w-3xl mx-auto mb-12 space-y-6">
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              <strong>Let's do the math:</strong>
             </p>
-            <ul className="list-disc pl-5 space-y-2">
-              {earlyPartnerBenefits.map((benefit, index) => (
-                <li key={index}><strong>{benefit.title}</strong> {benefit.text}</li>
-              ))}
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              You get paged at 3:14 AM. It's a database timeout. You've seen this before... somewhere.
+            </p>
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              You spend 3 hours:
+            </p>
+            <ul className="list-disc pl-8 text-lg text-slate-700 dark:text-slate-300 space-y-2">
+              <li>Grep-ing through 47 microservices worth of logs</li>
+              <li>Asking Slack "has anyone seen this?" (crickets)</li>
+              <li>Googling generic error messages</li>
+              <li>Finally finding the fix in a Confluence page from 2021</li>
+            </ul>
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              <strong>Cost:</strong> 3 hours × $100/hour (loaded) = <span className="text-2xl font-bold text-red-600 dark:text-red-400">$300</span><br />
+              <strong>Emotional cost:</strong> Your sleep schedule, your sanity, your will to live.
+            </p>
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              Now imagine FaultMaven answers in 30 seconds because it remembers the last time this happened.
+            </p>
+            <p className="text-lg text-slate-700 dark:text-slate-300">
+              <strong>Savings:</strong> 2.5 hours = <span className="text-2xl font-bold text-green-600 dark:text-green-400">$250</span><br />
+              <strong>Emotional savings:</strong> Priceless (and you're back in bed by 3:30 AM).
+            </p>
+          </div>
+
+          <hr className="my-12 border-slate-200 dark:border-slate-700" />
+
+          {/* Future Pricing */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+              Our Plan (When We Actually Charge Money):
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-6 text-left">
+                <p className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+                  Open Source: $0/month
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                  Forever. Self-hosted. Full privacy.
+                </p>
+                <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="secondary" className="w-full">
+                  Deploy Open Source
+                </Button>
+              </div>
+              <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 text-left">
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                  Enterprise: $49-99/user/month
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                  SSO, teams, managed hosting, SLA
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 italic mb-4">
+                  If you use it twice a month, it pays for itself.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <hr className="my-12 border-slate-200 dark:border-slate-700" />
+
+          {/* Current Reality - Beta Founders */}
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+              But Right Now? It's Free.
+            </h2>
+            <p className="text-lg text-slate-700 dark:text-slate-300 mb-6 italic">
+              Why? Because it's hard to prove FaultMaven saves 2.5 hours without, you know, actual engineers at actual 3 AM incidents.
+            </p>
+            <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
+              We need you more than you need us right now. We need:
+            </p>
+            <ul className="list-disc pl-8 text-lg text-slate-700 dark:text-slate-300 space-y-2 mb-8 text-left max-w-2xl mx-auto">
+              <li>Real incidents (not contrived demos)</li>
+              <li>Real data (messy, chaotic, production-y)</li>
+              <li>Real feedback ("this saved my ass" or "this was useless")</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-6 bg-slate-100 dark:bg-slate-800">
-        <div className="max-w-3xl mx-auto text-center rounded-xl p-10 bg-white dark:bg-slate-900 shadow-md">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6">
-            Stay Informed & Join the Journey:
+      {/* Beta Founders Program */}
+      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
+            The "Beta Founders" Deal
           </h2>
-          <div className="prose prose-lg max-w-none text-slate-700 dark:text-slate-300 space-y-6 mx-auto">
-            <p>
-              We invite you to join us as we build. Be the first to receive updates on FaultMaven&apos;s development, early access programs, and our approach to pricing as it solidifies.
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
+              We are opening limited spots for our <strong>Founding Beta Program</strong>.
             </p>
-            <Button asChild href="/waitlist" variant="primary" className="mt-4">
-              Request Enterprise Access
-            </Button>
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-8 mb-8">
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-4">What you get:</h3>
+              <ul className="list-disc pl-6 text-lg text-slate-700 dark:text-slate-300 space-y-2 mb-6">
+                <li>Full Enterprise access (SSO, Teams, Managed Cloud) for <strong className="text-green-600 dark:text-green-400">$0/month</strong></li>
+                <li>No credit card</li>
+                <li>No time limit</li>
+                <li>Grandfathered status when we launch paid tiers</li>
+              </ul>
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-4">The Catch:</h3>
+              <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
+                We want your brutally honest feedback. Tell us what breaks. Tell us if it saved you time. Tell us if it sucked.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <Button asChild href="/contact" variant="primary" className="text-lg px-8 py-4">
+                Apply for Beta Access
+              </Button>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
+                Tell us about your last painful incident. If it sounds painful enough, you're in.
+              </p>
+            </div>
+
+            <div className="mt-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+              <p className="text-center text-slate-700 dark:text-slate-300">
+                <strong>Fair warning:</strong> If you aren't actually getting paged or debugging complex systems, stick to the Open Source version for now. We are optimizing for people in pain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Snippet */}
+      <section className="py-16 bg-white dark:bg-slate-900">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+            Common Questions
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                "Free? What's the catch?"
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300">
+                The catch is we'll ask you for feedback. A lot of feedback. And if FaultMaven saves your ass at 3 AM, we might ask to anonymize your story and share it. That's it. No credit card traps, no surprise bills, no selling your data.
+              </p>
+              <p className="text-slate-700 dark:text-slate-300 mt-2">
+                When we start charging, Beta Founders get grandfathered pricing (we'll tell you what that means before we charge anyone).
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                "How do I apply?"
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300">
+                <Link href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Contact us</Link> and tell us about your last painful incident. The more details, the better. We want to know:
+              </p>
+              <ul className="list-disc pl-6 text-slate-700 dark:text-slate-300 mt-2">
+                <li>What broke</li>
+                <li>How long it took to fix</li>
+                <li>What made it hard to debug</li>
+              </ul>
+              <p className="text-slate-700 dark:text-slate-300 mt-2">
+                If we think FaultMaven can help, you're in.
+              </p>
+            </div>
           </div>
         </div>
       </section>

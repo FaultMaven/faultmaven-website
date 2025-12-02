@@ -10,30 +10,33 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="text-left">
-            <div className="inline-block mb-4 px-4 py-2 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-full">
-              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
-                🚀 Now in Private Beta with Design Partners
+            <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
+              <span className="text-sm font-semibold text-green-600 dark:text-green-400">
+                ✨ Open Source & Available Now
               </span>
             </div>
             <h1
               id="hero-heading"
               className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-50 leading-tight"
             >
-              The AI-Powered Troubleshooting Copilot for Modern Engineering
+              Stop Solving the Same Problem Twice
             </h1>
             <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
-              Empower software and operations engineers to diagnose incidents faster with <span className="font-semibold text-slate-700 dark:text-slate-300">privacy-first AI and a local knowledge base</span>. Available as self-hosted open source or fully managed SaaS.
+              You know this pain: It's 3 AM. Production is down. You've seen this error before. But where's the fix? Slack? Confluence? Someone's head?
+            </p>
+            <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
+              <span className="font-semibold text-slate-700 dark:text-slate-300">FaultMaven is your AI copilot that actually remembers.</span> Deploy locally in minutes with Docker Compose, or scale with Enterprise Cloud.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild href="/waitlist" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                Request Enterprise Access
+              <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                Get Started
               </Button>
               <Button asChild href="/product" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                See How It Works
+                Learn More
               </Button>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
-              Or <a href="https://github.com/FaultMaven/faultmaven" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">deploy self-hosted open source</a>
+              Need team collaboration, SSO, or managed hosting? <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Contact Sales</a>
             </p>
           </div>
           <div className="relative">
