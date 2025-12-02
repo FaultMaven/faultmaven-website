@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     default: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
     template: '%s | FaultMaven'
   },
-  description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to automate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
+  description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
   keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'Self-Hosted', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://faultmaven.com',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to automate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
+    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to automate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
+    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
     creator: '@faultmaven',
   },
   robots: {
