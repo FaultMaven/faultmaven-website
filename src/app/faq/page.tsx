@@ -4,7 +4,7 @@ import Link from '@/components/ui/Link';
 const faqItems = [
   {
     question: `What is FaultMaven?`,
-    answer: `FaultMaven is an open-source AI troubleshooting copilot that remembers your infrastructure and past incidents. Instead of grep-ing through logs or asking Slack "has anyone seen this?" at 3 AM, FaultMaven gives you instant answers based on your team's institutional knowledge. Deploy locally with Docker Compose in minutes, or use our managed Enterprise Cloud.`,
+    answer: `FaultMaven is the open-source AI troubleshooting copilot for modern engineering. It connects your full stack (logs, metrics, code) to a unified knowledge base, so you never have to solve the same problem twice. Instead of grepping logs at 3 AM, get instant answers based on your team's past resolutions. Run it locally via Docker or use our fully managed Enterprise Cloud.`,
   },
   {
     question: `How is this different from ChatGPT or Claude?`,
@@ -78,8 +78,8 @@ const faqItems = [
       <ul class="list-disc pl-5 space-y-2 mt-2">
         <li><strong>Native integrations:</strong> Direct connectors for Datadog, Splunk, Elastic, PagerDuty</li>
         <li><strong>Team collaboration:</strong> Shared knowledge bases, runbook libraries, incident templates</li>
-        <li><strong>Proactive monitoring:</strong> FaultMaven suggests fixes before things break</li>
         <li><strong>Advanced RAG:</strong> Smarter knowledge retrieval from past incidents</li>
+        <li><strong>Proactive monitoring:</strong> FaultMaven suggests fixes before things break</li>
       </ul>
       <p class="mt-2">See the full <Link href='/roadmap' class='text-[#2563EB] hover:underline'>product roadmap</Link>.</p>
     `,
