@@ -8,22 +8,22 @@ export default function PricingPage() {
       <section className="py-20 text-center bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            The 3 AM Test: What's Your Sleep Worth?
+            The 3 AM Test: What&apos;s Your Sleep Worth?
           </h1>
 
           <div className="text-left max-w-3xl mx-auto mb-12 space-y-6">
             <p className="text-lg text-slate-700 dark:text-slate-300">
-              <strong>Let's do the math:</strong>
+              <strong>Let&apos;s do the math:</strong>
             </p>
             <p className="text-lg text-slate-700 dark:text-slate-300">
-              You get paged at 3:14 AM. It's a database timeout. You've seen this before... somewhere.
+              You get paged at 3:14 AM. It&apos;s a database timeout. You&apos;ve seen this before... somewhere.
             </p>
             <p className="text-lg text-slate-700 dark:text-slate-300">
               You spend 3 hours:
             </p>
             <ul className="list-disc pl-8 text-lg text-slate-700 dark:text-slate-300 space-y-2">
               <li>Grep-ing through 47 microservices worth of logs</li>
-              <li>Asking Slack "has anyone seen this?" (crickets)</li>
+              <li>Asking Slack &quot;has anyone seen this?&quot; (crickets)</li>
               <li>Googling generic error messages</li>
               <li>Finally finding the fix in a Confluence page from 2021</li>
             </ul>
@@ -36,7 +36,7 @@ export default function PricingPage() {
             </p>
             <p className="text-lg text-slate-700 dark:text-slate-300">
               <strong>Savings:</strong> 2.5 hours = <span className="text-2xl font-bold text-green-600 dark:text-green-400">$250</span><br />
-              <strong>Emotional savings:</strong> Priceless (and you're back in bed by 3:30 AM).
+              <strong>Emotional savings:</strong> Priceless (and you&apos;re back in bed by 3:30 AM).
             </p>
           </div>
 
@@ -78,10 +78,10 @@ export default function PricingPage() {
           {/* Current Reality - Beta Founders */}
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-              But Right Now? It's Free.
+              But Right Now? It&apos;s Free.
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-6 italic">
-              Why? Because it's hard to prove FaultMaven saves 2.5 hours without, you know, actual engineers at actual 3 AM incidents.
+              Why? Because it&apos;s hard to prove FaultMaven saves 2.5 hours without, you know, actual engineers at actual 3 AM incidents.
             </p>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
               We need you more than you need us right now. We need:
@@ -89,7 +89,7 @@ export default function PricingPage() {
             <ul className="list-disc pl-8 text-lg text-slate-700 dark:text-slate-300 space-y-2 mb-8 text-left max-w-2xl mx-auto">
               <li>Real incidents (not contrived demos)</li>
               <li>Real data (messy, chaotic, production-y)</li>
-              <li>Real feedback ("this saved my ass" or "this was useless")</li>
+              <li>Real feedback (&quot;this saved my ass&quot; or &quot;this was useless&quot;)</li>
             </ul>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function PricingPage() {
       <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
-            The "Beta Founders" Deal
+            The &quot;Beta Founders&quot; Deal
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
@@ -124,13 +124,13 @@ export default function PricingPage() {
                 Apply for Beta Access
               </Button>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
-                Tell us about your last painful incident. If it sounds painful enough, you're in.
+                Tell us about your last painful incident. If it sounds painful enough, you&apos;re in.
               </p>
             </div>
 
             <div className="mt-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
               <p className="text-center text-slate-700 dark:text-slate-300">
-                <strong>Fair warning:</strong> If you aren't actually getting paged or debugging complex systems, stick to the Open Source version for now. We are optimizing for people in pain.
+                <strong>Fair warning:</strong> If you aren&apos;t actually getting paged or debugging complex systems, stick to the Open Source version for now. We are optimizing for people in pain.
               </p>
             </div>
           </div>
@@ -146,18 +146,18 @@ export default function PricingPage() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                "Free? What's the catch?"
+                &quot;Free? What&apos;s the catch?&quot;
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                The catch is we'll ask you for feedback. A lot of feedback. And if FaultMaven saves your ass at 3 AM, we might ask to anonymize your story and share it. That's it. No credit card traps, no surprise bills, no selling your data.
+                The catch is we&apos;ll ask you for feedback. A lot of feedback. And if FaultMaven saves your ass at 3 AM, we might ask to anonymize your story and share it. That&apos;s it. No credit card traps, no surprise bills, no selling your data.
               </p>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
-                When we start charging, Beta Founders get grandfathered pricing (we'll tell you what that means before we charge anyone).
+                When we start charging, Beta Founders get grandfathered pricing (we&apos;ll tell you what that means before we charge anyone).
               </p>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                "How do I apply?"
+                &quot;How do I apply?&quot;
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
                 <Link href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Contact us</Link> and tell us about your last painful incident. The more details, the better. We want to know:
@@ -168,7 +168,7 @@ export default function PricingPage() {
                 <li>What made it hard to debug</li>
               </ul>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
-                If we think FaultMaven can help, you're in.
+                If we think FaultMaven can help, you&apos;re in.
               </p>
             </div>
           </div>
