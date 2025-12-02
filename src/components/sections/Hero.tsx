@@ -22,7 +22,7 @@ export default function Hero() {
               Stop Solving the Same Problem Twice
             </h1>
             <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
-              You know this pain: It's 3 AM. Production is down. You've seen this error before. But where's the fix? Slack? Confluence? Someone's head?
+              You know this pain: It&apos;s 3 AM. Production is down. You&apos;ve seen this error before. But where&apos;s the fix? Slack? Confluence? Someone&apos;s head?
             </p>
             <p className="text-lg md:text-xl mb-10 max-w-2xl text-slate-600 dark:text-slate-400">
               <span className="font-semibold text-slate-700 dark:text-slate-300">FaultMaven is your AI copilot that actually remembers.</span> Deploy locally in minutes with Docker Compose, or scale with Enterprise Cloud.
