@@ -1,10 +1,12 @@
-# FaultMaven Website
+# FaultMaven Website: The AI-Powered Troubleshooting Copilot
 
 ![FaultMaven Logo](public/images/fmlogo-light.svg)
 
-> **FaultMaven: Stop Solving the Same Problem Twice**
+This is the official source code for the FaultMaven website.
 
-This is the official marketing website for FaultMaven—the open-source AI troubleshooting copilot that remembers your infrastructure and past incidents.
+**FaultMaven** is the AI-Powered Troubleshooting Copilot for Modern Engineering.
+
+**Looking for the tool itself?** Go to the [main repository](https://github.com/FaultMaven/faultmaven)
 
 **Status**: ✨ Open Source & Available Now | [Get Started](https://github.com/FaultMaven/faultmaven#quick-start)
 
@@ -12,7 +14,7 @@ This is the official marketing website for FaultMaven—the open-source AI troub
 
 ## 🌐 Live Website
 
-**Production**: [https://faultmaven.com](https://faultmaven.com)
+**Production**: [https://faultmaven.ai](https://faultmaven.ai)
 
 ---
 
