@@ -3,43 +3,85 @@ import Link from '@/components/ui/Link';
 
 const faqItems = [
   {
-    question: `What is FaultMaven 1.0, and how can I get involved early?`,
-    answer: `FaultMaven 1.0 is your personal AI Copilot, accessed via a simple browser extension, designed to help you troubleshoot complex operational issues with no initial system integration. We're currently in private beta with design partners—experienced SREs and Ops engineers who are helping us refine the product. <Link href='/waitlist' class='text-[#2563EB] hover:underline'>Apply for early access</Link> to join the next cohort.`,
+    question: `What is FaultMaven?`,
+    answer: `FaultMaven is the open-source AI troubleshooting copilot for modern engineering. It connects your full stack (logs, metrics, code) to a unified knowledge base, so you never have to solve the same problem twice. Instead of grepping logs at 3 AM, get instant answers based on your team's past resolutions. Run it locally via Docker or use our fully managed Enterprise Cloud.`,
   },
   {
-    question: `What kinds of operational challenges does FaultMaven 1.0 address?`,
-    answer: `FaultMaven 1.0 helps you diagnose operational issues faster—from incident alerts and user-reported problems to performance degradations. It analyzes the context you provide, generates summaries, and leverages your stored knowledge to guide troubleshooting.`,
-  },
-  {
-    question: `Why isn't everything about FaultMaven public yet?`,
-    answer: `FaultMaven is pioneering new approaches in AI-driven troubleshooting, and we're refining rapidly with our design partners. We're sharing our vision in stages as we validate our technology. For those interested in a deeper look—design partners, potential investors, or future team members—<Link href='/contact' class='text-[#2563EB] hover:underline'>contact us</Link>.`,
-  },
-  {
-    question: `How does FaultMaven handle my data securely?`,
-    answer: `Data security and privacy are foundational to FaultMaven. For 1.0, you provide data directly and securely via the browser extension. We are building with robust security measures and a policy focused on minimizing long-term storage of raw, sensitive operational data from your specific troubleshooting sessions. Your trust is paramount.`,
-  },
-  {
-    question: `What is the broader vision for FaultMaven beyond 1.0 (e.g., 1.5 and 2.0)?`,
+    question: `How is this different from ChatGPT or Claude?`,
     answer: `
-      <p>FaultMaven 1.0, your personal AI Copilot, is just the beginning. Our vision is an evolutionary one:</p>
+      <p>Generic AI tools require you to manually copy-paste logs and explain context every single time. FaultMaven:</p>
       <ul class="list-disc pl-5 space-y-2 mt-2">
-        <li><strong>FaultMaven 1.5 (The Bridge):</strong> Will enhance your personal AI Copilot by enabling it to securely access and leverage curated, shared team knowledge (like common runbooks and organizational best practices). You'll still interact individually, but with an AI Copilot enriched by your team's collective wisdom.</li>
-        <li><strong>FaultMaven 2.0 (The Horizon):</strong> We envision FaultMaven becoming an integrated AI team member. This means team-level accounts, collaborative interaction (e.g., in shared Slack channels during incidents), deeper system integrations for automated data gathering, and FaultMaven actively assisting the entire team as an expert resource. Even at this stage, the value of your personalized AI Copilot experience will be preserved.</li>
+        <li><strong>Auto-ingests your data:</strong> Reads logs, files, and metrics directly from source</li>
+        <li><strong>Remembers your architecture:</strong> Correlates errors with config files and system topology</li>
+        <li><strong>Learns from past incidents:</strong> Indexes your runbooks, docs, and previous resolutions</li>
+        <li><strong>Works offline:</strong> Can run 100% air-gapped with local LLMs (no internet required)</li>
       </ul>
-      <p class="mt-2">Our full <Link href='/roadmap' class='text-[#2563EB] hover:underline'>Vision & Roadmap Page</Link> details this journey towards transforming operational problem-solving for both individuals and teams.</p>
+      <p class="mt-2">See our <Link href='/#comparison' class='text-[#2563EB] hover:underline'>detailed comparison table</Link> for more.</p>
     `,
   },
   {
-    question: `How accurate are FaultMaven's insights, and how does it learn and improve?`,
+    question: `How much does it cost?`,
     answer: `
-      <p>Delivering accurate and reliable insights is a core commitment for FaultMaven. The effectiveness of its initial guidance will depend on factors like the quality and context of the data you provide and the continuous advancements of our underlying AI models.</p>
-      <p class="mt-2">FaultMaven is designed to be a learning system that improves over time through several mechanisms:</p>
-      <ul class="list-disc pl-5 space-y-2 mt-2">
-        <li><strong>Your Direct Feedback:</strong> We plan to incorporate ways for you to provide feedback on the relevance and usefulness of the suggestions your AI Copilot offers.</li>
-        <li><strong>Interaction Patterns (with consent):</strong> With user permission, analyzing anonymized interaction patterns helps us understand how well FaultMaven is assisting in real-world scenarios, allowing us to refine its guidance strategies.</li>
-        <li><strong>Knowledge Integration:</strong> As you (and later, your team in version 1.5) enrich FaultMaven with personalized and curated knowledge (like runbooks, best practices, and past solutions), its understanding and the contextual relevance of its insights will significantly increase.</li>
+      <p>The open-source version is <strong>free forever</strong> (Apache 2.0 license). Self-host it on your infrastructure with no limitations.</p>
+      <p class="mt-2">For teams that need collaboration, SSO, and managed hosting, we're launching an <strong>Enterprise Cloud</strong> tier at $49-99/user/month. Right now, we're offering free Beta Founders access—no credit card, no time limit. <Link href='/pricing' class='text-[#2563EB] hover:underline'>Learn more about pricing</Link>.</p>
+    `,
+  },
+  {
+    question: `How do I get started?`,
+    answer: `
+      <p><strong>Option 1: Open Source (Fastest)</strong></p>
+      <ul class="list-disc pl-5 space-y-1 mt-2">
+        <li>Clone the repo: <code class="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-sm">git clone https://github.com/FaultMaven/faultmaven</code></li>
+        <li>Run: <code class="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-sm">docker-compose up</code></li>
+        <li>You're running in ~5 minutes</li>
       </ul>
-      <p class="mt-2">Our approach emphasizes building a trustworthy AI Copilot. To ensure privacy, we avoid long-term retention of raw operational data from specific incidents, instead transforming it into refined, anonymized insights. This growing knowledge base, built from these insights and patterns, enables FaultMaven to become an increasingly indispensable partner—continuously improving in accuracy through AI advancements and real-world collaboration.</p>
+      <p class="mt-3"><strong>Option 2: Beta Founders Program (Enterprise Cloud)</strong></p>
+      <ul class="list-disc pl-5 space-y-1 mt-2">
+        <li><Link href='/contact' class='text-[#2563EB] hover:underline'>Contact us</Link> and tell us about your last painful incident</li>
+        <li>If it sounds painful enough, you're in (free enterprise access, no time limit)</li>
+      </ul>
+      <p class="mt-3">Full setup guide: <Link href='https://github.com/FaultMaven/faultmaven#quick-start' class='text-[#2563EB] hover:underline'>GitHub README</Link></p>
+    `,
+  },
+  {
+    question: `What LLM providers does FaultMaven support?`,
+    answer: `
+      <p>FaultMaven is LLM-agnostic and supports:</p>
+      <ul class="list-disc pl-5 space-y-1 mt-2">
+        <li><strong>Cloud providers:</strong> OpenAI (GPT-4o), Anthropic (Claude), Google (Gemini), Groq (FREE tier!), and more</li>
+        <li><strong>Local/offline:</strong> Ollama, LM Studio, any OpenAI-compatible endpoint</li>
+        <li><strong>Fallback support:</strong> Configure multiple providers; FaultMaven automatically fails over if one is unavailable</li>
+      </ul>
+      <p class="mt-2">You can even run 100% air-gapped with local models like Llama 3. See our <Link href='https://github.com/FaultMaven/faultmaven/blob/main/docs/LLM_CONFIGURATION.md' class='text-[#2563EB] hover:underline'>LLM configuration guide</Link>.</p>
+    `,
+  },
+  {
+    question: `Can I use FaultMaven for security-sensitive environments?`,
+    answer: `
+      <p>Yes. FaultMaven can run 100% self-hosted with no external dependencies:</p>
+      <ul class="list-disc pl-5 space-y-1 mt-2">
+        <li><strong>Air-gapped deployment:</strong> Use local LLMs (Ollama, LM Studio) with no internet connection</li>
+        <li><strong>Data stays local:</strong> All logs, analysis, and knowledge base remain on your infrastructure</li>
+        <li><strong>Open source:</strong> Audit every line of code on GitHub</li>
+      </ul>
+      <p class="mt-2">The Enterprise Cloud option uses industry-standard security (SOC 2 Type II in progress), but if you need absolute control, stick with the self-hosted version.</p>
+    `,
+  },
+  {
+    question: `Does FaultMaven replace my existing monitoring tools?`,
+    answer: `No. FaultMaven works <em>with</em> your existing tools (Datadog, Grafana, PagerDuty, etc.). Think of it as the "AI layer" that sits on top, helping you make sense of all the data those tools generate. It ingests logs and metrics from your existing stack and provides intelligent analysis—it doesn't replace them.`,
+  },
+  {
+    question: `What's on the roadmap?`,
+    answer: `
+      <p>We're focused on making incident response faster and smarter:</p>
+      <ul class="list-disc pl-5 space-y-2 mt-2">
+        <li><strong>Native integrations:</strong> Direct connectors for Datadog, Splunk, Elastic, PagerDuty</li>
+        <li><strong>Team collaboration:</strong> Shared knowledge bases, runbook libraries, incident templates</li>
+        <li><strong>Advanced RAG:</strong> Smarter knowledge retrieval from past incidents</li>
+        <li><strong>Proactive monitoring:</strong> FaultMaven suggests fixes before things break</li>
+      </ul>
+      <p class="mt-2">See the full <Link href='/roadmap' class='text-[#2563EB] hover:underline'>product roadmap</Link>.</p>
     `,
   },
 ];
@@ -54,7 +96,7 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            We&apos;re committed to clarity and transparency as FaultMaven evolves. Here are answers to some initial questions we anticipate you might have. This page will grow and be updated regularly based on your feedback and our journey together.
+            Everything you need to know about FaultMaven—from getting started to understanding how it fits into your existing workflow.
           </p>
         </div>
       </section>
@@ -81,7 +123,7 @@ export default function FAQPage() {
               Have More Questions?
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-              We&apos;re building FaultMaven with the engineering community in mind, and your questions help us make it better. If you don&apos;t see your question answered here, or if you have specific feedback or areas you&apos;d like to understand better:
+              Don&apos;t see your question here? Reach out—we&apos;re building FaultMaven with real engineers, for real engineers.
             </p>
             <div className="prose prose-lg prose-slate dark:prose-invert mx-auto text-center">
               <p>

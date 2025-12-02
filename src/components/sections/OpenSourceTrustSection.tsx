@@ -11,7 +11,7 @@ export default function OpenSourceTrustSection() {
             Built on Open Source
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Trust is earned, not given. FaultMaven&apos;s core analysis engine is open source and auditable. We process data with a privacy-first architecture.
+            Trust is earned, not given. FaultMaven&apos;s core analysis engine is open source and auditable. Every line of code is public and reviewable.
           </p>
         </div>
 
@@ -33,10 +33,10 @@ export default function OpenSourceTrustSection() {
               <Shield className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              Privacy-First Architecture
+              Self-Hosted Control
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Sensitive data is sanitized before AI processing. Self-hosted deployments keep all data on your infrastructure.
+              Deploy on your infrastructure with complete control. Sensitive data stays within your environment.
             </p>
           </div>
 

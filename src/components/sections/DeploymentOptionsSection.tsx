@@ -24,7 +24,7 @@ export default function DeploymentOptionsSection() {
               </h3>
             </div>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              Privacy-first, self-hosted, single-user deployment. Deploy locally in minutes via Docker Compose.
+              Self-hosted, single-user deployment. Deploy locally in minutes via Docker Compose.
             </p>
 
             <div className="mb-6">
