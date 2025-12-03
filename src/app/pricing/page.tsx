@@ -80,10 +80,13 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
                   Team
                 </h3>
-                <div className="flex items-baseline mb-4">
+                <div className="flex items-baseline mb-2">
                   <span className="text-4xl font-bold text-slate-900 dark:text-slate-50">$49</span>
                   <span className="text-slate-600 dark:text-slate-400 ml-2">/user/month</span>
                 </div>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                  or <strong className="text-slate-900 dark:text-slate-50">$470/user/year</strong> <span className="text-green-600 dark:text-green-400 font-semibold">(save 20%)</span>
+                </p>
                 <p className="text-slate-600 dark:text-slate-400">
                   Cloud-hosted or self-hosted with team features and priority support.
                 </p>

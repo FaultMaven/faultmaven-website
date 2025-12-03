@@ -104,11 +104,17 @@ export default function AboutPage() {
 
             {/* Principle 4 */}
             <div className="border-l-4 border-orange-500 pl-6">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                4. Built for 3 AM
-              </h3>
-              <p className="text-lg text-slate-700 dark:text-slate-300">
+              <div className="flex items-start gap-4 mb-3">
+                <span className="text-3xl">🌙</span>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
+                  4. Built for 3 AM
+                </h3>
+              </div>
+              <p className="text-lg text-slate-700 dark:text-slate-300 mb-2">
                 When you&apos;re half-asleep and production is on fire, you don&apos;t want clever AI—you want <strong className="text-slate-900 dark:text-slate-50">the answer, fast</strong>. FaultMaven optimizes for incident response, not parlor tricks.
+              </p>
+              <p className="text-base text-slate-600 dark:text-slate-400 italic">
+                &quot;When you&apos;re half-asleep and the alert is real.&quot;
               </p>
             </div>
           </div>

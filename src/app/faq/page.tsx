@@ -62,6 +62,19 @@ cd faultmaven-deploy
               {/* Q3 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
+                  How long does setup take?
+                </h3>
+                <p className="text-slate-700 dark:text-slate-300 mb-3">
+                  <strong className="text-slate-900 dark:text-slate-50">Self-hosted (Open Source):</strong> 5 minutes. Run three commands and you&apos;re live.
+                </p>
+                <p className="text-slate-700 dark:text-slate-300">
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud-hosted (Team/Enterprise):</strong> Instant. We handle the infrastructure, you get a login.
+                </p>
+              </div>
+
+              {/* Q4 */}
+              <div>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   Do I need to integrate with my existing tools?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
@@ -77,7 +90,7 @@ cd faultmaven-deploy
               How It Works
             </h2>
             <div className="space-y-8">
-              {/* Q4 */}
+              {/* Q5 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   What is the Tiered Knowledge Engine?

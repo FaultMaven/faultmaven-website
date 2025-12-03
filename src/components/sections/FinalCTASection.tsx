@@ -6,9 +6,22 @@ export default function FinalCTASection() {
   return (
     <section className="py-24 bg-slate-100 dark:bg-slate-800">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-6">
           Ready to Fix Faster?
         </h2>
+
+        {/* Beta Founders Banner */}
+        <div className="max-w-2xl mx-auto mb-16">
+          <a href="/pricing#beta-founders" className="block">
+            <div className="bg-gradient-to-r from-blue-500 to-green-500 rounded-lg p-1 hover:from-blue-600 hover:to-green-600 transition-all">
+              <div className="bg-white dark:bg-slate-900 rounded-md px-6 py-4">
+                <p className="text-center text-sm font-semibold text-slate-900 dark:text-slate-50">
+                  🚀 <span className="text-blue-600 dark:text-blue-400">Beta Founders:</span> 72 spots left → <span className="text-green-600 dark:text-green-400">50% off Team tier</span> for 12 months
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
 
         {/* Primary Path */}
         <div className="max-w-3xl mx-auto mb-16">
