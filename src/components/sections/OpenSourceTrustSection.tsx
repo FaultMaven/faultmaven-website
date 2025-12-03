@@ -27,8 +27,11 @@ export default function OpenSourceTrustSection() {
               The core troubleshooting engine is 100% open source on GitHub. No black boxes. No proprietary lock-in. Fork it, audit it, extend it.
             </p>
             <div className="flex flex-wrap gap-2 justify-center mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://img.shields.io/github/stars/FaultMaven/faultmaven?style=social" alt="GitHub stars" className="h-5" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://img.shields.io/github/last-commit/FaultMaven/faultmaven?style=flat-square&color=blue" alt="Last commit" className="h-5" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://img.shields.io/github/contributors/FaultMaven/faultmaven?style=flat-square&color=green" alt="Contributors" className="h-5" />
             </div>
             <a href="https://github.com/FaultMaven/faultmaven" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
