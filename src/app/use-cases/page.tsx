@@ -74,7 +74,7 @@ export default function UseCasesPage() {
             Real scenarios. Real resolutions. Real time savings.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            These aren't hypotheticals—they're based on actual troubleshooting sessions from our early users. See how FaultMaven transforms the path from "something's broken" to "here's the fix."
+            These aren&apos;t hypotheticals—they&apos;re based on actual troubleshooting sessions from our early users. See how FaultMaven transforms the path from &quot;something&apos;s broken&quot; to &quot;here&apos;s the fix.&quot;
           </p>
         </div>
       </section>

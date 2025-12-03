@@ -119,7 +119,7 @@ export default function ProductPage() {
                 Always Available, Right in Your Browser
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                FaultMaven lives in a browser side-panel that stays with you across tabs. Whether you're in Grafana, AWS Console, Datadog, or your terminal output—your AI copilot is always one click away.
+                FaultMaven lives in a browser side-panel that stays with you across tabs. Whether you&apos;re in Grafana, AWS Console, Datadog, or your terminal output—your AI copilot is always one click away.
               </p>
               <p className="text-lg text-slate-600 dark:text-slate-400">
                 No integrations required. No separate apps to launch. Just open the panel and start troubleshooting.
@@ -153,7 +153,7 @@ export default function ProductPage() {
                     Deep Context Awareness
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                    FaultMaven doesn't just read your error message—it correlates logs, metrics, configs, and code to understand the system state that caused the problem. Not just what broke, but why.
+                    FaultMaven doesn&apos;t just read your error message—it correlates logs, metrics, configs, and code to understand the system state that caused the problem. Not just what broke, but why.
                   </p>
                   <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700">
                     <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -200,7 +200,7 @@ export default function ProductPage() {
                     </li>
                   </ul>
                   <p className="text-lg text-slate-700 dark:text-slate-300 font-medium">
-                    You'll never solve the same problem twice.
+                    You&apos;ll never solve the same problem twice.
                   </p>
                 </div>
               </div>
@@ -281,7 +281,7 @@ export default function ProductPage() {
             </div>
           </div>
           <p className="mt-8 text-center text-lg text-slate-600 dark:text-slate-400">
-            No integrations required. Works with whatever's in front of you.
+            No integrations required. Works with whatever&apos;s in front of you.
           </p>
         </div>
       </section>

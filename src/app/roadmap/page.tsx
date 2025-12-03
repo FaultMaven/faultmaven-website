@@ -15,7 +15,7 @@ export default function RoadmapPage() {
             From personal copilot to organizational intelligence.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            We're building FaultMaven in public. Here's where we are, where we're going, and how you can help shape the direction. Our north star: make every engineer as effective as your best SRE on their best day.
+            We&apos;re building FaultMaven in public. Here&apos;s where we are, where we&apos;re going, and how you can help shape the direction. Our north star: make every engineer as effective as your best SRE on their best day.
           </p>
         </div>
       </section>
@@ -28,7 +28,7 @@ export default function RoadmapPage() {
           </h2>
           <div className="max-w-3xl mx-auto space-y-8">
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              FaultMaven augments your expertise—it doesn't replace it. You remain in command. You direct the investigation. You make the final call.
+              FaultMaven augments your expertise—it doesn&apos;t replace it. You remain in command. You direct the investigation. You make the final call.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400">
               As trust builds, you can grant FaultMaven more autonomy:
@@ -67,7 +67,7 @@ export default function RoadmapPage() {
             </div>
 
             <p className="text-lg text-slate-700 dark:text-slate-300 font-medium pt-6">
-              Today we're focused on Level 1. We'll earn the right to Level 3.
+              Today we&apos;re focused on Level 1. We&apos;ll earn the right to Level 3.
             </p>
           </div>
         </div>
@@ -208,7 +208,7 @@ export default function RoadmapPage() {
                       🔭 ON THE HORIZON — FaultMaven 2.0: Collaborative Intelligence
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                      Your team's collective brain.
+                      Your team&apos;s collective brain.
                     </p>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function RoadmapPage() {
 
             <div className="p-8 border-2 border-green-500 dark:border-green-600 rounded-xl bg-green-50 dark:bg-green-900/10">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Open Source (The 'Open Box')
+                Open Source (The &apos;Open Box&apos;)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
                 The core troubleshooting engine is 100% open source, Apache 2.0 licensed. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free.
@@ -280,10 +280,10 @@ export default function RoadmapPage() {
 
             <div className="p-8 border-2 border-blue-500 dark:border-blue-600 rounded-xl bg-blue-50 dark:bg-blue-900/10">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Enterprise (The 'Black Box')
+                Enterprise (The &apos;Black Box&apos;)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                Team features, SSO, integrations, and managed infrastructure are built on the same open core—but packaged as a managed service for teams that don't want to operate their own stack.
+                Team features, SSO, integrations, and managed infrastructure are built on the same open core—but packaged as a managed service for teams that don&apos;t want to operate their own stack.
               </p>
               <p className="text-slate-700 dark:text-slate-300 font-medium">
                 Both options use the same codebase. Start self-hosted, upgrade when ready.
