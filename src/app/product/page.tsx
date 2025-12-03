@@ -29,7 +29,7 @@ export default function ProductPage() {
               Deploy Now (Free)
             </Button>
             <Button asChild href="#how-it-works" variant="secondary">
-              Watch Demo
+              See How It Works
             </Button>
           </div>
         </div>

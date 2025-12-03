@@ -181,7 +181,7 @@ export default function RoadmapPage() {
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</span>
-                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">80% — Q1 2025</span>
+                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">80% — Q1 2026</span>
                   </div>
                   <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3">
                     <div className="bg-blue-500 h-3 rounded-full" style={{width: '80%'}}></div>
@@ -239,7 +239,7 @@ export default function RoadmapPage() {
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</span>
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">20% — 2025</span>
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">20% — 2026</span>
                   </div>
                   <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3">
                     <div className="bg-slate-400 dark:bg-slate-600 h-3 rounded-full" style={{width: '20%'}}></div>
