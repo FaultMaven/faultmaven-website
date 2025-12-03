@@ -8,7 +8,7 @@ import {
 
 export default function ApproachSection() {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="how-it-works" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
           How FaultMaven Works
