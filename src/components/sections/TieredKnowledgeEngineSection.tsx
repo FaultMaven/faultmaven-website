@@ -10,49 +10,74 @@ export default function TieredKnowledgeEngineSection() {
 
         {/* Visual: Three-tier pyramid */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="border-2 border-slate-300 dark:border-slate-700 rounded-lg overflow-hidden">
-            {/* Personal Context - Top tier */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 border-b-2 border-slate-300 dark:border-slate-700 p-8 text-center">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                PERSONAL CONTEXT
-              </h3>
-              <p className="text-slate-700 dark:text-slate-300 text-base">
-                Your specific infrastructure
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 italic">
-                Your environment, configs, preferences
-              </p>
+          <div className="space-y-2">
+            {/* Personal Context - Top tier (narrowest) */}
+            <div className="w-2/3 mx-auto">
+              <div className="bg-green-500 border-2 border-green-400 rounded-lg p-6 transform transition-all hover:scale-[1.02]">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    PERSONAL CONTEXT
+                  </h3>
+                </div>
+                <p className="text-white/90 text-sm mb-3">
+                  Your specific environment, configs, and preferences
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Local configurations</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Recent changes</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Your infrastructure</span>
+                </div>
+              </div>
             </div>
 
             {/* Team Knowledge - Middle tier */}
-            <div className="bg-blue-100 dark:bg-blue-900/30 border-b-2 border-slate-300 dark:border-slate-700 p-8 text-center">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                TEAM KNOWLEDGE
-              </h3>
-              <p className="text-slate-700 dark:text-slate-300 text-base">
-                Institutional memory
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
-                Runbooks, post-mortems, past cases
-                <span className="ml-2 px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded text-xs font-medium">
-                  Enterprise
-                </span>
-              </p>
+            <div className="w-5/6 mx-auto">
+              <div className="bg-blue-500 border-2 border-blue-400 rounded-lg p-6 transform transition-all hover:scale-[1.02]">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    TEAM KNOWLEDGE
+                  </h3>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Enterprise</span>
+                </div>
+                <p className="text-white/90 text-sm mb-3">
+                  Indexed runbooks, past cases, and post-mortems
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Runbooks & SOPs</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Incident history</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Tribal knowledge</span>
+                </div>
+              </div>
             </div>
 
-            {/* Global Intelligence - Bottom tier */}
-            <div className="bg-blue-200 dark:bg-blue-900/40 p-8 text-center">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                GLOBAL INTELLIGENCE
-              </h3>
-              <p className="text-slate-700 dark:text-slate-300 text-base">
-                Pre-loaded troubleshooting wisdom
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mt-2">
-                K8s, Postgres, Redis, AWS patterns
-                <span className="ml-2 px-2 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-400 rounded text-xs font-medium">
-                  Included
-                </span>
+            {/* Global Intelligence - Bottom tier (widest) */}
+            <div className="w-full">
+              <div className="bg-slate-500 border-2 border-slate-400 rounded-lg p-6 transform transition-all hover:scale-[1.02]">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-white">
+                    GLOBAL INTELLIGENCE
+                  </h3>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Included</span>
+                </div>
+                <p className="text-white/90 text-sm mb-3">
+                  Pre-loaded patterns for 50+ technology stacks
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Kubernetes</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">PostgreSQL</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Redis</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">AWS/GCP/Azure</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Arrow and Result */}
+          <div className="text-center mt-8">
+            <div className="text-slate-400 dark:text-slate-500 text-4xl mb-4">↓</div>
+            <div className="bg-slate-100 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 rounded-lg p-6 max-w-2xl mx-auto">
+              <p className="text-green-600 dark:text-green-400 font-mono text-sm">
+                &quot;Based on your deployment manifest, a similar incident your team resolved last month, and known K8s OOMKill patterns...&quot;
               </p>
             </div>
           </div>

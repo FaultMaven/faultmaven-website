@@ -16,12 +16,13 @@ export default function FinalCTASection() {
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
               Deploy FaultMaven in 5 Minutes
             </h3>
-            <div className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 font-mono text-sm text-slate-100 overflow-x-auto">
-              <code>
-                git clone https://github.com/FaultMaven/faultmaven-deploy.git<br />
-                cd faultmaven-deploy && ./faultmaven start
+            <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 overflow-x-auto">
+              <code className="text-green-400 font-mono text-sm block">
+{`git clone https://github.com/FaultMaven/faultmaven-deploy.git
+cd faultmaven-deploy
+./faultmaven start`}
               </code>
-            </div>
+            </pre>
             <div className="text-center">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
                 Full Deployment Guide →
