@@ -8,10 +8,10 @@ export default function OpenSourceTrustSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-            Built on Open Source
+            Open Source. Auditable. Yours to Own.
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Trust is earned, not given. FaultMaven&apos;s core analysis engine is open source and auditable. Every line of code is public and reviewable.
+            We don&apos;t ask for trust—we show you the code.
           </p>
         </div>
 
@@ -21,11 +21,14 @@ export default function OpenSourceTrustSection() {
               <Eye className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             </div>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              Fully Auditable
+              Every Line is Public
             </h3>
-            <p className="text-slate-600 dark:text-slate-400">
-              Every line of our core engine is public on GitHub. No black boxes, no proprietary lock-in. Review our code anytime.
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
+              The core troubleshooting engine is 100% open source on GitHub. No black boxes. No proprietary lock-in. Fork it, audit it, extend it.
             </p>
+            <a href="https://github.com/FaultMaven/faultmaven" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+              View on GitHub →
+            </a>
           </div>
 
           <div className="p-8">
@@ -33,10 +36,10 @@ export default function OpenSourceTrustSection() {
               <Shield className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              Self-Hosted Control
+              Your Data Stays Yours
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Deploy on your infrastructure with complete control. Sensitive data stays within your environment.
+              Self-hosted means your logs, configs, and knowledge base never leave your infrastructure. Air-gapped deployments supported with local LLMs.
             </p>
           </div>
 
@@ -48,7 +51,7 @@ export default function OpenSourceTrustSection() {
               Apache 2.0 Licensed
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Use FaultMaven for anything—commercial, personal, or derivative. Standard-compliant and enterprise-ready.
+              Use FaultMaven commercially, build products on top of it, or modify it for your needs. Same license as Kubernetes and TensorFlow.
             </p>
           </div>
         </div>

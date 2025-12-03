@@ -12,7 +12,7 @@ export default function Hero() {
           <div className="text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
               <span className="text-sm font-semibold text-green-600 dark:text-green-400">
-                ✨ Open Source & Available Now
+                Open Source · Apache 2.0 · Deploy in 5 Minutes
               </span>
             </div>
             <h1
@@ -24,26 +24,19 @@ export default function Hero() {
 
             <p className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400">
               <span className="font-semibold text-slate-900 dark:text-slate-200">
-                Stop solving the same problem twice.
+                Stop context-switching. Start fixing.
               </span>
               <br className="mb-2 block" />
-              FaultMaven correlates logs, metrics, and traces to accelerate root cause analysis.
-            </p>
-
-            <p className="text-base md:text-lg mb-10 max-w-2xl text-slate-500 dark:text-slate-500">
-              Get instant answers based on your team&apos;s past resolutions. Deploy locally in minutes with Docker Compose, or scale with Enterprise Cloud.
+              FaultMaven connects your full stack—logs, metrics, traces, and configs—to a unified knowledge engine. It combines global troubleshooting intelligence with your team&apos;s institutional memory to help you resolve any incident faster.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                Get Started (Self-Hosted)
+                Deploy Now (Free)
               </Button>
               <Button asChild href="/product" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                See How It Works
+                Watch Demo (2 min)
               </Button>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-6">
-              Need SSO, RBAC, or managed hosting? <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline font-medium">View Enterprise Options</a>
-            </p>
           </div>
           <div className="relative">
             <Image
@@ -61,7 +54,7 @@ export default function Hero() {
           <hr className="my-10 border-slate-200 dark:border-slate-700" />
           <div className="mx-auto max-w-2xl mt-10">
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              Built by SREs who got tired of being woken up at 3 AM.
+              Built by SREs who got tired of solving the same problem twice.
             </p>
           </div>
         </div>

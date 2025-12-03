@@ -8,10 +8,10 @@ export default function DeploymentOptionsSection() {
     <section className="py-24 bg-white dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
-          Choose Your Deployment Path
+          Choose Your Deployment
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-16 max-w-3xl mx-auto text-center">
-          One platform, two ways to deploy. Start with open source for privacy and control, or go enterprise for collaboration and scale.
+          Same core engine. Your choice of control.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -20,38 +20,40 @@ export default function DeploymentOptionsSection() {
             <div className="flex items-center gap-3 mb-4">
               <Github className="w-8 h-8 text-slate-900 dark:text-slate-100" />
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                Open Source
+                Open Source (Self-Hosted)
               </h3>
             </div>
-            <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              Self-hosted, single-user deployment. Deploy locally in minutes via Docker Compose.
+            <p className="text-base text-slate-700 dark:text-slate-300 mb-6">
+              <strong>Free Forever · Apache 2.0</strong>
+              <br /><br />
+              Deploy on your infrastructure in under 5 minutes. All data stays local. Perfect for individual engineers or privacy-first environments.
             </p>
 
-            <div className="mb-6">
-              <p className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2">Free Forever</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Apache 2.0 License</p>
-            </div>
-
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Features:</p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Zero-configuration Docker deployment</span>
+                <span className="text-slate-700 dark:text-slate-300">Full AI troubleshooting engine</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Complete data privacy & control</span>
+                <span className="text-slate-700 dark:text-slate-300">Knowledge base with semantic search</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">SQLite + lightweight JWT auth</span>
+                <span className="text-slate-700 dark:text-slate-300">Browser extension + web dashboard</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Perfect for individual engineers</span>
+                <span className="text-slate-700 dark:text-slate-300">Multi-provider LLM support (OpenAI, Anthropic, Ollama)</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Auditable, open-source codebase</span>
+                <span className="text-slate-700 dark:text-slate-300">Docker Compose deployment</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                <span className="text-slate-700 dark:text-slate-300">Complete source code access</span>
               </li>
             </ul>
 
@@ -61,7 +63,7 @@ export default function DeploymentOptionsSection() {
               variant="secondary"
               className="w-full"
             >
-              View on GitHub
+              Deploy Now
             </Button>
           </div>
 
@@ -78,51 +80,49 @@ export default function DeploymentOptionsSection() {
                 Enterprise Cloud
               </h3>
             </div>
-            <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              Fully managed SaaS with team collaboration, SSO, and enterprise-grade security.
+            <p className="text-base text-slate-700 dark:text-slate-300 mb-6">
+              <strong>Team Pricing · Private Beta</strong>
+              <br /><br />
+              Fully managed SaaS with team collaboration, SSO, and shared knowledge bases. Zero infrastructure to maintain.
             </p>
 
-            <div className="mb-6">
-              <p className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-2">$49-99/user/month</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Now in Private Beta</p>
-            </div>
-
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Everything in Open Source, plus:</p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Zero infrastructure management</span>
+                <span className="text-slate-700 dark:text-slate-300">Team workspaces & shared knowledge</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Team collaboration & knowledge sharing</span>
+                <span className="text-slate-700 dark:text-slate-300">SSO / SAML (Okta, Azure AD, Google)</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">SSO & enterprise authentication</span>
+                <span className="text-slate-700 dark:text-slate-300">Slack & PagerDuty integrations</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">PostgreSQL + managed infrastructure</span>
+                <span className="text-slate-700 dark:text-slate-300">Managed PostgreSQL, Redis, S3</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Priority support & SLAs</span>
+                <span className="text-slate-700 dark:text-slate-300">99.9% SLA + priority support</span>
               </li>
             </ul>
 
             <Button
               asChild
-              href="/waitlist"
+              href="/contact"
               variant="primary"
               className="w-full"
             >
-              Request Enterprise Access
+              Request Access
             </Button>
           </div>
         </div>
 
         <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-8">
-          Both paths share the same core architecture—built on our open-source microservices foundation
+          Both options run on the same open-source microservices foundation. Start self-hosted, upgrade to Enterprise when your team is ready.
         </p>
       </div>
     </section>
