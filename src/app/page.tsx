@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
+import TieredKnowledgeEngineSection from "@/components/sections/TieredKnowledgeEngineSection";
 import CapabilitiesSection from "@/components/sections/CapabilitiesSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
@@ -59,12 +60,12 @@ export default function Home() {
     <main>
       <Hero />
       <ProblemSection />
+      <ApproachSection />
+      <TieredKnowledgeEngineSection />
       <CapabilitiesSection />
+      <ComparisonSection />
       <DeploymentOptionsSection />
       <OpenSourceTrustSection />
-      <ComparisonSection />
-      <ApproachSection />
-      <GettingStartedSection />
       <VisionSnippet />
       <FAQSnippet />
       <FinalCTASection />
