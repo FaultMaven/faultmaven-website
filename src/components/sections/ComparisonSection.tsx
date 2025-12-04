@@ -24,7 +24,12 @@ export default function ComparisonSection() {
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Input</td>
                 <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Copy-paste snippets manually</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Auto-ingest logs, files, metrics, configs</td>
+                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
+                  Auto-ingest logs, files, metrics, configs*
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    *Automatically processes context you share (paste, upload, or page capture)
+                  </div>
+                </td>
               </tr>
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Context</td>

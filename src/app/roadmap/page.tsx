@@ -232,7 +232,7 @@ export default function RoadmapPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Proactive anomaly alerts</span>
+                    <span className="text-slate-600 dark:text-slate-400">Proactive anomaly alerts <span className="text-xs italic text-slate-500 dark:text-slate-500">(long-term vision)</span></span>
                   </li>
                 </ul>
 

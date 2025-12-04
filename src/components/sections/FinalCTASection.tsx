@@ -29,13 +29,16 @@ export default function FinalCTASection() {
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
               Deploy FaultMaven in 5 Minutes
             </h3>
-            <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 overflow-x-auto">
+            <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-4 overflow-x-auto">
               <code className="text-green-400 font-mono text-sm block">
 {`git clone https://github.com/FaultMaven/faultmaven-deploy.git
 cd faultmaven-deploy
 ./faultmaven start`}
               </code>
             </pre>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 text-center">
+              💡 No API key? Use <code className="bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-xs">LLM_PROVIDER=ollama</code> for free local inference
+            </p>
             <div className="text-center">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
                 Full Deployment Guide →

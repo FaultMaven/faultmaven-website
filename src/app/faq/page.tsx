@@ -54,8 +54,11 @@ cd faultmaven-deploy
 ./faultmaven start`}
                   </code>
                 </pre>
-                <p className="text-slate-700 dark:text-slate-300">
+                <p className="text-slate-700 dark:text-slate-300 mb-3">
                   The deployment script handles everything: Docker containers, configuration, and browser extension installation. Full instructions in the <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
+                </p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+                  <strong className="text-slate-900 dark:text-slate-50">💡 No API key?</strong> Use <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">LLM_PROVIDER=ollama</code> for free local inference with Ollama.
                 </p>
               </div>
 

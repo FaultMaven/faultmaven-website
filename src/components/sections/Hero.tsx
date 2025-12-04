@@ -27,7 +27,7 @@ export default function Hero() {
                 Stop context-switching. Start fixing.
               </span>
               <br className="mb-2 block" />
-              FaultMaven connects your full stack—logs, metrics, traces, and configs—to a unified knowledge engine. It combines global troubleshooting intelligence with your team&apos;s institutional memory to help you resolve any incident faster.
+              FaultMaven connects your full stack—logs, metrics, traces, and configs—to a unified knowledge engine. It combines global troubleshooting intelligence with your team&apos;s institutional memory to help you resolve incidents faster.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
