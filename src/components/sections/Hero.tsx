@@ -27,7 +27,10 @@ export default function Hero() {
                 Stop context-switching. Start fixing.
               </span>
               <br className="mb-2 block" />
-              FaultMaven connects your full stack—logs, metrics, traces, and configs—to a unified knowledge engine. It combines global troubleshooting intelligence with your team&apos;s institutional memory to help you resolve incidents faster.
+              FaultMaven correlates your live telemetry with your runbooks, docs, and past fixes.
+              It delivers answers grounded in your actual system—not generic guesses.
+              <br className="mb-2 block" />
+              Resolve incidents faster with an AI copilot that understands both your stack and your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
@@ -54,7 +57,7 @@ export default function Hero() {
           <hr className="my-10 border-slate-200 dark:border-slate-700" />
           <div className="mx-auto max-w-2xl mt-10">
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              Built by SREs who got tired of solving the same problem twice.
+              No magic. Just deep context, vector search, and your full stack.
             </p>
           </div>
         </div>

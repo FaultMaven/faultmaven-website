@@ -11,7 +11,7 @@ export default function DeploymentOptionsSection() {
           Choose Your Deployment
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-16 max-w-3xl mx-auto text-center">
-          Same core engine. Your choice of control.
+          Run self-hosted for absolute data sovereignty. Choose Enterprise Cloud for team collaboration and scale.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -29,33 +29,28 @@ export default function DeploymentOptionsSection() {
               Deploy on your infrastructure in under 5 minutes. All data stays local. Perfect for individual engineers or privacy-first environments.
             </p>
 
-            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Features:</p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Full AI troubleshooting engine</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Knowledge base with semantic search</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Browser extension + web dashboard</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Multi-provider LLM support (OpenAI, Anthropic, Ollama)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Docker Compose deployment</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Complete source code access</span>
-              </li>
-            </ul>
+            <div className="space-y-4 mb-8 text-sm">
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Scope:</p>
+                <p className="text-slate-700 dark:text-slate-300">Individual user</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Infrastructure:</p>
+                <p className="text-slate-700 dark:text-slate-300">Self-managed Docker Compose stack</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Data Storage:</p>
+                <p className="text-slate-700 dark:text-slate-300">SQLite (local disk), local ChromaDB</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Context Scope:</p>
+                <p className="text-slate-700 dark:text-slate-300">Your personal knowledge base only</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Identity:</p>
+                <p className="text-slate-700 dark:text-slate-300">Basic auth (single user)</p>
+              </div>
+            </div>
 
             <Button
               asChild
@@ -86,29 +81,32 @@ export default function DeploymentOptionsSection() {
               Fully managed SaaS with team collaboration, SSO, and shared knowledge bases. Zero infrastructure to maintain.
             </p>
 
-            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Everything in Open Source, plus:</p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Team workspaces & shared knowledge</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">SSO / SAML (Okta, Azure AD, Google)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Slack & PagerDuty integrations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">Managed PostgreSQL, Redis, S3</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300">99.9% SLA + priority support</span>
-              </li>
-            </ul>
+            <div className="space-y-4 mb-8 text-sm">
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Scope:</p>
+                <p className="text-slate-700 dark:text-slate-300">Organization / multi-team</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Infrastructure:</p>
+                <p className="text-slate-700 dark:text-slate-300">Managed HA K8s on AWS/GCP</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Data Storage:</p>
+                <p className="text-slate-700 dark:text-slate-300">Managed PostgreSQL, Redis, S3</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Context Scope:</p>
+                <p className="text-slate-700 dark:text-slate-300">Team knowledge base + shared cases</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Identity:</p>
+                <p className="text-slate-700 dark:text-slate-300">SSO/SAML (Okta, Azure AD, Google)</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Additional:</p>
+                <p className="text-slate-700 dark:text-slate-300">Slack & PagerDuty integrations, 99.9% SLA</p>
+              </div>
+            </div>
 
             <Button
               asChild
