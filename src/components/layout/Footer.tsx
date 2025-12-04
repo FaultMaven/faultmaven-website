@@ -28,7 +28,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 font-normal">
-              Your AI copilot for incident response.
+              Your AI copilot for troubleshooting.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/FaultMaven" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
