@@ -1,36 +1,64 @@
-# FaultMaven Website: The AI-Powered Troubleshooting Copilot
+# FaultMaven Website
 
-![FaultMaven Logo](public/images/fmlogo-light.svg)
+**The AI-Powered Troubleshooting Copilot for Modern Engineering**
 
-This is the official source code for the FaultMaven website.
-
-**FaultMaven** is the AI-Powered Troubleshooting Copilot for Modern Engineering.
-
-**Looking for the tool itself?** Go to the [main repository](https://github.com/FaultMaven/faultmaven)
-
-**Status**: ✨ Open Source & Available Now | [Get Started](https://github.com/FaultMaven/faultmaven#quick-start)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Ffaultmaven.ai)](https://faultmaven.ai)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
 
-## 🌐 Live Website
+## 🚨 Looking for the tool?
 
-**Production**: [https://faultmaven.ai](https://faultmaven.ai)
+This repository contains the **source code for the official FaultMaven website** ([faultmaven.ai](https://faultmaven.ai)). It hosts the documentation, quickstart guides, and project information.
+
+**To download and use the FaultMaven product, please visit the main repository:**
+
+👉 **[FaultMaven/faultmaven](https://github.com/FaultMaven/faultmaven)**
 
 ---
 
-## 📖 About
+## 📖 About This Repository
 
-This repository contains the FaultMaven marketing website with:
+This is the official source code for the **FaultMaven** website. It is built with **Next.js**, **React**, and **Tailwind CSS**.
+
+**FaultMaven** is the open-source AI troubleshooting copilot that helps SREs, DevOps engineers, and developers diagnose incidents faster by correlating full-stack data with a unified knowledge base.
+
+### What's Inside
 
 - **Product Pages**: Features, capabilities, and how FaultMaven differs from generic AI tools
-- **Use Cases**: Real-world troubleshooting scenarios
-- **Pricing**: Open source (free forever) vs. Enterprise Cloud
+- **Use Cases**: Real-world troubleshooting scenarios and time savings
+- **Beta Founders Program**: Join the beta and get early access to Cloud features
 - **Roadmap**: Product vision and upcoming features
 - **FAQ**: Everything you need to know about getting started
+- **About**: Our story, philosophy, and mission
 
 **Note**: Full product documentation is available in the [main FaultMaven repository](https://github.com/FaultMaven/faultmaven).
 
-We welcome contributions for website improvements, typo fixes, and clarifications!
+---
+
+## 🛠️ Local Development
+
+To run the website locally for editing documentation or landing pages:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/FaultMaven/faultmaven-website.git
+cd faultmaven-website
+
+# 2. Install dependencies
+pnpm install
+# or
+npm install
+# or
+yarn install
+
+# 3. Start the development server
+pnpm dev
+# or
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ---
 
@@ -39,38 +67,9 @@ We welcome contributions for website improvements, typo fixes, and clarification
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Package Manager**: [PNPM](https://pnpm.io/)
+- **Package Manager**: [PNPM](https://pnpm.io/) (recommended) / NPM / Yarn
 - **Deployment**: [Vercel](https://vercel.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js v18 or higher
-- PNPM package manager
-
-```bash
-npm install -g pnpm
-```
-
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/FaultMaven/faultmaven-website.git
-cd faultmaven-website
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ---
 
@@ -83,6 +82,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 │   │   ├── blog/            # Blog section (planned)
 │   │   ├── contact/         # Contact page
 │   │   ├── faq/             # FAQ page
+│   │   ├── founders/        # Beta Founders program page
 │   │   ├── pricing/         # Pricing page
 │   │   ├── privacy/         # Privacy policy
 │   │   ├── product/         # Product details
@@ -255,9 +255,10 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 
 ## 🆘 Support
 
-- **Documentation**: [docs.faultmaven.com](https://docs.faultmaven.com) (coming soon)
+- **Documentation**: [GitHub README](https://github.com/FaultMaven/faultmaven)
 - **Email**: support@faultmaven.ai
 - **Issues**: [GitHub Issues](https://github.com/FaultMaven/faultmaven-website/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/FaultMaven/faultmaven/discussions)
 
 ---
 
@@ -271,4 +272,6 @@ Built with:
 
 ---
 
-Made with ❤️ by the FaultMaven Team
+<p align="center">
+  <strong>FaultMaven</strong> — Stop solving the same problem twice.
+</p>

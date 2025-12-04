@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 border-t border-slate-200 dark:border-slate-700 mt-auto shadow-lg">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           {/* Logo + Social */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
@@ -28,14 +28,14 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 font-normal">
-              The AI-Powered Troubleshooting Copilot for Modern Engineering
+              Your AI copilot for incident response.
             </p>
             <div className="flex space-x-4">
+              <a href="https://github.com/FaultMaven" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
+                <IconGithub className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
+              </a>
               <a href="https://x.com/faultmaven" target="_blank" rel="noopener noreferrer" aria-label="X" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
                 <IconX className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
-              </a>
-              <a href="https://github.com/FaultMaven/faultmaven-website" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
-                <IconGithub className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
               <a href="https://linkedin.com/company/faultmaven" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
                 <IconLinkedin className="w-6 h-6 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="mt-2 space-y-2 text-base">
               <li><Link href="/product" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Product</Link></li>
               <li><Link href="/use-cases" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Use Cases</Link></li>
-              <li><Link href="/pricing" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Pricing</Link></li>
+              <li><Link href="/founders" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Beta Founders</Link></li>
             </ul>
           </div>
 
@@ -69,22 +69,29 @@ export default function Footer() {
             <ul className="mt-2 space-y-2 text-base">
               <li><Link href="/blog" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Blog</Link></li>
               <li><Link href="/faq" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">FAQ</Link></li>
+              <li><a href="https://github.com/FaultMaven/faultmaven/discussions" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Discussions</a></li>
             </ul>
           </div>
 
-          {/* Legal Links */}
+          {/* Developer Links */}
           <div>
-            <strong className="font-semibold text-slate-900 dark:text-slate-200 text-base block mb-3">Legal</strong>
+            <strong className="font-semibold text-slate-900 dark:text-slate-200 text-base block mb-3">Developer</strong>
             <ul className="mt-2 space-y-2 text-base">
-              <li><Link href="/privacy" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Terms of Service</Link></li>
+              <li><a href="https://github.com/FaultMaven/faultmaven" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">GitHub</a></li>
+              <li><a href="https://github.com/FaultMaven/faultmaven#quick-start" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Documentation</a></li>
+              <li><a href="https://github.com/FaultMaven/faultmaven-website/issues" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Report Issue</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Divider & Copyright */}
-        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-base text-slate-500 dark:text-slate-400 text-center">
-          &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
+            Open Source · Apache 2.0 · Deploy in 5 Minutes
+          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
