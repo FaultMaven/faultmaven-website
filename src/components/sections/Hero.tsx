@@ -22,16 +22,18 @@ export default function Hero() {
               The AI-Powered Troubleshooting Copilot for Modern Engineering
             </h1>
 
-            <p className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400">
-              <span className="font-semibold text-slate-900 dark:text-slate-200">
+            <div className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400 space-y-4">
+              <p className="font-semibold text-slate-900 dark:text-slate-200">
                 Stop context-switching. Start fixing.
-              </span>
-              <br className="mb-2 block" />
-              FaultMaven correlates your live telemetry with your runbooks, docs, and past fixes.
-              It delivers answers grounded in your actual system—not generic guesses.
-              <br className="mb-2 block" />
-              Resolve incidents faster with an AI copilot that understands both your stack and your organization.
-            </p>
+              </p>
+              <p>
+                FaultMaven correlates your live telemetry with your runbooks, docs, and past fixes.
+                It delivers answers grounded in your actual system—not generic guesses.
+              </p>
+              <p>
+                Resolve incidents faster with an AI copilot that understands both your stack and your organization.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
                 Deploy Now (Free)
