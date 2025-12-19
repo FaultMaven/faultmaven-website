@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | FaultMaven'
   },
   description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
-  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'Self-Hosted', 'Docker'],
+  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'FaultMaven Core', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
   publisher: 'FaultMaven',

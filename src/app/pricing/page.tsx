@@ -32,7 +32,7 @@ export default function PricingPage() {
                   <span className="text-slate-600 dark:text-slate-400 ml-2">forever</span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-1">
-                  Self-Hosted
+                  FaultMaven Core
                 </p>
                 <p className="text-sm text-slate-500 dark:text-slate-500 italic">
                   Full control. Your infrastructure. Your data.
@@ -532,7 +532,7 @@ export default function PricingPage() {
                   <thead>
                     <tr className="border-b border-slate-200 dark:border-slate-700">
                       <th className="text-left py-2 px-3 font-semibold text-slate-900 dark:text-slate-100">Feature</th>
-                      <th className="text-left py-2 px-3 font-semibold text-slate-900 dark:text-slate-100">Self-Hosted</th>
+                      <th className="text-left py-2 px-3 font-semibold text-slate-900 dark:text-slate-100">FaultMaven Core</th>
                       <th className="text-left py-2 px-3 font-semibold text-slate-900 dark:text-slate-100">Cloud</th>
                     </tr>
                   </thead>

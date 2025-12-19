@@ -20,7 +20,7 @@ export default function DeploymentOptionsSection() {
             <div className="flex items-center gap-3 mb-3">
               <Github className="w-8 h-8 text-slate-900 dark:text-slate-100" />
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                Self-Hosted
+                FaultMaven Core
               </h3>
             </div>
             <p className="text-sm text-green-600 dark:text-green-400 font-medium mb-4">
@@ -122,7 +122,7 @@ export default function DeploymentOptionsSection() {
         </div>
 
         <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-8">
-          Built on the same core analysis engine. Use Self-Hosted for personal context, or Enterprise for shared team intelligence.
+          Built on the same core analysis engine. Use FaultMaven Core for personal context, or Enterprise for shared team intelligence.
         </p>
       </div>
     </section>
