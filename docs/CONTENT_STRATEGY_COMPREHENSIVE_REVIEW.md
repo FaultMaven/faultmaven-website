@@ -24,7 +24,7 @@
 **"The 3 AM Test" + Beta Founders Program**
 - Lead with emotional scenario (3 AM incident)
 - Show the math ($300 cost vs. 30-second solution)
-- Frame current free access as "Beta Founders" program
+- Frame current free access as "Beta Founders" program (for FaultMaven Enterprise)
 - Self-selecting application: "Tell us about your last painful incident"
 - No "privacy-first" language - focus on efficiency and intelligence
 
@@ -577,7 +577,7 @@ Our design partners report 40-60% MTTR reduction.
 
 ---
 
-**You Should Use Enterprise Cloud If**:
+**You Should Use FaultMaven Enterprise If**:
 - You're a team (5+ engineers)
 - You want zero ops (we handle infrastructure)
 - You need team collaboration features (shared knowledge bases)
@@ -664,7 +664,7 @@ Yes. Privacy is foundational to FaultMaven.
 - Your data never leaves your infrastructure
 - Full source code transparency (Apache 2.0)
 
-**For Enterprise Cloud**:
+**For FaultMaven Enterprise**:
 - Data encryption in transit and at rest
 - No training on your data (policy + technical guarantees)
 - SOC 2 compliance (in progress)
@@ -673,7 +673,7 @@ Yes. Privacy is foundational to FaultMaven.
 **Security posture options**:
 1. Fully air-gapped (open source)
 2. Hybrid (local data + cloud orchestration)
-3. Fully managed (enterprise cloud with data isolation)
+3. Fully managed (FaultMaven Enterprise with data isolation)
 
 Your choice. Your control.
 
@@ -696,7 +696,7 @@ the experience, not because it's unstable.
 - Team collaboration features (coming in 1.5)
 - Integration connectors (Slack, PagerDuty)
 
-**Bottom line**: You can deploy open source TODAY and get value. Enterprise
+**Bottom line**: You can deploy open source TODAY and get value. FaultMaven Enterprise
 is invite-only while we scale infrastructure and onboarding.
 
 ---
@@ -1033,7 +1033,7 @@ Access at http://localhost:3000 in 5 minutes.
 
 ---
 
-**Enterprise Cloud exists for teams who want:**
+**FaultMaven Enterprise exists for teams who want:**
 • Zero ops (we run it)
 • Team collaboration (shared knowledge bases, multi-user)
 • Integrations (Slack, PagerDuty, SSO)

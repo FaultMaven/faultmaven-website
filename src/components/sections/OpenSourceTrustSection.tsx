@@ -76,7 +76,7 @@ export default function OpenSourceTrustSection() {
                 Open Core, Enterprise Superset
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                The open-source version contains the full single-user troubleshooting engine. Enterprise Cloud extends this foundation with multi-tenancy, team collaboration, SSO, and managed infrastructure—built on the same auditable codebase.
+                The open-source version contains the full single-user troubleshooting engine. FaultMaven Enterprise extends this foundation with multi-tenancy, team collaboration, SSO, and managed infrastructure—built on the same auditable codebase.
               </p>
             </div>
           </div>
