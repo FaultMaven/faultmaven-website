@@ -356,7 +356,7 @@ This isn't just about MTTR. It's about:
 "The AI-Powered Troubleshooting Copilot for Modern Engineering"
 
 Empower software and operations engineers to diagnose incidents faster with
-privacy-first AI and a local knowledge base. Available as self-hosted open
+privacy-first AI and a local knowledge base. Available as FaultMaven Core open
 source or fully managed SaaS.
 ```
 
@@ -865,7 +865,7 @@ The AI-Powered Troubleshooting Copilot for Modern Engineering
 
 Empower software and operations engineers to diagnose incidents faster
 with privacy-first AI and a local knowledge base. Available as
-self-hosted open source or fully managed SaaS.
+FaultMaven Core open source or fully managed SaaS.
 
 [Request Enterprise Access] [See How It Works]
 ```
