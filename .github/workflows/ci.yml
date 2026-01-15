@@ -1,0 +1,178 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  SERVICE_NAME: faultmaven-website
+  NODE_VERSION: '20'
+  PNPM_VERSION: '9'
+
+jobs:
+  # ============================================================================
+  # Stage 1: Lint & Type Check
+  # ============================================================================
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run ESLint
+        run: pnpm run lint
+
+      - name: Type check
+        run: pnpm exec tsc --noEmit
+
+      - name: Lint summary
+        if: success()
+        run: |
+          echo "### ✅ Lint & Type Check Passed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "ESLint and TypeScript compilation successful." >> $GITHUB_STEP_SUMMARY
+
+      - name: Lint failure
+        if: failure()
+        run: |
+          echo "### ❌ Lint & Type Check Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Lint or type checking failed. Fix errors before proceeding." >> $GITHUB_STEP_SUMMARY
+          exit 1
+
+  # ============================================================================
+  # Stage 2: Build Verification
+  # ============================================================================
+  build:
+    name: Build Verification
+    needs: lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js application
+        run: pnpm run build
+        env:
+          # Add any required build-time environment variables
+          NODE_ENV: production
+
+      - name: Build summary
+        if: success()
+        run: |
+          echo "### ✅ Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Next.js application built successfully." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Note**: Deployment is handled by Vercel automatically." >> $GITHUB_STEP_SUMMARY
+          echo "- Production: Automatically deploys from \`main\` branch" >> $GITHUB_STEP_SUMMARY
+          echo "- Preview: Automatically deploys from pull requests" >> $GITHUB_STEP_SUMMARY
+
+      - name: Build failure
+        if: failure()
+        run: |
+          echo "### ❌ Build Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Next.js build failed. Fix build errors before proceeding." >> $GITHUB_STEP_SUMMARY
+          exit 1
+
+  # ============================================================================
+  # Stage 3: Security Scan (Non-blocking)
+  # ============================================================================
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    continue-on-error: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run pnpm audit
+        run: |
+          echo "Running pnpm audit..."
+          pnpm audit --audit-level=moderate || echo "⚠️  Security vulnerabilities found (non-blocking)"
+
+      - name: Security summary
+        if: always()
+        run: |
+          echo "### 🔒 Security Scan Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Security scan completed. Review findings above." >> $GITHUB_STEP_SUMMARY
+
+  # ============================================================================
+  # Pipeline Summary
+  # ============================================================================
+  summary:
+    name: Pipeline Summary
+    needs: [lint, build, security]
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pipeline summary
+        run: |
+          echo "### 📊 CI Pipeline Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Stage | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Lint & Type Check | ${{ needs.lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Build Verification | ${{ needs.build.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Scan | ${{ needs.security.result == 'success' && '✅ Passed' || needs.security.result == 'failure' && '⚠️  Warnings' || '⏭️  Skipped' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment**: Handled by Vercel automatically" >> $GITHUB_STEP_SUMMARY
+          echo "- Production: Auto-deploy from \`main\` branch" >> $GITHUB_STEP_SUMMARY
+          echo "- Preview: Auto-deploy from pull requests" >> $GITHUB_STEP_SUMMARY
