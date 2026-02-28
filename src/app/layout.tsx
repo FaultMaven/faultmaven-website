@@ -33,6 +33,12 @@ export const metadata: Metadata = {
     description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Deploy locally via Docker or scale with Enterprise SaaS.',
     creator: '@faultmaven',
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
