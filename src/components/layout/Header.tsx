@@ -25,14 +25,14 @@ export default function Header() {
         <nav className="flex space-x-8 text-base font-medium items-center">
           <Link href="/" className="flex items-center">
             <Image 
-              src="/images/fmlogo-light.svg" 
+              src="/images/fmlogo-darktext-transparent.svg" 
               alt="FaultMaven Logo Light"
               width={150}
               height={40}
               className="dark:hidden"
             />
             <Image 
-              src="/images/fmlogo-dark.svg" 
+              src="/images/fmlogo-whitetext-transparent.svg" 
               alt="FaultMaven Logo Dark"
               width={150}
               height={40}

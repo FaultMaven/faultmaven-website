@@ -13,14 +13,14 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
               <Image 
-                src="/images/fmlogo-light.svg" 
+                src="/images/fmlogo-darktext-transparent.svg" 
                 alt="FaultMaven Logo"
                 width={28}
                 height={28}
                 className="h-7 w-auto mr-0 dark:hidden"
               />
               <Image 
-                src="/images/fmlogo-dark.svg" 
+                src="/images/fmlogo-whitetext-transparent.svg" 
                 alt="FaultMaven Logo"
                 width={28}
                 height={28}
