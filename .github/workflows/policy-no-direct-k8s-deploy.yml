@@ -28,7 +28,7 @@ jobs:
 
       - name: Check for kubectl commands
         run: |
-          if grep -r "kubectl" --include="*.yml" --include="*.yaml" --include="*.sh" .github/workflows/ 2>/dev/null; then
+          if grep -r "kubectl" --include="*.yml" --include="*.yaml" --include="*.sh" --exclude="policy-no-direct-k8s-deploy.yml" .github/workflows/ 2>/dev/null; then
             echo "❌ Found kubectl commands in workflow files"
             echo "Policy: Product repos must not contain kubectl commands"
             echo "Deployment logic belongs in faultmaven-enterprise-infra"
@@ -38,7 +38,7 @@ jobs:
 
       - name: Check for helm commands
         run: |
-          if grep -r "helm" --include="*.yml" --include="*.yaml" --include="*.sh" .github/workflows/ 2>/dev/null; then
+          if grep -r "helm" --include="*.yml" --include="*.yaml" --include="*.sh" --exclude="policy-no-direct-k8s-deploy.yml" .github/workflows/ 2>/dev/null; then
             echo "❌ Found helm commands in workflow files"
             echo "Policy: Product repos must not contain helm commands"
             echo "Deployment logic belongs in faultmaven-enterprise-infra"
@@ -48,7 +48,7 @@ jobs:
 
       - name: Check for k8s apply commands
         run: |
-          if grep -ri "kubectl apply\|kustomize\|kubernetes" --include="*.yml" --include="*.yaml" --include="*.sh" .github/workflows/ 2>/dev/null; then
+          if grep -ri "kubectl apply\|kustomize\|kubernetes" --include="*.yml" --include="*.yaml" --include="*.sh" --exclude="policy-no-direct-k8s-deploy.yml" .github/workflows/ 2>/dev/null; then
             echo "❌ Found Kubernetes deployment commands in workflow files"
             echo "Policy: Product repos must not contain deployment logic"
             echo "Deployment logic belongs in faultmaven-enterprise-infra"
