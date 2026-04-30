@@ -9,7 +9,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Built by SREs, for SREs
+            Built by engineers, for engineers
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             We got tired of solving the same problem twice. So we built FaultMaven.

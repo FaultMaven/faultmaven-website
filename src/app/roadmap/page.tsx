@@ -95,7 +95,7 @@ export default function RoadmapPage() {
                       ✅ AVAILABLE NOW — FaultMaven 1.0: Personal AI Copilot
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400">
-                      Your personal troubleshooting assistant. No team setup required.
+                      Your personal troubleshooting copilot. No team setup required.
                     </p>
                   </div>
                 </div>
