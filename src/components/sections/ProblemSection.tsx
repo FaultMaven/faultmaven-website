@@ -43,7 +43,7 @@ export default function ProblemSection() {
           </div>
         </div>
         <p className="text-center text-lg text-slate-600 dark:text-slate-400 mt-16 max-w-3xl mx-auto">
-          FaultMaven bridges this gap—injecting deep context into AI reasoning so you get answers that actually work for <strong className="text-slate-700 dark:text-slate-300">YOUR</strong> system.
+          FaultMaven is the ER surgeon for systems already on the table — not the predictive AIOps platform forecasting next quarter's failures. It injects deep context into AI reasoning so you get answers that actually work for <strong className="text-slate-700 dark:text-slate-300">YOUR</strong> system.
         </p>
       </div>
     </section>

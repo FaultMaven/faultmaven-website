@@ -61,7 +61,7 @@ export default function ApproachSection() {
               Zero Context-Switching
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              The FaultMaven Copilot lives where you work—as a browser extension overlay on AWS Console, Datadog, Grafana, your terminal, or localhost. The fix comes to the problem, not the other way around.
+              The FaultMaven Copilot lives where you work—as a browser extension overlay on AWS Console, Datadog, Grafana, your terminal, or localhost. The fix comes to the problem, not the other way around. No production API keys to hand over, no backend agents to install — it runs entirely client-side.
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-500 italic">
               Show extension overlaying a Grafana dashboard

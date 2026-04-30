@@ -47,7 +47,7 @@ export default function OpenSourceTrustSection() {
               Your Data Stays Yours
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Self-hosted means your logs, configs, and knowledge base never leave your infrastructure. Air-gapped deployments supported with local LLMs.
+              Self-hosted means your logs, configs, and knowledge base never leave your infrastructure. Air-gapped deployments supported with local LLMs. And because the Copilot runs client-side in your browser, FaultMaven never asks for production API keys or root credentials. It holds the flashlight and reads the manuals; you fix the plumbing.
             </p>
           </div>
 
