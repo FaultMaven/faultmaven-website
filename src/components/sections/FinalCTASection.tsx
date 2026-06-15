@@ -18,13 +18,13 @@ export default function FinalCTASection() {
             </h3>
             <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-4 overflow-x-auto">
               <code className="text-green-400 font-mono text-sm block">
-{`git clone https://github.com/FaultMaven/faultmaven-deploy.git
-cd faultmaven-deploy
-./faultmaven start`}
+{`git clone https://github.com/FaultMaven/faultmaven.git
+cd faultmaven
+./faultmaven.sh start`}
               </code>
             </pre>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 text-center">
-              💡 No API key? Use <code className="bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-xs">LLM_PROVIDER=ollama</code> for free local inference
+              💡 No API key? Use <code className="bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-xs">CHAT_PROVIDER=local</code> for free local inference
             </p>
             <div className="text-center">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
@@ -41,10 +41,10 @@ cd faultmaven-deploy
               Need Team Features?
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              SSO, shared knowledge bases, managed infrastructure.
+              SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud.
             </p>
-            <Button asChild href="/contact" variant="secondary" className="w-full">
-              Request Enterprise Access
+            <Button asChild href="/waitlist" variant="secondary" className="w-full">
+              Join the Cloud waitlist
             </Button>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">

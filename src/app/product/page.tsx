@@ -187,8 +187,8 @@ export default function ProductPage() {
                       <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
                       <div>
                         <strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — Your runbooks, post-mortems, and past resolutions </span>
-                        <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded">Enterprise</span>
+                        <span className="text-slate-600 dark:text-slate-400"> — Runbooks shared across your org, post-mortems, and past resolutions </span>
+                        <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded">Cloud</span>
                       </div>
                     </li>
                     <li className="flex items-start">
@@ -356,9 +356,9 @@ export default function ProductPage() {
               </h3>
               <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 overflow-x-auto">
                 <code className="text-green-400 font-mono text-sm block">
-{`git clone https://github.com/FaultMaven/faultmaven-deploy.git
-cd faultmaven-deploy
-./faultmaven start`}
+{`git clone https://github.com/FaultMaven/faultmaven.git
+cd faultmaven
+./faultmaven.sh start`}
                 </code>
               </pre>
               <div className="text-center">
@@ -376,10 +376,10 @@ cd faultmaven-deploy
                 Need Team Features?
               </h3>
               <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-                SSO, shared knowledge bases, managed infrastructure.
+                SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud.
               </p>
-              <Button asChild href="/contact" variant="secondary" className="w-full">
-                Request Enterprise Access
+              <Button asChild href="/waitlist" variant="secondary" className="w-full">
+                Join the Cloud waitlist
               </Button>
             </div>
             <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">

@@ -45,20 +45,20 @@ export default function FAQPage() {
                   How do I get started?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  Deploy the open source version in 5 minutes:
+                  Deploy Standalone (self-hosted) in 5 minutes:
                 </p>
                 <pre className="bg-slate-900 dark:bg-slate-950 p-4 rounded-lg mb-3 overflow-x-auto">
                   <code className="text-green-400 font-mono text-sm">
-{`git clone https://github.com/FaultMaven/faultmaven-deploy.git
-cd faultmaven-deploy
-./faultmaven start`}
+{`git clone https://github.com/FaultMaven/faultmaven.git
+cd faultmaven
+./faultmaven.sh start`}
                   </code>
                 </pre>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
                   The deployment script handles everything: Docker containers, configuration, and browser extension installation. Full instructions in the <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
                 </p>
                 <p className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
-                  <strong className="text-slate-900 dark:text-slate-50">💡 No API key?</strong> Use <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">LLM_PROVIDER=ollama</code> for free local inference with Ollama.
+                  <strong className="text-slate-900 dark:text-slate-50">💡 No API key?</strong> Use <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">CHAT_PROVIDER=local</code> for free local inference with Ollama.
                 </p>
               </div>
 
@@ -68,10 +68,10 @@ cd faultmaven-deploy
                   How long does setup take?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Self-hosted (Open Source):</strong> 5 minutes. Run three commands and you&apos;re live.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> 5 minutes. Run three commands and you&apos;re live.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong className="text-slate-900 dark:text-slate-50">Cloud-hosted (Team/Enterprise):</strong> Instant. We handle the infrastructure, you get a login.
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> Instant — we handle the infrastructure, you get a login.
                 </p>
               </div>
 
@@ -81,7 +81,7 @@ cd faultmaven-deploy
                   Do I need to integrate with my existing tools?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  No. FaultMaven works with whatever&apos;s on your screen. Copy/paste logs, upload config files, or share screenshots—the Copilot analyzes anything you give it. Optional integrations with Datadog, Grafana, AWS, etc. enhance the experience but aren&apos;t required.
+                  No. FaultMaven works with whatever&apos;s on your screen. Copy/paste logs, upload config files, or share screenshots—the Copilot analyzes anything you give it. It reads what&apos;s on the page in tools like Datadog, Grafana, and the AWS Console, so no integration is required.
                 </p>
               </div>
             </div>
@@ -160,10 +160,10 @@ cd faultmaven-deploy
                   Where does my data go?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Open Source (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs locally on your servers. Zero telemetry.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers. Zero telemetry.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong className="text-slate-900 dark:text-slate-50">Team/Enterprise (cloud-hosted):</strong> Data is encrypted in transit (TLS 1.3) and at rest (AES-256). Stored in SOC 2 compliant infrastructure. We never train models on your data or share it with third parties.
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud (hosted):</strong> Data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never train models on your data or share it with third parties.
                 </p>
               </div>
 
@@ -173,13 +173,13 @@ cd faultmaven-deploy
                   Is FaultMaven SOC 2 / HIPAA / GDPR compliant?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong>SOC 2:</strong> Our cloud infrastructure is SOC 2 Type II certified. Full report available on request for Enterprise customers.
+                  <strong>SOC 2:</strong> SOC 2 Type II is in progress for FaultMaven Cloud.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong>GDPR:</strong> Yes. We provide data processing agreements (DPA), support data export/deletion requests, and maintain EU data residency options for Enterprise customers.
+                  <strong>GDPR:</strong> We support data export and deletion requests and can provide a data processing agreement (DPA) for Cloud customers.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong>HIPAA:</strong> Self-hosted deployments can be HIPAA-compliant (you control the environment). Cloud-hosted HIPAA compliance is available for Enterprise customers with a Business Associate Agreement (BAA).
+                  <strong>HIPAA:</strong> Self-hosted (Standalone) puts the environment fully under your control for your own compliance needs. Cloud compliance options are on the roadmap.
                 </p>
               </div>
 
@@ -217,7 +217,7 @@ cd faultmaven-deploy
                   Is FaultMaven really free?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. The open source version is free forever—unlimited users, full features, Apache 2.0 license. You host it, you control it, no strings attached. Paid tiers (Team and Enterprise) add managed hosting, team collaboration features, and priority support.
+                  Yes. Standalone is free forever—full features, Apache 2.0 license. You host it, you control it, no strings attached. FaultMaven Cloud adds managed hosting and team collaboration through multi-tenancy.
                 </p>
               </div>
 
@@ -227,17 +227,17 @@ cd faultmaven-deploy
                   What&apos;s the Beta Founders Program?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  The first 100 teams to deploy FaultMaven in production get 50% off the Team tier for 12 months, plus direct access to the founders for feedback and roadmap input. We&apos;re looking for early users to help us refine the product. <a href="/pricing#beta-founders" className="text-blue-600 dark:text-blue-400 hover:underline">Learn more and apply →</a>
+                  The Beta Founders Program gives early teams access to FaultMaven Cloud during the beta, plus direct access to the founders for feedback and roadmap input. We&apos;re looking for early users to help us refine the product. <a href="/founders" className="text-blue-600 dark:text-blue-400 hover:underline">Learn more →</a>
                 </p>
               </div>
 
               {/* Q13 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                  Can I upgrade from Open Source to Team later?
+                  Can I move from Standalone to Cloud later?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Absolutely. Start with self-hosted Open Source, then upgrade to Team (cloud or self-hosted with team features) whenever you&apos;re ready. We&apos;ll help migrate your knowledge base and settings. No lock-in.
+                  Absolutely. Start self-hosted with Standalone, then move to Cloud whenever you&apos;re ready. We&apos;ll help migrate your knowledge base and settings. No lock-in.
                 </p>
               </div>
             </div>
@@ -268,7 +268,7 @@ cd faultmaven-deploy
                   Which browsers does the Copilot extension support?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Chrome, Edge, Brave, and Chromium-based browsers. Firefox support is on the roadmap. The extension works as an overlay on any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
+                  Chrome, Edge, Brave, and other Chromium browsers, plus Firefox. The extension works as an overlay on any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
                 </p>
               </div>
 
@@ -278,7 +278,7 @@ cd faultmaven-deploy
                   Does FaultMaven support Kubernetes?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. FaultMaven includes pre-loaded troubleshooting patterns for Kubernetes (OOMKills, CrashLoopBackOff, networking issues, etc.) and can analyze kubectl output, pod logs, and manifests. Helm chart deployment is available.
+                  Yes. FaultMaven ships with troubleshooting patterns for Kubernetes (OOMKills, CrashLoopBackOff, networking issues, etc.) and can analyze kubectl output, pod logs, and manifests. (FaultMaven Cloud itself runs on Kubernetes.)
                 </p>
               </div>
 

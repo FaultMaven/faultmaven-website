@@ -73,10 +73,10 @@ export default function OpenSourceTrustSection() {
             </div>
             <div>
               <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                Open Core, Enterprise Superset
+                Open core, the same engine either way
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                The open-source version contains the full single-user troubleshooting engine. FaultMaven Enterprise extends this foundation with multi-tenancy, team collaboration, SSO, and managed infrastructure—built on the same auditable codebase.
+                The open-core engine is the full single-user troubleshooting engine you self-host (Standalone). FaultMaven Cloud runs that same engine as a managed, multi-tenant service, adding team collaboration, SSO, and managed infrastructure—built on the same auditable codebase.
               </p>
             </div>
           </div>

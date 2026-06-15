@@ -27,7 +27,7 @@ export default function FoundersPage() {
               Apply to Join →
             </Button>
             <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="secondary" className="text-lg px-8">
-              Or deploy open source now →
+              Or self-host Standalone now →
             </Button>
           </div>
         </div>
@@ -41,12 +41,12 @@ export default function FoundersPage() {
               💡 WANT TO TRY FAULTMAVEN RIGHT NOW?
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-6">
-              The open source version is live. No application. No waiting.
+              The self-hosted Standalone version is live. No application. No waiting.
             </p>
             <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 overflow-x-auto">
               <code className="text-green-400 font-mono text-sm block">
-{`git clone https://github.com/FaultMaven/faultmaven-deploy.git
-cd faultmaven-deploy && ./faultmaven start`}
+{`git clone https://github.com/FaultMaven/faultmaven.git
+cd faultmaven && ./faultmaven.sh start`}
               </code>
             </pre>
             <p className="text-slate-700 dark:text-slate-300 mb-6">
@@ -54,11 +54,11 @@ cd faultmaven-deploy && ./faultmaven start`}
             </p>
             <div className="mb-6">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
-                Deploy Open Source →
+                Deploy Standalone →
               </Button>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-4">
-              Beta Founders is for early access to Cloud — with the built-in knowledge base, optimized AI, and team features. But if you just want to use FaultMaven today, start with open source.
+              Beta Founders is for early access to Cloud — managed hosting and team collaboration through multi-tenancy. If you just want to use FaultMaven today, start with Standalone.
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ cd faultmaven-deploy && ./faultmaven start`}
               FaultMaven&apos;s open source core is live and working. You can deploy it today with Docker Compose and start troubleshooting.
             </p>
             <p>
-              The Cloud version — with the built-in knowledge base, optimized AI, and team features — is under active development. We&apos;re close, but we&apos;re not ready to charge for it yet.
+              The Cloud version — managed hosting and team collaboration through multi-tenancy — is under active development. We&apos;re close, but we&apos;re not ready to charge for it yet.
             </p>
             <p className="font-semibold text-slate-900 dark:text-slate-50">
               What we need now isn&apos;t money. It&apos;s feedback.
@@ -494,16 +494,16 @@ cd faultmaven-deploy && ./faultmaven start`}
             {/* FAQ 6 */}
             <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-2">
-                Q: Can I use the open source version instead?
+                Q: Can I use the Standalone version instead?
               </h3>
               <p className="text-slate-700 dark:text-slate-300 mb-3">
-                Absolutely. The open source version is fully functional for individual use. Deploy it today:
+                Absolutely. Standalone is fully functional for individual use. Deploy it today:
               </p>
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="secondary">
-                Deploy Open Source →
+                Deploy Standalone →
               </Button>
               <p className="text-slate-700 dark:text-slate-300 mt-3">
-                The Beta Founders program is specifically for the Cloud version with the enhanced AI and built-in knowledge base.
+                The Beta Founders program is specifically for the Cloud version — managed hosting and team collaboration.
               </p>
             </div>
 

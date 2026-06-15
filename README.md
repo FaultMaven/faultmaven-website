@@ -238,10 +238,9 @@ vercel --prod
 
 The FaultMaven ecosystem includes:
 
-- **[faultmaven](https://github.com/FaultMaven/faultmaven)** - Main repository with microservices backend (Open Source)
+- **[faultmaven](https://github.com/FaultMaven/faultmaven)** - Main repository with the modular-monolith backend (Open Source)
 - **[faultmaven-dashboard](https://github.com/FaultMaven/faultmaven-dashboard)** - Web-based dashboard UI (Open Source)
 - **[faultmaven-copilot](https://github.com/FaultMaven/faultmaven-copilot)** - Browser extension for incident capture (Open Source)
-- **[faultmaven-deploy](https://github.com/FaultMaven/faultmaven-deploy)** - Deployment configurations and tooling (Open Source)
 
 All FaultMaven components are Apache 2.0 licensed and fully open source.
 
