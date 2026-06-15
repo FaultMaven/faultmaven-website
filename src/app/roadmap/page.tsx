@@ -259,7 +259,7 @@ export default function RoadmapPage() {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Open Core: Open Box / Black Box
+            Open Core: the same engine, run your way
           </h2>
           <div className="max-w-3xl mx-auto space-y-8">
             <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -268,7 +268,7 @@ export default function RoadmapPage() {
 
             <div className="p-8 border-2 border-green-500 dark:border-green-600 rounded-xl bg-green-50 dark:bg-green-900/10">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Open Source (The &apos;Open Box&apos;)
+                Standalone (Open Source)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
                 The core troubleshooting engine is 100% open source, Apache 2.0 licensed. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free.
@@ -280,10 +280,10 @@ export default function RoadmapPage() {
 
             <div className="p-8 border-2 border-blue-500 dark:border-blue-600 rounded-xl bg-blue-50 dark:bg-blue-900/10">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Enterprise (The &apos;Black Box&apos;)
+                Cloud (Managed Service)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                Team features, SSO, integrations, and managed infrastructure are built on the same open core—but packaged as a managed service for teams that don&apos;t want to operate their own stack.
+                Team collaboration, SSO, and managed infrastructure are built on the same open core—but packaged as a managed, multi-tenant service for teams that don&apos;t want to operate their own stack.
               </p>
               <p className="text-slate-700 dark:text-slate-300 font-medium">
                 Both options use the same codebase. Start self-hosted, upgrade when ready.

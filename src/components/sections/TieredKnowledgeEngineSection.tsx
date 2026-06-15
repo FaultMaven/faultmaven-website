@@ -37,7 +37,7 @@ export default function TieredKnowledgeEngineSection() {
                   <h3 className="text-xl font-semibold text-white">
                     TEAM KNOWLEDGE
                   </h3>
-                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Enterprise</span>
+                  <span className="text-xs bg-white/20 px-2 py-1 rounded">Cloud</span>
                 </div>
                 <p className="text-white/90 text-sm mb-3">
                   Indexed runbooks, past cases, and post-mortems
