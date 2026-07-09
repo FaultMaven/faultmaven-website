@@ -217,7 +217,7 @@ cd faultmaven
                   Is FaultMaven really free?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. Standalone is free forever—full features, Apache 2.0 license. You host it, you control it, no strings attached. FaultMaven Cloud adds managed hosting and team collaboration through multi-tenancy.
+                  Yes. Standalone is free—full features, no strings attached. You host it, you control it. The engine is fair source (FSL-1.1-ALv2): audit every line, and each release converts to Apache 2.0 two years after it ships. FaultMaven Cloud adds managed hosting and team collaboration through multi-tenancy.
                 </p>
               </div>
 
@@ -288,7 +288,7 @@ cd faultmaven
                   Can I contribute to FaultMaven?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes! FaultMaven is open source (Apache 2.0). We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className="text-blue-600 dark:text-blue-400 hover:underline">Contributing Guide</a>.
+                  Yes! FaultMaven&apos;s source is public—the engine is fair source (FSL-1.1-ALv2), the frontends Apache 2.0. We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className="text-blue-600 dark:text-blue-400 hover:underline">Contributing Guide</a>.
                 </p>
               </div>
             </div>

@@ -268,10 +268,10 @@ export default function RoadmapPage() {
 
             <div className="p-8 border-2 border-green-500 dark:border-green-600 rounded-xl bg-green-50 dark:bg-green-900/10">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Standalone (Open Source)
+                Standalone (Self-Hosted)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                The core troubleshooting engine is 100% open source, Apache 2.0 licensed. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free.
+                The core troubleshooting engine is fair source (FSL-1.1-ALv2) — every line public, converting to Apache 2.0 two years after each release. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free.
               </p>
               <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary">
                 View on GitHub →
@@ -351,7 +351,7 @@ export default function RoadmapPage() {
                 Contribute Code
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                FaultMaven is open source. PRs welcome.
+                FaultMaven is fair source — every line is public. PRs welcome.
               </p>
               <Button asChild href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" variant="secondary" className="w-full">
                 Contributing Guide →
