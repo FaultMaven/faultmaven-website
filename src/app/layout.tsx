@@ -8,8 +8,8 @@ export const metadata: Metadata = {
     default: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
     template: '%s | FaultMaven'
   },
-  description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Self-host via Docker or scale with FaultMaven Cloud.',
-  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Open Source', 'FaultMaven Core', 'Docker'],
+  description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
+  keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Fair Source', 'Self-Hosted', 'FaultMaven Core', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
   publisher: 'FaultMaven',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://faultmaven.com',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Self-host via Docker or scale with FaultMaven Cloud.',
+    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The open-source AI troubleshooting copilot for modern engineering. Correlates full-stack data to accelerate root cause analysis and build institutional memory. Self-host via Docker or scale with FaultMaven Cloud.',
+    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
     creator: '@faultmaven',
   },
   icons: {
