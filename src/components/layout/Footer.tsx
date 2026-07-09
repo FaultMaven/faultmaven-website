@@ -87,7 +87,7 @@ export default function Footer() {
         {/* Bottom Divider & Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-center">
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
-            Open Source · Apache 2.0 · Deploy in 5 Minutes
+            Fair Source · Self-Hostable · Deploy in 5 Minutes
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
             &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.

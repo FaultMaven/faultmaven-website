@@ -29,7 +29,7 @@ export default function PricingPage() {
                 </h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-4xl font-bold text-slate-900 dark:text-slate-50">Free</span>
-                  <span className="text-slate-600 dark:text-slate-400 ml-2">· Apache 2.0</span>
+                  <span className="text-slate-600 dark:text-slate-400 ml-2">· Fair Source</span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-1">
                   Self-hosted · FaultMaven Core
@@ -66,7 +66,7 @@ export default function PricingPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Apache 2.0 — audit it, fork it, use it commercially</span>
+                  <span className="text-slate-700 dark:text-slate-300">Fair source (FSL-1.1-ALv2) — audit it, fork it, run it in your business</span>
                 </li>
               </ul>
 
@@ -101,7 +101,7 @@ export default function PricingPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
-                    <span>Open-source contributors</span>
+                    <span>Contributors</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2">•</span>
@@ -251,7 +251,7 @@ export default function PricingPage() {
                     </tr>
                     <tr className="border-b border-slate-100 dark:border-slate-800">
                       <td className="py-2 px-3 text-slate-700 dark:text-slate-300">License</td>
-                      <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Open core (Apache 2.0)</td>
+                      <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Open core (fair source, FSL-1.1-ALv2)</td>
                       <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Open core + managed service</td>
                     </tr>
                   </tbody>
@@ -347,7 +347,7 @@ export default function PricingPage() {
                 Can I contribute runbooks back?
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                Yes. Anyone can open a pull request to add runbooks to the open-source repository. Once approved, they ship in the global scope for every FaultMaven user.
+                Yes. Anyone can open a pull request to add runbooks to the public repository. Once approved, they ship in the global scope for every FaultMaven user.
               </p>
             </div>
 
@@ -357,7 +357,7 @@ export default function PricingPage() {
                 Is it free?
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                Standalone is free forever under Apache 2.0 — just deploy and use it.
+                Standalone is free under the fair-source FSL license — just deploy and use it.
               </p>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
                 Cloud is currently in beta. Join the waitlist for access; pricing will be announced before general availability.

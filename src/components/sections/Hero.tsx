@@ -12,7 +12,7 @@ export default function Hero() {
           <div className="text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
               <span className="text-sm font-semibold text-green-600 dark:text-green-400">
-                Open Source · Apache 2.0 · Deploy in 5 Minutes
+                Fair Source · Self-Hostable · Deploy in 5 Minutes
               </span>
             </div>
             <h1
@@ -24,14 +24,16 @@ export default function Hero() {
 
             <div className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400 space-y-4">
               <p className="font-semibold text-slate-900 dark:text-slate-200">
-                Stop context-switching. Start fixing.
+                Built to solve, not to chat.
               </p>
               <p>
-                FaultMaven correlates your live telemetry with your runbooks, docs, and past fixes.
-                It delivers answers grounded in your actual system—not generic guesses.
+                FaultMaven works a problem the way a seasoned engineer does — goal-driven,
+                methodical, and grounded in evidence — and it never forgets what it learns.
               </p>
               <p>
-                Resolve incidents faster with an AI copilot that understands both your stack and your organization.
+                It correlates your live telemetry with your runbooks, docs, and past fixes to
+                deliver answers grounded in your actual system—not generic guesses. Every problem
+                it solves becomes knowledge it reuses.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">

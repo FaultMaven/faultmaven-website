@@ -52,7 +52,7 @@ cd faultmaven
               Want to Contribute?
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              FaultMaven is open source. We welcome PRs.
+              FaultMaven is fair source — every line is public. We welcome PRs.
             </p>
             <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary" className="w-full">
               View on GitHub

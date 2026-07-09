@@ -33,7 +33,7 @@ export default function FoundersPage() {
         </div>
       </section>
 
-      {/* Open Source Callout */}
+      {/* Standalone Callout */}
       <section className="py-16 bg-blue-50 dark:bg-blue-900/20 border-y-2 border-blue-200 dark:border-blue-800">
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-white dark:bg-slate-900 border-2 border-blue-500 dark:border-blue-600 rounded-xl p-8 shadow-lg">
@@ -50,7 +50,7 @@ cd faultmaven && ./faultmaven.sh start`}
               </code>
             </pre>
             <p className="text-slate-700 dark:text-slate-300 mb-6">
-              Full AI troubleshooting. Personal knowledge base. Self-hosted. Free forever. Apache 2.0.
+              Full AI troubleshooting. Personal knowledge base. Self-hosted. Free. Fair source.
             </p>
             <div className="mb-6">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
@@ -72,7 +72,7 @@ cd faultmaven && ./faultmaven.sh start`}
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
-              FaultMaven&apos;s open source core is live and working. You can deploy it today with Docker Compose and start troubleshooting.
+              FaultMaven&apos;s fair-source core is live and working. You can deploy it today with Docker Compose and start troubleshooting.
             </p>
             <p>
               The Cloud version — managed hosting and team collaboration through multi-tenancy — is under active development. We&apos;re close, but we&apos;re not ready to charge for it yet.
@@ -307,13 +307,13 @@ cd faultmaven && ./faultmaven.sh start`}
               </Button>
             </div>
 
-            {/* Open Source Contributor */}
+            {/* Contributor */}
             <div className="border border-slate-200 dark:border-slate-700 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Open Source Contributor
+                Contributor
               </h3>
               <p className="text-slate-700 dark:text-slate-300 mb-4">
-                Contribute code, fix bugs, improve documentation. Our repos are Apache 2.0 — PRs welcome.
+                Contribute code, fix bugs, improve documentation. Every repo is public — the engine fair source, the frontends Apache 2.0. PRs welcome.
               </p>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
                 <strong className="text-slate-900 dark:text-slate-50">You get:</strong> Recognition, influence on the codebase, community.

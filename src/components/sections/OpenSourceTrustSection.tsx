@@ -8,7 +8,7 @@ export default function OpenSourceTrustSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-            Open Source. Auditable. Yours to Own.
+            Source-Available. Auditable. Yours to Run.
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             We don&apos;t ask for trust—we show you the code.
@@ -24,7 +24,7 @@ export default function OpenSourceTrustSection() {
               Every Line is Public
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              The core troubleshooting engine is 100% open source on GitHub. No black boxes. No proprietary lock-in. Fork it, audit it, extend it.
+              Every line of the core troubleshooting engine is public on GitHub — fair source, not a black box. No proprietary lock-in. Fork it, audit it, extend it.
             </p>
             <div className="flex flex-wrap gap-2 justify-center mb-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -56,10 +56,10 @@ export default function OpenSourceTrustSection() {
               <Code className="w-8 h-8 text-purple-600 dark:text-purple-400" />
             </div>
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              Apache 2.0 Licensed
+              Fair-Source Licensed (FSL-1.1-ALv2)
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Use FaultMaven commercially, build products on top of it, or modify it for your needs. Same license as Kubernetes and TensorFlow.
+              Run FaultMaven in your business, modify it for your needs, and audit every line. Each release converts to Apache 2.0 two years after it ships — the same fair-source model used by Sentry.
             </p>
           </div>
         </div>

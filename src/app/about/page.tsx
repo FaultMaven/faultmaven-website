@@ -95,10 +95,10 @@ export default function AboutPage() {
             {/* Principle 3 */}
             <div className="border-l-4 border-purple-500 pl-6">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                3. Open source first
+                3. Show the code
               </h3>
               <p className="text-lg text-slate-700 dark:text-slate-300">
-                Troubleshooting infrastructure is mission-critical. You shouldn&apos;t have to trust a black box. FaultMaven is Apache 2.0—audit every line, self-host forever, contribute improvements. If we disappear tomorrow, your knowledge survives.
+                Troubleshooting infrastructure is mission-critical. You shouldn&apos;t have to trust a black box. FaultMaven is fair source (FSL-1.1-ALv2, converting to Apache 2.0 two years after each release)—audit every line, self-host forever, contribute improvements. If we disappear tomorrow, your knowledge survives.
               </p>
             </div>
 
@@ -135,7 +135,7 @@ export default function AboutPage() {
               FaultMaven started as an internal tool. We were tired of re-solving problems. Tired of searching Slack for answers. Tired of waking up junior engineers at 3 AM because only they remembered how to fix that one weird Redis issue.
             </p>
             <p>
-              <strong className="text-slate-900 dark:text-slate-50">We built FaultMaven for ourselves.</strong> Then we realized every engineering team has the same problem. So we open-sourced it.
+              <strong className="text-slate-900 dark:text-slate-50">We built FaultMaven for ourselves.</strong> Then we realized every engineering team has the same problem. So we published the source.
             </p>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function AboutPage() {
               Join Us
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 text-center max-w-2xl mx-auto">
-              FaultMaven is open source. Deploy it, use it, improve it, break it—then tell us what you learned.
+              FaultMaven is fair source—every line is public. Deploy it, use it, improve it, break it—then tell us what you learned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
