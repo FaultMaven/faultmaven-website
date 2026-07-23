@@ -44,9 +44,10 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
     let cancelled = false;
 
     (async () => {
-      let mermaid;
+      let mermaid, DOMPurify;
       try {
         mermaid = (await import('mermaid')).default;
+        DOMPurify = (await import('dompurify')).default;
       } catch {
         return; // library failed to load — leave source blocks as-is
       }
@@ -72,10 +73,16 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
         try {
           const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
           if (cancelled) return;
+          // Sanitize before injecting: mermaid already strips scripts, but this
+          // breaks the untrusted-DOM-text-to-HTML flow explicitly. The svg/html
+          // profiles preserve mermaid's shapes, <style>, and foreignObject labels.
+          const safeSvg = DOMPurify.sanitize(svg, {
+            USE_PROFILES: { svg: true, svgFilters: true, html: true },
+          });
           const figure = document.createElement('figure');
           figure.className =
             'mermaid-diagram my-8 flex justify-center overflow-x-auto not-prose';
-          figure.innerHTML = svg;
+          figure.innerHTML = safeSvg;
           target.replaceWith(figure);
         } catch {
           // Parse error — leave the original block visible as a fallback.
