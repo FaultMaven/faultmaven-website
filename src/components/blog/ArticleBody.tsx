@@ -17,6 +17,10 @@ const PROSE_CLASS =
   '[&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:space-y-2 ' +
   '[&_code]:bg-slate-100 [&_code]:dark:bg-slate-900 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm [&_code]:font-mono ' +
   '[&_pre]:bg-slate-900 [&_pre]:text-slate-100 [&_pre]:p-4 [&_pre]:rounded-xl [&_pre]:overflow-x-auto ' +
+  // Code inside a <pre> must NOT inherit the inline-code chip background: with
+  // the pre's light text that made the code text invisible (light-on-light),
+  // leaving only gray bars per line. Reset it so the code reads on the dark pre.
+  '[&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-slate-100 [&_pre_code]:rounded-none ' +
   '[&_blockquote]:border-l-4 [&_blockquote]:border-blue-500 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:dark:text-slate-400 ' +
   '[&_table]:w-full [&_table]:border-collapse [&_th]:border [&_th]:border-slate-300 [&_th]:dark:border-slate-700 [&_th]:p-3 [&_th]:bg-slate-100 [&_th]:dark:bg-slate-700 ' +
   '[&_td]:border [&_td]:border-slate-300 [&_td]:dark:border-slate-700 [&_td]:p-3';
