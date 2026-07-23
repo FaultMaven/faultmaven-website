@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-sm text-slate-500 dark:text-slate-400">
               <em>Effective Date: June 2, 2025</em>
               <br />
-              <em>Last Updated: June 2, 2025</em>
+              <em>Last Updated: July 21, 2026</em>
             </p>
             <p>
               Welcome to FaultMaven (&quot;we,&quot; &quot;us,&quot; &quot;our,&quot; or &quot;FaultMaven&quot;). We
@@ -88,16 +88,17 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              4. Future Product Data &amp; Policy Updates
+              4. Product Data &amp; Related Policies
             </h2>
             <p>
               This Privacy Policy primarily addresses data collected via our
-              informational website during the pre-launch phase. A more detailed
-              and comprehensive Privacy Policy, specifically addressing data
-              handling, security, and privacy related to the use of the
-              FaultMaven AI Copilot product (including any operational data you
-              might provide to it), will be made available prior to any product
-              launch or user access that involves such data processing.
+              informational website. Data handling for the FaultMaven Copilot
+              browser extension — including page capture, chat messages, and
+              authentication data — is covered by the dedicated{' '}
+              <a href="/privacy/extension">
+                FaultMaven Copilot Extension Privacy Policy
+              </a>
+              .
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">5. Your Choices &amp; Rights</h2>
