@@ -55,9 +55,15 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
       const isDark = document.documentElement.classList.contains('dark');
       mermaid.initialize({
         startOnLoad: false,
-        // 'antiscript' keeps HTML labels (so <br/> line breaks render) while
-        // stripping any <script>. Diagram sources are our own build-time content.
-        securityLevel: 'antiscript',
+        // Render labels as SVG <text> rather than HTML <foreignObject>. The
+        // sanitizer below strips foreignObject's inner HTML unconditionally
+        // (it processes the tree in the SVG namespace), which would leave
+        // shapes with no words; SVG <text>/<tspan> survive sanitization.
+        // 'strict' forces htmlLabels off; the explicit flag documents intent.
+        // <br/> line breaks still work — mermaid splits them into tspans.
+        securityLevel: 'strict',
+        htmlLabels: false,
+        flowchart: { htmlLabels: false },
         theme: isDark ? 'dark' : 'default',
         fontFamily: 'inherit',
       });
@@ -73,13 +79,11 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
         try {
           const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
           if (cancelled) return;
-          // Sanitize before injecting: mermaid already strips scripts, but this
-          // breaks the untrusted-DOM-text-to-HTML flow explicitly. foreignObject
-          // holds mermaid's HTML text labels and DOMPurify drops it by default
-          // (it's in svgDisallowed), which would leave shapes with no words — so
-          // re-allow just that element. Scripts, event handlers, and iframes
-          // inside it are still stripped, so the xss sink stays closed.
-          const safeSvg = DOMPurify.sanitize(svg, { ADD_TAGS: ['foreignObject'] });
+          // Sanitize before injecting to break the DOM-text-to-HTML flow
+          // explicitly (mermaid already strips scripts; this satisfies the
+          // static analyzer and adds a layer). With htmlLabels off the SVG is
+          // shapes + <text>, all of which DOMPurify preserves.
+          const safeSvg = DOMPurify.sanitize(svg);
           const figure = document.createElement('figure');
           figure.className =
             'mermaid-diagram my-8 flex justify-center overflow-x-auto not-prose';
