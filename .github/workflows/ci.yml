@@ -9,7 +9,7 @@ on:
 env:
   SERVICE_NAME: faultmaven-website
   NODE_VERSION: '20'
-  PNPM_VERSION: '9'
+  PNPM_VERSION: '10'
 
 jobs:
   # ============================================================================
@@ -112,13 +112,12 @@ jobs:
           exit 1
 
   # ============================================================================
-  # Stage 3: Security Scan (Non-blocking)
+  # Stage 3: Security Scan
   # ============================================================================
   security:
     name: Security Scan
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    continue-on-error: true
 
     steps:
       - name: Checkout code
@@ -141,7 +140,7 @@ jobs:
       - name: Run pnpm audit
         run: |
           echo "Running pnpm audit..."
-          pnpm audit --audit-level=moderate || echo "⚠️  Security vulnerabilities found (non-blocking)"
+          pnpm audit --audit-level=high
 
       - name: Security summary
         if: always()
