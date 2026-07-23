@@ -474,7 +474,7 @@ cd faultmaven && ./faultmaven.sh start`}
                 During beta, we&apos;re focused on individuals. If you want to bring your team, apply first as an individual, then let&apos;s talk.
               </p>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
-                For larger teams evaluating FaultMaven, contact us directly: <a href="mailto:support@faultmaven.ai" className="text-blue-600 dark:text-blue-400 hover:underline">support@faultmaven.ai</a>
+                For larger teams evaluating FaultMaven, contact us directly: <a href="mailto:engineering@faultmaven.ai" className="text-blue-600 dark:text-blue-400 hover:underline">engineering@faultmaven.ai</a>
               </p>
             </div>
 

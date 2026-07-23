@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       console.log('Attempting to send confirmation email to:', email);
       try {
         await resend.emails.send({
-          from: 'FaultMaven <support@faultmaven.ai>',
+          from: 'FaultMaven <engineering@faultmaven.ai>',
           to: email,
           subject: 'Welcome to the FaultMaven Waitlist!',
           html: `

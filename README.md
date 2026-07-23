@@ -255,7 +255,7 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 ## 🆘 Support
 
 - **Documentation**: [GitHub README](https://github.com/FaultMaven/faultmaven)
-- **Email**: support@faultmaven.ai
+- **Email**: engineering@faultmaven.ai
 - **Issues**: [GitHub Issues](https://github.com/FaultMaven/faultmaven-website/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/FaultMaven/faultmaven/discussions)
 

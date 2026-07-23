@@ -107,7 +107,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">7. Contact Us</h2>
             <p>
               If you have any questions about these Terms, please contact us at{' '}
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+              <a href="mailto:engineering@faultmaven.ai">engineering@faultmaven.ai</a>.
             </p>
           </div>
         </div>

@@ -320,7 +320,7 @@ export default function ExtensionPrivacyPolicyPage() {
               </a>
               <br />
               <strong>Email:</strong>{' '}
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+              <a href="mailto:engineering@faultmaven.ai">engineering@faultmaven.ai</a>
             </p>
           </div>
         </div>

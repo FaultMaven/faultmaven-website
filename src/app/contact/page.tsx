@@ -69,8 +69,8 @@ export default function ContactPage() {
           {/* Left: Email */}
           <div className="flex flex-col justify-center items-center bg-blue-50 dark:bg-blue-900/30 rounded-2xl shadow-md border border-blue-100 dark:border-blue-900 p-10 text-center">
             <Mail className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4" />
-            <a href="mailto:support@faultmaven.ai" className="text-2xl font-bold text-blue-700 dark:text-blue-400 hover:underline mb-2">
-              support@faultmaven.ai
+            <a href="mailto:engineering@faultmaven.ai" className="text-2xl font-bold text-blue-700 dark:text-blue-400 hover:underline mb-2">
+              engineering@faultmaven.ai
             </a>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-0">We&apos;d love to hear from you!</p>
           </div>

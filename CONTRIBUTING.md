@@ -362,7 +362,7 @@ Other solutions you've thought about
 
 - **Questions**: Create a GitHub Discussion
 - **Bugs**: Create a GitHub Issue
-- **Email**: support@faultmaven.ai
+- **Email**: engineering@faultmaven.ai
 
 ## 📜 Code of Conduct
 
@@ -395,7 +395,7 @@ Contributors will be:
 
 Feel free to:
 - Open a GitHub Discussion
-- Email us at support@faultmaven.ai
+- Email us at engineering@faultmaven.ai
 - Create an issue
 
 ---

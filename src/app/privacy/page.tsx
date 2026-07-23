@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
               You may opt-out of any future email communications from us by
               following the unsubscribe link provided in our emails or by
               contacting us directly at{' '}
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+              <a href="mailto:engineering@faultmaven.ai">engineering@faultmaven.ai</a>.
               Depending on your jurisdiction, you may have other rights
               regarding your personal data.
             </p>
@@ -127,7 +127,7 @@ export default function PrivacyPolicyPage() {
               <br />
               FaultMaven
               <br />
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+              <a href="mailto:engineering@faultmaven.ai">engineering@faultmaven.ai</a>
             </p>
           </div>
         </div>
