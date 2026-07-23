@@ -89,6 +89,13 @@ export default function Footer() {
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
             Fair Source · Self-Hostable · Deploy in 5 Minutes
           </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
+            <Link href="/privacy" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Privacy Policy</Link>
+            {' · '}
+            <Link href="/privacy/extension" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Extension Privacy</Link>
+            {' · '}
+            <Link href="/terms" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Terms of Service</Link>
+          </p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
             &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.
           </p>
