@@ -4,7 +4,7 @@ date: "2026-01-20"
 description: "LLMs answer before they investigate — pattern-matching to the most common cause instead of your actual one. What an evidence-first diagnostic method looks like, and why refusing to conclude is a feature."
 tags: ["ai", "llm", "troubleshooting", "sre", "incident-response"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 It's 2 a.m. and checkout is throwing 502s. You paste the nginx error into an AI chat assistant, and three seconds later you have an answer: fluent, structured, confident. *"A 502 Bad Gateway typically indicates your upstream server timed out. Increase `proxy_read_timeout` and `proxy_connect_timeout`, and consider adding retries."* It even formats the config block for you.

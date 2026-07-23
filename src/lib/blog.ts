@@ -68,8 +68,10 @@ export function getAllPosts(): BlogPost[] {
     });
   }
 
-  // Sort posts by date in descending order
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Only published posts are surfaced publicly; drafts and in-review posts stay hidden.
+  return posts
+    .filter((post) => post.status === 'published')
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export async function getPostBySlug(slugParam: string): Promise<BlogPost | null> {
@@ -100,6 +102,11 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
   const fullPath = path.join(BLOG_DIRECTORY, targetFileName);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents, matterOptions);
+
+  // Draft/in-review posts are not directly reachable either — 404 them.
+  if (((data.status as string) || 'published') !== 'published') {
+    return null;
+  }
 
   const contentHtml = await marked(content);
   const rawSlug = targetFileName.replace(/\.md$/, '');

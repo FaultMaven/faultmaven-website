@@ -4,7 +4,7 @@ date: "2026-05-12"
 description: "Resolution knowledge evaporates into closed tickets and stale wikis, so teams re-solve incidents they already fixed. Capturing structured runbooks from the investigation itself — not as after-the-fact homework — is how troubleshooting knowledge compounds."
 tags: ["sre", "incident-response", "knowledge-management", "postmortems", "reliability"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 The pager goes off a little after midnight. `FATAL: too many connections for role`. Latency is climbing, the pool is saturated, and you're staring at `pg_stat_activity` trying to remember whether you're supposed to kill the idle-in-transaction sessions or bump `max_pool_size` — and which one makes it worse.

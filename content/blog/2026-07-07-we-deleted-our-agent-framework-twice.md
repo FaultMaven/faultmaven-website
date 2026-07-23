@@ -4,7 +4,7 @@ date: "2026-07-07"
 description: "We built FaultMaven's investigation engine three times — on a popular agent framework, then on borrowed expert methodologies, and finally on a domain model of investigation itself. Both deletions failed for the same reason, and the lesson transfers to any agentic app."
 tags: ["ai", "llm", "troubleshooting", "sre", "reliability"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 Every team building an agentic application asks the same question first:

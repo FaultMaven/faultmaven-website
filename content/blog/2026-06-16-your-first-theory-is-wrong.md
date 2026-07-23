@@ -4,7 +4,7 @@ date: "2026-06-16"
 description: "Anchoring on the first plausible theory is the classic investigation failure. What disciplined hypothesis management looks like: causal chains, competing alternatives, evidence that demotes, and confidence that decays."
 tags: ["sre", "incident-response", "troubleshooting", "reliability", "on-call"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 Three hours into the outage, the whole call is working one theory. Someone floated it in the first twenty minutes — it was plausible, it fit the first graph anyone looked at, and it gave everyone something to do. Since then, every piece of evidence that fits the theory gets posted to the channel. Every piece that doesn't gets explained away: "that metric's always noisy," "that's probably unrelated." Around hour two, someone shipped the fix the theory implied. The problem didn't go away. And here's the part worth sitting with: **the theory survived its own failed fix.** The team concluded the fix was applied wrong, or needs time to propagate, or missed an edge case — anything but the obvious reading, which is that the theory is wrong.
