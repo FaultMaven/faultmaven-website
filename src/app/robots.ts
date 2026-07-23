@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://faultmaven.com/sitemap.xml',
+    sitemap: 'https://www.faultmaven.ai/sitemap.xml',
   };
 }
