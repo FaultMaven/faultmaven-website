@@ -74,11 +74,12 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
           const { svg } = await mermaid.render(`mermaid-diagram-${i}`, source);
           if (cancelled) return;
           // Sanitize before injecting: mermaid already strips scripts, but this
-          // breaks the untrusted-DOM-text-to-HTML flow explicitly. The svg/html
-          // profiles preserve mermaid's shapes, <style>, and foreignObject labels.
-          const safeSvg = DOMPurify.sanitize(svg, {
-            USE_PROFILES: { svg: true, svgFilters: true, html: true },
-          });
+          // breaks the untrusted-DOM-text-to-HTML flow explicitly. foreignObject
+          // holds mermaid's HTML text labels and DOMPurify drops it by default
+          // (it's in svgDisallowed), which would leave shapes with no words — so
+          // re-allow just that element. Scripts, event handlers, and iframes
+          // inside it are still stripped, so the xss sink stays closed.
+          const safeSvg = DOMPurify.sanitize(svg, { ADD_TAGS: ['foreignObject'] });
           const figure = document.createElement('figure');
           figure.className =
             'mermaid-diagram my-8 flex justify-center overflow-x-auto not-prose';
