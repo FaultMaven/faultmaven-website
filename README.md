@@ -21,7 +21,7 @@ This repository contains the **source code for the official FaultMaven website**
 
 This is the official source code for the **FaultMaven** website. It is built with **Next.js**, **React**, and **Tailwind CSS**.
 
-**FaultMaven** is the open-source AI troubleshooting copilot that helps SREs, DevOps engineers, and developers diagnose incidents faster by correlating full-stack data with a unified knowledge base.
+**FaultMaven** is the fair-source AI troubleshooting copilot that helps SREs, DevOps engineers, and developers diagnose incidents faster by correlating full-stack data with a unified knowledge base.
 
 ### What's Inside
 
@@ -37,6 +37,8 @@ This is the official source code for the **FaultMaven** website. It is built wit
 ---
 
 ## 🛠️ Local Development
+
+**Prerequisites:** Node 20+ and [pnpm](https://pnpm.io/) (CI runs Node 20 / pnpm 10).
 
 To run the website locally for editing documentation or landing pages:
 
@@ -79,7 +81,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ├── src/
 │   ├── app/                 # Next.js App Router pages
 │   │   ├── about/           # About page
-│   │   ├── blog/            # Blog section (planned)
+│   │   ├── api/             # Route handlers (waitlist, auth, webhooks)
+│   │   ├── blog/            # Blog: index (page.tsx) + [slug] post pages
 │   │   ├── contact/         # Contact page
 │   │   ├── faq/             # FAQ page
 │   │   ├── founders/        # Beta Founders program page
@@ -87,9 +90,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │   │   ├── privacy/         # Privacy policy
 │   │   ├── product/         # Product details
 │   │   ├── roadmap/         # Product roadmap & vision
+│   │   ├── signin/          # Sign-in redirect to the hosted dashboard
 │   │   ├── terms/           # Terms of service
 │   │   ├── use-cases/       # Use cases
 │   │   ├── waitlist/        # Beta application
+│   │   ├── robots.ts        # robots.txt (generated)
+│   │   ├── sitemap.ts       # sitemap.xml (generated)
 │   │   └── page.tsx         # Homepage
 │   ├── components/          # React components
 │   │   ├── icons/           # Icon components
@@ -98,6 +104,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │   │   └── ui/              # Reusable UI components (Button, Card, etc.)
 │   ├── lib/                 # Utility functions
 │   └── types/               # TypeScript definitions
+├── content/
+│   └── blog/                # Blog posts as Markdown (gray-matter frontmatter)
 ├── public/                  # Static assets
 │   └── images/              # Image files
 └── middleware.ts            # Next.js middleware
@@ -128,15 +136,24 @@ pnpm type-check
 
 ### Environment Variables
 
-Create a `.env.local` file for local development:
+Copy `.env.example` to `.env.local`. All variables are optional for local development — the site runs without any of them:
 
 ```env
-# API Configuration (if needed)
-NEXT_PUBLIC_API_URL=https://api.faultmaven.com
+# Dashboard URL used by sign-in / CTA links
+NEXT_PUBLIC_DASHBOARD_URL=https://app.faultmaven.ai
+
+# Contact / waitlist email delivery (Resend) — server-side, needed only for the contact form
+# RESEND_API_KEY=your-resend-api-key
 
 # Analytics (optional)
 # NEXT_PUBLIC_GA_ID=your-google-analytics-id
+# NEXT_PUBLIC_POSTHOG_KEY=your-posthog-key
+
+# Reserved for future use
+# NEXT_PUBLIC_API_URL=https://api.faultmaven.com
 ```
+
+See [`.env.example`](.env.example) for the full list.
 
 ---
 
@@ -150,6 +167,28 @@ We welcome contributions from the community! Here's how you can help:
 2. **Bug Reports**: Report issues or broken links
 3. **Feature Requests**: Suggest improvements to the website
 4. **Translations**: Help translate documentation (coming soon)
+
+### Adding a Blog Post
+
+Blog posts are Markdown files in [`content/blog/`](content/blog/), rendered at `faultmaven.ai/blog` by the App Router (`src/app/blog/`). To add one:
+
+1. Create `content/blog/YYYY-MM-DD-slug.md` (the date is the publication date).
+2. Add the frontmatter block:
+
+   ```yaml
+   ---
+   title: "Post title"
+   date: "2026-01-20"
+   description: "1–2 sentence summary used for SEO meta and the post card."
+   tags: ["sre", "incident-response", "ai"]
+   author: "The FaultMaven Team"
+   status: "published"   # draft → approved → published
+   ---
+   ```
+
+3. Write the body in Markdown (fenced code blocks and Mermaid diagrams are supported).
+
+See [`content/blog/README.md`](content/blog/README.md) for the editorial bar and terminology conventions.
 
 ### Contribution Workflow
 
@@ -222,7 +261,9 @@ This site is automatically deployed to Vercel:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/FaultMaven/faultmaven-website)
 
-### Manual Deployment
+### Manual Deployment (maintainers only)
+
+Production and preview deploys happen automatically via Vercel (above); manual deploys are for maintainers only.
 
 ```bash
 # Install Vercel CLI
@@ -238,11 +279,11 @@ vercel --prod
 
 The FaultMaven ecosystem includes:
 
-- **[faultmaven](https://github.com/FaultMaven/faultmaven)** - Main repository with the modular-monolith backend (Open Source)
-- **[faultmaven-dashboard](https://github.com/FaultMaven/faultmaven-dashboard)** - Web-based dashboard UI (Open Source)
-- **[faultmaven-copilot](https://github.com/FaultMaven/faultmaven-copilot)** - Browser extension for incident capture (Open Source)
+- **[faultmaven](https://github.com/FaultMaven/faultmaven)** - Main repository with the modular-monolith backend (fair-source, FSL-1.1-ALv2)
+- **[faultmaven-dashboard](https://github.com/FaultMaven/faultmaven-dashboard)** - Web-based dashboard UI (Apache-2.0)
+- **[faultmaven-copilot](https://github.com/FaultMaven/faultmaven-copilot)** - Browser extension for incident capture (Apache-2.0)
 
-All FaultMaven components are Apache 2.0 licensed and fully open source.
+The core backend is **fair-source** under FSL-1.1-ALv2 (source-available; converts to Apache-2.0 two years after each release). The dashboard, copilot, and this website are Apache-2.0. See each repository's `LICENSE`.
 
 ---
 

@@ -1,8 +1,8 @@
 # FaultMaven Blog Content
 
 Markdown source for posts published at **faultmaven.ai/blog**. The blog page
-(`src/app/blog/page.tsx`) is currently a "Coming Soon" placeholder; these files
-are the content it will render once the blog pipeline is wired up.
+(`src/app/blog/page.tsx`) renders these files via `src/lib/blog.ts` (gray-matter
+frontmatter + Markdown body); each post is served at `/blog/<slug>`.
 
 ## Conventions
 
