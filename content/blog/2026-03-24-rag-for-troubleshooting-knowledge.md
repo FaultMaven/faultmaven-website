@@ -4,7 +4,7 @@ date: "2026-03-24"
 description: "Why wiring your runbooks into a vector database produces plausible-but-wrong answers during incidents, and what retrieval built for troubleshooting has to do differently: cause-structured chunks, lexical signals for exact identifiers, and grounded synthesis."
 tags: ["rag", "sre", "troubleshooting", "knowledge-management", "reliability"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 The demo works great. You point an embedding pipeline at your wiki and your runbooks, stand up a vector database, wire it to an LLM, and ask it a question from last quarter's incident review. The answer is fluent, cites a real document, and arrives in two seconds. You ship it.

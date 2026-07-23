@@ -4,7 +4,7 @@ date: "2026-04-14"
 description: "LLM providers share an API shape, not a capability contract. Systems that depend on structured output and tool calling break silently when you swap models — here's why, and how to route by capability instead of brand."
 tags: ["llm", "ai", "reliability", "self-hosting", "devops"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 Your LLM-backed feature works. You built it against GPT-4o or Claude, the outputs are clean, the state moves the way it should. Then someone points it at a cheaper model — or a self-hosted one for the air-gapped environment, or an open-weight model to cut the bill — and it keeps working. No exceptions. No stack traces. The requests return `200`, the JSON parses, the app renders.

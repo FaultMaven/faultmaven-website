@@ -4,7 +4,7 @@ date: "2026-02-10"
 description: "Every incident-response diagram shows a tidy detect → triage → diagnose → mitigate → resolve pipeline. Real investigations never run that way. Here's why milestone-based, evidence-driven progress models reality — without giving up discipline."
 tags: ["incident-response", "troubleshooting", "sre", "reliability", "on-call"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 Somewhere in your team's wiki there is a diagram. It has five or six boxes with
