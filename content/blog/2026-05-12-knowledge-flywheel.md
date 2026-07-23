@@ -94,7 +94,7 @@ Capture-and-structure alone would already beat the status quo. But the reason it
 ```mermaid
 flowchart LR
     A[Incident] --> B[Investigation:<br/>symptom, evidence,<br/>validated cause,<br/>verified fix]
-    B --> C{Cause confirmed?<br/>fix applied &<br/>problem gone}
+    B --> C{Cause confirmed?<br/>fix applied and<br/>problem gone}
     C -->|yes| D[Draft runbook<br/>symptom → cause →<br/>verification → remediation]
     C -->|no| A
     D --> E[Human review:<br/>edit + verify]
