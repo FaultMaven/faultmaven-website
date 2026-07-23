@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://faultmaven.com'),
+  metadataBase: new URL('https://www.faultmaven.ai'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://faultmaven.com',
+    url: 'https://www.faultmaven.ai',
     title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
     description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
     siteName: 'FaultMaven',
