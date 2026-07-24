@@ -53,7 +53,7 @@ export async function POST(request: Request) {
             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
               <h1 style="color: #2563EB;">Welcome to FaultMaven!</h1>
               <p>Thank you for joining our waitlist. We're excited to have you on board!</p>
-              <p>We'll keep you updated on our progress and notify you when early access becomes available.</p>
+              <p>We'll keep you updated on our progress and notify you when Cloud beta spots become available.</p>
               <p>Best regards,<br>The FaultMaven Team</p>
             </div>
           `,

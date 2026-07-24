@@ -2,20 +2,22 @@ import { Handshake, Key, Megaphone } from 'lucide-react';
 
 const benefits = [
   {
-    title: 'Early Access',
-    description: 'Be among the first to experience our platform and shape its future development.',
+    title: 'Priority Access',
+    description: 'Be at the front of the line when FaultMaven Cloud beta spots open up.',
     icon: Key,
     accent: 'bg-blue-500',
   },
   {
     title: 'Exclusive Updates',
-    description: 'Receive insider information about our progress, features, and launch plans.',
+    description:
+      'Receive direct-from-the-source news on our development progress, key milestones, and feature unveilings.',
     icon: Megaphone,
     accent: 'bg-green-500',
   },
   {
-    title: 'Priority Support',
-    description: 'Get dedicated support and direct communication with our team.',
+    title: 'An Opportunity to Influence',
+    description:
+      'As an early community member, you\'ll have the chance to provide invaluable feedback and directly contribute to shaping a tool built for engineers, by engineers.',
     icon: Handshake,
     accent: 'bg-purple-500',
   },

@@ -111,7 +111,7 @@ cd faultmaven
                   <li className="flex items-start">
                     <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Runbooks, past incidents, post-mortems, and tribal knowledge, indexed and shared across your team (Cloud)</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Runbooks, past incidents, post-mortems, and tribal knowledge — indexed in any deployment, shared across your team in Cloud</span>
                     </div>
                   </li>
                   <li className="flex items-start">

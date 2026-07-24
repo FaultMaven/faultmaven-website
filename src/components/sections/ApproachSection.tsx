@@ -41,7 +41,7 @@ export default function ApproachSection() {
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Your runbooks, post-mortems, and past resolutions, shared across the team (Cloud)</span>
+                <span><strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Your runbooks, post-mortems, and past resolutions, indexed in any deployment and shared across the team in Cloud</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
