@@ -21,7 +21,7 @@ export default function BlogIndexPage() {
             FaultMaven Blog
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-            Engineering insights, diagnostic methodologies, and perspectives on AI-powered incident investigation for SREs and DevOps teams.
+            Engineering insights, diagnostic methodologies, and perspectives on AI-powered incident investigation for engineers, SREs, and platform teams.
           </p>
         </div>
 

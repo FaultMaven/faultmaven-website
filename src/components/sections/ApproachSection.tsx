@@ -49,7 +49,7 @@ export default function ApproachSection() {
               </li>
             </ul>
             <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Every fix makes the system smarter. You&apos;ll never solve the same problem twice.
+              Every fix makes the system smarter — so you spend less time re-solving problems you&apos;ve already cracked.
             </p>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">

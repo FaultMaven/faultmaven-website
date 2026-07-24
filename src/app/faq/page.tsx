@@ -160,7 +160,7 @@ cd faultmaven
                   Where does my data go?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers. Zero telemetry.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers, and no usage data is sent back to us.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   <strong className="text-slate-900 dark:text-slate-50">Cloud (hosted):</strong> Data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never train models on your data or share it with third parties.

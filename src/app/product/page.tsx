@@ -19,7 +19,7 @@ export default function ProductPage() {
             How FaultMaven Works
           </h1>
           <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            From error to resolution in minutes, not hours.
+            A methodical path from error to resolution.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
             FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
@@ -200,7 +200,7 @@ export default function ProductPage() {
                     </li>
                   </ul>
                   <p className="text-lg text-slate-700 dark:text-slate-300 font-medium">
-                    You&apos;ll never solve the same problem twice.
+                    So you spend less time re-solving problems you&apos;ve already cracked.
                   </p>
                 </div>
               </div>
