@@ -69,12 +69,12 @@ export default function RoadmapPage() {
                 Copilot — turn-by-turn, at your side
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                An interactive troubleshooting companion that runs entirely in your browser.
+                An interactive troubleshooting companion in your browser, backed by your own self-hosted instance — with zero access to your production systems.
               </p>
               <dl className="grid md:grid-cols-3 gap-6">
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">100% client-side. Nothing connects to your backend — you share only what you paste, upload, or capture.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">No reach into your production systems — no agents, no credentials. FaultMaven works only from what you paste, upload, or capture.</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
@@ -82,7 +82,7 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">No credentials to hand over, so nothing to clear with InfoSec. Immediate value, and a chance to build diagnostic trust.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">No credentials to hand over and no integration to security-review — so you get value immediately, and a chance to build diagnostic trust.</dd>
                 </div>
               </dl>
               <div className="mt-6">

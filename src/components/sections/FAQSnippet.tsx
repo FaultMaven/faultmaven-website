@@ -39,7 +39,7 @@ export default function FAQSnippet() {
     },
     {
       question: 'How does FaultMaven handle my data?',
-      answer: "The Copilot runs client-side in your browser and never asks for production credentials — you control exactly what you share. Sensitive patterns (keys, passwords, PII) are detected and redacted before anything reaches an LLM, and self-hosted deployments can run fully air-gapped with local models. Your data stays on your infrastructure.",
+      answer: "The Copilot runs client-side in your browser and never asks for production credentials — you control exactly what you share. FaultMaven includes an optional redaction layer (regex for keys and tokens, Presidio for PII) you can enable to scrub sensitive values before prompts reach an external provider — or run local models (Ollama, vLLM) so nothing leaves your infrastructure at all. Your data stays on your infrastructure.",
     },
   ];
 

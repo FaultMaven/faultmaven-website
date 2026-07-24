@@ -319,7 +319,7 @@ export default function ProductPage() {
                 Data Redaction
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Sensitive patterns (API keys, passwords, PII) are automatically detected and redacted before LLM processing.
+                An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach an external LLM — or run local models so nothing leaves at all.
               </p>
             </div>
 

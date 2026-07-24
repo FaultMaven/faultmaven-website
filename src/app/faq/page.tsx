@@ -186,7 +186,7 @@ cd faultmaven
                   Do you train AI models on my data?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  No. FaultMaven never trains models on your data, and your case data stays in your instance (self-hosted or Cloud). When you route inference to a third-party provider, your prompts are subject to that provider&apos;s terms — so choose an endpoint with a no-training / zero-retention policy (most enterprise and API tiers offer one), or run fully local models (Ollama, vLLM) so nothing leaves your infrastructure at all. Sensitive values are redacted before anything is sent either way.
+                  No. FaultMaven never trains models on your data, and your case data stays in your instance (self-hosted or Cloud). When you route inference to a third-party provider, your prompts are subject to that provider&apos;s terms — so choose an endpoint with a no-training / zero-retention policy (most enterprise and API tiers offer one), or run fully local models (Ollama, vLLM) so nothing leaves your infrastructure at all. FaultMaven also ships an optional redaction layer that scrubs sensitive values (keys, tokens, PII) before prompts leave for a third-party provider — enable it when you route inference externally.
                 </p>
               </div>
 

@@ -16,7 +16,7 @@ export default function VisionSnippet() {
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
             <p className="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 mb-1">Phase 1 · Now</p>
             <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Copilot</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">Turn-by-turn, 100% client-side. Zero backend access.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Turn-by-turn. Zero access to your systems — it works only from what you share.</p>
           </div>
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
             <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 mb-1">Phase 2 · Next</p>
