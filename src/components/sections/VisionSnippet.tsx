@@ -6,11 +6,14 @@ export default function VisionSnippet() {
   return (
     <section className="py-24 bg-slate-100 dark:bg-slate-800">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-          The Vision: Trust first, access follows
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-3">
+          The Vision: Earned Autonomy
         </h2>
+        <p className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-6">
+          Trust first. Access follows. Autonomy earned.
+        </p>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-          Most AI ops tools ask for broad access to your systems on day one. FaultMaven starts with none and earns its way in — proving its diagnostic method before it ever touches your infrastructure. Its reach grows in three phases:
+          Most AI ops tools ask for broad access on day one. FaultMaven starts with none and earns its way in — proving its method before it ever touches your infrastructure. Its reach grows in three phases:
         </p>
         <div className="grid sm:grid-cols-3 gap-4 text-left mb-8">
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">

@@ -23,7 +23,7 @@ export default function FAQSnippet() {
     },
     {
       question: 'How is it different from ChatGPT or Claude?',
-      answer: "Generic AI has no memory of your infrastructure or your past incidents, and it will confidently guess. FaultMaven grounds every step in the evidence you provide and won't present a root cause it can't back with that evidence. It also leads: instead of waiting for the right question, it drives the investigation — naming the single most decisive next step and adapting when you're blocked — and it remembers what it learns, so every resolved case becomes reusable knowledge.",
+      answer: "Generic AI has no memory of your infrastructure or your past incidents, and it will confidently guess. FaultMaven grounds every step in the evidence you provide and won't present a root cause it can't back with that evidence. It also leads — driving the investigation rather than waiting for the right question — and remembers what it learns, so every resolved case becomes reusable knowledge. And it lives alongside your tools instead of a separate chat tab.",
     },
     {
       question: 'Is it really free, and is the source open?',

@@ -12,7 +12,7 @@ export default function RoadmapPage() {
             The FaultMaven Roadmap
           </h1>
           <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            Trust first. Access follows.
+            Trust first. Access follows. Autonomy earned.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             We&apos;re building FaultMaven in the open. Most AI ops tools ask for broad access to your systems on day one. FaultMaven starts with none and earns its way in — proving its diagnostic method before it ever touches your infrastructure. Here&apos;s the progression, and how you can shape it.
@@ -23,11 +23,14 @@ export default function RoadmapPage() {
       {/* Thesis Section */}
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 text-center mb-3">
+            Our philosophy: Earned Autonomy
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-6">
             Access is earned, not assumed
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
-            The one thing that changes across every phase below is how much of your environment FaultMaven can reach — and it only reaches further once the previous step has proven itself.
+            Traditional ops tools force a Day-1 choice: full system integration, or zero value. FaultMaven refuses it — its reach and autonomy grow only as each phase proves itself.
           </p>
 
           <div className="max-w-3xl mx-auto space-y-6">
