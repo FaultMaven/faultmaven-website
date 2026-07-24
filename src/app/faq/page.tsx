@@ -196,7 +196,7 @@ cd faultmaven
                   Can I use my own AI models?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. FaultMaven supports bring-your-own-LLM across nine providers — Anthropic, OpenAI, Gemini, Fireworks, Groq, and more — or run self-hosted open models (Llama and others) locally via Ollama or vLLM, i.e. any OpenAI-compatible endpoint. Full control over where inference happens.
+                  Yes. FaultMaven supports bring-your-own-LLM across nine providers — Anthropic, OpenAI, Gemini, Fireworks, Groq, and more — including a local option that runs self-hosted open models (Llama and others) via Ollama or vLLM, i.e. any OpenAI-compatible endpoint. Full control over where inference happens.
                 </p>
               </div>
             </div>
