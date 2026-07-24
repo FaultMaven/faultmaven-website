@@ -28,7 +28,8 @@ export default function Hero() {
               </p>
               <p>
                 FaultMaven works a problem the way a seasoned engineer does — goal-driven,
-                methodical, and grounded in evidence — and it never forgets what it learns.
+                methodical, and grounded in evidence. It doesn&apos;t just answer questions; it
+                leads, driving the investigation to the next decisive step.
               </p>
               <p>
                 It correlates your live telemetry with your runbooks, docs, and past fixes to

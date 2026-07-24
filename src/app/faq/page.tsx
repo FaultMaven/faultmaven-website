@@ -170,16 +170,13 @@ cd faultmaven
               {/* Q8 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                  Is FaultMaven SOC 2 / HIPAA / GDPR compliant?
+                  What about SOC 2, HIPAA, and GDPR?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong>SOC 2:</strong> SOC 2 Type II is in progress for FaultMaven Cloud.
-                </p>
-                <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong>GDPR:</strong> We support data export and deletion requests and can provide a data processing agreement (DPA) for Cloud customers.
+                  <strong>Self-hosted (Standalone):</strong> because everything runs on your own infrastructure, the environment sits fully inside your existing compliance boundary — you control data residency, retention, and access to meet your own SOC 2, HIPAA, or GDPR obligations.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong>HIPAA:</strong> Self-hosted (Standalone) puts the environment fully under your control for your own compliance needs. Cloud compliance options are on the roadmap.
+                  <strong>Cloud:</strong> FaultMaven Cloud is currently in beta. We build to GDPR principles — data export and deletion on request, and a data processing agreement (DPA) available for customers. Formal certifications will be pursued as Cloud moves toward general availability; if you have a specific compliance requirement, <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">talk to us</a> about where it stands today.
                 </p>
               </div>
 
@@ -189,7 +186,7 @@ cd faultmaven
                   Do you train AI models on my data?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  No. Never. Your troubleshooting data stays in your FaultMaven instance (self-hosted or cloud). We use third-party AI providers (OpenAI, Anthropic, etc.) with strict zero-retention agreements—they don&apos;t store or train on your data either.
+                  No. FaultMaven never trains models on your data, and your case data stays in your instance (self-hosted or Cloud). When you route inference to a third-party provider, your prompts are subject to that provider&apos;s terms — so choose an endpoint with a no-training / zero-retention policy (most enterprise and API tiers offer one), or run fully local models (Ollama, vLLM) so nothing leaves your infrastructure at all. FaultMaven also ships an optional redaction layer that scrubs sensitive values (keys, tokens, PII) before prompts leave for a third-party provider — enable it when you route inference externally.
                 </p>
               </div>
 

@@ -100,10 +100,10 @@ export default function BlogIndexPage() {
             Stay Ahead in AI-Powered Operations
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-lg">
-            Join our waitlist to receive early access updates and new technical articles straight from our engineering team.
+            Deploy FaultMaven Standalone free right now — or join the waitlist for the Cloud beta and new technical articles from our engineering team.
           </p>
           <Button asChild href="/waitlist" variant="primary">
-            Apply for Early Access
+            Join the Waitlist
           </Button>
         </section>
       </div>

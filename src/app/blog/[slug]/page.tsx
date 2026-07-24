@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div>
             <h3 className="text-xl font-bold mb-2">Build Grounded AI Troubleshooting</h3>
             <p className="text-sm text-slate-300">
-              Try FaultMaven or apply for early access today.
+              Deploy FaultMaven free — or join the Cloud beta waitlist.
             </p>
           </div>
           <div className="flex items-center gap-4">

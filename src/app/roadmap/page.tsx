@@ -12,246 +12,153 @@ export default function RoadmapPage() {
             The FaultMaven Roadmap
           </h1>
           <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            From personal copilot to organizational intelligence.
+            Trust first. Autonomy earned.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            We&apos;re building FaultMaven in public. Here&apos;s where we are, where we&apos;re going, and how you can help shape the direction. Our north star: make every engineer as effective as your best SRE on their best day.
+            We&apos;re building FaultMaven in the open. It&apos;s a copilot by choice, not by limitation: rather than demand broad access and full automation on day one, it starts hands-on — with zero access to your systems — and earns more autonomy as it proves itself. Here&apos;s the progression, and how you can shape it.
           </p>
         </div>
       </section>
 
-      {/* Philosophy Section */}
+      {/* Thesis Section */}
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Human-Centered AI
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 text-center mb-3">
+            Our philosophy: Earned Autonomy
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-6">
+            Autonomy is earned, not assumed
           </h2>
-          <div className="max-w-3xl mx-auto space-y-8">
+          <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
+            Traditional ops tools force a Day-1 choice: full system integration, or zero value. FaultMaven refuses it. It starts as a hands-on copilot and takes on more only as it proves itself.
+          </p>
+
+          <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              FaultMaven augments your expertise—it doesn&apos;t replace it. You remain in command. You direct the investigation. You make the final call.
+              Being a copilot is a deliberate choice, not a limitation. FaultMaven is built to do more on its own — but demanding broad access and full automation before it has diagnosed a single incident is a lot to trust on faith, and the fastest way to stall in a security review. So it earns autonomy rather than assuming it.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              As trust builds, you can grant FaultMaven more autonomy:
+              It starts by working turn-by-turn beside you, with no access to your systems. As it proves its method, it takes on more of the loop on its own — first analyzing the evidence bundles you hand it, and only when you&apos;re ready, connecting directly to your stack. Direct access to your systems is the last step, not the first.
             </p>
-
-            <div className="space-y-6">
-              {/* Level 1 */}
-              <div className="p-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-                  Level 1: Advisor
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Suggests next steps, you execute
-                </p>
-              </div>
-
-              {/* Level 2 */}
-              <div className="p-6 border-l-4 border-green-500 bg-green-50 dark:bg-green-900/20 rounded-r-lg">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-                  Level 2: Assistant
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Executes commands with your approval
-                </p>
-              </div>
-
-              {/* Level 3 */}
-              <div className="p-6 border-l-4 border-purple-500 bg-purple-50 dark:bg-purple-900/20 rounded-r-lg">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-                  Level 3: Autopilot <span className="text-sm text-purple-600 dark:text-purple-400">(future)</span>
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Handles routine tasks autonomously
-                </p>
-              </div>
+            <div className="p-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg">
+              <p className="text-slate-700 dark:text-slate-300">
+                What never changes is the <strong>method</strong>. However independently FaultMaven works, every conclusion is grounded in real evidence and reached the same methodical way. You set the pace — and partnership grows from proof, not privilege.
+              </p>
             </div>
-
-            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium pt-6">
-              Today we&apos;re focused on Level 1. We&apos;ll earn the right to Level 3.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Phases Section */}
       <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Where We Are
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
+            Three phases, growing autonomy
           </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
+            Each phase takes on more of the work on its own — and only the last connects to your systems directly. You can stop at any of them.
+          </p>
 
-          <div className="space-y-16">
-            {/* FaultMaven 1.0 - Available Now */}
-            <div className="relative">
-              <div className="border-2 border-green-500 rounded-xl p-8 bg-white dark:bg-slate-900">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50">
-                      ✅ AVAILABLE NOW — FaultMaven 1.0: Personal AI Copilot
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      Your personal troubleshooting copilot. No team setup required.
-                    </p>
-                  </div>
+          <div className="space-y-10">
+            {/* Phase 1 — Copilot (Available now) */}
+            <div className="border-2 border-green-500 rounded-xl p-8 bg-white dark:bg-slate-900">
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <span className="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full">
+                  Phase 1 · Available now
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">You guide it, turn by turn</span>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+                Copilot — turn-by-turn, at your side
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">
+                An interactive troubleshooting companion in your browser, backed by your own self-hosted instance — with zero access to your production systems.
+              </p>
+              <dl className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">No reach into your production systems — no agents, no credentials. FaultMaven works only from what you paste, upload, or capture.</dd>
                 </div>
-
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Browser extension with side-panel interface</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">AI-powered root cause analysis</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Personal knowledge base (your runbooks, your solutions)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Multi-provider LLM support (OpenAI, Anthropic, Ollama)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Self-hosted via Docker Compose</span>
-                  </li>
-                </ul>
-
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</span>
-                    <span className="text-sm font-medium text-green-600 dark:text-green-400">100% — Deploy today</span>
-                  </div>
-                  <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3">
-                    <div className="bg-green-500 h-3 rounded-full" style={{width: '100%'}}></div>
-                  </div>
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">FaultMaven tells you what to run or check; you run it; it interprets the output and drives the next step.</dd>
                 </div>
-
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">No credentials to hand over and no integration to security-review — so you get value immediately, and a chance to build diagnostic trust.</dd>
+                </div>
+              </dl>
+              <div className="mt-6">
                 <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="w-full md:w-auto">
-                  Deploy Now →
+                  Deploy it today →
                 </Button>
               </div>
             </div>
 
-            {/* FaultMaven 1.5 - In Development */}
-            <div className="relative">
-              <div className="border-2 border-blue-500 rounded-xl p-8 bg-white dark:bg-slate-900">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50">
-                      🔨 IN DEVELOPMENT — FaultMaven 1.5: Team Knowledge Bridge
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      Shared knowledge bases without changing how you work.
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Centralized team knowledge repository</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Admin-curated runbooks and procedures</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Consistent troubleshooting across your team</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Same personal interface, team-wide intelligence</span>
-                  </li>
-                </ul>
-
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</span>
-                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">80% — Q1 2026</span>
-                  </div>
-                  <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3">
-                    <div className="bg-blue-500 h-3 rounded-full" style={{width: '80%'}}></div>
-                  </div>
-                </div>
-
-                <Button asChild href="/contact" variant="secondary" className="w-full md:w-auto">
-                  Join Early Access →
-                </Button>
+            {/* Phase 2 — Investigator (Next) */}
+            <div className="border-2 border-blue-500 rounded-xl p-8 bg-white dark:bg-slate-900">
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <span className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">
+                  Phase 2 · Next
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">It works on your bundle</span>
               </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+                Investigator — hand it the evidence, get back a diagnosis
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">
+                An asynchronous diagnostic engine that works a bundle end-to-end on its own.
+              </p>
+              <dl className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Offline diagnostic packages you choose to share — log dumps, telemetry bundles, <code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">.zip</code>/<code className="text-xs bg-slate-100 dark:bg-slate-800 px-1 rounded">.tar.gz</code>. Production stays untouched.</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">You provide the bundle; FaultMaven correlates disparate events, isolates the root cause, and returns a structured post-mortem and remediation plan — no turn-by-turn prompting.</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Automates the tedious log-grepping for complex, multi-signal incidents while your systems stay fully isolated.</dd>
+                </div>
+              </dl>
             </div>
 
-            {/* FaultMaven 2.0 - On the Horizon */}
-            <div className="relative">
-              <div className="border-2 border-slate-300 dark:border-slate-700 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-slate-400 dark:bg-slate-600 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50">
-                      🔭 ON THE HORIZON — FaultMaven 2.0: Collaborative Intelligence
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      Your team&apos;s collective brain.
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Active participation in incident channels (Slack, Teams)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Deep integrations with observability platforms</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Guided remediation with approved automated actions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Cross-team pattern detection</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-slate-500 dark:text-slate-400 mr-3 text-xl">•</span>
-                    <span className="text-slate-600 dark:text-slate-400">Proactive anomaly alerts <span className="text-xs italic text-slate-500 dark:text-slate-500">(long-term vision)</span></span>
-                  </li>
-                </ul>
-
-                <div className="mb-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</span>
-                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">20% — 2026</span>
-                  </div>
-                  <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3">
-                    <div className="bg-slate-400 dark:bg-slate-600 h-3 rounded-full" style={{width: '20%'}}></div>
-                  </div>
-                </div>
-
-                <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary" className="w-full md:w-auto">
-                  Share Your Input →
-                </Button>
+            {/* Phase 3 — Integrated Agent (On the roadmap) */}
+            <div className="border-2 border-slate-300 dark:border-slate-700 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <span className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-3 py-1 rounded-full">
+                  Phase 3 · On the roadmap
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">It connects to your stack</span>
               </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+                Integrated Agent — from alert to resolution, on its own
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">
+                A fully autonomous responder: it detects, investigates, and resolves end-to-end — no turn-by-turn prompting.
+              </p>
+              <dl className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Direct connections you configure — observability tools, cloud APIs, Kubernetes, PagerDuty, log management — reached through the agent&apos;s tool calls (e.g. via MCP servers or native connectors).</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">A monitoring alert or notification triggers the whole loop: FaultMaven gathers the evidence itself, isolates the root cause, and resolves it — applying a fix or running a pre-approved runbook. A human approval gate is a choice you configure, not a step it waits on by default.</dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Compresses mean time to resolution by owning the incident from alert to fix, instead of waiting on a person at each step.</dd>
+                </div>
+              </dl>
             </div>
           </div>
+
+          <p className="text-center text-slate-600 dark:text-slate-400 mt-12 max-w-3xl mx-auto">
+            Phase 1 ships today. Phases 2 and 3 are where we&apos;re headed — and the order and detail are still open to the practitioners who use it.
+          </p>
         </div>
       </section>
 
@@ -259,11 +166,11 @@ export default function RoadmapPage() {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Open Core: the same engine, run your way
+            Open core: the same engine, run your way
           </h2>
           <div className="max-w-3xl mx-auto space-y-8">
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              FaultMaven follows an open core model:
+              FaultMaven follows an open-core model:
             </p>
 
             <div className="p-8 border-2 border-green-500 dark:border-green-600 rounded-xl bg-green-50 dark:bg-green-900/10">
@@ -283,7 +190,7 @@ export default function RoadmapPage() {
                 Cloud (Managed Service)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                Team collaboration, SSO, and managed infrastructure are built on the same open core—but packaged as a managed, multi-tenant service for teams that don&apos;t want to operate their own stack.
+                Team collaboration, SSO, and managed infrastructure are built on the same open core — but packaged as a managed, multi-tenant service for teams that don&apos;t want to operate their own stack.
               </p>
               <p className="text-slate-700 dark:text-slate-300 font-medium">
                 Both options use the same codebase. Start self-hosted, upgrade when ready.
@@ -330,13 +237,13 @@ export default function RoadmapPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Office Hours
+                Talk to the Team
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                Monthly video calls with the core team. Bring your hardest troubleshooting problems.
+                Bring your hardest troubleshooting problems to the people building FaultMaven.
               </p>
               <Button asChild href="/contact" variant="secondary" className="w-full">
-                Register →
+                Get in touch →
               </Button>
             </div>
 
@@ -368,7 +275,7 @@ export default function RoadmapPage() {
             Start Today, Grow With Us
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            Deploy FaultMaven 1.0 now and be part of the journey as we build the future of AI-powered troubleshooting.
+            Deploy the Copilot now and troubleshoot your next incident with it — then help shape where FaultMaven&apos;s reach goes from here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">

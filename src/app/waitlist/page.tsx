@@ -30,7 +30,7 @@ const benefits = [
     icon: Key,
     title: 'Priority Access',
     description:
-      'Be at the front of the line when FaultMaven 1.0 early access spots become available.',
+      'Be at the front of the line when FaultMaven Cloud beta spots open up.',
     accent: 'bg-blue-600',
   },
   {
@@ -123,10 +123,10 @@ export default function WaitlistPage() {
         <div className="max-w-3xl w-full px-6">
           <div className="rounded-2xl shadow-xl bg-white/90 dark:bg-slate-900/90 p-10 border border-slate-200 dark:border-slate-800 text-center">
             <h1 id="hero-heading" className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-              Apply for Early Access
+              Join the Cloud Beta Waitlist
             </h1>
             <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              FaultMaven is in private beta with design partners. Join our waitlist to be among the first to experience AI-powered troubleshooting that reduces MTTR.
+              FaultMaven Cloud — the managed, multi-tenant option with team collaboration — is in beta. Join the waitlist to get in early. Prefer to self-host? Deploy Standalone free today, no waitlist required.
             </p>
           </div>
         </div>

@@ -97,7 +97,7 @@ export default function ProductPage() {
                     Actionable Next Steps
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-400">
-                    Get specific diagnostic commands, relevant runbook sections, and similar past incidents your team has already solved.
+                    FaultMaven doesn&apos;t just answer — it leads: it names the most decisive next step and points you to the relevant runbook sections and similar past incidents your team has already solved.
                   </p>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export default function ProductPage() {
                 Data Redaction
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Sensitive patterns (API keys, passwords, PII) are automatically detected and redacted before LLM processing.
+                An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach an external LLM — or run local models so nothing leaves at all.
               </p>
             </div>
 

@@ -3,9 +3,9 @@ import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide
 
 const subjectLines = [
   {
-    icon: <Handshake className="w-6 h-6 text-blue-600 dark:text-blue-400" />, 
-    title: 'Design Partner Inquiry / Early Access Feedback',
-    desc: 'For experienced SREs & Ops Engineers interested in our Private Preview, providing feedback on FaultMaven 1.0, or sharing troubleshooting challenges.'
+    icon: <Handshake className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    title: 'Product Feedback & Cloud Beta',
+    desc: 'For engineers running FaultMaven (deploy Standalone free) or interested in the Cloud beta — share troubleshooting challenges, bugs, or what you’d like to see next.'
   },
   {
     icon: <TrendingUp className="w-6 h-6 text-blue-600 dark:text-blue-400" />, 
@@ -33,8 +33,8 @@ const navCards = [
   },
   {
     icon: <Users className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />, 
-    title: 'Join the Waitlist',
-    desc: 'Get key updates on progress and announcements.',
+    title: 'Join the Cloud Beta Waitlist',
+    desc: 'Get access to the managed FaultMaven Cloud beta.',
     href: '/waitlist',
   },
   {
@@ -57,7 +57,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
               We&apos;re building FaultMaven to solve real-world operational challenges, and we believe the best way to do that is by engaging with a vibrant community of engineers, innovators, partners, and forward-thinkers. Whether you have a specific question, wish to share your expertise, explore a collaboration, or simply learn more, we&apos;re ready to listen.<br />
-              Your insights, feedback, and inquiries are invaluable as we progress from our initial FaultMaven 1.0 offering towards our broader vision.
+              Your insights, feedback, and inquiries directly shape where FaultMaven goes next.
             </p>
           </div>
         </div>

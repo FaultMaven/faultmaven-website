@@ -10,36 +10,36 @@ export default function FAQSnippet() {
 
   const faqSnippet = [
     {
-      question: 'What is FaultMaven 1.0, and how can I get involved early?',
+      question: 'What is FaultMaven?',
       answer: (
         <>
-          FaultMaven 1.0 is your personal AI Copilot, accessed via a simple browser extension, designed to help you troubleshoot complex operational issues with no initial system integration. We&apos;re currently inviting experienced SREs and Ops engineers to{' '}
-          <a href="/waitlist" className="text-blue-600 hover:underline">
-            apply for our early access/design partner program
+          An AI troubleshooting copilot for engineers. It works a problem the way a seasoned engineer does — goal-driven, methodical, grounded in evidence — correlating what you share with your runbooks, docs, and past fixes. You can{' '}
+          <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 hover:underline">
+            deploy it yourself for free
+          </a>{' '}
+          in about five minutes.
+        </>
+      ),
+    },
+    {
+      question: 'How is it different from ChatGPT or Claude?',
+      answer: "Generic AI has no memory of your infrastructure or your past incidents, and it will confidently guess. FaultMaven grounds every step in the evidence you provide and won't present a root cause it can't back with that evidence. It also leads — driving the investigation rather than waiting for the right question — and remembers what it learns, so every resolved case becomes reusable knowledge. And it lives alongside your tools instead of a separate chat tab.",
+    },
+    {
+      question: 'Is it really free, and is the source open?',
+      answer: (
+        <>
+          Standalone (self-hosted) is free. The engine is fair source (FSL-1.1-ALv2): every line is public to audit and fork, and each release converts to Apache 2.0 two years after it ships. The Copilot, Dashboard, and Slack app are Apache 2.0. FaultMaven Cloud is a managed option, currently in beta —{' '}
+          <a href="/pricing" className="text-blue-600 hover:underline">
+            compare the two
           </a>
           .
         </>
       ),
     },
     {
-      question: 'What kinds of operational challenges does FaultMaven 1.0 address?',
-      answer: 'FaultMaven 1.0 is being built to help you diagnose a variety of operational issues faster – from investigating incident alerts and user-reported problems to understanding performance degradations. It assists by analyzing the context you provide, summarizing information, and leveraging stored knowledge to guide your troubleshooting process.',
-    },
-    {
-      question: "Why isn&apos;t everything about FaultMaven public yet?",
-      answer: (
-        <>
-          FaultMaven is pioneering new approaches in AI-driven troubleshooting, and we&apos;re developing rapidly. We&apos;re sharing our vision and progress in stages while we work closely with early partners to refine core technology. For those interested in a deeper look – select design partners, potential investors, and future team members – we&apos;re happy to{' '}
-          <a href="/contact" className="text-blue-600 hover:underline">
-            start a conversation
-          </a>
-          .
-        </>
-      ),
-    },
-    {
-      question: 'How does FaultMaven handle my data securely?',
-      answer: 'Data security and privacy are foundational to FaultMaven. For 1.0, you provide data directly and securely via the browser extension. We are building with robust security measures and a policy focused on minimizing long-term storage of raw, sensitive operational data. Your trust is paramount.',
+      question: 'How does FaultMaven handle my data?',
+      answer: "The Copilot runs client-side in your browser and never asks for production credentials — you control exactly what you share. FaultMaven includes an optional redaction layer (regex for keys and tokens, Presidio for PII) you can enable to scrub sensitive values before prompts reach an external provider — or run local models (Ollama, vLLM) so nothing leaves your infrastructure at all. Your data stays on your infrastructure.",
     },
   ];
 
