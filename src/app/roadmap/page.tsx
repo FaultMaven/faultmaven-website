@@ -35,11 +35,11 @@ export default function RoadmapPage() {
               Handing an AI agent cluster credentials and write access to production before it has diagnosed a single incident is a lot of trust to extend on faith. It&apos;s also the fastest way to stall in a security review. So we inverted the order.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              FaultMaven begins entirely client-side, with zero backend access. As it proves its method on real incidents, you widen its reach — from your screen, to the evidence bundles you hand it, to a live connection with your stack. You grant more because the last step earned it, not because a vendor asked.
+              FaultMaven begins entirely client-side, with zero backend access, working turn-by-turn beside you. As it proves its method on real incidents, two things grow: its <strong>reach</strong> — from your screen, to the evidence bundles you hand it, to a live connection with your stack — and its <strong>independence</strong>, from turn-by-turn companion to a responder that runs the whole loop on its own. You grant more because the last step earned it, not because a vendor asked.
             </p>
             <div className="p-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg">
               <p className="text-slate-700 dark:text-slate-300">
-                What grows across the phases is FaultMaven&apos;s reach into your <strong>evidence</strong> — not its license to act without you. At every phase you stay in command: every conclusion is grounded in your data, and every change to your systems is yours to approve.
+                What never changes is the <strong>method</strong>. However far its reach or how independently it runs, every conclusion is grounded in real evidence and reached the same methodical way. The access is yours to grant; the diagnostic rigor is constant.
               </p>
             </div>
           </div>
@@ -131,10 +131,10 @@ export default function RoadmapPage() {
                 <span className="text-sm text-slate-500 dark:text-slate-400">Native integration</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
-                Integrated Agent — connected to your stack, triggered by the alert
+                Integrated Agent — from alert to resolution, on its own
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                A connected responder that gathers its own evidence — and still leaves the decision to you.
+                A fully autonomous responder: it detects, investigates, and resolves end-to-end — no turn-by-turn prompting.
               </p>
               <dl className="grid md:grid-cols-3 gap-6">
                 <div>
@@ -143,11 +143,11 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">Triggered by a monitoring alert or a notification, FaultMaven collects the evidence itself, identifies the root cause, and presents ready-to-apply fixes — or runs a pre-approved runbook, with your approval.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">A monitoring alert or notification triggers the whole loop: FaultMaven gathers the evidence itself, isolates the root cause, and resolves it — applying a fix or running a pre-approved runbook. A human approval gate is a choice you configure, not a step it waits on by default.</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">Compresses time-to-resolution by owning the grunt work of triage — collecting and correlating evidence — so a human starts from a diagnosis, not a blank page.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Compresses mean time to resolution by owning the incident from alert to fix, instead of waiting on a person at each step.</dd>
                 </div>
               </dl>
             </div>

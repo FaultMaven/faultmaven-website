@@ -26,7 +26,7 @@ export default function VisionSnippet() {
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1">Phase 3 · Roadmap</p>
             <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Integrated Agent</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">Connected to your stack, alert-triggered — fixes still yours to approve.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Connected to your stack, alert-triggered — autonomous from detection to fix.</p>
           </div>
         </div>
         <Button asChild href="/roadmap" variant="secondary">
