@@ -117,7 +117,7 @@ cd faultmaven
                   <li className="flex items-start">
                     <span className="text-slate-600 dark:text-slate-400 mr-3 mt-1">▸</span>
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Pre-loaded patterns for 50+ technology stacks (Kubernetes, PostgreSQL, Redis, AWS, etc.)</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Ships with 90+ curated runbooks (600+ documented root causes) spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring</span>
                     </div>
                   </li>
                 </ul>

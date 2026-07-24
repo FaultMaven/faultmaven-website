@@ -40,7 +40,7 @@ export default function ApproachSection() {
             <ul className="text-slate-600 dark:text-slate-400 space-y-2 mb-4">
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — Pre-loaded patterns for K8s, Postgres, Redis, AWS, and 50+ stacks</span>
+                <span><strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — 90+ curated runbooks for Kubernetes, databases, cloud platforms, message queues, and more</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
