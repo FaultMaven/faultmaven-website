@@ -146,7 +146,7 @@ export default function RoadmapPage() {
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">A monitoring alert or notification triggers the whole loop: FaultMaven gathers the evidence itself, isolates the root cause, and resolves it — applying a fix or running a pre-approved runbook. A human approval gate is a choice you configure, not a step it waits on by default.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">A monitoring alert or notification triggers the whole loop: FaultMaven gathers the evidence itself, isolates the root cause, and resolves it — applying a fix or running a pre-approved runbook. You decide where human approval is required, and which actions it may take unattended.</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Why it matters</dt>

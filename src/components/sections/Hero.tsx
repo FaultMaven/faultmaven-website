@@ -32,9 +32,9 @@ export default function Hero() {
                 leads, driving the investigation to the next decisive step.
               </p>
               <p>
-                It correlates your live telemetry with your runbooks, docs, and past fixes to
-                deliver answers grounded in your actual system—not generic guesses. Every problem
-                it solves becomes knowledge it reuses.
+                It correlates the logs, metrics, and configs you bring it with your runbooks, docs,
+                and past fixes to deliver answers grounded in your actual system—not generic
+                guesses. Every problem it solves becomes knowledge it reuses.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="relative">
             <Image
               src={heroImage}
-              alt="FaultMaven AI Copilot analyzing full-stack telemetry"
+              alt="FaultMaven AI Copilot analyzing logs, metrics, and configs"
               priority
               placeholder="blur"
               className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"

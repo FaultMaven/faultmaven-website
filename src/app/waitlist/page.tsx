@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Handshake, Key, Megaphone, Mail, Info } from 'lucide-react';
+import { Check, Mail, Info } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { useState, useRef, useEffect } from 'react';
 import { z } from 'zod';
@@ -24,30 +24,6 @@ const Benefits = dynamic(() => import('@/components/sections/Benefits'), {
   ),
   ssr: false
 });
-
-const benefits = [
-  {
-    icon: Key,
-    title: 'Priority Access',
-    description:
-      'Be at the front of the line when FaultMaven Cloud beta spots open up.',
-    accent: 'bg-blue-600',
-  },
-  {
-    icon: Megaphone,
-    title: 'Exclusive Updates',
-    description:
-      'Receive direct-from-the-source news on our development progress, key milestones, and feature unveilings.',
-    accent: 'bg-green-500',
-  },
-  {
-    icon: Handshake,
-    title: 'An Opportunity to Influence',
-    description:
-      'As an early community member, you\'ll have the chance to provide invaluable feedback and directly contribute to shaping a tool built for engineers, by engineers.',
-    accent: 'bg-yellow-400',
-  },
-];
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState('');
@@ -147,7 +123,7 @@ export default function WaitlistPage() {
               Ready to get started?
             </h2>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
-              Join our waitlist to receive exclusive updates and be considered for early access opportunities.
+              Join our waitlist to receive exclusive updates and be considered for a spot in the Cloud beta.
             </p>
             <form 
               onSubmit={handleSubmit} 
@@ -230,7 +206,7 @@ export default function WaitlistPage() {
               What to Expect After Signing Up:
             </h3>
             <p className="text-base text-slate-700 dark:text-slate-300">
-              We&apos;ll send you a confirmation email and keep you updated on our progress. You&apos;ll be notified when early access spots become available. You can unsubscribe at any time.
+              We&apos;ll send you a confirmation email and keep you updated on our progress. You&apos;ll be notified when Cloud beta spots become available. You can unsubscribe at any time.
             </p>
           </div>
         </div>
