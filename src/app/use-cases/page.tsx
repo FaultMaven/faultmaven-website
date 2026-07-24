@@ -71,10 +71,10 @@ export default function UseCasesPage() {
             See FaultMaven in Action
           </h1>
           <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            Real scenarios. Real resolutions. Real time savings.
+            Real problems. A methodical path to the cause.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            These aren&apos;t hypotheticals—they&apos;re based on actual troubleshooting sessions from our early users. See how FaultMaven transforms the path from &quot;something&apos;s broken&quot; to &quot;here&apos;s the fix.&quot;
+            These are representative scenarios — the kinds of problems FaultMaven is built for, and how it changes the path from &quot;something&apos;s broken&quot; to &quot;here&apos;s the cause.&quot; The fastest way to judge it is to try it on an incident from your own environment.
           </p>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default function UseCasesPage() {
               "FaultMaven correlates with known OOM patterns across K8s deployments",
               "Surfaces non-obvious cause: init container memory not counted in limits"
             ]}
-            outcome="Root cause identified in 8 minutes. Previous similar incident took 3 hours."
+            outcome="The real cause surfaces — init-container memory not counted against the pod limit — instead of another pass over the limits that already looked fine."
             bgColor="bg-slate-50 dark:bg-slate-800/50"
           />
 
@@ -106,7 +106,7 @@ export default function UseCasesPage() {
               "FaultMaven correlates timestamps: errors started 2 min after deployment",
               "Surfaces relevant rollback procedure from team knowledge base"
             ]}
-            outcome="Rollback initiated in 12 minutes. Back to sleep by 3:30 AM."
+            outcome="A clear signal that the last deploy is the trigger, plus the exact rollback steps from your own runbook — not a groggy guess at 3 AM."
             bgColor="bg-white dark:bg-slate-900"
           />
 
@@ -120,7 +120,7 @@ export default function UseCasesPage() {
               "FaultMaven identifies pattern: timeouts correlate with batch job schedule",
               "Surfaces similar incident from 6 months ago (same root cause)"
             ]}
-            outcome="Connection pool exhaustion identified. Fix applied in 20 minutes."
+            outcome="The pattern behind the intermittency — connection-pool exhaustion during the batch window — tied back to the fix that worked on the same issue before."
             bgColor="bg-slate-50 dark:bg-slate-800/50"
           />
 
@@ -134,7 +134,7 @@ export default function UseCasesPage() {
               "FaultMaven analyzes code flow and identifies race condition",
               "Suggests specific fix and links to similar bug pattern in knowledge base"
             ]}
-            outcome="Bug identified and PR submitted within 30 minutes."
+            outcome="A specific race condition and where it lives, backed by a similar past bug that confirms the pattern — a solid starting point for the fix."
             bgColor="bg-white dark:bg-slate-900"
           />
 
@@ -148,7 +148,7 @@ export default function UseCasesPage() {
               "FaultMaven suggests systematic elimination approach",
               "Identifies MTU mismatch as likely cause based on packet size patterns"
             ]}
-            outcome="Network issue resolved after 45 minutes of guided investigation."
+            outcome="A systematic path to the likely cause — an MTU mismatch — instead of more trial-and-error against endpoints that only sometimes fail."
             bgColor="bg-slate-50 dark:bg-slate-800/50"
           />
 
@@ -162,7 +162,7 @@ export default function UseCasesPage() {
               "FaultMaven summarizes: 3 hypotheses proposed, 1 ruled out, 2 untested",
               "Identifies key question no one has answered yet"
             ]}
-            outcome="Incident commander got clarity in 2 minutes instead of re-reading 200 messages."
+            outcome="A running picture of which hypotheses are proposed, ruled out, and still untested — plus the question no one has answered yet — without re-reading the whole thread."
             bgColor="bg-white dark:bg-slate-900"
           />
         </div>

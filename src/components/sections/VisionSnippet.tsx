@@ -7,17 +7,28 @@ export default function VisionSnippet() {
     <section className="py-24 bg-slate-100 dark:bg-slate-800">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-          The Vision: From Personal Copilot to Organizational Intelligence
+          The Vision: Trust first, access follows
         </h2>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-          FaultMaven 1.0 is your personal troubleshooting copilot—always available, always learning from your incidents.
+        <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+          Most AI ops tools ask for broad access to your systems on day one. FaultMaven starts with none and earns its way in — proving its diagnostic method before it ever touches your infrastructure. Its reach grows in three phases:
         </p>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-          FaultMaven 2.0 (in development) extends this to your entire organization: shared knowledge bases, cross-team pattern detection, and AI that learns from every engineer&apos;s experience.
-        </p>
-        <p className="text-lg text-slate-700 dark:text-slate-300 font-medium mb-8">
-          Imagine: a new SRE joins your team and instantly has access to every troubleshooting pattern your organization has ever solved.
-        </p>
+        <div className="grid sm:grid-cols-3 gap-4 text-left mb-8">
+          <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 mb-1">Phase 1 · Now</p>
+            <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Copilot</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Turn-by-turn, 100% client-side. Zero backend access.</p>
+          </div>
+          <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 mb-1">Phase 2 · Next</p>
+            <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Investigator</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Hand it an evidence bundle; get back a diagnosis. Systems stay isolated.</p>
+          </div>
+          <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1">Phase 3 · Roadmap</p>
+            <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Integrated Agent</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Connected to your stack, alert-triggered — fixes still yours to approve.</p>
+          </div>
+        </div>
         <Button asChild href="/roadmap" variant="secondary">
           Read the Roadmap →
         </Button>
