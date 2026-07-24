@@ -97,7 +97,7 @@ export default function ProductPage() {
                     Actionable Next Steps
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-400">
-                    Get specific diagnostic commands, relevant runbook sections, and similar past incidents your team has already solved.
+                    FaultMaven doesn&apos;t just answer — it leads. It names the single most decisive thing to check next and why, points you to the relevant runbook sections and similar past incidents, and if you can&apos;t get that data, it offers another route instead of stalling.
                   </p>
                 </div>
               </div>

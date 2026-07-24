@@ -32,6 +32,13 @@ export default function ComparisonSection() {
                 </td>
               </tr>
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Direction</td>
+                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Answers the question you asked</td>
+                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
+                  Drives the investigation — names the single most decisive next step, and finds another route when you&apos;re blocked
+                </td>
+              </tr>
+              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Context</td>
                 <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Training data only</td>
                 <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Your full stack (code + config + telemetry)</td>
