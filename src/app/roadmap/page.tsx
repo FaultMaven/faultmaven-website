@@ -234,13 +234,13 @@ export default function RoadmapPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Office Hours
+                Talk to the Team
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                Monthly video calls with the core team. Bring your hardest troubleshooting problems.
+                Bring your hardest troubleshooting problems to the people building FaultMaven.
               </p>
               <Button asChild href="/contact" variant="secondary" className="w-full">
-                Register →
+                Get in touch →
               </Button>
             </div>
 
