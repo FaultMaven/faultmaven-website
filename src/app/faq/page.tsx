@@ -32,10 +32,10 @@ export default function FAQPage() {
                   What is FaultMaven?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  FaultMaven is an AI-powered troubleshooting copilot that helps engineers resolve incidents faster. It connects your full stack—logs, metrics, traces, configs, and code—to a unified knowledge engine that combines global troubleshooting patterns with your team&apos;s institutional memory.
+                  FaultMaven is an AI-powered troubleshooting copilot that helps engineers resolve incidents faster. It correlates what you share—logs, metrics, traces, configs, and code—with a unified knowledge engine that combines global troubleshooting patterns with your team&apos;s institutional memory.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Think of it as an expert teammate who remembers every past incident, knows every runbook, and can correlate data across your entire infrastructure instantly.
+                  Think of it as an expert teammate who remembers every past incident, knows every runbook, and correlates what you give it in seconds.
                 </p>
               </div>
 
@@ -55,7 +55,7 @@ cd faultmaven
                   </code>
                 </pre>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  The deployment script handles everything: Docker containers, configuration, and browser extension installation. Full instructions in the <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
+                  The deployment script handles everything: Docker containers, configuration, and database setup. Full instructions in the <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
                 </p>
                 <p className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
                   <strong className="text-slate-900 dark:text-slate-50">💡 No API key?</strong> Use <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">CHAT_PROVIDER=local</code> for free local inference with Ollama.
@@ -111,13 +111,13 @@ cd faultmaven
                   <li className="flex items-start">
                     <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Your runbooks, past incidents, post-mortems, and tribal knowledge (automatically indexed)</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Runbooks, past incidents, post-mortems, and tribal knowledge, indexed and shared across your team (Cloud)</span>
                     </div>
                   </li>
                   <li className="flex items-start">
                     <span className="text-slate-600 dark:text-slate-400 mr-3 mt-1">▸</span>
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Pre-loaded patterns for 50+ technology stacks (Kubernetes, PostgreSQL, Redis, AWS, etc.)</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Ships with 90+ curated runbooks (600+ documented root causes) spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring</span>
                     </div>
                   </li>
                 </ul>
@@ -132,7 +132,7 @@ cd faultmaven
                   How does FaultMaven learn from my incidents?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Every troubleshooting session is automatically indexed. When you resolve an incident, FaultMaven captures: the symptoms, the investigation steps, the root cause, and the fix. Next time something similar happens, it surfaces the relevant context immediately.
+                  When you resolve an incident, FaultMaven can turn it into a reusable runbook — capturing the symptoms, the investigation, the root cause, and the fix. Crucially, only confirmed root causes become knowledge, so the base fills with verified fixes rather than unverified guesses. Next time something similar happens, it surfaces that context.
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ cd faultmaven
                   Where does my data go?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers. Zero telemetry.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers, and no usage data is sent back to us.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   <strong className="text-slate-900 dark:text-slate-50">Cloud (hosted):</strong> Data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never train models on your data or share it with third parties.
@@ -196,7 +196,7 @@ cd faultmaven
                   Can I use my own AI models?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. FaultMaven supports bring-your-own-LLM. Configure it to use Azure OpenAI, AWS Bedrock, self-hosted Llama models, or any OpenAI-compatible API. Full control over where inference happens.
+                  Yes. FaultMaven supports bring-your-own-LLM across nine providers — Anthropic, OpenAI, Gemini, Fireworks, Groq, and more — including a local option that runs self-hosted open models (Llama and others) via Ollama or vLLM, i.e. any OpenAI-compatible endpoint. Full control over where inference happens.
                 </p>
               </div>
             </div>
@@ -265,7 +265,7 @@ cd faultmaven
                   Which browsers does the Copilot extension support?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Chrome, Edge, Brave, and other Chromium browsers, plus Firefox. The extension works as an overlay on any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
+                  Chrome, Edge, Brave, and other Chromium browsers, plus Firefox. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
                 </p>
               </div>
 

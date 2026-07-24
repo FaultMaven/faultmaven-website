@@ -3,7 +3,7 @@ export type AppRoute =
   | '/about'
   | '/product'
   | '/pricing'
-  | '/resources/faq'
+  | '/faq'
   | '/roadmap'
   | '/use-cases'
   | '/waitlist'

@@ -275,7 +275,7 @@ export default function RoadmapPage() {
             Start Today, Grow With Us
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            Deploy the Copilot now and troubleshoot your next incident with it — then help shape where FaultMaven&apos;s reach goes from here.
+            Deploy FaultMaven now and troubleshoot your next incident with it — then help shape where its reach goes from here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">

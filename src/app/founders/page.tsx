@@ -365,7 +365,7 @@ cd faultmaven && ./faultmaven.sh start`}
             Join the Beta Founders
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 text-center">
-            Quick application — just three questions.
+            No form to fill out — just email us your answers to these three questions.
           </p>
 
           <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 rounded-xl p-8">
@@ -377,7 +377,6 @@ cd faultmaven && ./faultmaven.sh start`}
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
                   (Your role, what you work on, the systems you manage)
                 </p>
-                <div className="h-24 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"></div>
               </div>
 
               <div>
@@ -387,7 +386,6 @@ cd faultmaven && ./faultmaven.sh start`}
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
                   (Your frustrations, what you wish existed)
                 </p>
-                <div className="h-24 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"></div>
               </div>
 
               <div>
@@ -397,7 +395,6 @@ cd faultmaven && ./faultmaven.sh start`}
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
                   (What draws you to FaultMaven — be honest)
                 </p>
-                <div className="h-24 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg"></div>
               </div>
             </div>
 
@@ -411,7 +408,7 @@ cd faultmaven && ./faultmaven.sh start`}
 
             <div className="text-center">
               <Button asChild href="/contact" variant="primary" className="text-lg px-8">
-                Apply Now →
+                Email your answers →
               </Button>
             </div>
           </div>

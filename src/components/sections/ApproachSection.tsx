@@ -23,10 +23,7 @@ export default function ApproachSection() {
               Deep Context Awareness
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              FaultMaven doesn&apos;t just read your error message—it correlates your full stack: logs, metrics, traces, configs, and source code. It understands the system state that caused the error, not just the error itself.
-            </p>
-            <p className="text-sm text-slate-500 dark:text-slate-500 italic">
-              Show logs + metrics + config → unified view
+              FaultMaven doesn&apos;t just read your error message—it correlates what you share across the stack: logs, metrics, traces, configs, and source code. It reasons a causal chain from the symptom to the system state that caused it, not just the error itself.
             </p>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
@@ -40,11 +37,11 @@ export default function ApproachSection() {
             <ul className="text-slate-600 dark:text-slate-400 space-y-2 mb-4">
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — Pre-loaded patterns for K8s, Postgres, Redis, AWS, and 50+ stacks</span>
+                <span><strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — 90+ curated runbooks for Kubernetes, databases, cloud platforms, message queues, and more</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Your runbooks, post-mortems, and past resolutions (auto-indexed)</span>
+                <span><strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Your runbooks, post-mortems, and past resolutions, shared across the team (Cloud)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
@@ -52,7 +49,7 @@ export default function ApproachSection() {
               </li>
             </ul>
             <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Every fix makes the system smarter. You&apos;ll never solve the same problem twice.
+              Every fix makes the system smarter — so you spend less time re-solving problems you&apos;ve already cracked.
             </p>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
@@ -61,10 +58,7 @@ export default function ApproachSection() {
               Zero Context-Switching
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              The FaultMaven Copilot lives where you work—as a browser extension overlay on AWS Console, Datadog, Grafana, your terminal, or localhost. The fix comes to the problem, not the other way around. No production API keys to hand over, no backend agents to install — it runs entirely client-side.
-            </p>
-            <p className="text-sm text-slate-500 dark:text-slate-500 italic">
-              Show extension overlaying a Grafana dashboard
+              The FaultMaven Copilot lives where you work—a browser side-panel alongside the AWS Console, Datadog, Grafana, your terminal, or localhost. The fix comes to the problem, not the other way around. No production API keys to hand over and no agents on your systems — the extension runs client-side and talks only to your own FaultMaven instance.
             </p>
           </div>
         </div>

@@ -88,7 +88,7 @@ export default function AboutPage() {
                 2. Zero context-switching
               </h3>
               <p className="text-lg text-slate-700 dark:text-slate-300">
-                You shouldn&apos;t have to leave your tools to get help. FaultMaven lives where you work—as a browser extension that overlays Grafana, AWS Console, your terminal, or any webpage. The fix comes to the problem.
+                You shouldn&apos;t have to leave your tools to get help. FaultMaven lives where you work—a browser side-panel alongside Grafana, the AWS Console, your terminal, or any webpage. The fix comes to the problem.
               </p>
             </div>
 
@@ -129,13 +129,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
-              We&apos;re a small team of engineers who have spent years in the trenches—responding to incidents, writing post-mortems, and debugging systems at scale. We&apos;ve worked at companies where &quot;tribal knowledge&quot; meant the difference between 15-minute and 3-hour outages.
+              We&apos;re a small team of engineers with deep and varied software backgrounds — well beyond operations and SRE. Between us that spans backend systems, infrastructure, data, and developer tooling, and the messy seams where they meet.
             </p>
             <p>
-              FaultMaven started as an internal tool. We were tired of re-solving problems. Tired of searching Slack for answers. Tired of waking up junior engineers at 3 AM because only they remembered how to fix that one weird Redis issue.
+              FaultMaven is what happens when you fuse that experience with a large language model. Not an LLM left to guess on its own, but one working inside a method — the way an experienced engineer actually troubleshoots: goal-driven, methodical, grounded in evidence. We set out to encode that instinct for working a problem, and let the model do the tireless part.
             </p>
             <p>
-              <strong className="text-slate-900 dark:text-slate-50">We built FaultMaven for ourselves.</strong> Then we realized every engineering team has the same problem. So we published the source.
+              <strong className="text-slate-900 dark:text-slate-50">We build FaultMaven because it&apos;s genuinely useful to us</strong> — and to engineers like us. The source is public — fair source — so you can read exactly how it reasons.
             </p>
           </div>
         </div>
@@ -174,19 +174,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
-              Today, FaultMaven helps you troubleshoot <em>faster</em>. Tomorrow, it prevents incidents before they happen.
+              Today, FaultMaven works turn-by-turn beside you. Over time it takes on more of the loop on its own — investigating the evidence bundles you hand it, and eventually, once you connect it to your stack, responding to alerts end-to-end: gathering the evidence, isolating the root cause, and proposing the fix.
             </p>
             <p>
-              Imagine: FaultMaven watches your metrics and logs in real-time. It notices a pattern—error rates ticking up, memory usage creeping higher. It correlates: &quot;This happened 6 months ago. Back then, it led to an outage 3 hours later.&quot;
-            </p>
-            <p>
-              It pings you: <strong className="text-slate-900 dark:text-slate-50">&quot;Warning: Early signs of the incident from June 15th. Here&apos;s the fix.&quot;</strong>
-            </p>
-            <p>
-              You apply the fix. The incident never happens. You sleep through the night.
+              We&apos;re not trying to predict the future or forecast next quarter&apos;s outages. FaultMaven is the engineer at the keyboard when something is <em>already</em> broken — the goal is to shorten the path from alert to resolution, and to turn every incident into knowledge the next one can reuse.
             </p>
             <p className="pt-6">
-              <strong className="text-slate-900 dark:text-slate-50">That&apos;s the vision.</strong> We&apos;re not there yet. But we&apos;re building toward it—one incident, one resolution, one piece of captured knowledge at a time.
+              <strong className="text-slate-900 dark:text-slate-50">That&apos;s the roadmap.</strong> We&apos;re not there yet — but we&apos;re building toward it one incident, one resolution, one piece of captured knowledge at a time. <a href="/roadmap" className="text-blue-600 dark:text-blue-400 hover:underline">See the roadmap →</a>
             </p>
           </div>
         </div>

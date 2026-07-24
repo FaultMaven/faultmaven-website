@@ -7,5 +7,4 @@ export { default as ApproachSection } from './sections/ApproachSection';
 export { default as CapabilitiesSection } from './sections/CapabilitiesSection';
 export { default as FAQSnippet } from './sections/FAQSnippet';
 export { default as FinalCTASection } from './sections/FinalCTASection';
-export { default as GettingStartedSection } from './sections/GettingStartedSection';
 export { default as VisionSnippet } from './sections/VisionSnippet';

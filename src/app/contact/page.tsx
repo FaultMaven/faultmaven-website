@@ -56,7 +56,7 @@ export default function ContactPage() {
               Connect with FaultMaven
             </h1>
             <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              We&apos;re building FaultMaven to solve real-world operational challenges, and we believe the best way to do that is by engaging with a vibrant community of engineers, innovators, partners, and forward-thinkers. Whether you have a specific question, wish to share your expertise, explore a collaboration, or simply learn more, we&apos;re ready to listen.<br />
+              We&apos;re building FaultMaven to solve real operational problems, and the best way to do that is to talk with the engineers who live them. Whether you have a question, want to share your expertise, explore a collaboration, or simply learn more, we&apos;re ready to listen.<br />
               Your insights, feedback, and inquiries directly shape where FaultMaven goes next.
             </p>
           </div>
