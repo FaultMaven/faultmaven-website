@@ -176,9 +176,9 @@ export default function PricingPage() {
                 <li className="flex items-start">
                   <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
                   <div className="text-slate-700 dark:text-slate-300">
-                    <strong className="text-slate-900 dark:text-slate-50">Persistent case history</strong>
+                    <strong className="text-slate-900 dark:text-slate-50">Persistent sessions across devices</strong>
                     <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                      Sessions and cases are saved across restarts and devices.
+                      Investigation sessions are saved across restarts and reachable from any device — not held in-process like a single-instance deployment. (Your cases persist either way.)
                     </p>
                   </div>
                 </li>

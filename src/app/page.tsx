@@ -7,7 +7,6 @@ import SurfacesSection from "@/components/sections/SurfacesSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
 import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
-import GettingStartedSection from "@/components/sections/GettingStartedSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
 
 // Dynamically import Hero with loading fallback
