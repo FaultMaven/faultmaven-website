@@ -10,10 +10,10 @@ export default function VisionSnippet() {
           The Vision: Earned Autonomy
         </h2>
         <p className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-6">
-          Trust first. Access follows. Autonomy earned.
+          Trust first. Autonomy earned.
         </p>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-          Most AI ops tools ask for broad access on day one. FaultMaven starts with none and earns its way in — proving its method before it ever touches your infrastructure. Its reach grows in three phases:
+          FaultMaven is a copilot by choice, not by limitation. Rather than demand broad access on day one, it starts hands-on and earns more autonomy as it proves itself — growing in three phases:
         </p>
         <div className="grid sm:grid-cols-3 gap-4 text-left mb-8">
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">

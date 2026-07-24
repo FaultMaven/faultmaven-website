@@ -12,10 +12,10 @@ export default function RoadmapPage() {
             The FaultMaven Roadmap
           </h1>
           <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            Trust first. Access follows. Autonomy earned.
+            Trust first. Autonomy earned.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            We&apos;re building FaultMaven in the open. Most AI ops tools ask for broad access to your systems on day one. FaultMaven starts with none and earns its way in — proving its diagnostic method before it ever touches your infrastructure. Here&apos;s the progression, and how you can shape it.
+            We&apos;re building FaultMaven in the open. It&apos;s a copilot by choice, not by limitation: rather than demand broad access and full automation on day one, it starts hands-on — with zero access to your systems — and earns more autonomy as it proves itself. Here&apos;s the progression, and how you can shape it.
           </p>
         </div>
       </section>
@@ -27,22 +27,22 @@ export default function RoadmapPage() {
             Our philosophy: Earned Autonomy
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-6">
-            Access is earned, not assumed
+            Autonomy is earned, not assumed
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
-            Traditional ops tools force a Day-1 choice: full system integration, or zero value. FaultMaven refuses it — its reach and autonomy grow only as each phase proves itself.
+            Traditional ops tools force a Day-1 choice: full system integration, or zero value. FaultMaven refuses it. It starts as a hands-on copilot and takes on more only as it proves itself.
           </p>
 
           <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              Handing an AI agent cluster credentials and write access to production before it has diagnosed a single incident is a lot of trust to extend on faith. It&apos;s also the fastest way to stall in a security review. So we inverted the order.
+              Being a copilot is a deliberate choice, not a limitation. FaultMaven is built to do more on its own — but demanding broad access and full automation before it has diagnosed a single incident is a lot to trust on faith, and the fastest way to stall in a security review. So it earns autonomy rather than assuming it.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              FaultMaven begins entirely client-side, with zero backend access, working turn-by-turn beside you. As it proves its method on real incidents, two things grow: its <strong>reach</strong> — from your screen, to the evidence bundles you hand it, to a live connection with your stack — and its <strong>independence</strong>, from turn-by-turn companion to a responder that runs the whole loop on its own. You grant more because the last step earned it, not because a vendor asked.
+              It starts by working turn-by-turn beside you, with no access to your systems. As it proves its method, it takes on more of the loop on its own — first analyzing the evidence bundles you hand it, and only when you&apos;re ready, connecting directly to your stack. Direct access to your systems is the last step, not the first.
             </p>
             <div className="p-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg">
               <p className="text-slate-700 dark:text-slate-300">
-                What never changes is the <strong>method</strong>. However far its reach or how independently it runs, every conclusion is grounded in real evidence and reached the same methodical way. The access is yours to grant; the diagnostic rigor is constant.
+                What never changes is the <strong>method</strong>. However independently FaultMaven works, every conclusion is grounded in real evidence and reached the same methodical way. You set the pace — and partnership grows from proof, not privilege.
               </p>
             </div>
           </div>
@@ -53,10 +53,10 @@ export default function RoadmapPage() {
       <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
-            Three phases, expanding access
+            Three phases, growing autonomy
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
-            Each phase reduces friction and time-to-value at a different level of access. You can stop at any of them.
+            Each phase takes on more of the work on its own — and only the last connects to your systems directly. You can stop at any of them.
           </p>
 
           <div className="space-y-10">
@@ -66,7 +66,7 @@ export default function RoadmapPage() {
                 <span className="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full">
                   Phase 1 · Available now
                 </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">Zero backend access</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">You guide it, turn by turn</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
                 Copilot — turn-by-turn, at your side
@@ -101,7 +101,7 @@ export default function RoadmapPage() {
                 <span className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">
                   Phase 2 · Next
                 </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">Artifact-based access</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">It works on your bundle</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
                 Investigator — hand it the evidence, get back a diagnosis
@@ -131,7 +131,7 @@ export default function RoadmapPage() {
                 <span className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-3 py-1 rounded-full">
                   Phase 3 · On the roadmap
                 </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">Native integration</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">It connects to your stack</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
                 Integrated Agent — from alert to resolution, on its own
@@ -142,7 +142,7 @@ export default function RoadmapPage() {
               <dl className="grid md:grid-cols-3 gap-6">
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">Native connections you configure — observability tools, cloud APIs, Kubernetes, PagerDuty, log management.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Direct — via tool calls or an MCP server — to connections you configure: observability tools, cloud APIs, Kubernetes, PagerDuty, log management.</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
