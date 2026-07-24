@@ -3,6 +3,7 @@ import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
 import TieredKnowledgeEngineSection from "@/components/sections/TieredKnowledgeEngineSection";
 import CapabilitiesSection from "@/components/sections/CapabilitiesSection";
+import SurfacesSection from "@/components/sections/SurfacesSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
 import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
@@ -63,6 +64,7 @@ export default function Home() {
       <ApproachSection />
       <TieredKnowledgeEngineSection />
       <CapabilitiesSection />
+      <SurfacesSection />
       <ComparisonSection />
       <DeploymentOptionsSection />
       <OpenSourceTrustSection />

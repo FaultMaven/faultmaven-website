@@ -60,7 +60,7 @@ export default function TieredKnowledgeEngineSection() {
                   <span className="text-xs bg-white/20 px-2 py-1 rounded">Included</span>
                 </div>
                 <p className="text-white/90 text-sm mb-3">
-                  Pre-loaded patterns for 50+ technology stacks
+                  90+ curated runbooks across common stacks
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs bg-white/20 px-2 py-1 rounded">Kubernetes</span>

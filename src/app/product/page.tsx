@@ -22,7 +22,7 @@ export default function ProductPage() {
             From error to resolution in minutes, not hours.
           </p>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
-            FaultMaven is a browser extension that brings AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
+            FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
@@ -180,7 +180,7 @@ export default function ProductPage() {
                       <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
                       <div>
                         <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — Pre-loaded patterns for K8s, Postgres, Redis, AWS, and 50+ stacks</span>
+                        <span className="text-slate-600 dark:text-slate-400"> — 90+ curated runbooks for Kubernetes, databases, cloud platforms, message queues, and more</span>
                       </div>
                     </li>
                     <li className="flex items-start">
