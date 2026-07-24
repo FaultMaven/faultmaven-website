@@ -142,7 +142,7 @@ export default function RoadmapPage() {
               <dl className="grid md:grid-cols-3 gap-6">
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">Data access</dt>
-                  <dd className="text-sm text-slate-600 dark:text-slate-400">Direct — via tool calls or an MCP server — to connections you configure: observability tools, cloud APIs, Kubernetes, PagerDuty, log management.</dd>
+                  <dd className="text-sm text-slate-600 dark:text-slate-400">Direct connections you configure — observability tools, cloud APIs, Kubernetes, PagerDuty, log management — reached through the agent&apos;s tool calls (e.g. via MCP servers or native connectors).</dd>
                 </div>
                 <div>
                   <dt className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">How it works</dt>
