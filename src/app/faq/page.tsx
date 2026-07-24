@@ -126,7 +126,7 @@ cd faultmaven
                 </p>
               </div>
 
-              {/* Q5 */}
+              {/* Q6 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   How does FaultMaven learn from my incidents?
@@ -136,7 +136,7 @@ cd faultmaven
                 </p>
               </div>
 
-              {/* Q6 */}
+              {/* Q7 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   What makes this better than ChatGPT or Claude?
@@ -154,7 +154,7 @@ cd faultmaven
               Security &amp; Privacy
             </h2>
             <div className="space-y-8">
-              {/* Q7 */}
+              {/* Q8 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   Where does my data go?
@@ -167,7 +167,7 @@ cd faultmaven
                 </p>
               </div>
 
-              {/* Q8 */}
+              {/* Q9 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   What about SOC 2, HIPAA, and GDPR?
@@ -180,7 +180,7 @@ cd faultmaven
                 </p>
               </div>
 
-              {/* Q9 */}
+              {/* Q10 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   Do you train AI models on my data?
@@ -190,7 +190,7 @@ cd faultmaven
                 </p>
               </div>
 
-              {/* Q10 */}
+              {/* Q11 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   Can I use my own AI models?
@@ -208,23 +208,13 @@ cd faultmaven
               Pricing &amp; Plans
             </h2>
             <div className="space-y-8">
-              {/* Q11 */}
+              {/* Q12 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                   Is FaultMaven really free?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
                   Yes. Standalone is free—full features, no strings attached. You host it, you control it. The engine is fair source (FSL-1.1-ALv2): audit every line, and each release converts to Apache 2.0 two years after it ships. FaultMaven Cloud adds managed hosting and team collaboration through multi-tenancy.
-                </p>
-              </div>
-
-              {/* Q12 */}
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                  What&apos;s the Beta Founders Program?
-                </h3>
-                <p className="text-slate-700 dark:text-slate-300">
-                  The Beta Founders Program gives early teams access to FaultMaven Cloud during the beta, plus direct access to the founders for feedback and roadmap input. We&apos;re looking for early users to help us refine the product. <a href="/founders" className="text-blue-600 dark:text-blue-400 hover:underline">Learn more →</a>
                 </p>
               </div>
 

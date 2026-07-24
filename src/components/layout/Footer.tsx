@@ -49,7 +49,6 @@ export default function Footer() {
             <ul className="mt-2 space-y-2 text-base">
               <li><Link href="/product" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Product</Link></li>
               <li><Link href="/use-cases" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Use Cases</Link></li>
-              <li><Link href="/founders" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Beta Founders</Link></li>
             </ul>
           </div>
 

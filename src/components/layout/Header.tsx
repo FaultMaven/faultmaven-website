@@ -63,7 +63,6 @@ export default function Header() {
               )}
             </div>
             {/* <Link href="/pricing" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link> */}
-            <Link href="/founders" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Beta Founders</Link>
             <Link href="/contact" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
           </div>
         </nav>
@@ -99,7 +98,6 @@ export default function Header() {
             <Link href="/blog" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Blog</Link>
             <Link href="/faq" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">FAQ</Link>
             {/* <Link href="/pricing" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link> */}
-            <Link href="/founders" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Beta Founders</Link>
             <Link href="/contact" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
             <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai'}/signin?source=website`} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
             <Link
