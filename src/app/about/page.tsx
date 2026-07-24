@@ -129,13 +129,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
-              We&apos;re a small team of engineers who have spent years in the trenches—responding to incidents, writing post-mortems, and debugging systems at scale. We&apos;ve worked at companies where &quot;tribal knowledge&quot; meant the difference between 15-minute and 3-hour outages.
+              We&apos;re a small team of engineers with deep and varied software backgrounds — well beyond operations and SRE. Between us that spans backend systems, infrastructure, data, and developer tooling, and the messy seams where they meet.
             </p>
             <p>
-              FaultMaven started as an internal tool. We were tired of re-solving problems. Tired of searching Slack for answers. Tired of waking up junior engineers at 3 AM because only they remembered how to fix that one weird Redis issue.
+              FaultMaven is what happens when you fuse that experience with a large language model. Not an LLM left to guess on its own, but one working inside a method — the way an experienced engineer actually troubleshoots: goal-driven, methodical, grounded in evidence. We set out to encode that instinct for working a problem, and let the model do the tireless part.
             </p>
             <p>
-              <strong className="text-slate-900 dark:text-slate-50">We built FaultMaven for ourselves.</strong> Then we realized every engineering team has the same problem. So we published the source.
+              <strong className="text-slate-900 dark:text-slate-50">We build FaultMaven because it&apos;s genuinely useful to us</strong> — and to engineers like us. The source is public — fair source — so you can read exactly how it reasons.
             </p>
           </div>
         </div>
