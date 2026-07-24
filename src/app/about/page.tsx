@@ -135,7 +135,7 @@ export default function AboutPage() {
               FaultMaven is what happens when you fuse that experience with a large language model. Not an LLM left to guess on its own, but one working inside a method — the way an experienced engineer actually troubleshoots: goal-driven, methodical, grounded in evidence. We set out to encode that instinct for working a problem, and let the model do the tireless part.
             </p>
             <p>
-              <strong className="text-slate-900 dark:text-slate-50">We build FaultMaven because it&apos;s genuinely useful to us</strong> — and to engineers like us. The source is public — fair source — so you can read exactly how it reasons.
+              <strong className="text-slate-900 dark:text-slate-50">We build FaultMaven because we kept needing it ourselves</strong> — and we doubt we&apos;re the only ones. Whether we got it right is yours to judge: the source is public — fair source — so you can read exactly how it reasons.
             </p>
           </div>
         </div>
