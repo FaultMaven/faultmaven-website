@@ -354,10 +354,13 @@ export default function SlackPrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              <strong>How long we keep it.</strong> Your investigation data
-              stays available for as long as you keep it. Nothing expires
-              automatically, because a case you may want to look back on — or
-              search against — should not disappear on a timer.
+              <strong>How long we keep it.</strong> We keep your investigation
+              data for as long as we need it to provide the service to you. In
+              practice that means it remains until you delete it, because
+              nothing currently expires on a timer. This is a description of how
+              the service works today, not a commitment to retain your data
+              indefinitely — if we introduce retention limits as the product
+              matures, we will update this policy to say so.
             </p>
             <p>
               <strong>Deleting it.</strong> You can delete your investigation
