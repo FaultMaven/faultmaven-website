@@ -1,6 +1,7 @@
 'use client';
 
 import { PanelRight, Slack } from 'lucide-react';
+import Link from '@/components/ui/Link';
 
 export default function SurfacesSection() {
   return (
@@ -48,7 +49,10 @@ export default function SurfacesSection() {
               Invite it to any channel and @mention it like the teammate who has seen every incident and knows every runbook. Always on and shared by the whole team — a go-to first responder, right in the channel where the conversation is already happening.
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Coming soon to the Slack Marketplace.
+              Coming soon to the Slack Marketplace.{' '}
+              <Link href="/slack" className="text-blue-600 dark:text-blue-400">
+                Learn more
+              </Link>
             </p>
           </div>
         </div>

@@ -92,14 +92,24 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p>
               This Privacy Policy primarily addresses data collected via our
-              informational website. Data handling for the FaultMaven Copilot
-              browser extension — including page capture, chat messages, and
-              authentication data — is covered by the dedicated{' '}
-              <a href="/privacy/extension">
-                FaultMaven Copilot Extension Privacy Policy
-              </a>
-              .
+              informational website. Data handling for each FaultMaven product
+              surface is covered by its own dedicated policy:
             </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <a href="/privacy/slack">
+                  FaultMaven for Slack Privacy Policy
+                </a>{' '}
+                — what the Slack app accesses in your workspace, when, and why.
+              </li>
+              <li>
+                <a href="/privacy/extension">
+                  FaultMaven Copilot Extension Privacy Policy
+                </a>{' '}
+                — page capture, chat messages, and authentication data in the
+                browser extension.
+              </li>
+            </ul>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">5. Your Choices &amp; Rights</h2>
             <p>
