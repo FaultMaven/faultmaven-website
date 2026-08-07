@@ -1,8 +1,5 @@
 import { Metadata } from 'next';
 import {
-  AtSign,
-  MessageSquare,
-  Zap,
   ShieldCheck,
   BookOpen,
   Search,
@@ -22,24 +19,6 @@ export const metadata: Metadata = {
 };
 
 const INSTALL_URL = 'https://slack.faultmaven.ai/slack/install';
-
-const summonWays = [
-  {
-    icon: <AtSign className="w-7 h-7 text-blue-600 dark:text-blue-400" />,
-    title: '@mention it in a channel',
-    desc: 'Invite FaultMaven to a channel and @mention it in a thread. It reads that thread for context and opens an investigation, replying in-thread so the channel stays quiet.',
-  },
-  {
-    icon: <Zap className="w-7 h-7 text-blue-600 dark:text-blue-400" />,
-    title: 'Run the "Ask" shortcut',
-    desc: 'On any alert, stack trace, or error message, use the message shortcut to open an investigation seeded with that message — no copy-paste.',
-  },
-  {
-    icon: <MessageSquare className="w-7 h-7 text-blue-600 dark:text-blue-400" />,
-    title: 'Send it a direct message',
-    desc: 'Work a problem privately in a DM. Each investigation gets its own thread, so separate problems stay separate.',
-  },
-];
 
 const howItWorks = [
   {
@@ -139,32 +118,34 @@ export default function SlackAppPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="absolute inset-0 bg-grid-slate-200/[0.05] dark:bg-grid-slate-700/[0.1] [mask-image:linear-gradient(to_bottom,white_5%,transparent_50%)]"></div>
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 mb-4">
+      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <span className="inline-block px-3 py-1 mb-6 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">
             FaultMaven for Slack
-          </p>
+          </span>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
             The teammate who has seen every incident
           </h1>
-          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
+            Troubleshooting, worked in the thread where it started.
+          </p>
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
             An AI troubleshooting copilot that works a problem the way a seasoned
-            engineer does — and does it in the thread where your team is already
-            working. It runs the investigation: triage, hypotheses, targeted
-            evidence, a verified fix.
+            engineer does — and does it where your team is already working. It
+            runs the investigation: triage, hypotheses, targeted evidence, a
+            verified fix.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href={INSTALL_URL} variant="primary" className="text-lg px-8">
+            <Button asChild href={INSTALL_URL} variant="primary">
               Add to Slack
             </Button>
-            <Button asChild href="/product" variant="secondary" className="text-lg px-8">
-              See the product
+            <Button asChild href="/product" variant="secondary">
+              See How It Works
             </Button>
           </div>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-6">
             Free to install, and nothing to configure — the app runs against
-            FaultMaven Cloud.
+            FaultMaven Cloud, currently in beta.
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
             <Link href="/privacy/slack" className="underline hover:text-[#2563EB]">
@@ -257,6 +238,10 @@ export default function SlackAppPage() {
             <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-3">
               How FaultMaven is triggered — and how it is not
             </h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">
+              FaultMaven is summon-only. It acts when you call it and stays out
+              of the way otherwise.
+            </p>
             <ul className="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
               <li>
                 <strong>@mentions</strong> — the primary trigger. @mention
@@ -288,40 +273,8 @@ export default function SlackAppPage() {
         </div>
       </section>
 
-      {/* Summon-only */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
-            It only joins where you invite it
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto text-center">
-            FaultMaven is summon-only. It acts when you call it and stays out of
-            the way otherwise — it does not follow along with channel
-            conversations it has not been invited into.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {summonWays.map((way) => (
-              <div
-                key={way.title}
-                className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900"
-              >
-                <div className="mb-4">{way.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">
-                  {way.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">{way.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-slate-600 dark:text-slate-400 mt-10 max-w-3xl mx-auto text-center">
-            Once a thread is an investigation, just reply in it to keep going —
-            no need to @mention again.
-          </p>
-        </div>
-      </section>
-
       {/* How it works a case */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-12 text-center">
             How it works a case
@@ -348,7 +301,7 @@ export default function SlackAppPage() {
       </section>
 
       {/* Slack integration detail */}
-      <section className="py-20 bg-white dark:bg-slate-900">
+      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
             How it fits into Slack
@@ -372,7 +325,7 @@ export default function SlackAppPage() {
       </section>
 
       {/* Grounded in */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
             Grounded in what your team already knows
@@ -396,7 +349,7 @@ export default function SlackAppPage() {
       </section>
 
       {/* Required disclaimers */}
-      <section className="py-20 bg-white dark:bg-slate-900">
+      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-10 text-center">
             Before you install, two things to know
@@ -447,7 +400,7 @@ export default function SlackAppPage() {
       </section>
 
       {/* Trust + links */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
+      <section className="py-20 bg-white dark:bg-slate-900">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
             You stay in command

@@ -147,10 +147,11 @@ export default function SlackPrivacyPolicyPage() {
                 FaultMaven Cloud to provide the troubleshooting service.
               </li>
               <li>
-                <strong>Self-hosted FaultMaven</strong> — operated entirely by
-                you or your organization on infrastructure you control.
-                Investigation data goes to your server; retention and redaction
-                are governed by your deployment&apos;s configuration.
+                <strong>FaultMaven Standalone</strong> — the self-hosted
+                deployment, operated entirely by you or your organization on
+                infrastructure you control. Investigation data goes to your
+                server; retention and redaction are governed by your
+                deployment&apos;s configuration.
               </li>
             </ul>
             <p>
@@ -304,7 +305,7 @@ export default function SlackPrivacyPolicyPage() {
               is not retained for model training.
             </p>
             <p>
-              When you use a self-hosted FaultMaven backend, redaction,
+              When you use a Standalone FaultMaven backend, redaction,
               retention, and provider choice are governed by your own
               deployment&apos;s configuration. You remain responsible for the
               content you choose to share with FaultMaven; avoid sharing data
@@ -327,7 +328,7 @@ export default function SlackPrivacyPolicyPage() {
               <li>
                 <strong>Backend:</strong> cases, evidence, and reports are
                 retained by the FaultMaven backend serving your installation,
-                under that backend&apos;s retention policy. For self-hosted
+                under that backend&apos;s retention policy. For Standalone
                 deployments, retention is controlled by your organization.
               </li>
             </ul>

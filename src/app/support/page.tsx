@@ -84,7 +84,7 @@ const productHelp = [
 
 const includeInReport = [
   'Which surface you were using — the Slack app, the Copilot extension, or the dashboard.',
-  'Whether you are on FaultMaven Cloud or a self-hosted FaultMaven server.',
+  'Whether you are on FaultMaven Cloud or a Standalone deployment you run yourself.',
   'What you did, what you expected, and what happened instead.',
   'Any error message shown, and roughly when it occurred.',
 ];
@@ -93,13 +93,12 @@ export default function SupportPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="absolute inset-0 bg-grid-slate-200/[0.05] dark:bg-grid-slate-700/[0.1] [mask-image:linear-gradient(to_bottom,white_5%,transparent_50%)]"></div>
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
+      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
             Support
           </h1>
-          <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Email us. No account, no sign-up, and no third-party login needed —
             write to the address below from whatever mail client you already
             use, and a person will read it.
