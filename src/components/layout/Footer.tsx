@@ -49,6 +49,7 @@ export default function Footer() {
             <ul className="mt-2 space-y-2 text-base">
               <li><Link href="/product" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Product</Link></li>
               <li><Link href="/use-cases" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Use Cases</Link></li>
+              <li><Link href="/slack" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">FaultMaven for Slack</Link></li>
             </ul>
           </div>
 
@@ -68,6 +69,7 @@ export default function Footer() {
             <ul className="mt-2 space-y-2 text-base">
               <li><Link href="/blog" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Blog</Link></li>
               <li><Link href="/faq" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">FAQ</Link></li>
+              <li><Link href="/support" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Support</Link></li>
               <li><a href="https://github.com/FaultMaven/faultmaven/discussions" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Discussions</a></li>
             </ul>
           </div>
@@ -92,6 +94,8 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Privacy Policy</Link>
             {' · '}
             <Link href="/privacy/extension" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Extension Privacy</Link>
+            {' · '}
+            <Link href="/privacy/slack" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Slack Privacy</Link>
             {' · '}
             <Link href="/terms" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Terms of Service</Link>
           </p>
