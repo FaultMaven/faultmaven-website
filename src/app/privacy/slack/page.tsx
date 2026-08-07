@@ -300,13 +300,15 @@ export default function SlackPrivacyPolicyPage() {
               sensitive values. Two things are worth being precise about.
             </p>
             <p>
-              <strong>Redaction.</strong> FaultMaven includes a server-side PII
-              redaction pipeline that can strip values such as credentials,
-              secrets, and personal identifiers from content before it is stored
-              and processed. Whether it is active, and what it removes, is
-              controlled by the backend&apos;s configuration — on a Standalone
-              deployment that is your configuration, and redaction is not
-              enabled by default. Treat it as a safety net, not a guarantee.
+              <strong>Redaction.</strong> On FaultMaven Cloud, server-side PII
+              redaction is enabled: content is passed through a redaction
+              pipeline that strips values such as credentials, secrets, and
+              personal identifiers before it is stored and processed. On a
+              Standalone deployment, redaction is controlled by your own
+              configuration and is not enabled by default. In either case,
+              treat redaction as a safety net rather than a guarantee — no
+              automated pipeline catches every sensitive value in arbitrary log
+              output.
             </p>
             <p>
               <strong>Model providers.</strong> Running an investigation means
@@ -352,10 +354,20 @@ export default function SlackPrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              This data is retained until you or your organization delete it, or
-              ask us to. There is no automatic expiry today. After a deletion,
-              copies can persist in routine encrypted backups until those
-              backups age out.
+              <strong>How long we keep it.</strong> On FaultMaven Cloud,
+              investigation data is retained for up to seven years, unless you
+              delete it sooner or ask us to. We keep it for that period so that
+              historical cases remain available as troubleshooting knowledge and
+              to meet our record-keeping obligations. Nothing expires
+              automatically before then.
+            </p>
+            <p>
+              <strong>Deleting it.</strong> You can ask us to delete your
+              investigation data at any time, and we will remove it from our
+              production systems and search indexes. Encrypted backups are held
+              on the same schedule; content you have deleted can remain in a
+              backup until that backup expires. If we ever restore from backup,
+              we re-apply deletions rather than reviving removed data.
             </p>
             <p>
               The Slack app itself stores much less: the installation record
