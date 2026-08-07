@@ -222,9 +222,8 @@ export default function SupportPage() {
             What to expect
           </h2>
           <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
-            We are a focused team and we read every message. We aim to
-            acknowledge support email within two business days. Security
-            reports are triaged ahead of everything else — send those to{' '}
+            We are a focused team and we read every message. Security reports
+            are triaged ahead of everything else — send those to{' '}
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
               className="text-blue-700 dark:text-blue-400 hover:underline"
