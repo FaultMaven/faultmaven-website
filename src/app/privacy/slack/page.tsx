@@ -293,45 +293,84 @@ export default function SlackPrivacyPolicyPage() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              6. Sensitive data and redaction
+              6. Sensitive data
             </h2>
             <p>
               Troubleshooting data — logs, traces, configs — can contain
-              sensitive values. Content forwarded to the FaultMaven backend is
-              passed through a server-side PII redaction pipeline (Presidio)
-              before it is stored and processed. Investigation content that
-              reaches an upstream LLM provider is sent to enterprise
-              zero-data-retention endpoints, so it is processed statelessly and
-              is not retained for model training.
+              sensitive values. Two things are worth being precise about.
             </p>
             <p>
-              When you use a Standalone FaultMaven backend, redaction,
-              retention, and provider choice are governed by your own
-              deployment&apos;s configuration. You remain responsible for the
-              content you choose to share with FaultMaven; avoid sharing data
-              you are not authorized to disclose.
+              <strong>Redaction.</strong> FaultMaven includes a server-side PII
+              redaction pipeline that can strip values such as credentials,
+              secrets, and personal identifiers from content before it is stored
+              and processed. Whether it is active, and what it removes, is
+              controlled by the backend&apos;s configuration — on a Standalone
+              deployment that is your configuration, and redaction is not
+              enabled by default. Treat it as a safety net, not a guarantee.
+            </p>
+            <p>
+              <strong>Model providers.</strong> Running an investigation means
+              sending your content to the large language model provider the
+              backend is configured to use. That is a third party, and its own
+              data-handling terms govern what it does with what it receives.
+              FaultMaven does not add a retention guarantee on top of the
+              provider&apos;s.
+            </p>
+            <p>
+              You remain responsible for the content you choose to share with
+              FaultMaven; avoid sharing data you are not authorized to
+              disclose.
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              7. Data retention
+              7. What we store, and for how long
             </h2>
+            <p>
+              FaultMaven stores your investigation data. That is not incidental
+              — it is how the product works. An investigation has to survive
+              between turns, a report has to be readable after the incident, and
+              a resolved case only becomes reusable knowledge if it is kept.
+            </p>
+            <p>Concretely, the FaultMaven backend persists:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Slack app:</strong> removing FaultMaven from your
-                workspace revokes its access immediately — the stored token
-                stops working and no further data can be read. The installation
-                record itself is not purged automatically; we delete it on
-                request (see §8). The thread-to-case map holds identifiers
-                only — workspace, channel, thread, and case IDs — never message
-                content.
+                <strong>Cases and their conversations</strong> — the messages
+                exchanged in an investigation, and the case&apos;s state.
               </li>
               <li>
-                <strong>Backend:</strong> cases, evidence, and reports are
-                retained by the FaultMaven backend serving your installation,
-                under that backend&apos;s retention policy. For Standalone
-                deployments, retention is controlled by your organization.
+                <strong>Evidence</strong> — the logs, configs, and files you
+                share, along with what was extracted from them.
+              </li>
+              <li>
+                <strong>Reasoning artifacts</strong> — hypotheses, the evidence
+                linked to each, and the resulting reports and solutions.
+              </li>
+              <li>
+                <strong>Derived search indexes</strong> — vector embeddings
+                built from the above so past cases and documents can be
+                retrieved later.
               </li>
             </ul>
+            <p>
+              This data is retained until you or your organization delete it, or
+              ask us to. There is no automatic expiry today. After a deletion,
+              copies can persist in routine encrypted backups until those
+              backups age out.
+            </p>
+            <p>
+              The Slack app itself stores much less: the installation record
+              (workspace identifiers and the bot token) and a thread-to-case map
+              holding identifiers only — workspace, channel, thread, and case
+              IDs — never message content. Removing FaultMaven from your
+              workspace revokes its access immediately, and the stored token
+              stops working; the installation record is not purged
+              automatically, and we delete it on request (see §8).
+            </p>
+            <p>
+              On a Standalone deployment, all of the above lives on
+              infrastructure you control, and retention is entirely your
+              organization&apos;s decision.
+            </p>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
               8. Your choices and rights
