@@ -25,7 +25,7 @@ const accessTable = [
   },
   {
     data: 'Prior messages in the summoned thread',
-    when: 'Once, on the first summons in a thread (most recent replies, size-capped)',
+    when: 'Once, on the first summons in a thread (capped in both message count and size)',
     where: 'Forwarded to the FaultMaven backend as catch-up context',
     why: 'So the investigation is not blind to the discussion that preceded the summons',
   },
@@ -68,7 +68,8 @@ const scopeTable = [
   },
   {
     scope: 'reactions:write',
-    purpose: 'Add a reaction to acknowledge that a request was received and is being worked',
+    purpose:
+      'Mark a message with a reaction when FaultMaven had to drop it — a turn was already running in that thread — so you know to send it again',
   },
   {
     scope: 'files:read',
@@ -210,10 +211,13 @@ export default function SlackPrivacyPolicyPage() {
                 investigating</strong> continues that investigation.
               </li>
               <li>
-                <strong>Every other channel message is discarded</strong>{' '}
-                without being read, stored, or sent anywhere. Top-level channel
-                messages never start an investigation, and FaultMaven never
-                acts on threads it does not already own.
+                <strong>Every other channel message is discarded.</strong> The
+                gate inspects only what it needs to make that decision — is
+                this the app&apos;s own post, is it a reply in a thread, does it
+                mention FaultMaven — and the message is then dropped in memory:
+                not stored, not forwarded to the backend, not sent anywhere.
+                Top-level channel messages never start an investigation, and
+                FaultMaven never acts on threads it does not already own.
               </li>
             </ul>
             <p>
@@ -312,10 +316,13 @@ export default function SlackPrivacyPolicyPage() {
             </h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong>Slack app:</strong> the installation record (workspace
-                identifiers and bot token) is retained for as long as
-                FaultMaven is installed, and is deleted when you uninstall. The
-                thread-to-case map holds identifiers only, not message content.
+                <strong>Slack app:</strong> removing FaultMaven from your
+                workspace revokes its access immediately — the stored token
+                stops working and no further data can be read. The installation
+                record itself is not purged automatically; we delete it on
+                request (see §8). The thread-to-case map holds identifiers
+                only — workspace, channel, thread, and case IDs — never message
+                content.
               </li>
               <li>
                 <strong>Backend:</strong> cases, evidence, and reports are
@@ -331,10 +338,12 @@ export default function SlackPrivacyPolicyPage() {
             <p>
               You can remove FaultMaven from your Slack workspace at any time
               from your workspace&apos;s app management settings; this revokes
-              its access immediately. To request deletion of investigation data
-              held on FaultMaven Cloud, or to exercise other rights you may have
-              under your jurisdiction, contact us at{' '}
+              its access immediately. To request deletion of your installation
+              record, of investigation data held on FaultMaven Cloud, or to
+              exercise other rights you may have under your jurisdiction,
+              contact us at{' '}
               <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+              We will confirm when the deletion is complete.
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
