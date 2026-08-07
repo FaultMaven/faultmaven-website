@@ -354,20 +354,19 @@ export default function SlackPrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              <strong>How long we keep it.</strong> On FaultMaven Cloud,
-              investigation data is retained for up to seven years, unless you
-              delete it sooner or ask us to. We keep it for that period so that
-              historical cases remain available as troubleshooting knowledge and
-              to meet our record-keeping obligations. Nothing expires
-              automatically before then.
+              <strong>How long we keep it.</strong> Your investigation data
+              stays available for as long as you keep it. Nothing expires
+              automatically, because a case you may want to look back on — or
+              search against — should not disappear on a timer.
             </p>
             <p>
-              <strong>Deleting it.</strong> You can ask us to delete your
-              investigation data at any time, and we will remove it from our
-              production systems and search indexes. Encrypted backups are held
-              on the same schedule; content you have deleted can remain in a
-              backup until that backup expires. If we ever restore from backup,
-              we re-apply deletions rather than reviving removed data.
+              <strong>Deleting it.</strong> You can delete your investigation
+              data, or ask us to delete it, at any time. We remove it from our
+              production systems and from the search indexes built over it. Our
+              backups are retained for up to seven years, so content you have
+              deleted can still exist in a backup until that backup ages out. If
+              we restore from a backup, we re-apply deletions rather than
+              reviving removed data.
             </p>
             <p>
               The Slack app itself stores much less: the installation record
