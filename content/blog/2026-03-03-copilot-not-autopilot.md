@@ -84,15 +84,15 @@ production.
 Concretely, we split the work the way a senior engineer and a sharp pair-partner
 split it at a whiteboard:
 
-- **The engineer** gathers evidence and runs commands. They pull the logs, query
+- **The engineer** gathers the data and runs commands. They pull the logs, query
   the metrics, run `kubectl describe`, and — critically — they are the only one
   who ever executes anything against a live system.
-- **The copilot** analyzes what it's given. It reads the evidence you bring,
+- **The copilot** analyzes what it's given. It reads the data you bring,
   proposes hypotheses, ranks them by what the data actually supports, tells you
   the single most decisive next diagnostic step, and shows its reasoning so you
   can disagree with it.
 
-Evidence flows *in* to the copilot. Actions flow *out* through the human. Those
+Data flows *in* to the copilot. Actions flow *out* through the human. Those
 are two different directions, and the boundary between them is where safety
 lives.
 
@@ -105,7 +105,7 @@ flowchart LR
     C["FaultMaven<br/>(copilot: reads & reasons)"]
 
     S -->|"engineer collects"| E
-    E -->|"submits evidence"| C
+    E -->|"submits data"| C
     C -->|"hypotheses · next step · reasoning"| E
     E -->|"decides & executes"| S
 
@@ -124,7 +124,7 @@ design.
 
 Two things enforce it.
 
-**The tools are read-only, over evidence you hand it.** The copilot's tools
+**The tools are read-only, over the data you hand it.** The copilot's tools
 search the files you've submitted, run interpreted analysis over sections of
 them, query your knowledge base of runbooks and past fixes, and — when you allow
 it — search public technical documentation. None of them reach into a live
@@ -206,7 +206,7 @@ tools you adopt toward the second kind. Keep the credentials, and the command, o
 the human side of the boundary.
 
 FaultMaven is source-available and the Standalone deployment is free to
-self-host — so your evidence can stay on your own infrastructure while you try
+self-host — so your data can stay on your own infrastructure while you try
 the copilot pattern for yourself. The
 [Quick Start](https://github.com/FaultMaven/faultmaven#quick-start) takes a few
 minutes, or come see what we're building at

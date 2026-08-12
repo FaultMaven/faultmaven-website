@@ -38,7 +38,7 @@ export default function RoadmapPage() {
               Being a copilot is a deliberate choice, not a limitation. FaultMaven is built to do more on its own — but demanding broad access and full automation before it has diagnosed a single incident is a lot to trust on faith, and the fastest way to stall in a security review. So it earns autonomy rather than assuming it.
             </p>
             <p className="text-lg text-slate-600 dark:text-slate-400">
-              It starts by working turn-by-turn beside you, with no access to your systems. As it proves its method, it takes on more of the loop on its own — first analyzing the evidence bundles you hand it, and only when you&apos;re ready, connecting directly to your stack. Direct access to your systems is the last step, not the first.
+              It starts by working turn-by-turn beside you, with no access to your systems. As it proves its method, it takes on more of the loop on its own — first analyzing the diagnostic data bundles you hand it, and only when you&apos;re ready, connecting directly to your stack. Direct access to your systems is the last step, not the first.
             </p>
             <div className="p-6 border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg">
               <p className="text-slate-700 dark:text-slate-300">
@@ -104,7 +104,7 @@ export default function RoadmapPage() {
                 <span className="text-sm text-slate-500 dark:text-slate-400">It works on your bundle</span>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
-                Investigator — hand it the evidence, get back a diagnosis
+                Investigator — hand it the data, get back a diagnosis
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 An asynchronous diagnostic engine that works a bundle end-to-end on its own.

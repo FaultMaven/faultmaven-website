@@ -62,7 +62,7 @@ Notice also what the two incidents demand next: A needs the memory regression fo
 
 ## Building a copilot around the method
 
-This is the problem FaultMaven exists for. FaultMaven is an AI-powered troubleshooting copilot: it correlates the evidence you give it — logs, metrics, configs — with runbooks, documentation, and past fixes to drive a contextual investigation. The design bet is that an LLM's real strengths — reading volumes of log data quickly, correlating across sources, breadth of recall — are valuable *inside* a diagnostic method, and dangerous without one.
+This is the problem FaultMaven exists for. FaultMaven is an AI-powered troubleshooting copilot: it correlates the data you give it — logs, metrics, configs — with runbooks, documentation, and past fixes to drive a contextual investigation. The design bet is that an LLM's real strengths — reading volumes of log data quickly, correlating across sources, breadth of recall — are valuable *inside* a diagnostic method, and dangerous without one.
 
 So the method is not a politely worded prompt suggestion. As far as possible, it's structure the model operates within:
 

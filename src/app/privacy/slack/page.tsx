@@ -340,8 +340,8 @@ export default function SlackPrivacyPolicyPage() {
                 exchanged in an investigation, and the case&apos;s state.
               </li>
               <li>
-                <strong>Evidence</strong> — the logs, configs, and files you
-                share, along with what was extracted from them.
+                <strong>Case data and evidence</strong> — the logs, configs, and
+                files you share, along with the evidence extracted from them.
               </li>
               <li>
                 <strong>Reasoning artifacts</strong> — hypotheses, the evidence
