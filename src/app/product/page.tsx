@@ -304,7 +304,7 @@ export default function ProductPage() {
                 Local-First
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                All evidence (logs, configs, screenshots) is stored on your infrastructure. Nothing leaves unless you explicitly share it.
+                All case data (logs, configs, screenshots) is stored on your infrastructure. Nothing leaves unless you explicitly share it.
               </p>
             </div>
 

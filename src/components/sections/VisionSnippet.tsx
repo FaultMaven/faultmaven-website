@@ -24,7 +24,7 @@ export default function VisionSnippet() {
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
             <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 mb-1">Phase 2 · Next</p>
             <p className="font-semibold text-slate-900 dark:text-slate-100 mb-1">Investigator</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">Hand it an evidence bundle; get back a diagnosis. Systems stay isolated.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">Hand it a diagnostic data bundle; get back a diagnosis. Systems stay isolated.</p>
           </div>
           <div className="p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1">Phase 3 · Roadmap</p>

@@ -23,7 +23,7 @@ const accessTable = [
     data: 'Files you upload',
     when: 'When you attach a file',
     where: 'Your configured FaultMaven backend',
-    why: 'To analyze logs/evidence you provide',
+    why: 'To analyze the logs and other data you provide',
   },
   {
     data: 'Authentication tokens',

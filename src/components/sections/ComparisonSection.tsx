@@ -42,7 +42,7 @@ export default function ComparisonSection() {
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Certainty</td>
                 <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Confidently guesses, even when wrong</td>
                 <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
-                  Won&apos;t present a root cause it can&apos;t back with your evidence — and drops a &quot;confirmed&quot; cause the moment a fix fails
+                  Won&apos;t present a root cause it can&apos;t back with evidence from your data — and drops a &quot;confirmed&quot; cause the moment a fix fails
                 </td>
               </tr>
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">

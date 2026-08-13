@@ -12,7 +12,7 @@ import Link from '@/components/ui/Link';
 export const metadata: Metadata = {
   title: 'FaultMaven for Slack',
   description:
-    'FaultMaven for Slack is an AI troubleshooting copilot that runs the investigation in your incident thread — triage, hypotheses, targeted evidence, a verified fix.',
+    'FaultMaven for Slack is an AI troubleshooting copilot that runs the investigation in your incident thread — triage, hypotheses, targeted data requests, a verified fix.',
   alternates: {
     canonical: '/slack',
   },
@@ -27,10 +27,10 @@ const howItWorks = [
   },
   {
     title: 'It forms hypotheses and tests them',
-    desc: 'Competing explanations are tracked with confidence, and each one gets a targeted evidence request that will confirm or eliminate it.',
+    desc: 'Competing explanations are tracked with confidence, and each one gets a targeted data request that will confirm or eliminate it.',
   },
   {
-    title: 'It asks for the specific evidence it needs',
+    title: 'It asks for the specific data it needs',
     desc: 'Paste the log, drop the config, share the stack trace. FaultMaven reads what you share in the thread and folds it into the investigation.',
   },
   {
@@ -77,7 +77,7 @@ const slackIntegration = [
   {
     surface: 'File uploads',
     detail:
-      'Attach a log, a config, or a stack trace to a message in an investigation thread and FaultMaven reads it as evidence. No separate upload step.',
+      'Attach a log, a config, or a stack trace to a message in an investigation thread and FaultMaven reads it on the spot. No separate upload step.',
   },
   {
     surface: 'One case per thread',
@@ -99,7 +99,7 @@ const slackIntegration = [
 const groundedIn = [
   {
     icon: <Search className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
-    title: 'Your evidence',
+    title: 'Your data',
     desc: 'Logs, errors, configs, and files you share in the thread.',
   },
   {
@@ -132,8 +132,8 @@ export default function SlackAppPage() {
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
             An AI troubleshooting copilot that works a problem the way a seasoned
             engineer does — and does it where your team is already working. It
-            runs the investigation: triage, hypotheses, targeted evidence, a
-            verified fix.
+            runs the investigation: triage, hypotheses, targeted data requests,
+            a verified fix.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild href={INSTALL_URL} variant="primary">
@@ -180,7 +180,7 @@ export default function SlackAppPage() {
             <p>
               Concretely, that means it triages what actually failed before
               proposing anything; forms competing hypotheses and tracks its
-              confidence in each; asks you for the specific piece of evidence
+              confidence in each; asks you for the specific piece of data
               that would confirm or eliminate one of them; and keeps going until
               a root cause is identified and the fix is verified. When a case
               resolves, it can capture what was learned as a runbook, so the
@@ -191,7 +191,7 @@ export default function SlackAppPage() {
               exists because troubleshooting already happens in Slack — someone
               pastes a stack trace into a channel and three people start
               guessing. FaultMaven joins that thread as a participant: it reads
-              the evidence shared in the thread, replies in the thread, and
+              the data shared in the thread, replies in the thread, and
               keeps one investigation per thread so parallel incidents stay
               separate. It reasons over your logs, errors, and configs alongside
               the runbooks and past fixes your team has accumulated.
@@ -364,7 +364,7 @@ export default function SlackAppPage() {
               </div>
               <p className="text-slate-700 dark:text-slate-300">
                 FaultMaven is powered by large language models. Its output —
-                including its triage, its hypotheses, the evidence it asks for,
+                including its triage, its hypotheses, the data it asks for,
                 and the fixes it proposes — may be incomplete, misleading, or
                 simply wrong, and it can be confidently wrong. Treat every
                 response as a suggestion from a colleague you have not verified

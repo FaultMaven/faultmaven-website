@@ -174,7 +174,7 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
-              Today, FaultMaven works turn-by-turn beside you. Over time it takes on more of the loop on its own — investigating the evidence bundles you hand it, and eventually, once you connect it to your stack, responding to alerts end-to-end: gathering the evidence, isolating the root cause, and proposing the fix.
+              Today, FaultMaven works turn-by-turn beside you. Over time it takes on more of the loop on its own — investigating the diagnostic data bundles you hand it, and eventually, once you connect it to your stack, responding to alerts end-to-end: gathering the evidence, isolating the root cause, and proposing the fix.
             </p>
             <p>
               We&apos;re not trying to predict the future or forecast next quarter&apos;s outages. FaultMaven is the engineer at the keyboard when something is <em>already</em> broken — the goal is to shorten the path from alert to resolution, and to turn every incident into knowledge the next one can reuse.
