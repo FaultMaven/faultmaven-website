@@ -4,7 +4,7 @@ date: "2026-08-19"
 description: "A reasoning model's hidden thinking and its visible answer share one token budget, and the API tells you when the answer lost. We were discarding that signal — here's the bug, how long it ran unseen, and why prose truncation is invisible by construction."
 tags: ["llm", "ai", "reliability", "observability", "sre"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 One of our knowledge-base answers came back at 215 characters. Sibling answers to the same kind of question — same tool, same retrieval pipeline, same prompt template — ran 5,261, 7,285, and 7,729 characters. The short one wasn't an error. It wasn't flagged, retried, or logged as anything unusual. It was returned to the investigation engine as a complete, successful result, and the engine treated it as one, because every signal it had said so: the call returned cleanly, the text was well-formed, and nothing anywhere raised.
