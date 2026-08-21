@@ -18,6 +18,11 @@
  * predictive AIOps platform"), so a substring match false-positives. They stay
  * §3 review rules.
  *
+ * KNOWN GAP: content/blog/*.md is NOT scanned. One post carries the retired
+ * 'live telemetry' claim in its author bio; faultmaven#821 deliberately left it
+ * as dated, published writing. Extending the scan here needs that decision
+ * first — otherwise this check goes red on an intentional exception.
+ *
  * Put 'brand-lint: allow' on a line to whitelist a deliberate, justified use.
  * When retiring a NEW term, add it here AND to brand-messaging.md §7 together.
  */
@@ -39,7 +44,10 @@ const UNIVERSAL = [
   [/\bCommunity Edition\b/i, "retired tier name — use 'Standalone' (one unified codebase)"],
   [/\bEnterprise Edition\b/i, "retired tier name — use 'Cloud' (one unified codebase)"],
   [/\bfaultmaven-deploy\b/i, 'obsolete repo — do not reference'],
-  [/\bfm-[a-z]+-service\b(?!-)/i, 'obsolete microservice repo — do not reference'],
+  // The exemption names the ONE thing it exempts: the fm-provision-service-account
+  // console entrypoint (faultmaven#887). A bare (?!-) also let fm-case-service-v2
+  // and fm-agent-service-archive through, which ARE retired repo names.
+  [/\bfm-[a-z]+-service\b(?!-account\b)/i, 'obsolete microservice repo — do not reference'],
 ];
 
 const CORE_ONLY = [

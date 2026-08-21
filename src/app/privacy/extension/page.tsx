@@ -45,7 +45,7 @@ const permissionTable = [
   {
     permission: 'scripting',
     purpose:
-      "Inject a one-shot text extractor into the current tab to read its content, only when you initiate a capture",
+      'Inject the page-content extractor only when you initiate a capture, and register the sign-in bridge on your configured Dashboard origin only',
   },
   {
     permission: 'identity',
@@ -89,7 +89,7 @@ export default function ExtensionPrivacyPolicyPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="space-y-6">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              <em>Effective Date: June 15, 2026</em>
+              <em>Effective Date: August 21, 2026</em>
               <br />
               <em>
                 Applies to: FaultMaven Copilot browser extension (Chrome / Edge
