@@ -64,7 +64,7 @@ Provider support here is genuinely uneven, and not along the lines you'd guess f
 
 ## We support nine providers, so we had to stop trusting the brand
 
-FaultMaven is an AI-powered troubleshooting copilot: it correlates live telemetry with runbooks, documentation, and past fixes to work an incident the way a seasoned engineer would — methodically, from evidence, not from a guess. It's source-available and self-hostable, and it runs against nine LLM providers: Anthropic, OpenAI, Gemini, Fireworks, Groq, HuggingFace, Cohere, OpenRouter, and local Ollama or vLLM.
+FaultMaven is an AI-powered troubleshooting copilot: it correlates the logs, metrics, and configs you share with runbooks, documentation, and past fixes to work an incident the way a seasoned engineer would — methodically, from evidence, not from a guess. It's source-available and self-hostable, and it runs against nine LLM providers: Anthropic, OpenAI, Gemini, Fireworks, Groq, HuggingFace, Cohere, OpenRouter, and local Ollama or vLLM.
 
 We didn't support nine providers to pad a feature list. We support them because the people running FaultMaven have real constraints. An air-gapped environment can only use a local model. A cost-sensitive team wants the cheap fast provider for the bulk of the work. A regulated shop has one approved vendor. Choice isn't a nicety here; it's the deployment reality.
 

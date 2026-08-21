@@ -18,6 +18,14 @@
  * predictive AIOps platform"), so a substring match false-positives. They stay
  * §3 review rules.
  *
+ * content/ is deliberately NOT scanned. Blog posts are not kept in terminology
+ * sync the way the README and product descriptions are — most of UNIVERSAL is
+ * drift (retired tier names, repo names, deployment lexicon), and gating dated
+ * writing on it would be enforcing a discipline these files do not have. What
+ * blog posts DO get is correction: a claim that is technically wrong is fixed
+ * whenever it is noticed, not left standing because the post is old. That is a
+ * review duty, not a grep — so do not add content/ here to 'close the gap'.
+ *
  * Put 'brand-lint: allow' on a line to whitelist a deliberate, justified use.
  * When retiring a NEW term, add it here AND to brand-messaging.md §7 together.
  */
@@ -29,12 +37,21 @@ const ALLOW = 'brand-lint: allow';
 
 const UNIVERSAL = [
   [/\btroubleshooting assistant\b/i, "use 'troubleshooting copilot', not 'troubleshooting assistant'"],
+  // Retired overclaim (#821): FaultMaven has no reach into production — it works
+  // from what you paste, upload or capture.
+  [/\blive telemetry\b/i, "FaultMaven reads no live telemetry — say 'the logs, metrics, and configs you share'"],
   [/\bmicroservices?\s+backend\b/i, 'FaultMaven is a modular monolith, not microservices'],
   [/\bLocal Deployment\b/i, "use 'Standalone' (ADR-004); 'local' is reserved for AUTH_MODE/CHAT_PROVIDER"],
   [/\bdeploy locally\b/i, "use 'self-host' / 'Standalone' (ADR-004)"],
   [/\bEnterprise SaaS\b/i, "use 'FaultMaven Cloud'; there is no Enterprise tier"],
+  [/\bCommunity Edition\b/i, "retired tier name — use 'Standalone' (one unified codebase)"],
+  [/\bEnterprise Edition\b/i, "retired tier name — use 'Cloud' (one unified codebase)"],
   [/\bfaultmaven-deploy\b/i, 'obsolete repo — do not reference'],
-  [/\bfm-[a-z]+-service\b/i, 'obsolete microservice repo — do not reference'],
+  // The exemption names the ONE thing it exempts: the fm-provision-service-account
+  // console entrypoint (faultmaven#887), singular or plural. A bare (?!-) also let
+  // fm-case-service-v2 and fm-agent-service-archive through, which ARE retired
+  // repo names. Kept in step with canonical via faultmaven#1148.
+  [/\bfm-[a-z]+-service\b(?!-accounts?\b)/i, 'obsolete microservice repo — do not reference'],
 ];
 
 const CORE_ONLY = [
