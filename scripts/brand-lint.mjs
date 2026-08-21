@@ -18,10 +18,13 @@
  * predictive AIOps platform"), so a substring match false-positives. They stay
  * §3 review rules.
  *
- * KNOWN GAP: content/blog/*.md is NOT scanned. One post carries the retired
- * 'live telemetry' claim in its author bio; faultmaven#821 deliberately left it
- * as dated, published writing. Extending the scan here needs that decision
- * first — otherwise this check goes red on an intentional exception.
+ * content/ is deliberately NOT scanned. Blog posts are not kept in terminology
+ * sync the way the README and product descriptions are — most of UNIVERSAL is
+ * drift (retired tier names, repo names, deployment lexicon), and gating dated
+ * writing on it would be enforcing a discipline these files do not have. What
+ * blog posts DO get is correction: a claim that is technically wrong is fixed
+ * whenever it is noticed, not left standing because the post is old. That is a
+ * review duty, not a grep — so do not add content/ here to 'close the gap'.
  *
  * Put 'brand-lint: allow' on a line to whitelist a deliberate, justified use.
  * When retiring a NEW term, add it here AND to brand-messaging.md §7 together.
