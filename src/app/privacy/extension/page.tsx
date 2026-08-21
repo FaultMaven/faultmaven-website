@@ -11,7 +11,7 @@ const accessTable = [
     data: 'Page content (visible text of the current tab)',
     when: 'Only when you explicitly click "capture page" for the active tab',
     where: 'Your configured FaultMaven backend',
-    why: 'So the assistant can analyze logs, stack traces, and dashboard data you are looking at',
+    why: 'So the copilot can analyze logs, stack traces, and dashboard data you are looking at',
   },
   {
     data: 'Messages, questions, and pasted text',
@@ -40,17 +40,22 @@ const permissionTable = [
   },
   {
     permission: 'sidePanel',
-    purpose: 'Render the assistant in the browser side panel',
+    purpose: 'Render the copilot in the browser side panel',
   },
   {
-    permission: 'activeTab + scripting',
+    permission: 'scripting',
     purpose:
-      "Capture the current tab's content only when you initiate a capture",
+      "Inject a one-shot text extractor into the current tab to read its content, only when you initiate a capture",
+  },
+  {
+    permission: 'identity',
+    purpose:
+      'Open the sign-in window and receive the login redirect; the browser owns and closes that window',
   },
   {
     permission: 'tabs',
     purpose:
-      'Detect completion of the OAuth login redirect and manage the login tab',
+      'Read the active tab\'s address before a capture, and open or focus your FaultMaven Dashboard tab',
   },
   {
     permission: 'Host access to your FaultMaven backend',
