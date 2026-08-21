@@ -45,9 +45,10 @@ const UNIVERSAL = [
   [/\bEnterprise Edition\b/i, "retired tier name — use 'Cloud' (one unified codebase)"],
   [/\bfaultmaven-deploy\b/i, 'obsolete repo — do not reference'],
   // The exemption names the ONE thing it exempts: the fm-provision-service-account
-  // console entrypoint (faultmaven#887). A bare (?!-) also let fm-case-service-v2
-  // and fm-agent-service-archive through, which ARE retired repo names.
-  [/\bfm-[a-z]+-service\b(?!-account\b)/i, 'obsolete microservice repo — do not reference'],
+  // console entrypoint (faultmaven#887), singular or plural. A bare (?!-) also let
+  // fm-case-service-v2 and fm-agent-service-archive through, which ARE retired
+  // repo names. Kept in step with canonical via faultmaven#1148.
+  [/\bfm-[a-z]+-service\b(?!-accounts?\b)/i, 'obsolete microservice repo — do not reference'],
 ];
 
 const CORE_ONLY = [
