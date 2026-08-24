@@ -30,7 +30,15 @@ export default function SurfacesSection() {
               A browser side-panel that stays with you across tabs — Grafana, the AWS Console, Datadog, your terminal output. You sign in and it&apos;s yours: paste a log, capture the page, and work the problem without leaving what you&apos;re looking at.
             </p>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Coming soon to the Chrome Web Store.
+              <a
+                href="https://chromewebstore.google.com/detail/faultmaven-copilot/fghoagggojmkdopidfopijfnlmchjcng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Available now on the Chrome Web Store
+              </a>{' '}
+              — Chrome, Edge, Brave, and other Chromium browsers. Works against FaultMaven Cloud or your own self-hosted server.
             </p>
           </div>
 

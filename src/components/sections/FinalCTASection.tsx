@@ -35,7 +35,18 @@ cd faultmaven
         </div>
 
         {/* Secondary Paths */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              Prefer to Start in the Browser?
+            </h3>
+            <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
+              FaultMaven Copilot is on the Chrome Web Store. Install it, sign in, and work a case in the side panel.
+            </p>
+            <Button asChild href="https://chromewebstore.google.com/detail/faultmaven-copilot/fghoagggojmkdopidfopijfnlmchjcng" target="_blank" rel="noopener noreferrer" variant="secondary" className="w-full">
+              Get the Copilot extension
+            </Button>
+          </div>
           <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
               Need Team Features?
