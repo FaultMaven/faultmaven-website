@@ -14,6 +14,10 @@ on:
   push:
     branches: [main]
 
+# Checkout plus a stdlib Node script; nothing is written back to the repo.
+permissions:
+  contents: read
+
 jobs:
   brand-lint:
     runs-on: ubuntu-latest
