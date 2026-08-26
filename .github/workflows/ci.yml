@@ -140,7 +140,7 @@ jobs:
       - name: Run pnpm audit
         run: |
           echo "Running pnpm audit..."
-          pnpm audit --audit-level=high
+          pnpm audit --audit-level=moderate
 
       - name: Security summary
         if: always()
@@ -170,7 +170,7 @@ jobs:
           echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Lint & Type Check | ${{ needs.lint.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Build Verification | ${{ needs.build.result == 'success' && '✅ Passed' || '❌ Failed' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Security Scan | ${{ needs.security.result == 'success' && '✅ Passed' || needs.security.result == 'failure' && '⚠️  Warnings' || '⏭️  Skipped' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security Scan | ${{ needs.security.result == 'success' && '✅ Passed' || needs.security.result == 'failure' && '❌ Failed' || '⏭️  Skipped' }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Deployment**: Handled by Vercel automatically" >> $GITHUB_STEP_SUMMARY
           echo "- Production: Auto-deploy from \`main\` branch" >> $GITHUB_STEP_SUMMARY

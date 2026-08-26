@@ -1,0 +1,33 @@
+name: Dependency Review
+
+# Fails pull requests that introduce dependencies with known vulnerabilities
+# (GitHub Advisory Database). Complements the pnpm audit gate in ci.yml:
+# dependency-review blocks NEW vulnerable introductions at any severity on the
+# PR diff, while pnpm audit scans the full resolved tree at moderate+.
+# Note: this gate only evaluates future pull requests; it does not scan
+# dependencies already on main.
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4
+        with:
+          # Fail on any known-vulnerable introduction, regardless of severity.
+          # This is diff-scoped (only deps the PR adds/changes), so a strict
+          # threshold stays low-noise.
+          fail-on-severity: low
+          comment-summary-in-pr: on-failure
