@@ -255,7 +255,7 @@ cd faultmaven
                   Which browsers does the Copilot extension support?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Chrome, Edge, Brave, and other Chromium browsers, plus Firefox. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
+                  Install it from the <a href="https://chromewebstore.google.com/detail/faultmaven-copilot/fghoagggojmkdopidfopijfnlmchjcng" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Chrome Web Store</a> — Chrome, Edge, Brave, and other Chromium browsers. The same install works whether your backend is FaultMaven Cloud or a server you self-host; you choose that in Settings. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
                 </p>
               </div>
 
