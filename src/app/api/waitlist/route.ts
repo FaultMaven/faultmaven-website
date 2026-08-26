@@ -3,9 +3,6 @@ import { rateLimit } from '@/middleware/rateLimit';
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-// DEBUG: Log the API key to confirm it's loaded
-console.log('RESEND_API_KEY:', process.env.RESEND_API_KEY);
-
 // Only initialize Resend if we have an API key
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 

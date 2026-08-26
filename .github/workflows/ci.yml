@@ -19,6 +19,10 @@ jobs:
     name: Lint & Type Check
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Reads the repo (checkout) and runs local tooling. Step summaries are
+    # written to a file, not through the API, so no write scope is needed.
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -67,6 +71,10 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # Checkout plus a local Next.js build. Deployment is Vercel's, not this
+    # job's, so it needs no write scope.
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -118,6 +126,10 @@ jobs:
     name: Security Scan
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Checkout plus `pnpm audit`, which queries the npm registry rather than
+    # the GitHub API. No SARIF upload here, so no security-events: write.
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
@@ -157,6 +169,9 @@ jobs:
     needs: [lint, build, security]
     if: always()
     runs-on: ubuntu-latest
+    # No checkout and no API calls: this job only echoes into the step
+    # summary file, so it needs no token scope at all.
+    permissions: {}
 
     steps:
       - name: Pipeline summary

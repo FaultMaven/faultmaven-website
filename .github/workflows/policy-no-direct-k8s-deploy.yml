@@ -14,6 +14,11 @@ on:
       - '**/*.yaml'
       - '**/*.sh'
 
+# Full-history checkout plus local greps over the working tree. The job
+# reports by exit code and step summary, so it needs no write scope.
+permissions:
+  contents: read
+
 jobs:
   check-no-k8s-deploy:
     name: Check for K8s Deployment Logic
