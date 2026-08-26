@@ -13,6 +13,9 @@ on:
 
 permissions:
   contents: read
+  # Required by comment-summary-in-pr (the action posts its summary as a PR
+  # comment on failure).
+  pull-requests: write
 
 jobs:
   dependency-review:
