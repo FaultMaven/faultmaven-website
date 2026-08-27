@@ -4,7 +4,7 @@ date: "2026-08-27"
 description: "Coding agents took off first not because coding is the smaller problem, but because coding has a compiler and operations doesn't. What building for the half without a verifier actually requires."
 tags: ["sre", "incident-response", "ai", "observability"]
 author: "The FaultMaven Team"
-status: "draft"
+status: "published"
 ---
 
 Nobody says their pager got an AI copilot before their IDE did. Cursor, GitHub Copilot, Claude Code, Codex — the impact of coding agents is not a niche observation at this point, it's the default story of the last two years. Meanwhile the thing that pages you at 2am is still mostly you, three browser tabs, and a Slack thread from a similar incident six months back that you're only half-remembering correctly.
