@@ -12,10 +12,17 @@ export interface BlogPost {
   description: string;
   tags: string[];
   author: string;
-  status: string;
+  status: PostStatus;
   contentHtml?: string;
   readingTime: string;
 }
+
+/** Editorial lifecycle, per content/blog/README.md: draft -> approved -> published. */
+const POST_STATUSES = ['draft', 'approved', 'published'] as const;
+
+export type PostStatus = (typeof POST_STATUSES)[number];
+
+const DEFAULT_STATUS: PostStatus = 'draft';
 
 const BLOG_DIRECTORY = path.join(process.cwd(), 'content/blog');
 
@@ -33,6 +40,39 @@ function calculateReadingTime(content: string): string {
   const wordCount = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(wordCount / wordsPerMinute);
   return `${minutes} min read`;
+}
+
+/**
+ * The single source of truth for a post's lifecycle status.
+ *
+ * Defaults to `draft` rather than `published`: a dropped or misnamed `status`
+ * key must not put an unreviewed post on the live site. Every unrecognised
+ * value is warned about rather than silently downgraded, so a typo surfaces in
+ * the build log instead of quietly hiding a post that was meant to ship.
+ */
+function resolveStatus(data: Record<string, unknown>, fileName: string): PostStatus {
+  const raw = data.status;
+
+  if (typeof raw === 'string' && (POST_STATUSES as readonly string[]).includes(raw)) {
+    return raw as PostStatus;
+  }
+
+  const problem =
+    raw === undefined
+      ? 'no `status` in frontmatter'
+      : `unrecognised status ${JSON.stringify(raw)}`;
+
+  console.warn(
+    `[blog] ${fileName}: ${problem} — treating as "${DEFAULT_STATUS}". ` +
+      `Expected one of: ${POST_STATUSES.join(', ')}.`
+  );
+
+  return DEFAULT_STATUS;
+}
+
+/** Only published posts are surfaced publicly; drafts and in-review posts stay hidden. */
+function isPublished(status: PostStatus): boolean {
+  return status === 'published';
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -63,14 +103,13 @@ export function getAllPosts(): BlogPost[] {
       description: (data.description as string) || '',
       tags: Array.isArray(data.tags) ? data.tags : [],
       author: (data.author as string) || 'The FaultMaven Team',
-      status: (data.status as string) || 'published',
+      status: resolveStatus(data, fileName),
       readingTime: calculateReadingTime(content),
     });
   }
 
-  // Only published posts are surfaced publicly; drafts and in-review posts stay hidden.
   return posts
-    .filter((post) => post.status === 'published')
+    .filter((post) => isPublished(post.status))
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
@@ -104,7 +143,8 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
   const { data, content } = matter(fileContents, matterOptions);
 
   // Draft/in-review posts are not directly reachable either — 404 them.
-  if (((data.status as string) || 'published') !== 'published') {
+  const status = resolveStatus(data, targetFileName);
+  if (!isPublished(status)) {
     return null;
   }
 
@@ -120,7 +160,7 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
     description: (data.description as string) || '',
     tags: Array.isArray(data.tags) ? data.tags : [],
     author: (data.author as string) || 'The FaultMaven Team',
-    status: (data.status as string) || 'published',
+    status,
     contentHtml,
     readingTime: calculateReadingTime(content),
   };
