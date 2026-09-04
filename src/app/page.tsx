@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
 import TieredKnowledgeEngineSection from "@/components/sections/TieredKnowledgeEngineSection";
-import CapabilitiesSection from "@/components/sections/CapabilitiesSection";
+import RetrievalPipelineSection from "@/components/sections/RetrievalPipelineSection";
 import SurfacesSection from "@/components/sections/SurfacesSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
@@ -62,7 +62,7 @@ export default function Home() {
       <ProblemSection />
       <ApproachSection />
       <TieredKnowledgeEngineSection />
-      <CapabilitiesSection />
+      <RetrievalPipelineSection />
       <SurfacesSection />
       <ComparisonSection />
       <DeploymentOptionsSection />
