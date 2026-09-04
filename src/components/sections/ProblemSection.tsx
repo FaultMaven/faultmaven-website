@@ -11,7 +11,7 @@ export default function ProblemSection() {
     <section className="py-32 bg-white dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-          The Gap Between &apos;Monitoring&apos; and &apos;Fixing&apos; Is Costing You
+          Three Gaps Between the Alert and the Fix
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="p-10 border border-slate-200 dark:border-slate-800 rounded-xl shadow-md bg-slate-50 dark:bg-slate-800/50 hover:shadow-lg transition-shadow duration-200">

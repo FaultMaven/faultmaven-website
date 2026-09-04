@@ -64,23 +64,6 @@ export default function OpenSourceTrustSection() {
           </div>
         </div>
 
-        <div className="mt-12 p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg max-w-4xl mx-auto">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0">
-              <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                Open core, the same engine either way
-              </h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                The open-core engine is the full single-user troubleshooting engine you self-host (Standalone). FaultMaven Cloud runs that same engine as a managed, multi-tenant service, adding team collaboration, SSO, and managed infrastructure—built on the same auditable codebase.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
