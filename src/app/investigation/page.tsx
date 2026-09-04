@@ -242,11 +242,15 @@ export default function InvestigationPage() {
             </p>
             <p>
               <strong className="text-slate-900 dark:text-slate-200">It reads its own knowledge
-              critically.</strong> The runbook it retrieved — <em>Redis Out of Memory (maxmemory
-              exceeded)</em> — ships in the bundled pack, and the cause it matched is that runbook&rsquo;s
-              &ldquo;unbounded key growth from missing TTLs&rdquo;. It still told the operator the source was
-              marked draft, and it still declined the eviction change the runbook describes, because this
-              workload did not satisfy the precondition.
+              critically.</strong> The runbook it cited —{' '}
+              <a href="https://github.com/FaultMaven/faultmaven/blob/main/resources/knowledge/pack/runbooks/global/database/redis-oom.md" className="text-blue-600 dark:text-blue-400 hover:underline">
+                <em>Redis Out of Memory (maxmemory exceeded)</em>
+              </a>{' '}
+              — ships in the bundled pack, and you can open it: the cause it matched is that file&rsquo;s
+              &ldquo;Cause C: Unbounded key growth from missing TTLs&rdquo;, and its front matter really does
+              say <code className="font-mono text-[0.9em]">status: draft</code>, which is why the engine said
+              so. It still declined the eviction change that runbook describes, because this workload did not
+              satisfy the precondition.
             </p>
             <p>
               <strong className="text-slate-900 dark:text-slate-200">It never touched anything.</strong>{' '}
