@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import sidepanelImage from '/public/images/browser-sidepanel.png';
+import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
 import Button from '@/components/ui/Button';
 import {
   IconChartBar,
@@ -128,7 +128,7 @@ export default function ProductPage() {
             <div>
               <Image
                 src={sidepanelImage}
-                alt="FaultMaven browser extension side-panel"
+                alt="The FaultMaven side panel open beside a staging ops console, working a CrashLoopBackOff case: it names an unbounded cache as the mechanism, cites the log lines it read, and says the root cause is not yet validated because it still needs the release config diff."
                 placeholder="blur"
                 className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
               />
