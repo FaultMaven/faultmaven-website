@@ -14,7 +14,7 @@ export default function ApproachSection() {
           How FaultMaven Works
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-16 max-w-3xl mx-auto text-center">
-          Three capabilities that make AI actually useful for incident response.
+          What it reads, how it reasons, and where it runs.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
@@ -29,28 +29,23 @@ export default function ApproachSection() {
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
             <IconSparkles className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-6" />
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-              The Tiered Knowledge Engine
+              It Says What It Cannot Prove
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-4">
-              Most troubleshooting knowledge dies in Slack. FaultMaven captures it:
+              The failure mode of an AI in an incident is a confident wrong answer. FaultMaven separates
+              what the evidence establishes from what it does not, and asks for the specific reading that
+              would tell the difference. From a real transcript, eight turns before it named a cause:
             </p>
-            <ul className="text-slate-600 dark:text-slate-400 space-y-2 mb-4">
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — 90+ curated runbooks for Kubernetes, databases, cloud platforms, message queues, and more</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Your runbooks, post-mortems, and past resolutions, indexed in any deployment and shared across the team in Cloud</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>
-                <span><strong className="text-slate-800 dark:text-slate-200">Personal Context</strong> — Your specific environment, local configs, and preferences</span>
-              </li>
-            </ul>
-            <p className="text-slate-600 dark:text-slate-400 font-medium">
-              Every fix makes the system smarter — so you spend less time re-solving problems you&apos;ve already cracked.
-            </p>
+            <blockquote className="border-l-2 border-blue-500 dark:border-blue-600 pl-4 mb-4 text-slate-600 dark:text-slate-400 italic">
+              &ldquo;The logs do not identify which writer or key population is responsible for the buildup,
+              so that remains unestablished.&rdquo;
+            </blockquote>
+            <a
+              href="/investigation"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+            >
+              Read the full investigation &rarr;
+            </a>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm bg-white dark:bg-slate-800 hover:shadow-lg transition-shadow duration-200">
             <IconLink className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-6" />
