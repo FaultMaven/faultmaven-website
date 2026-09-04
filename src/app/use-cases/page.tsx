@@ -249,7 +249,7 @@ export default function UseCasesPage() {
             Try It With Your Own Incidents
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            Deploy FaultMaven in 5 minutes and test it on a real problem from your environment. No credit card. No sales call.
+            One command to self-host, then test it on a real problem from your environment. No credit card. No sales call. Budget 10–20 minutes for the first run — mostly the 2.3 GB image pull.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">

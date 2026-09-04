@@ -14,7 +14,7 @@ export default function FinalCTASection() {
         <div className="max-w-3xl mx-auto mb-16">
           <div className="bg-white dark:bg-slate-900 border-2 border-blue-500 dark:border-blue-600 rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
-              Deploy FaultMaven in 5 Minutes
+              Self-host it: one command
             </h3>
             <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-4 overflow-x-auto">
               <code className="text-green-400 font-mono text-sm block">
