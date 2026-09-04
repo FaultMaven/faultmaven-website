@@ -300,6 +300,50 @@ export default function SlackAppPage() {
         </div>
       </section>
 
+      {/* Watch it work — real recording, audio removed */}
+      <section className="py-20 bg-white dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
+            Watch it work a case
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 mb-3">
+            A screen recording of the whole thing, uncut: a PagerDuty alert lands in a channel, the
+            investigation runs in a thread, and the case ends with its evidence, the hypotheses it
+            considered, and an offer to turn the result into a runbook. Two and a half minutes, start to
+            finish.
+          </p>
+          <p className="text-slate-600 dark:text-slate-400 mb-8">
+            The part worth watching for is what happens after the certificate is found to have expired.
+            That is the obvious answer, and FaultMaven takes it and keeps going &mdash; asking why
+            auto-renewal failed, because the expiry is the mechanism and not yet the cause.
+          </p>
+
+          <video
+            controls
+            preload="none"
+            playsInline
+            poster="/video/faultmaven-slack-demo-poster.jpg"
+            className="w-full rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-900"
+            aria-label="Screen recording: FaultMaven investigating an api-gateway 503 incident inside a Slack thread, from the initial PagerDuty alert through to a resolved case."
+          >
+            <source src="/video/faultmaven-slack-demo.mp4" type="video/mp4" />
+            Your browser cannot play this video. It is a screen recording of a FaultMaven
+            investigation running in a Slack thread.
+          </video>
+
+          <p className="mt-5 text-sm text-slate-500 dark:text-slate-500 leading-relaxed">
+            Recorded in a real workspace and left uncut. There is no soundtrack &mdash; it was recorded
+            with narration and the narration was not good enough to ship, so it is gone rather than
+            polished. Everything the recording shows is on screen. If you would rather read than watch,
+            the{' '}
+            <Link href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
+              full transcript of a different case
+            </Link>{' '}
+            is here in text, including the points where it declines to conclude.
+          </p>
+        </div>
+      </section>
+
       {/* Slack integration detail */}
       <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-4xl mx-auto px-6">
