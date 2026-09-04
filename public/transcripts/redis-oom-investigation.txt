@@ -1,0 +1,554 @@
+FaultMaven investigation transcript - raw export
+======================================================================
+Scenario      : redis-oom
+Recorded      : 2026-09-03 01:06:56 UTC
+Turns         : 19
+Final status  : closed
+
+PROVENANCE: This is a scenario from the FaultMaven test harness
+(fm-sre-simulator). Every FAULTMAVEN block below is verbatim output from
+the real engine. The OPERATOR side is a scripted persona, and the hosts
+named in it (cache-prod-01 etc.) are fictional. Nothing has been edited
+for presentation.
+======================================================================
+
+
+----- [turn 1] OPERATOR (submit_data) --------------------
+Our primary Redis (cache-prod-01, single-node, 8GB maxmemory) is rejecting writes with "OOM command not allowed when used memory > 'maxmemory'". Web tier is degraded — login works (reads still succeed) but checkout/cart updates intermittently fail because the app can't write session deltas. We tried bumping maxmemory to 12gb about 20 minutes ago and it filled right back up. Started roughly 4 hours ago, no changes to the cache infra in weeks. Need this stable.
+
+
+----- [turn 2] OPERATOR (submit_data) --------------------
+# Memory
+used_memory:12713054208
+used_memory_human:11.84G
+used_memory_rss:13153411072
+used_memory_rss_human:12.25G
+used_memory_peak:12734025728
+used_memory_peak_human:11.86G
+used_memory_peak_perc:99.84%
+used_memory_overhead:198143488
+used_memory_startup:812192
+used_memory_dataset:12514910720
+used_memory_dataset_perc:98.46%
+allocator_allocated:12714782720
+allocator_active:12923174912
+allocator_resident:13153411072
+total_system_memory:34359738368
+total_system_memory_human:32.00G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+used_memory_scripts:0
+used_memory_scripts_human:0B
+number_of_cached_scripts:0
+maxmemory:12884901888
+maxmemory_human:12.00G
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.02
+allocator_frag_bytes:208392192
+allocator_rss_ratio:1.02
+allocator_rss_bytes:230236160
+rss_overhead_ratio:1.00
+rss_overhead_bytes:0
+mem_fragmentation_ratio:1.03
+mem_fragmentation_bytes:440356864
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_clients_slaves:0
+mem_clients_normal:204400
+mem_aof_buffer:0
+mem_allocator:jemalloc-5.2.1
+active_defrag_running:0
+lazyfree_pending_objects:0
+evicted_keys:0
+expired_keys:482517
+keyspace_hits:128495021
+keyspace_misses:14829433
+rejected_connections:0
+
+# Notes inferred from these numbers (NOT part of the raw INFO output):
+#   - maxmemory has been bumped to 12 GB (default baseline was 8 GB — see CONFIG GET).
+#   - maxmemory_policy=noeviction means writes get rejected once used >= maxmemory.
+#   - evicted_keys=0 is expected under noeviction; the OOM is from the policy choice + workload, not from eviction failure.
+#   - Used is at 11.84 G of 12.00 G — about 1.3% headroom; any sizeable write fails.
+#   - rejected_connections=0: the OOM is on writes, not on accepting clients.
+
+
+----- [turn 3] OPERATOR (submit_data) --------------------
+$ kubectl -n web logs -l app=storefront --tail=120 | grep -i 'redis\|OOM\|cache'
+
+2026-05-06T13:42:11.084Z ERROR [storefront-7c4b9-h2pq4] CartController - failed to persist cart delta for user=773221: io.lettuce.core.RedisCommandExecutionException: OOM command not allowed when used memory > 'maxmemory'.
+2026-05-06T13:42:11.085Z WARN  [storefront-7c4b9-h2pq4] CartController - falling back to in-flight buffer (cart will reconcile on next successful write)
+2026-05-06T13:42:14.221Z ERROR [storefront-7c4b9-h2pq4] SessionMiddleware - SETEX sess:web:9b1e8 failed: OOM command not allowed when used memory > 'maxmemory'
+2026-05-06T13:42:14.222Z WARN  [storefront-7c4b9-h2pq4] SessionMiddleware - degrading to read-only session for this request
+2026-05-06T13:42:18.617Z INFO  [storefront-7c4b9-jq87n] CheckoutFlow - cart write retry succeeded after 1 attempt
+2026-05-06T13:42:23.901Z ERROR [storefront-7c4b9-jq87n] CartController - failed to persist cart delta for user=441017: OOM command not allowed when used memory > 'maxmemory'
+2026-05-06T13:42:31.005Z ERROR [storefront-7c4b9-jq87n] CheckoutFlow - SETEX cart:user:441017:items failed: OOM command not allowed when used memory > 'maxmemory'
+2026-05-06T13:42:33.448Z INFO  [storefront-7c4b9-jq87n] CacheClient - cache HIT user=441017 profile (reads still serving)
+2026-05-06T13:42:38.112Z ERROR [storefront-7c4b9-h2pq4] SessionMiddleware - SETEX sess:web:7c2a9 failed: OOM command not allowed when used memory > 'maxmemory'
+2026-05-06T13:42:42.704Z WARN  [storefront-7c4b9-h2pq4] CacheClient - circuit-breaker NOT triggered: only writes failing, reads/healthcheck OK
+2026-05-06T13:42:49.882Z ERROR [storefront-7c4b9-jq87n] CartController - failed to persist cart delta for user=559320: OOM command not allowed when used memory > 'maxmemory'
+
+# Notes (not part of the log, observation only):
+#   - 100% of failures are WRITE commands (SETEX, SET on cart/session paths).
+#   - Reads (GET) are succeeding — consistent with Redis-side OOM rejection of writes only.
+#   - The error message itself is the canonical signature of `maxmemory` exceeded with a non-evicting policy.
+#   - No application-side stack indicates WHICH writer caused the buildup; storefront is a victim, not a cause.
+
+
+===== [turn 4] FAULTMAVEN  (case_status=inquiry) ==========
+The storefront logs add an important boundary to the existing problem: the failures are confined to Redis write paths. In `pasted text (turn 3)`, lines 3–15 show `CartController` and `SessionMiddleware` failures for cart deltas and `SETEX` session/cart writes, while line 17 records a successful retry. Line 19 shows profile reads still hitting cache, and line 21 notes that the circuit breaker remains inactive because reads and health checks are still passing. This is consistent with the memory snapshot in `pasted text (turn 2)`: 11.84G used against a 12.00G limit, `noeviction`, and zero evictions (lines 2–13, 23–25, and 35). The logs do not identify which writer or key population is responsible for the buildup, so that remains unestablished.
+
+The proposed problem statement remains unchanged: **cache-prod-01 is an ongoing single-node Redis OOM condition causing intermittent checkout/cart session-write failures and web-tier degradation, despite a recent increase of maxmemory from 8 GB to 12 GB.** Do you want to proceed with focused investigation? I have a relevant Redis OOM runbook available and can apply it after confirmation.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 4] OPERATOR (respond) --------------------
+Yes, that's correct. Let's investigate.
+
+
+===== [turn 5] FAULTMAVEN  (case_status=investigating) ==========
+The investigation is now confirmed. The current evidence establishes the active boundary: Redis is at 11.84G of a 12.00G limit with `noeviction`, and storefront `SETEX`/cart writes are rejected while reads continue (`pasted text (turn 2)`, lines 2–13 and 23–25; `pasted text (turn 3)`, lines 3–21). The remaining key question is what is consuming the dataset and whether cache/session keys have usable TTLs; the submitted snapshot does not identify the responsible key population.
+
+A relevant draft runbook is available for this symptom. It covers the `noeviction` condition and unbounded growth from keys without TTLs; I’ll apply it as the investigation proceeds.
+
+First, please collect these read-only diagnostics from `cache-prod-01`:
+
+```bash
+redis-cli INFO keyspace
+redis-cli INFO commandstats | grep -E 'cmdstat_(set|setex|hset|expire|del|unlink|get|mget):'
+redis-cli --scan --pattern 'sess:*' | head -20
+redis-cli --scan --pattern 'cart:*' | head -20
+```
+
+These outputs will establish database/key counts, write-command activity, and representative session/cart key naming. For representative keys only, also run `TTL` and `MEMORY USAGE`; do not dump values or scan with `KEYS *`. If the instance is shared with durable data, do not change the eviction policy or add expirations until key ownership and TTL behavior are confirmed.
+
+
+----- [turn 5] OPERATOR (respond) --------------------
+That isn't ready yet — I still need to do the prerequisite step we talked about before I can get you that. Let me take care of it and I'll bring it on the next pass.
+
+
+===== [turn 6] FAULTMAVEN  (case_status=investigating) ==========
+Understood. The prerequisite step is still pending, so there is no new result to analyze and I won’t treat the earlier diagnostic request as completed. Once ready, please provide the outputs from `cache-prod-01` for `INFO keyspace`, filtered `INFO commandstats`, and representative session/cart key names; then include `TTL` and `MEMORY USAGE` for a small sample. Those results are needed to distinguish the consuming key population and TTL behavior before changing eviction or expiration settings. The current evidence only establishes the write-side OOM boundary; it does not identify the buildup source.
+
+
+----- [turn 6] OPERATOR (submit_data) --------------------
+$ redis-cli -h cache-prod-01 MEMORY USAGE rec:features:user:8421995
+(integer) 12914432
+
+$ redis-cli -h cache-prod-01 TTL rec:features:user:8421995
+(integer) -1
+
+$ redis-cli -h cache-prod-01 STRLEN rec:features:user:8421995
+(integer) 12914432
+
+# Notes (not part of command output):
+#   - TTL -1: this key has NO expiry set.
+#   - 12.9 MB raw serialised feature vector, matches the per-key average in the --bigkeys rollup.
+#   - This is a representative sample from the rec:features:user:* prefix (853 keys, ~9.6 GB total).
+
+
+===== [turn 7] FAULTMAVEN  (case_status=investigating, milestones=['symptom_verified']) ==========
+The new sample identifies a concrete memory-growth mechanism: `rec:features:user:8421995` is a 12,914,432-byte string with `TTL -1`, meaning it never expires (pasted text (turn 6), lines 1–12). The sample is reported as representative of 853 `rec:features:user:*` keys consuming about 9.6 GB (line 13). Combined with the earlier `noeviction` policy and 11.84G used against a 12.00G limit, this explains why writes are rejected: a large, non-expiring recommendation dataset occupies most of the budget, leaving little room for checkout/session writes. This is causal evidence, but the sample alone does not prove every one of the 853 keys lacks a TTL or that this is the sole contributor.
+
+The symptom is now formally verified: the storefront logs contain Redis OOM write failures from 2026-05-06T13:42:11Z through 13:42:49Z, including cart and `SETEX` session writes, while reads continue to succeed (pasted text (turn 3), lines 3–21). Scope is `cache-prod-01` and the storefront write paths represented by the two storefront pods in that excerpt; the broader affected-user count is not established.
+
+Next, please obtain one decisive confirmation: a TTL distribution for a representative sample of `rec:features:user:*` keys on `cache-prod-01`, collected now. The current sample proves one key has no expiry, but not whether missing TTLs are systematic. Avoid changing eviction policy or deleting keys until ownership and retention requirements are confirmed; these recommendation records may be application data rather than disposable cache entries.
+
+
+----- [turn 7] OPERATOR (submit_data) --------------------
+$ redis-cli -h cache-prod-01 MEMORY USAGE rec:features:user:8421995
+(integer) 12914488
+
+$ redis-cli -h cache-prod-01 TTL rec:features:user:8421995
+(integer) -1
+
+$ redis-cli -h cache-prod-01 STRLEN rec:features:user:8421995
+(integer) 12914432
+
+$ redis-cli -h cache-prod-01 TYPE rec:features:user:8421995
+string
+
+$ redis-cli -h cache-prod-01 OBJECT ENCODING rec:features:user:8421995
+"raw"
+
+# A few more random samples from the same prefix:
+$ for k in rec:features:user:1100 rec:features:user:5550 rec:features:user:9001 rec:features:user:7777; do
+>   echo -n "$k  ttl="; redis-cli -h cache-prod-01 TTL "$k"
+>   echo -n "$k  size="; redis-cli -h cache-prod-01 STRLEN "$k"
+> done
+rec:features:user:1100  ttl=-1
+rec:features:user:1100  size=11782144
+rec:features:user:5550  ttl=-1
+rec:features:user:5550  size=14241792
+rec:features:user:9001  ttl=-1
+rec:features:user:9001  size=9437184
+rec:features:user:7777  ttl=-1
+rec:features:user:7777  size=13631488
+
+# Notes:
+#   - TTL=-1 across the sampled keys means NO expiry was set on these entries.
+#   - Sizes range ~9–15 MB per key; encoding is raw (not embstr / int).
+#   - Compare to a session key for sanity:
+$ redis-cli -h cache-prod-01 STRLEN sess:web:7c2a9
+(integer) 1843
+$ redis-cli -h cache-prod-01 TTL sess:web:7c2a9
+(integer) 2417
+
+
+===== [turn 8] FAULTMAVEN  (case_status=investigating) ==========
+The new sample materially strengthens the existing hypothesis: the `rec:features:user:*` records are large, raw strings with no expiration, while the sampled session key is small and expiring. Specifically, in pasted text (turn 7), lines 1–15 show one recommendation record at 12,914,488 bytes with `TTL -1`, and additional sampled records at roughly 9–15 MB each, all with `TTL -1`; lines 33–37 show the comparison session key at 1,843 bytes with `TTL 2417`. The earlier supplied rollup reports 853 such keys totaling about 9.6 GB (pasted text (turn 6)).
+
+This is an independent causal observation supporting the hypothesis that unbounded recommendation-key growth is consuming the memory budget and leaving `noeviction` unable to reclaim space. It explains why increasing maxmemory from 8 GB to 12 GB only delayed the failures. The OOM failure itself remains anchored to the historical incident window, 2026-05-06 13:42:11–13:42:49 UTC; the new key sample does not establish that the condition is current today.
+
+The cause is now strongly supported, but I would not yet treat the application-side owner or retention requirement as established. Do not bulk-expire or delete these records without confirming that they are disposable or that a safe replacement path exists. The safest next step is to identify the writer and intended retention policy for `rec:features:user:*`, using data from cache-prod-01 covering the incident window (2026-05-06 13:42:11–13:42:49 UTC): application deployment/configuration records or Redis command/audit telemetry showing which component created or refreshed this prefix and whether an expiry was intended. If that historical attribution is unavailable, say so; the current evidence still supports a TTL-enforcement fix, but not an unreviewed destructive cleanup.
+
+The KB runbook also cautions that switching to `allkeys-lru` can evict data assumed durable, while `volatile-lru` is only appropriate when cache entries reliably carry TTLs. Because these recommendation keys currently do not, changing eviction policy is not safe to recommend as a permanent fix without workload/ownership confirmation. The KB source is marked draft.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 8] OPERATOR (submit_data) --------------------
+$ git -C /repos/recommendation-engine show v3.2.0:src/cache/feature_writer.py
+# src/cache/feature_writer.py
+# Added in v3.2.0 — per-user ML feature vector cache to skip recompute on hot users.
+# Author: rec-eng team
+# Reviewer: (single approver)
+
+import logging
+import pickle
+from typing import Iterable, Mapping
+
+from redis import Redis
+
+log = logging.getLogger(__name__)
+
+# Shared Redis cluster used by the rest of the platform.
+# (Per platform README we are supposed to namespace under our service prefix.)
+_KEY_PREFIX = "rec:features:user:"
+
+# NOTE: feature vectors are large numpy arrays; we serialise with pickle for speed.
+# Typical size ranges from ~8 MB (cold start users) to ~15 MB (power users with
+# long interaction history). Empirically ~850 distinct hot users per day.
+
+class FeatureWriter:
+    def __init__(self, redis: Redis):
+        self._redis = redis
+
+    def write_batch(self, vectors: Mapping[int, bytes]) -> int:
+        """Write a batch of (user_id -> serialised feature vector) to the cache.
+
+        Uses MSET inside a pipeline for throughput. We rely on the cache being
+        large enough to hold the active hot-user set; entries are refreshed by
+        the next batch run, so we don't bother with TTLs.
+        """
+        if not vectors:
+            return 0
+        payload = {f"{_KEY_PREFIX}{uid}": blob for uid, blob in vectors.items()}
+        with self._redis.pipeline(transaction=False) as pipe:
+            pipe.mset(payload)            # <-- no EXPIRE, no SETEX, no EX argument
+            pipe.execute()
+        log.info("feature_writer: wrote %d feature vectors", len(payload))
+        return len(payload)
+
+    def write_one(self, user_id: int, vector: bytes) -> None:
+        # convenience for unit tests / single-user recompute
+        self._redis.set(f"{_KEY_PREFIX}{user_id}", vector)   # <-- also no TTL
+
+# Notes (not part of source):
+#   - MSET in Redis cannot set TTLs atomically; the writer would need a follow-up
+#     EXPIRE per key, or use a Lua script, or replace MSET with a pipeline of SETEX.
+#   - Neither is done here. All keys land with TTL=-1.
+#   - There is no per-key size guard either; whatever pickle produces is written verbatim.
+#   - The "we'll just refresh on the next batch" assumption fails when Redis maxmemory
+#     is reached before the next batch runs — at which point ALL writers (not just this
+#     one) are rejected.
+
+
+===== [turn 9] FAULTMAVEN  (case_status=investigating) ==========
+The newly supplied source code makes the mechanism actionable: `FeatureWriter.write_batch()` uses `MSET` without any expiration, and `write_one()` uses `SET` without a TTL. Its own comments describe 8–15 MB serialized values and about 850 distinct hot users per day; this directly explains the earlier observations in pasted text (turn 6) and pasted text (turn 7), where recommendation keys were roughly 9–15 MB, had `TTL -1`, and 853 keys totaled about 9.6 GB. Because the Redis incident logs show writes rejected with `OOM command not allowed when used memory > 'maxmemory'` during 2026-05-06T13:42:11Z–13:42:49Z, the causal chain is now strong: persistent oversized recommendation entries consume the shared budget, and `noeviction` rejects checkout/session writes once the ceiling is reached.
+
+The safest permanent fix is an application change: replace the unbounded `MSET`/`SET` writes with writes that attach an explicit TTL, add a serialized-size guard, and choose a TTL longer than the refresh interval but short enough to bound retention. Since `MSET` cannot attach TTLs atomically, use a pipeline of `SET(..., ex=TTL)` commands or a Lua script. Existing `rec:features:user:*` keys also need a controlled migration/cleanup; do not mass-delete them until the recommendation-data owner confirms they are disposable cache entries.
+
+A practical staged action is:
+
+```python
+FEATURE_TTL_SECONDS = <approved_ttl>
+MAX_FEATURE_BYTES = <approved_max_bytes>
+
+with self._redis.pipeline(transaction=False) as pipe:
+    for uid, blob in vectors.items():
+        if len(blob) > MAX_FEATURE_BYTES:
+            raise ValueError(f"feature vector for {uid} exceeds size limit")
+        pipe.set(f"{_KEY_PREFIX}{uid}", blob, ex=FEATURE_TTL_SECONDS)
+    pipe.execute()
+
+# For the single-user path:
+self._redis.set(f"{_KEY_PREFIX}{user_id}", vector,
+                ex=FEATURE_TTL_SECONDS)
+```
+
+Before choosing the values, obtain approval for the retention and size limits from the recommendation-data owner. As an operational backstop, a cache-only Redis instance can use an eviction policy such as `allkeys-lru`; however, changing `noeviction` changes write-failure semantics and can affect the shared node, so it should be treated as a separately approved, reversible configuration change—not as the primary fix. Any existing-key TTL sweep must also be paced because it adds command load.
+
+**Impact and reversibility:** the code change is reversible by rollback, but it changes retention and may cause recomputation after expiry. Cleanup or TTL assignment affects existing keys on the single Redis node and should be staged; deletion is destructive, whereas assigning a TTL is reversible only until expiry. The eviction-policy change affects the shared Redis service and can discard keys, so it has broader data-impact risk.
+
+After applying the code change and controlled cleanup, validate with a write probe (`redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60`), TTL sampling, `INFO stats` eviction deltas if an eviction policy is enabled, and post-fix checkout/session error logs. The current evidence supports the root cause and fix proposal, but does not verify that the fix has been applied or that the incident is resolved.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 9] OPERATOR (respond) --------------------
+The proposed fix hasn't been shipped yet — there's no deployment of a recommendation-engine build with the TTL/size-guard change, so I have no post-fix memory readings, TTL samples, or checkout/session logs to share. As of the last check the OOM is still live: used_memory 11.84G against the 12.00G ceiling, writes still being rejected. Once the rec-engine owner rolls out the change I can pull fresh `INFO memory`, TTL samples on `rec:features:user:*`, and the storefront error logs to verify.
+
+
+===== [turn 10] FAULTMAVEN  (case_status=investigating) ==========
+The fix has not been executed, so I’m keeping the case in diagnosis and will not mark the solution accepted or claim resolution. The current evidence still supports the existing mechanism: FeatureWriter writes large recommendation vectors without TTL or size limits (pasted text (turn 8)), while sampled recommendation keys are roughly 9–15 MB with TTL -1 and the rollup reports about 9.6 GB across 853 keys (pasted text (turn 7) and pasted text (turn 6)). The incident window remains 2026-05-06T13:42:11Z–13:42:49Z; the latest 11.84G/12.00G reading and continuing write failures are user-reported current status, but there is no post-fix evidence yet.
+
+The next decisive data point is the post-deployment verification bundle from cache-prod-01: `INFO memory`, representative `TTL` readings for `rec:features:user:*`, and storefront checkout/session error output covering the original incident window’s corresponding post-fix check. That will show whether the permanent cause—unbounded, non-expiring recommendation data—has been eliminated and whether writes recover. Until the recommendation-engine change is deployed, this case cannot advance to treatment or resolution.
+
+
+----- [turn 10] OPERATOR (respond) --------------------
+The TTL/size-guard build for recommendation-engine hasn't been deployed yet — the rollout is still in progress (v3.2.0 is still live, 5/5 ready, 4h). Until the new build ships and writes through it, there is no post-fix INFO memory, no post-fix TTL sample, and no checkout/session log covering the post-fix window to hand you. The OOM is still active as of the last reading: used_memory 11.84G against the 12.00G ceiling, writes still rejected.
+
+
+===== [turn 11] FAULTMAVEN  (case_status=investigating) ==========
+The deployment is not complete, so this is not execution of the proposed fix and I am not advancing the case to Treatment. The latest user-provided status preserves the existing diagnosis: the OOM remains active, with 11.84G used against a 12.00G ceiling and writes rejected. The prior code evidence ties the mechanism to recommendation writes without TTL or size limits, while the key samples show large non-expiring values; no post-change evidence exists to prove that condition has been removed.
+
+Because the rollout is still in progress and the required post-fix data is explicitly not yet available, the next decisive data point is the first post-deployment verification bundle: output from `INFO memory` and a TTL check for a `rec:features:user:*` key on `cache-prod-01`, plus checkout/session logs covering the period after the new build begins writing. Please provide that after deployment completes. Until then, the case remains open and unresolved; do not treat the current 11.84G reading as a new incident-window measurement or as evidence against the pending fix.
+
+
+----- [turn 11] OPERATOR (respond) --------------------
+While the new build rolls out, the cleanest stabilization is to stop the rec:features:user:* producer from writing: scale recommendation-engine down to 0 (kubectl -n platform scale deploy/recommendation-engine --replicas=0). That halts the ~200 MB/min climb into the 12G ceiling and lets storefront/cart/session writes succeed again. Reads keep serving. Caveat: that relieves the symptom, it does not fix the cause — the feature_writer code path is unchanged in the running image, so it'll resume writing the moment we scale back up unless the new build (with TTL/size guard) is already live.
+
+
+===== [turn 12] FAULTMAVEN  (case_status=investigating) ==========
+This is a reasonable emergency mitigation, but it has not been executed yet. Scaling `recommendation-engine` to zero is state-modifying: it stops that deployment’s producers, is reversible by scaling it back up, and has a deployment-level blast radius in the `platform` namespace. Based on the existing evidence, it should stop further recommendation-key growth and may restore checkout/session writes, but it does not remove the already accumulated keys or change the running writer code. The original cause therefore remains present until the TTL/size-guard build is deployed and verified.
+
+If you approve this mitigation, run:
+`kubectl -n platform scale deploy/recommendation-engine --replicas=0`
+Then provide the command result plus fresh post-scale evidence from `cache-prod-01`: `INFO memory`, a `TTL` sample for `rec:features:user:*`, and checkout/session write results. A successful write path after scaling would verify mitigation, not permanent resolution.
+
+
+----- [turn 12] OPERATOR (respond) --------------------
+$ kubectl -n platform scale deploy/recommendation-engine --replicas=0
+deployment.apps/recommendation-engine scaled
+
+$ kubectl -n platform get deploy/recommendation-engine
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE    VERSION
+recommendation-engine   0/0     0            0           4h     3.2.0
+
+Mitigation applied: the rec:features:user:* producer is stopped, so the ~200 MB/min MSET climb (from the v3.2.0 feature_writer) should halt. Realistically this leaves used_memory parked just under the 12 GB ceiling (~11.84 G, ~1.3% headroom) — I don't have a fresh post-scale INFO memory reading yet that confirms actual relief, and the accumulated ~9.6 GB of rec:features keys are still there since nothing expires them. This is symptom relief only: the writer code is unchanged and the keys remain, so the cause persists until the TTL/size-guard build ships. Scaling back up before that build is verified will re-trigger the OOM.
+
+
+===== [turn 13] FAULTMAVEN  (case_status=investigating, milestones=['mitigation_accepted']) ==========
+The mitigation was executed successfully: `recommendation-engine` is now at `0/0` replicas, so this satisfies acceptance of the proposed scale-to-zero action and moves the investigation into treatment. It is reversible, but its blast radius is the entire recommendation-engine deployment in the `platform` namespace. This confirms producer shutdown—not symptom recovery: the latest memory value remains the earlier 11.84G/12.00G reading, the accumulated recommendation keys remain, and no post-scale checkout/session result was supplied. Therefore mitigation is accepted but not yet verified, and the permanent TTL/size-guard fix remains unverified. Please obtain one decisive post-mitigation check: a fresh `INFO memory` reading from `cache-prod-01` plus a checkout/session write test result after scaling to zero. That will establish whether write failures stopped; it will not by itself prove the non-expiring-key cause has been removed.
+
+
+----- [turn 13] OPERATOR (submit_data) --------------------
+$ redis-cli -h cache-prod-01 INFO memory
+# Memory
+used_memory:12713054208
+used_memory_human:11.84G
+used_memory_rss:13153411072
+used_memory_rss_human:12.25G
+used_memory_peak:12734025728
+used_memory_peak_human:11.86G
+used_memory_peak_perc:99.84%
+used_memory_overhead:198143488
+used_memory_startup:812192
+used_memory_dataset:12514910720
+used_memory_dataset_perc:98.46%
+maxmemory:12884901888
+maxmemory_human:12.00G
+maxmemory_policy:noeviction
+evicted_keys:0
+expired_keys:482517
+keyspace_hits:128495021
+keyspace_misses:14829433
+rejected_connections:0
+
+# Post-scale write check: I don't have a confirmed checkout/session write success after the scale-to-zero. The only write-path logs I have are PRE-scale OOM rejections from storefront (SETEX cart/session failing with 'OOM command not allowed'). Reads were still serving. With the producer at 0 replicas I'd expect writes to start succeeding as memory stops climbing, but I have no fresh log lines proving a post-scale write landed — so I can't claim write failures have stopped yet.
+
+
+===== [turn 14] FAULTMAVEN  (case_status=investigating) ==========
+The pasted output confirms the immediate pressure remains: Redis is using 11.84G of its 12.00G maxmemory, with `noeviction` and `evicted_keys:0`. That is consistent with continued write rejection, but the text explicitly says there is no post-scale checkout/session success log, so mitigation effectiveness is still unverified. The large non-expiring recommendation keys and unchanged writer remain the established cause; the scale-to-zero action stopped the producer, but it did not remove accumulated keys or prove recovery.
+
+One important safety point: switching to `allkeys-lru` is not the default recommendation here because it can evict arbitrary application data, including checkout/session keys. If an eviction-policy change is considered, obtain explicit owner approval and confirm that evictable cache data is safely distinguishable; otherwise keep the producer stopped and prioritize the permanent TTL/size-guard deployment.
+
+Next verification step: run the existing probe and capture the result together with a fresh memory/stats reading and a real checkout/session write result:
+```bash
+redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60
+redis-cli -h cache-prod-01 INFO memory | egrep 'used_memory_human|maxmemory_human'
+redis-cli -h cache-prod-01 INFO stats | grep evicted_keys
+```
+Then provide a post-scale storefront/session write result. `OK` from the probe only proves Redis can accept that small write; it does not prove the checkout path has recovered. Keep `recommendation-engine` at 0 replicas until the TTL/size-guard build is deployed and verified. Scaling it back up is reversible, but its blast radius is the entire recommendation-engine deployment and it can reintroduce the memory climb.
+
+I have not marked mitigation verified because the supplied data contains no successful post-scale checkout/session write. No new absence evidence can be recorded yet.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 14] OPERATOR (submit_data) --------------------
+$ redis-cli -h cache-prod-01 INFO memory
+# Memory
+used_memory:12713054208
+used_memory_human:11.84G
+used_memory_rss:13153411072
+used_memory_rss_human:12.25G
+used_memory_peak:12734025728
+used_memory_peak_human:11.86G
+used_memory_peak_perc:99.84%
+used_memory_overhead:198143488
+used_memory_startup:812192
+used_memory_dataset:12514910720
+used_memory_dataset_perc:98.46%
+allocator_allocated:12714782720
+allocator_active:12923174912
+allocator_resident:13153411072
+total_system_memory:34359738368
+total_system_memory_human:32.00G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+used_memory_scripts:0
+used_memory_scripts_human:0B
+number_of_cached_scripts:0
+maxmemory:12884901888
+maxmemory_human:12.00G
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.02
+allocator_frag_bytes:208392192
+allocator_rss_ratio:1.02
+allocator_rss_bytes:230236160
+rss_overhead_ratio:1.00
+rss_overhead_bytes:0
+mem_fragmentation_ratio:1.03
+mem_fragmentation_bytes:440356864
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_clients_slaves:0
+mem_clients_normal:204400
+mem_aof_buffer:0
+mem_allocator:jemalloc-5.2.1
+active_defrag_running:0
+lazyfree_pending_objects:0
+evicted_keys:0
+expired_keys:482517
+keyspace_hits:128495021
+keyspace_misses:14829433
+rejected_connections:0
+
+
+===== [turn 15] FAULTMAVEN  (case_status=investigating) ==========
+The new pasted material does not include a fresh post-scale checkout/session write result, so mitigation effectiveness remains unverified. The earlier Redis reading still shows 11.84G used against a 12.00G maxmemory ceiling with `noeviction` and `evicted_keys:0` in pasted text (turn 14); that confirms very limited headroom and no demonstrated reclamation, but it does not prove whether writes recovered after the deployment was scaled to 0/0.
+
+Keep `recommendation-engine` at zero for now. Do not change the eviction policy without explicit approval: `allkeys-lru` could evict application data, while `volatile-lru` only helps if eligible keys consistently have TTLs. The established recommendation keys include non-expiring entries, so neither policy change should be treated as a safe default workaround for this mixed workload.
+
+The single decisive next check is to run:
+```bash
+redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60
+```
+Then share whether it returned `OK`. A successful probe would verify basic write recovery, but checkout/session logs are still needed to confirm the user-facing symptom is relieved. Also capture the post-scale `used_memory_human`, `maxmemory_human`, and `evicted_keys` values so the result is attributable to the mitigation rather than assumed.
+
+The scale-to-zero action is reversible by restoring the deployment replica count, but its blast radius is the entire `recommendation-engine` deployment in the `platform` namespace: recommendation generation remains unavailable while it is stopped. Do not scale it back up until the TTL/size-guard build is deployed and verified. The underlying accumulated non-expiring keys and writer defect remain unresolved.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 15] OPERATOR (respond) --------------------
+I'll run the write probe, but fair warning: the output isn't captured in my available evidence yet, so I can't hand you a verified `OK`. What I can show is that the last app log batch (13:42:xx) still had OOM write rejections, and `recommendation-engine` is now at 0/0 — meaning the ~200 MB/min producer is stopped, but no new successful-write log has landed that I can paste. I'll report back once post-scale verification data exists rather than invent it.
+
+
+===== [turn 16] FAULTMAVEN  (case_status=investigating) ==========
+The key constraint is unchanged: you have not supplied a post-scale write result, so mitigation effectiveness cannot yet be verified. The last known OOM failures predate or do not demonstrate recovery after `recommendation-engine` reached 0/0; do not treat them as a current post-mitigation failure, but they also cannot prove success.
+
+Please run the already-proposed short-lived probe and capture its output:
+```bash
+redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60
+redis-cli -h cache-prod-01 INFO memory | egrep 'used_memory_human|maxmemory_human'
+redis-cli -h cache-prod-01 INFO stats | grep evicted_keys
+```
+Then share the result, plus one checkout/session application-log sample from after the scale-to-zero time. The probe tests whether Redis accepts writes; the application log verifies the user-facing symptom. Until those are available, I will keep `mitigation_verified` unset.
+
+The scale-to-zero action is reversible, but it changes recommendation-engine capacity to zero and therefore has a deployment-wide blast radius for that producer; it does not delete the accumulated non-expiring keys. Restore capacity only after the permanent TTL/size-guard build is deployed and validated, using the prior replica count.
+
+The KB guidance also recommends checking that memory stabilizes below the ceiling after representative traffic and monitoring `evicted_keys`; its source is a draft, so use it as supplementary guidance rather than proof of recovery.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 16] OPERATOR (submit_data) --------------------
+# Redis INFO memory (closest verified reading — captured at 13:43:02 UTC, no post-scale probe result is in my captured evidence)
+used_memory_human:11.84G
+maxmemory_human:12.00G
+maxmemory_policy:noeviction
+evicted_keys:0
+
+# What I do NOT have (honest):
+I don't have a verified post-scale `SET fm_oom_probe ok EX 60` result or a checkout/session log after scale-to-zero in my captured evidence. I can't fabricate them. The pods were drained to 0/0, and `recommendation-engine` is the only producer that would validate writes being accepted again. The accumulated `rec:features:user:*` keys carry TTL=-1, so stopping the producer halts new ~200 MB/min growth but does NOT free the ~9.6 GB already resident — memory pressure against the 12G ceiling will persist until those keys are actively removed.
+
+
+===== [turn 17] FAULTMAVEN  (case_status=investigating) ==========
+The new reading confirms that the mitigation is **not yet verified**. At 13:43:02 UTC, Redis was still at 11.84G of 12.00G with `noeviction` and `evicted_keys:0`; stopping `recommendation-engine` prevents further writes but does not remove the already-resident non-expiring recommendation keys. The previously captured evidence reports those keys occupying about 9.6 GB, with representative TTL `-1`, while the earlier OOM window showed checkout/cart session writes being rejected. Because no successful probe or post-scale checkout/session log is present, I cannot record symptom absence or advance `mitigation_verified`.
+
+The safest next step is a **read-only/current verification capture** from the same Redis instance, scoped explicitly to the mitigation period:
+
+1. Confirm the deployment remains stopped: `kubectl -n platform get deploy recommendation-engine`
+2. Run the write probe and capture its result: `redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60`
+3. Capture memory and rejection/eviction counters together: `redis-cli -h cache-prod-01 INFO memory | egrep 'used_memory_human|maxmemory_human|maxmemory_policy'` and `redis-cli -h cache-prod-01 INFO stats | egrep 'evicted_keys|expired_keys|rejected_connections'`.
+4. Export checkout/session logs after the scale-to-zero time, including both successful writes and any remaining OOM errors.
+
+A successful probe alone would establish write acceptance, but it would not prove checkout recovery; the post-scale storefront logs are the decisive symptom check. Do not switch `maxmemory-policy` to `allkeys-lru` as an unreviewed emergency step: it changes Redis behavior and can evict checkout/session or other application data across this shared node. It is reversible with `CONFIG SET`, but the blast radius is the entire Redis instance and the evictions may be operationally destructive. Do not use `FLUSHDB` or `FLUSHALL`; that would destroy live data. Once memory pressure is controlled, the permanent remediation remains to deploy the writer's TTL/size guard, then remove the temporary scale-to-zero workaround only after validation.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+
+----- [turn 17] OPERATOR (respond) --------------------
+Agreed — keeping recommendation-engine at 0/0, not touching eviction policy, not deleting keys. To be clear on verification: I do NOT have a captured post-scale write probe result or post-scale checkout/session log in my evidence. The last app-log batch I hold is 13:42:xx (still OOM rejections on cart/session writes), and my only Redis reading is 13:43:02 (used 11.84G / max 12.00G, policy noeviction, evicted_keys 0). Stopping the producer halts the ~200 MB/min write growth, but the ~9.6 GB of already-resident, non-expiring rec:features:* keys (TTL=-1) remain — so this relieves the symptom without removing the cause. I cannot claim write acceptance or checkout recovery until a post-scale check is actually captured.
+
+
+===== [turn 18] FAULTMAVEN  (case_status=investigating) ==========
+The mitigation remains **unverified**, and your correction is important: the only available Redis reading is from 2026-05-06 13:43:02 UTC, while the failure evidence is from 13:42:11–13:42:49 UTC. The producer stop should prevent further recommendation-key growth, but it does not reclaim the approximately 9.6 GB of existing non-expiring keys, so it cannot by itself prove that checkout/session writes recover.
+
+Keep `recommendation-engine` at 0/0 as the narrow, reversible workaround. Do **not** change `maxmemory-policy` or delete recommendation keys under the stated constraints; changing to an eviction policy could evict application data, and deletion would be destructive. The blast radius of the current workaround is the recommendation-engine deployment: recommendation generation is paused, while Redis and checkout remain otherwise unchanged.
+
+The single decisive next data point is a captured post-scale write probe result, together with the associated post-scale Redis pressure reading. Please run and capture:
+
+```bash
+redis-cli -h cache-prod-01 SET fm_oom_probe ok EX 60
+redis-cli -h cache-prod-01 INFO memory | egrep 'used_memory_human|maxmemory_human|maxmemory_policy'
+redis-cli -h cache-prod-01 INFO stats | egrep 'evicted_keys|expired_keys|rejected_connections'
+```
+
+A returned `OK` would show that Redis accepts at least that write at the captured time; it would not alone prove checkout recovery, so application logs after the scale-to-zero point are still needed for that separate verification. If the probe still returns an OOM error, leave the producer stopped and do not restore replicas. Once the permanent TTL/size-guard fix is deployed and verified, restore the intended recommendation-engine replica count and confirm that new recommendation keys receive TTLs and obey the size guard.
+
+Because this mitigation has not yet been shown effective, I am not marking `mitigation_verified`. The previously captured evidence still establishes the failure and mechanism: storefront cart/session `SETEX` writes failed during 2026-05-06 13:42:11–13:42:49 UTC, while recommendation keys included large raw strings with `TTL -1`; the code extract shows both batch `MSET` and single-user `SET` paths without expiration. The later 11.84G/12.00G `noeviction` reading confirms pressure but is not a post-mitigation success check.
+
+*Sources: Redis Out of Memory (maxmemory exceeded)*
+
+
+----- [turn 18] OPERATOR (respond) --------------------
+I confirm recommendation-engine will remain at 0/0 until the TTL/size-guard fix and post-fix verification are complete. Frankly, I cannot supply the requested post-scale probe output — a fresh `SET fm_oom_probe ok` result is not captured in my evidence, and the only Redis reading I hold is the 13:43:02 UTC one (already pasted: 11.84G/12.00G, noeviction, evicted_keys:0). Keep it at 0/0; I won't change eviction policy or delete keys.
+
+
+===== [turn 19] FAULTMAVEN  (case_status=investigating) ==========
+The scale-to-zero mitigation is confirmed as the chosen temporary control, but its effectiveness remains unverified. The available reading at 2026-05-06 13:43:02 UTC still showed `used_memory_human:11.84G` against `maxmemory_human:12.00G`, `maxmemory_policy:noeviction`, and `evicted_keys:0` in the user-provided description; that reading is from the incident window and does not prove the later scale-to-zero state. The earlier evidence also shows the recommendation writer creates 8–15 MB recommendation vectors without TTLs, while representative `rec:features:user:*` keys had TTL `-1`, so keeping the writer stopped is a narrow, reversible mitigation that avoids additional writes without changing eviction policy or deleting data.
+
+Because you cannot provide a fresh probe or post-scale checkout logs, I cannot mark the symptom absent or mitigation verified. This leaves successful Redis writes and restored checkout/session behavior unproven. I will not repeat that unavailable request. The TTL/size-guard deployment and its validation remain the required follow-up before restoring replicas.
+
+Recommended operating position:
+1. Keep `recommendation-engine` at 0 replicas. This changes only that deployment, is reversible by scaling it back, and prevents its new recommendation writes; the blast radius is the recommendation feature, not Redis data deletion or eviction-policy behavior.
+2. Do not change `maxmemory-policy` or delete existing keys under the stated constraint. Changing policy could evict application data, and deletion would be irreversible without a recovery plan.
+3. After the TTL/size-guard fix is deployed, restore replicas only under a controlled rollout and capture the resulting Redis write probe, memory/policy/stats output, and checkout/session write results. Those outputs are the decisive evidence for mitigation verification.
+4. If the probe or checkout writes still fail after the fixed writer is deployed, stop the rollout and reassess before scaling the writer further.
+
+The permanent fix should ensure both batch `MSET` and single-user `SET` apply a TTL and enforce a size guard; the current evidence shows neither path does so. The temporary scale-to-zero control must be removed only after that fix and verification are complete.
+
+*Sources: [Redis Out of Memory (maxmemory exceeded)]*
+
+---
+
+The root cause and fix are documented, but the fix can't be applied or verified during this session — it needs out-of-band implementation (a change request, maintenance window, or another team). Shall I close this case with the solution documented for your team to apply?
+
+
+----- [turn 19] OPERATOR (respond) --------------------
+Agreed — close it. The scale-to-zero is a workaround, not a fix: the unbounded writer (no TTL, no size guard in v3.2.0) and the ~9.6GB of already-resident rec:features:* keys persist; a restart or scale-up would refill the ceiling the same way. The permanent fix (TTL + size guard on the writer, or moving feature blobs off the shared cluster) is a rec-eng code change I can't land in this session, so documenting it for that team to apply and tracking as a follow-up is the right disposition.
