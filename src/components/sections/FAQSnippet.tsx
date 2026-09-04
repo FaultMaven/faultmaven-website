@@ -17,7 +17,8 @@ export default function FAQSnippet() {
           <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 hover:underline">
             deploy it yourself for free
           </a>{' '}
-          in about five minutes.
+          — one command, though budget 10–20 minutes the first time: the image is a 2.3 GB
+          download because the embedding model ships inside it, so nothing is fetched at runtime.
         </>
       ),
     },

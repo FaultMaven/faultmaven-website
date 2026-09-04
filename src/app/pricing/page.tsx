@@ -398,7 +398,7 @@ export default function PricingPage() {
             Start free, self-hosted
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-            Deploy FaultMaven in 5 minutes and try it on a real incident. No credit card, no sign-up.
+            One command to self-host, then try it on a real incident. No credit card, no sign-up. Budget 10–20 minutes for the first run — mostly the 2.3 GB image pull.
           </p>
           <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
             Deploy Now →

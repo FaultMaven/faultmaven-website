@@ -12,7 +12,7 @@ export default function Hero() {
           <div className="text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
               <span className="text-sm font-semibold text-green-600 dark:text-green-400">
-                Fair Source · Self-Hostable · Deploy in 5 Minutes
+                Fair Source · Self-Hostable · Runs Air-Gapped
               </span>
             </div>
             <h1

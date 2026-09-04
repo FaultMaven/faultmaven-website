@@ -45,7 +45,7 @@ export default function FAQPage() {
                   How do I get started?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  Deploy Standalone (self-hosted) in 5 minutes:
+                  Deploy Standalone (self-hosted) with one command:
                 </p>
                 <pre className="bg-slate-900 dark:bg-slate-950 p-4 rounded-lg mb-3 overflow-x-auto">
                   <code className="text-green-400 font-mono text-sm">
@@ -68,7 +68,7 @@ cd faultmaven
                   How long does setup take?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> 5 minutes. Run three commands and you&apos;re live.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> one command, but budget 10&ndash;20 minutes on a first run &mdash; and most of that is a 2.3 GB image pull, not configuration. The image is large on purpose: the BGE-M3 embedding model is baked into it, so FaultMaven indexes and retrieves without calling out to anyone. That is what lets it run fully offline and in air-gapped environments. Subsequent starts take seconds.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> Instant — we handle the infrastructure, you get a login.
