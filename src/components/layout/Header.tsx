@@ -41,6 +41,7 @@ export default function Header() {
           </Link>
           <div className="hidden md:flex space-x-8 items-center">
             <Link href="/product" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Product</Link>
+            <Link href="/investigation" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Transcript</Link>
             <Link href="/use-cases" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Use Cases</Link>
             <Link href="/roadmap" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Roadmap</Link>
             <div className="relative dropdown">
@@ -93,6 +94,7 @@ export default function Header() {
         <div className="md:hidden bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
           <div className="px-6 py-4 space-y-4">
             <Link href="/product" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Product</Link>
+            <Link href="/investigation" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Transcript</Link>
             <Link href="/use-cases" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Use Cases</Link>
             <Link href="/roadmap" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Roadmap</Link>
             <Link href="/blog" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Blog</Link>

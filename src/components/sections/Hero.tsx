@@ -41,8 +41,8 @@ export default function Hero() {
               <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
                 Deploy Now (Free)
               </Button>
-              <Button asChild href="#how-it-works" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                See How It Works
+              <Button asChild href="/investigation" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                See a real investigation
               </Button>
             </div>
           </div>
