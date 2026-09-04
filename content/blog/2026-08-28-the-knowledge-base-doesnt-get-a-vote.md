@@ -3,7 +3,7 @@ title: "The Knowledge Base Doesn't Get a Vote"
 date: "2026-08-28"
 description: "Retrieval seeds a candidate cause from a matching runbook, and the obvious design is to trust it more because it's documented. We built the opposite: an invariant, enforced by an architectural test, that makes a seeded prior mechanically indistinguishable from one the engine generated itself — with exactly one narrow, low-stakes exception."
 tags: ["rag", "knowledge-management", "sre", "reliability", "ai"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "draft"
 ---
 

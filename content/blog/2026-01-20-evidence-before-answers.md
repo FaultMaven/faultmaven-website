@@ -3,7 +3,7 @@ title: "Evidence Before Answers: Why LLMs Fail at Troubleshooting"
 date: "2026-01-20"
 description: "LLMs answer before they investigate — pattern-matching to the most common cause instead of your actual one. What an evidence-first diagnostic method looks like, and why refusing to conclude is a feature."
 tags: ["ai", "llm", "troubleshooting", "sre", "incident-response"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

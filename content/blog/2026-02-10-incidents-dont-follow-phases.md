@@ -3,7 +3,7 @@ title: "Incidents Don't Move Through Phases — So Stop Making Your Tools Preten
 date: "2026-02-10"
 description: "Every incident-response diagram shows a tidy detect → triage → diagnose → mitigate → resolve pipeline. Real investigations never run that way. Here's why milestone-based, evidence-driven progress models reality — without giving up discipline."
 tags: ["incident-response", "troubleshooting", "sre", "reliability", "on-call"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

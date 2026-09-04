@@ -3,7 +3,7 @@ title: "\"Just Swap the Model\" Is a Lie"
 date: "2026-04-14"
 description: "LLM providers share an API shape, not a capability contract. Systems that depend on structured output and tool calling break silently when you swap models — here's why, and how to route by capability instead of brand."
 tags: ["llm", "ai", "reliability", "self-hosting", "devops"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

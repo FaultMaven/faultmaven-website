@@ -3,7 +3,7 @@ title: "We Turned Reasoning Off and the Answers Got Better"
 date: "2026-08-19"
 description: "A reasoning model's hidden thinking and its visible answer share one token budget, and the API tells you when the answer lost. We were discarding that signal — here's the bug, how long it ran unseen, and why prose truncation is invisible by construction."
 tags: ["llm", "ai", "reliability", "observability", "sre"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

@@ -102,7 +102,7 @@ export function getAllPosts(): BlogPost[] {
       date: (data.date as string) || '',
       description: (data.description as string) || '',
       tags: Array.isArray(data.tags) ? data.tags : [],
-      author: (data.author as string) || 'The FaultMaven Team',
+      author: (data.author as string) || 'FaultMaven',
       status: resolveStatus(data, fileName),
       readingTime: calculateReadingTime(content),
     });
@@ -159,7 +159,7 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
     date: (data.date as string) || '',
     description: (data.description as string) || '',
     tags: Array.isArray(data.tags) ? data.tags : [],
-    author: (data.author as string) || 'The FaultMaven Team',
+    author: (data.author as string) || 'FaultMaven',
     status,
     contentHtml,
     readingTime: calculateReadingTime(content),

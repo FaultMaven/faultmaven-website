@@ -3,7 +3,7 @@ title: "The Engine Carries the Method"
 date: "2026-08-10"
 description: "A well-designed agent engine makes system performance far less dependent on which LLM sits behind it. We develop FaultMaven against a deliberately mid-capability model on purpose — here's the mechanism, and why it's the right instrument for finding real engine defects."
 tags: ["ai", "llm", "troubleshooting", "reliability", "sre"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

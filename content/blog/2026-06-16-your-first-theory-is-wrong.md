@@ -3,7 +3,7 @@ title: "Your First Theory Is Wrong"
 date: "2026-06-16"
 description: "Anchoring on the first plausible theory is the classic investigation failure. What disciplined hypothesis management looks like: causal chains, competing alternatives, evidence that demotes, and confidence that decays."
 tags: ["sre", "incident-response", "troubleshooting", "reliability", "on-call"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

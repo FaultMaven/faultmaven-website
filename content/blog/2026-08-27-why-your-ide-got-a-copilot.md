@@ -3,7 +3,7 @@ title: "Why Your IDE Got an AI Copilot Before Your Pager Did"
 date: "2026-08-27"
 description: "Coding agents took off first not because coding is the smaller problem, but because coding has a compiler and operations doesn't. What building for the half without a verifier actually requires."
 tags: ["sre", "incident-response", "ai", "observability"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

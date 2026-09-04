@@ -3,7 +3,7 @@ title: "Copilot, Not Autopilot: Why an Incident AI Should Never Hold Your Produc
 date: "2026-03-03"
 description: "An AI that acts on your production systems at machine speed during an outage is a liability. We designed our troubleshooting copilot to reason alongside the engineer instead — and to never touch production. Here's why that's an architectural stance, not a missing feature."
 tags: ["incident-response", "reliability", "ai", "sre", "on-call"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

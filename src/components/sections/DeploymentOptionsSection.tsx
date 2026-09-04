@@ -11,7 +11,7 @@ export default function DeploymentOptionsSection() {
           Choose Your Deployment
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-16 max-w-3xl mx-auto text-center">
-          FaultMaven is open core. Run it yourself or let us manage it for you.
+          FaultMaven is open core. Run it yourself, or have it managed for you.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">

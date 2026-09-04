@@ -3,7 +3,7 @@ title: "Semantic Similarity Is Not Diagnostic Relevance: RAG for Troubleshooting
 date: "2026-03-24"
 description: "Why wiring your runbooks into a vector database produces plausible-but-wrong answers during incidents, and what retrieval built for troubleshooting has to do differently: cause-structured chunks, lexical signals for exact identifiers, and grounded synthesis."
 tags: ["rag", "sre", "troubleshooting", "knowledge-management", "reliability"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

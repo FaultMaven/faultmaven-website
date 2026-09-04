@@ -3,7 +3,7 @@ title: "The Knowledge Flywheel: Stop Paying to Solve the Same Incident Twice"
 date: "2026-05-12"
 description: "Resolution knowledge evaporates into closed tickets and stale wikis, so teams re-solve incidents they already fixed. Capturing structured runbooks from the investigation itself — not as after-the-fact homework — is how troubleshooting knowledge compounds."
 tags: ["sre", "incident-response", "knowledge-management", "postmortems", "reliability"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "published"
 ---
 

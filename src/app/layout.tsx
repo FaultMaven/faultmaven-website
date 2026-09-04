@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
   keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Fair Source', 'Self-Hosted', 'FaultMaven Core', 'Docker'],
-  authors: [{ name: 'FaultMaven Team' }],
+  authors: [{ name: 'FaultMaven' }],
   creator: 'FaultMaven',
   publisher: 'FaultMaven',
   formatDetection: {

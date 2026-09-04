@@ -20,7 +20,7 @@ title: "Post title"
 date: "2026-01-20"
 description: "1–2 sentence summary used for SEO meta and the post card."
 tags: ["sre", "incident-response", "ai"]
-author: "The FaultMaven Team"
+author: "FaultMaven"
 status: "draft"   # draft → approved (founder sign-off) → published
 ---
 ```

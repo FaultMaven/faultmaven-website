@@ -11,7 +11,7 @@ export default function OpenSourceTrustSection() {
             Source-Available. Auditable. Yours to Run.
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            We don&apos;t ask for trust—we show you the code.
+            Don&apos;t take my word for it—read the code.
           </p>
         </div>
 
