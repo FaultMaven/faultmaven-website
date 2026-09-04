@@ -1,7 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import sidepanelImage from '/public/images/browser-sidepanel.png';
+import Link from 'next/link';
+import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
+import causalMapImage from '/public/images/copilot-causal-map-resolved.png';
 import Button from '@/components/ui/Button';
 import {
   IconChartBar,
@@ -128,12 +130,45 @@ export default function ProductPage() {
             <div>
               <Image
                 src={sidepanelImage}
-                alt="FaultMaven browser extension side-panel"
+                alt="The FaultMaven side panel open beside a staging ops console, working a CrashLoopBackOff case: it names an unbounded cache as the mechanism, cites the log lines it read, and says the root cause is not yet validated because it still needs the release config diff."
                 placeholder="blur"
                 className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* How a case ends — the same case as the screenshot above, resolved */}
+      <section className="py-24 bg-white dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4">
+            How a case ends
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
+            The same investigation, resolved. The causal map is the part worth reading closely, because of
+            what it refuses to colour in: every node is marked{' '}
+            <strong className="text-slate-900 dark:text-slate-200">validated</strong>,{' '}
+            <strong className="text-slate-900 dark:text-slate-200">not established</strong>, or{' '}
+            <strong className="text-slate-900 dark:text-slate-200">refuted</strong>, and solid arrows lead
+            only from validated causes. Most of this map is still open circles — candidate paths the
+            evidence never settled. A tool that shaded them all in would look more confident and be worth
+            less.
+          </p>
+          <Image
+            src={causalMapImage}
+            alt="A resolved FaultMaven case showing its causal map. Every node is marked validated, not established, or refuted; most remain not established, and solid arrows lead only from the two validated causes to the confirmed root cause."
+            placeholder="blur"
+            className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
+          />
+          <p className="mt-6 text-slate-600 dark:text-slate-400">
+            Alongside it the case keeps what it was built from — the evidence, the hypotheses considered,
+            and the solution applied. You can read a{' '}
+            <Link href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
+              full unedited transcript
+            </Link>{' '}
+            of a different case, start to finish, including the points where it declines to conclude.
+          </p>
         </div>
       </section>
 
