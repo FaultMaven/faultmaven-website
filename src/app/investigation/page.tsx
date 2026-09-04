@@ -115,8 +115,8 @@ export default function InvestigationPage() {
           </h2>
           <div className="text-[15px] text-slate-700 dark:text-slate-400 space-y-3 leading-relaxed">
             <p>
-              This is a scenario from the test harness I use to evaluate the engine, recorded 3 September
-              2026. I want to be exact about what that means, because it changes how you should read it:
+              This is a scenario from the harness we use to evaluate the engine, recorded 3 September 2026.
+              Being exact about what that means matters, because it changes how you should read it:
             </p>
             <ul className="space-y-2 pl-5 list-disc marker:text-slate-400">
               <li>
@@ -139,9 +139,9 @@ export default function InvestigationPage() {
               </li>
             </ul>
             <p>
-              So this shows you how FaultMaven reasons, not that it has been battle-tested on your stack.
-              A constructed scenario is weaker evidence than your own incident — which is the argument for
-              running it on one.
+              What this demonstrates is the method: how the engine handles evidence, what it does when
+              the evidence runs out, and where it stops. The obvious next question — how it handles
+              <em>your</em> stack — is one only your own incident can answer.
             </p>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function InvestigationPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">The transcript</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8 text-[15px]">
             Grey blocks are what the operator sent. Blue-ruled blocks are FaultMaven, verbatim, with the
-            case status and any milestone it recorded on that turn. Amber notes are mine.
+            case status and any milestone it recorded on that turn. Amber notes are ours.
           </p>
 
           {firstHalf.map((entry, i) => (
