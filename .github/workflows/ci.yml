@@ -125,7 +125,7 @@ jobs:
   security:
     name: Security Scan
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     # Checkout plus `pnpm audit`, which queries the npm registry rather than
     # the GitHub API. No SARIF upload here, so no security-events: write.
     permissions:
@@ -149,10 +149,67 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # `pnpm audit` exits 1 both when it finds advisories AND when it cannot
+      # reach npm's advisory endpoint, so the two were indistinguishable: an
+      # npm-side outage looked exactly like a vulnerability and blocked every
+      # PR. This separates them.
+      #
+      # Advisories still fail the build. Only a transport failure is tolerated,
+      # and only loudly — it emits a warning annotation and says in the job
+      # summary that the gate did not run. That is deliberate rather than
+      # `--ignore-registry-errors`, which would exit 0 on a registry error with
+      # no trace, turning the gate into a silent no-op.
+      #
+      # What still covers us while it is degraded: Dependency Review blocks any
+      # PR that introduces a known-vulnerable dependency (fail-on-severity:
+      # low), and Dependabot alerts watch the standing tree server-side. Both
+      # use the GitHub API, not npm's advisory endpoint.
       - name: Run pnpm audit
+        env:
+          # Fail each attempt fast; the retry loop below owns the backoff.
+          npm_config_fetch_retries: '0'
         run: |
-          echo "Running pnpm audit..."
-          pnpm audit --audit-level=moderate
+          attempts=4
+          out=''
+          for i in $(seq 1 "$attempts"); do
+            out="$(pnpm audit --audit-level=moderate 2>&1)" && {
+              echo "$out"
+              echo "pnpm audit completed with no advisories at or above moderate."
+              echo "### Security Scan: clean" >> "$GITHUB_STEP_SUMMARY"
+              echo "\`pnpm audit --audit-level=moderate\` found no advisories." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            }
+
+            if printf '%s' "$out" | grep -qiE 'ERR_SOCKET_TIMEOUT|FetchError|socket timeout|ECONNRESET|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|request to .* failed'; then
+              echo "::notice::attempt $i/$attempts: npm advisory endpoint unreachable, retrying"
+              sleep $(( i * 20 ))
+              continue
+            fi
+
+            # Audit ran and reported something. That is a finding: fail closed.
+            echo "$out"
+            echo "::error::pnpm audit reported advisories at or above moderate."
+            {
+              echo "### Security Scan: advisories found"
+              echo ""
+              echo "\`pnpm audit --audit-level=moderate\` reported advisories. See the step log."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          done
+
+          echo "$out"
+          echo "::warning::npm advisory endpoint unreachable after $attempts attempts — this scan did not run. Dependency Review and Dependabot alerts still apply."
+          {
+            echo "### Security Scan: DID NOT RUN"
+            echo ""
+            echo "npm's advisory endpoint (\`registry.npmjs.org/-/npm/v1/security/audits/quick\`)"
+            echo "was unreachable after $attempts attempts, so **no audit was performed**."
+            echo "This is not a clean result."
+            echo ""
+            echo "Still in force: Dependency Review (fails on any known-vulnerable"
+            echo "introduction, severity low and up) and Dependabot alerts on the"
+            echo "default branch. Re-run this job once npm recovers."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Security summary
         if: always()
