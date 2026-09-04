@@ -180,7 +180,7 @@ export default function ProductPage() {
                       <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
                       <div>
                         <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — 90+ curated runbooks for Kubernetes, databases, cloud platforms, message queues, and more</span>
+                        <span className="text-slate-600 dark:text-slate-400"> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className="text-blue-600 dark:text-blue-400 hover:underline">91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more</span>
                       </div>
                     </li>
                     <li className="flex items-start">
