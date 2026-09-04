@@ -5,6 +5,16 @@ description: "Retrieval seeds a candidate cause from a matching runbook, and the
 tags: ["rag", "knowledge-management", "sre", "reliability", "ai"]
 author: "The FaultMaven Team"
 status: "draft"
+# DO NOT PUBLISH — obsolete. This post describes `kb_cause_seeder.py` in the
+# present tense, but the seeder ran on by default only from 2026-07-16
+# (faultmaven#727) to 2026-09-02 (faultmaven#1302) and was then removed: nothing
+# writes `seeded_from_runbook` any more. The module and the
+# `test_safety_mechanisms_are_provenance_blind` test the post calls "the
+# enforcement" are both gone from main; the design doc is at
+# docs/archive/2026/09/kb-cause-seeder/. Two file paths cited in the body now
+# 404 in a public repo. Kept for the argument in "The one place provenance is
+# allowed to matter", which still holds for `confirmed_root_seed_origin`.
+# Owner decision 2026-09-04: do not post.
 ---
 
 Retrieval does its job: a runbook from three incidents ago matches the shape of the one happening right now, and its documented cause gets instantiated as a candidate node in the investigation's causal graph before anyone has looked at a single log line. It's a good match. It was written by someone who solved this exact problem, reviewed, presumably correct.
