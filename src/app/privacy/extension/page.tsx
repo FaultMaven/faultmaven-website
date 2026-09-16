@@ -55,7 +55,7 @@ const permissionTable = [
   {
     permission: 'tabs (optional)',
     purpose:
-      'Requested only when you capture a page, never at install. Reads the address of the tab you are capturing, so the extension knows which site to ask your permission for and can tell you when a page cannot be captured at all (browser pages, the extension gallery, local files). Decline it and capture stops there; nothing else is affected',
+      'Requested only when you capture a page, never at install. The extension reads the address of the tab you are capturing, so it knows which site to ask your permission for and can tell you when a page cannot be captured at all (browser pages, the extension gallery, local files). Once granted, the permission also lets it read the addresses of your other open tabs; it uses that only to find your Dashboard tab and to decide which tabs should show the copilot panel, and it never records or transmits them. Decline it and page capture is unavailable; everything else keeps working',
   },
   {
     permission: 'Host access to your FaultMaven backend',
