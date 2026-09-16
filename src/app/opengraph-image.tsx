@@ -7,9 +7,12 @@ import { ImageResponse } from 'next/og';
  * rendered as a blank card. Generated at build time rather than checked in as
  * a PNG so the wording stays in one place with the rest of the copy.
  *
- * No external fonts or images: `next/og` ships its own font, and the strict
- * CSP in middleware.ts means a remote asset would be a second thing to get
- * wrong for no gain.
+ * No external fonts or images: `next/og` ships its own font, and a remote
+ * asset would be a build-time network dependency for no gain. (Do not reach
+ * for the root `middleware.ts` as a reason — it sets a strict CSP but never
+ * runs: Next only loads middleware beside the `app/` directory, which in this
+ * `src/` project means `src/middleware.ts`. The site ships none of those
+ * headers today.)
  */
 export const alt = 'FaultMaven — the AI-powered troubleshooting copilot for modern engineering';
 export const size = { width: 1200, height: 630 };

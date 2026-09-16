@@ -22,8 +22,15 @@ export const SIGN_IN_URL = `${DASHBOARD_URL}/signin?source=website`;
  * `build_authorization_url` does not yet forward a sign-up hint. Landing a new
  * visitor on sign-up in one step is website#42, and it needs that hint plumbed
  * through the core auth contract first.
+ *
+ * Deliberately carries no `?source=` campaign parameter. The dashboard root
+ * redirects to `/cases` and then to `/login` with bare string destinations, so
+ * React Router drops the query twice before anything could read it — a
+ * parameter here would look like attribution and measure nothing. Attributing
+ * this funnel needs the dashboard to preserve the query across those two
+ * redirects first.
  */
-export const TRY_CLOUD_URL = `${DASHBOARD_URL}/?source=website`;
+export const TRY_CLOUD_URL = DASHBOARD_URL;
 
 /**
  * The community workspace. FaultMaven is installed here, so someone can try it

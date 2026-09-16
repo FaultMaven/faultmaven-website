@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import TranscriptTurn from '@/components/investigation/TranscriptTurn';
 import { transcript } from '@/data/redisOomTranscript';
