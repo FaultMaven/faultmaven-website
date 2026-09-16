@@ -4,6 +4,7 @@ import {
   DASHBOARD_URL,
   SIGN_IN_URL,
   TRY_CLOUD_URL,
+  normalizeOrigin,
 } from '@/lib/links';
 
 // These five constants are the beta invitation. Each is reachable from several
@@ -18,11 +19,29 @@ describe('outbound links', () => {
     expect(new URL(url).protocol).toBe('https:');
   });
 
-  it('never doubles a slash when a path is appended to the dashboard origin', () => {
-    // DASHBOARD_URL is env-driven, so a deployment setting it with a trailing
-    // slash would silently produce https://host//signin.
-    expect(SIGN_IN_URL).not.toMatch(/(?<!:)\/\//);
+  it('appends a path to the dashboard origin without doubling the slash', () => {
     expect(new URL(SIGN_IN_URL).pathname).toBe('/signin');
+  });
+
+  // The assertion above can only ever see the origin this environment already
+  // supplies, so on its own it proves nothing about the case that actually
+  // breaks: a deployment setting NEXT_PUBLIC_DASHBOARD_URL with a trailing
+  // slash. Test the normalisation itself, with the inputs it exists for.
+  describe('normalizeOrigin', () => {
+    it.each([
+      ['https://app.faultmaven.ai/', 'https://app.faultmaven.ai'],
+      ['https://app.faultmaven.ai///', 'https://app.faultmaven.ai'],
+      ['https://app.faultmaven.ai', 'https://app.faultmaven.ai'],
+      ['https://example.test/base/', 'https://example.test/base'],
+    ])('%s -> %s', (input, expected) => {
+      expect(normalizeOrigin(input)).toBe(expected);
+    });
+
+    it('yields a single-slash path once a route is appended', () => {
+      expect(`${normalizeOrigin('https://app.faultmaven.ai/')}/signin`).toBe(
+        'https://app.faultmaven.ai/signin'
+      );
+    });
   });
 
   it('points the Slack link at the community workspace invite, not a workspace page', () => {

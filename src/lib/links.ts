@@ -7,9 +7,24 @@
  * the invitation is that it is easy to find, not that it is everywhere.
  */
 
+/**
+ * Strip trailing slashes from an origin so a path can be appended to it.
+ *
+ * Exported for its test. The input is a deployment-set environment variable,
+ * so `https://app.faultmaven.ai/` is a perfectly reasonable thing for someone
+ * to type into Vercel — and without this it produces `https://…//signin`,
+ * which is a different path. Asserting on the resolved constant cannot catch
+ * that, because whatever the environment already supplies is the only value
+ * such a test ever sees.
+ */
+export function normalizeOrigin(origin: string): string {
+  return origin.replace(/\/+$/, '');
+}
+
 /** The dashboard. A visitor with no account signs up through the hosted login. */
-export const DASHBOARD_URL =
-  process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai';
+export const DASHBOARD_URL = normalizeOrigin(
+  process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai'
+);
 
 /** Existing users. Kept distinct from the invitation so the two read differently. */
 export const SIGN_IN_URL = `${DASHBOARD_URL}/signin?source=website`;
