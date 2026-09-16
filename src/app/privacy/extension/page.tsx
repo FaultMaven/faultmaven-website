@@ -53,13 +53,14 @@ const permissionTable = [
       'Open the sign-in window and receive the login redirect; the browser owns and closes that window',
   },
   {
-    permission: 'tabs',
+    permission: 'tabs (optional)',
     purpose:
-      'Read the active tab\'s address before a capture, and open or focus your FaultMaven Dashboard tab',
+      'Requested only when you capture a page, never at install. Reads the address of the tab you are capturing, so the extension knows which site to ask your permission for and can tell you when a page cannot be captured at all (browser pages, the extension gallery, local files). Decline it and capture stops there; nothing else is affected',
   },
   {
     permission: 'Host access to your FaultMaven backend',
-    purpose: 'Communicate with the API you authenticate against',
+    purpose:
+      'Communicate with the API you authenticate against, and find or open your FaultMaven Dashboard tab when you follow a Dashboard link',
   },
   {
     permission: 'Optional host access to other sites',
@@ -89,7 +90,7 @@ export default function ExtensionPrivacyPolicyPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="space-y-6">
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              <em>Effective Date: August 21, 2026</em>
+              <em>Effective Date: September 16, 2026</em>
               <br />
               <em>
                 Applies to: FaultMaven Copilot browser extension (Chrome / Edge
