@@ -27,7 +27,7 @@ This is the official source code for the **FaultMaven** website. It is built wit
 
 - **Product Pages**: Features, capabilities, and how FaultMaven differs from generic AI tools
 - **Use Cases**: Real-world troubleshooting scenarios and time savings
-- **Beta Founders Program**: Join the beta and get early access to Cloud features
+- **Cloud Beta**: Sign-up is open — the site points visitors at the dashboard rather than a waiting list
 - **Roadmap**: Product vision and upcoming features
 - **FAQ**: Everything you need to know about getting started
 - **About**: Our story, philosophy, and mission
@@ -81,11 +81,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ├── src/
 │   ├── app/                 # Next.js App Router pages
 │   │   ├── about/           # About page
-│   │   ├── api/             # Route handlers (waitlist, auth, webhooks)
+│   │   ├── api/             # Route handlers (auth, webhooks)
 │   │   ├── blog/            # Blog: index (page.tsx) + [slug] post pages
 │   │   ├── contact/         # Contact page
 │   │   ├── faq/             # FAQ page
-│   │   ├── founders/        # Beta Founders program page
+│   │   ├── investigation/   # A real investigation transcript, unedited
 │   │   ├── pricing/         # Pricing page
 │   │   ├── privacy/         # Privacy policy
 │   │   ├── product/         # Product details
@@ -93,7 +93,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │   │   ├── signin/          # Sign-in redirect to the hosted dashboard
 │   │   ├── terms/           # Terms of service
 │   │   ├── use-cases/       # Use cases
-│   │   ├── waitlist/        # Beta application
+│   │   ├── slack/           # FaultMaven for Slack landing page
+│   │   ├── opengraph-image.tsx  # Default social card (generated)
 │   │   ├── robots.ts        # robots.txt (generated)
 │   │   ├── sitemap.ts       # sitemap.xml (generated)
 │   │   └── page.tsx         # Homepage
@@ -141,9 +142,6 @@ Copy `.env.example` to `.env.local`. All variables are optional for local develo
 ```env
 # Dashboard URL used by sign-in / CTA links
 NEXT_PUBLIC_DASHBOARD_URL=https://app.faultmaven.ai
-
-# Contact / waitlist email delivery (Resend) — server-side, needed only for the contact form
-# RESEND_API_KEY=your-resend-api-key
 
 # Analytics (optional)
 # NEXT_PUBLIC_GA_ID=your-google-analytics-id

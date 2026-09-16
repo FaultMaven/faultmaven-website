@@ -100,10 +100,10 @@ export default function BlogIndexPage() {
             Stay Ahead in AI-Powered Operations
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto mb-8 text-lg">
-            Deploy FaultMaven Standalone free right now — or join the waitlist for the Cloud beta and new technical articles from our engineering team.
+            Deploy FaultMaven Standalone free right now, or read a real investigation end to end and judge it for yourself.
           </p>
-          <Button asChild href="/waitlist" variant="primary">
-            Join the Waitlist
+          <Button asChild href="/investigation" variant="primary">
+            See a real investigation
           </Button>
         </section>
       </div>

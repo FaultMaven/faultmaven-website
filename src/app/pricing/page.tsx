@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { TRY_CLOUD_URL } from '@/lib/links';
 
 export default function PricingPage() {
   return (
@@ -122,7 +123,7 @@ export default function PricingPage() {
                   Cloud
                 </h3>
                 <div className="flex items-baseline mb-4">
-                  <span className="text-2xl font-semibold text-slate-900 dark:text-slate-50">In beta</span>
+                  <span className="text-2xl font-semibold text-slate-900 dark:text-slate-50">Free during beta</span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 mb-1">
                   Multi-tenant SaaS · hosted by FaultMaven
@@ -186,12 +187,14 @@ export default function PricingPage() {
 
               <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">
-                  Works for individuals and teams. Cloud is currently in beta.
+                  Works for individuals and teams. Cloud beta is open — sign up
+                  with your email, no invite needed. Pricing will be announced
+                  before general availability.
                 </p>
               </div>
 
-              <Button asChild href="/waitlist" variant="primary" className="w-full">
-                Join the waitlist →
+              <Button asChild href={TRY_CLOUD_URL} variant="primary" className="w-full">
+                Try Cloud beta →
               </Button>
             </div>
           </div>
@@ -360,7 +363,7 @@ export default function PricingPage() {
                 Standalone is free under the fair-source FSL license — just deploy and use it.
               </p>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
-                Cloud is currently in beta. Join the waitlist for access; pricing will be announced before general availability.
+                Cloud is free while it is in beta. Sign up with your email — there is no waiting list and no invite code. Pricing will be announced before general availability.
               </p>
             </div>
 
@@ -370,7 +373,7 @@ export default function PricingPage() {
                 Can I switch from Standalone to Cloud?
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                Yes. Both run the same codebase and data model, so your knowledge base and case history move with you.
+                Yes — both run the same codebase and data model, so nothing you learn about one is wasted on the other. Be aware there is no automated migration today: you would re-upload your knowledge base documents, and past cases stay where they are (a case can be exported to Markdown from the dashboard). If that matters to you, tell us — it is the kind of thing beta feedback decides.
               </p>
             </div>
           </div>

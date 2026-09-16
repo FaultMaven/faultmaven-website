@@ -32,10 +32,10 @@ const navCards = [
     href: '/roadmap',
   },
   {
-    icon: <Users className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />, 
-    title: 'Join the Cloud Beta Waitlist',
-    desc: 'Get access to the managed FaultMaven Cloud beta.',
-    href: '/waitlist',
+    icon: <Users className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />,
+    title: 'Get Support',
+    desc: 'Report a bug, or find out what to include when you do.',
+    href: '/support',
   },
   {
     icon: <Info className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />, 

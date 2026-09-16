@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
+import { SIGN_IN_URL } from '@/lib/links';
 
 export default function SignInPage() {
-  const dashboardUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai';
-  redirect(`${dashboardUrl}/signin?source=website`);
+  redirect(SIGN_IN_URL);
 }

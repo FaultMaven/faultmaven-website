@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '../ui/Button';
+import { CHROME_WEB_STORE_URL, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function FinalCTASection() {
   return (
@@ -43,19 +44,19 @@ cd faultmaven
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
               FaultMaven Copilot is on the Chrome Web Store. Install it, sign in, and work a case in the side panel.
             </p>
-            <Button asChild href="https://chromewebstore.google.com/detail/faultmaven-copilot/fghoagggojmkdopidfopijfnlmchjcng" target="_blank" rel="noopener noreferrer" variant="secondary" className="w-full">
+            <Button asChild href={CHROME_WEB_STORE_URL} target="_blank" rel="noopener noreferrer" variant="secondary" className="w-full">
               Get the Copilot extension
             </Button>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-              Need Team Features?
+              Prefer We Run It?
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-              SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud.
+              Cloud beta is open. Sign up with your email and work a case in your browser — nothing to install, free while it is in beta.
             </p>
-            <Button asChild href="/waitlist" variant="secondary" className="w-full">
-              Join the Cloud waitlist
+            <Button asChild href={TRY_CLOUD_URL} variant="secondary" className="w-full">
+              Try Cloud beta
             </Button>
           </div>
           <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">

@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL } from '@/lib/links';
 
 export default function FAQPage() {
   return (
@@ -71,7 +72,28 @@ cd faultmaven
                   <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> one command, but budget 10&ndash;20 minutes on a first run &mdash; and most of that is a 2.3 GB image pull, not configuration. The image is large on purpose: the BGE-M3 embedding model is baked into it, so FaultMaven indexes and retrieves without calling out to anyone. That is what lets it run fully offline and in air-gapped environments. Subsequent starts take seconds.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> Instant — we handle the infrastructure, you get a login.
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> as long as it takes to sign up. Beta is open — there is no waiting list and no invite code. We run the infrastructure; you get an account of your own.
+                </p>
+              </div>
+
+              {/* Q3b */}
+              <div>
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
+                  Can I try it without signing up for anything?
+                </h3>
+                <p className="text-slate-700 dark:text-slate-300 mb-3">
+                  Yes, two ways. To <strong className="text-slate-900 dark:text-slate-50">see</strong> it: we publish{' '}
+                  <a href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
+                    a complete investigation transcript
+                  </a>
+                  , unedited, including the points where FaultMaven refused to conclude more than the evidence supported.
+                </p>
+                <p className="text-slate-700 dark:text-slate-300">
+                  To <strong className="text-slate-900 dark:text-slate-50">try</strong> it: FaultMaven is installed in the{' '}
+                  <a href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                    FaultMaven Community Slack
+                  </a>
+                  , so you can put a real problem to it with no account and nothing installed. It is a shared, public workspace — good for seeing how it works, not the place for production secrets or customer data.
                 </p>
               </div>
 
@@ -255,7 +277,7 @@ cd faultmaven
                   Which browsers does the Copilot extension support?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Install it from the <a href="https://chromewebstore.google.com/detail/faultmaven-copilot/fghoagggojmkdopidfopijfnlmchjcng" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Chrome Web Store</a> — Chrome, Edge, Brave, and other Chromium browsers. The same install works whether your backend is FaultMaven Cloud or a server you self-host; you choose that in Settings. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
+                  Install it from the <a href={CHROME_WEB_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Chrome Web Store</a> — Chrome, Edge, Brave, and other Chromium browsers. The same install works whether your backend is FaultMaven Cloud or a server you self-host; you choose that in Settings. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
                 </p>
               </div>
 

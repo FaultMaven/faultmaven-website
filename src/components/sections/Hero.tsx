@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Button from '../ui/Button';
+import { TRY_CLOUD_URL } from '@/lib/links';
 import heroImage from '../../../public/images/hero-mttr.webp';
 
 export default function Hero() {
@@ -45,6 +46,16 @@ export default function Hero() {
                 See a real investigation
               </Button>
             </div>
+            <p className="mt-6 text-base text-slate-600 dark:text-slate-400">
+              Cloud beta is open —{' '}
+              <a
+                href={TRY_CLOUD_URL}
+                className="font-medium text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
+              >
+                try it in your browser
+              </a>
+              , nothing to install.
+            </p>
           </div>
           <div className="relative">
             <Image

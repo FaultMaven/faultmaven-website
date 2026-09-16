@@ -411,10 +411,10 @@ cd faultmaven
                 Need Team Features?
               </h3>
               <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-                SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud.
+                SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud, free while it is in beta.
               </p>
-              <Button asChild href="/waitlist" variant="secondary" className="w-full">
-                Join the Cloud waitlist
+              <Button asChild href="/pricing" variant="secondary" className="w-full">
+                Compare Standalone and Cloud
               </Button>
             </div>
             <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">

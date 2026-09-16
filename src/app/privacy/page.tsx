@@ -43,10 +43,10 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc pl-5 space-y-2">
               <li>
                 <strong>Information You Provide Voluntarily:</strong> Such as
-                your email address when you sign up for our waitlist or
-                newsletter, and any information (name, contact details, inquiry
-                details) you provide when you contact us via email or future
-                feedback forms.
+                any information (name, contact details, inquiry details) you
+                provide when you contact us via email or future feedback forms.
+                Signing up for FaultMaven Cloud happens on the application at
+                app.faultmaven.ai rather than on this Site.
               </li>
               <li>
                 <strong>Standard Website Usage Data:</strong> Like most

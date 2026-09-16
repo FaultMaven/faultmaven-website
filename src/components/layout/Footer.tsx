@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { IconGithub, IconLinkedin, IconX } from '@/components/icons';
 import Link from '@/components/ui/Link';
+import { COMMUNITY_SLACK_URL } from '@/lib/links';
 
 export default function Footer() {
   return (
@@ -71,6 +72,7 @@ export default function Footer() {
               <li><Link href="/faq" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">FAQ</Link></li>
               <li><Link href="/support" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Support</Link></li>
               <li><a href="https://github.com/FaultMaven/faultmaven/discussions" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Discussions</a></li>
+              <li><a href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Community Slack</a></li>
             </ul>
           </div>
 
