@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import TranscriptTurn from '@/components/investigation/TranscriptTurn';
 import { transcript } from '@/data/redisOomTranscript';
+import { TRY_CLOUD_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'A real investigation, unedited',
@@ -289,10 +290,10 @@ export default function InvestigationPage() {
             </Button>
           </div>
           <p className="mt-8 text-sm text-slate-500">
-            Prefer we run it?{' '}
-            <Link href="/waitlist" className="text-blue-600 dark:text-blue-400 hover:underline">
-              Join the Cloud beta waitlist
-            </Link>
+            Prefer we run it? Cloud beta is open —{' '}
+            <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">
+              try it in your browser
+            </a>
             .
           </p>
         </div>

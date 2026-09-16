@@ -5,9 +5,11 @@ import {
   Search,
   AlertTriangle,
   CreditCard,
+  Users,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
+import { COMMUNITY_SLACK_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'FaultMaven for Slack',
@@ -18,7 +20,9 @@ export const metadata: Metadata = {
   },
 };
 
-const INSTALL_URL = 'https://slack.faultmaven.ai/slack/install';
+// No self-serve install during beta. Workspaces are connected by hand so a
+// team's cases land in their own account rather than a shared one, and the
+// how-to lives in the community workspace rather than on this page.
 
 const howItWorks = [
   {
@@ -41,12 +45,12 @@ const howItWorks = [
 
 const setupSteps = [
   {
-    title: 'Click "Add to Slack"',
-    desc: 'From this page or the Slack Marketplace listing. Slack shows you exactly which permissions FaultMaven is asking for.',
+    title: 'Ask us for your workspace',
+    desc: 'Join the FaultMaven Community Slack and tell us which workspace you want it in. During beta we connect each workspace by hand rather than offering a self-serve install, so that a team’s cases land in that team’s own account instead of a shared one.',
   },
   {
-    title: 'Approve the permissions',
-    desc: 'A Slack workspace owner or admin approves the install. Every scope FaultMaven requests, and why it needs it, is itemized in the privacy policy.',
+    title: 'A workspace admin approves the permissions',
+    desc: 'We send you the install link for your workspace. Slack shows exactly which permissions FaultMaven is asking for, and an owner or admin approves them. Every scope FaultMaven requests, and why it needs it, is itemized in the privacy policy.',
   },
   {
     title: 'Invite it to a channel',
@@ -54,7 +58,7 @@ const setupSteps = [
   },
   {
     title: 'Summon it',
-    desc: '@mention FaultMaven in a thread, run the "Ask FaultMaven" shortcut on a message, or send it a direct message. That is the whole setup — there is no account to create, no API key to paste, and no backend to configure.',
+    desc: '@mention FaultMaven in a thread, run the "Ask FaultMaven" shortcut on a message, or send it a direct message. There is no account for your teammates to create, no API key to paste, and no backend to configure.',
   },
 ];
 
@@ -136,16 +140,19 @@ export default function SlackAppPage() {
             a verified fix.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href={INSTALL_URL} variant="primary">
-              Add to Slack
+            <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
+              Try it in the Community Slack
             </Button>
             <Button asChild href="/product" variant="secondary">
               See How It Works
             </Button>
           </div>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-6">
-            Free to install, and nothing to configure — the app runs against
-            FaultMaven Cloud, currently in beta.
+            FaultMaven is already in the community workspace, so you can put a
+            real problem to it with no account and nothing installed. Want it in
+            your own workspace? During beta we connect workspaces by hand, so
+            your cases stay in your own account — ask us in the community
+            workspace and we will set it up.
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
             <Link href="/privacy/slack" className="underline hover:text-[#2563EB]">
@@ -212,7 +219,8 @@ export default function SlackAppPage() {
             Setting it up
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto text-center">
-            Four steps, and three of them are clicks.
+            Four steps. The first one is a conversation, because during beta we
+            connect workspaces by hand.
           </p>
           <div className="space-y-6">
             {setupSteps.map((step, idx) => (
@@ -396,7 +404,7 @@ export default function SlackAppPage() {
       <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-10 text-center">
-            Before you install, two things to know
+            Three things to know first
           </h2>
           <div className="space-y-6">
             <div className="p-8 rounded-xl border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40">
@@ -439,6 +447,28 @@ export default function SlackAppPage() {
                 workspace can still run full investigations.
               </p>
             </div>
+            <div className="p-8 rounded-xl border-l-4 border-slate-400 bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-3 mb-3">
+                <Users className="w-6 h-6 text-slate-600 dark:text-slate-300 flex-shrink-0" />
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+                  The community workspace is shared
+                </h3>
+              </div>
+              <p className="text-slate-700 dark:text-slate-300">
+                The community workspace is a public, shared space. Anything you
+                post there is visible to the other people in it, and the
+                investigations it produces run under a FaultMaven-managed
+                account rather than one of your own. It is the right place to
+                put a real but unremarkable problem to FaultMaven and see how it
+                works — not the place for production secrets or customer data.
+              </p>
+              <p className="text-slate-700 dark:text-slate-300 mt-4">
+                Your own workspace is different: during beta we connect those by
+                hand, precisely so your team&apos;s cases stay in your own
+                account. Ask in the community workspace and we will walk you
+                through it.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -460,8 +490,8 @@ export default function SlackAppPage() {
             for exactly what it accesses and why.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Button asChild href={INSTALL_URL} variant="primary">
-              Add to Slack
+            <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
+              Try it in the Community Slack
             </Button>
             <Button asChild href="/support" variant="secondary">
               Get support

@@ -6,7 +6,6 @@ export type AppRoute =
   | '/faq'
   | '/roadmap'
   | '/use-cases'
-  | '/waitlist'
   | '/privacy'
   | '/terms'
   | '/contact'

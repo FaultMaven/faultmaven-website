@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { SIGN_IN_URL, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,19 +64,19 @@ export default function Header() {
                 </ul>
               )}
             </div>
-            {/* <Link href="/pricing" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link> */}
+            <Link href="/pricing" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link>
             <Link href="/contact" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
           </div>
         </nav>
 
         {/* Right-aligned: Sign In + Get Started */}
         <nav className="hidden md:flex space-x-4 text-base font-medium items-center">
-          <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai'}/signin?source=website`} className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
+          <Link href={SIGN_IN_URL} className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
           <Link
-            href="https://github.com/FaultMaven/faultmaven#quick-start"
+            href={TRY_CLOUD_URL}
             className="px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
           >
-            Get Started
+            Try Cloud Beta
           </Link>
         </nav>
 
@@ -99,14 +100,14 @@ export default function Header() {
             <Link href="/roadmap" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Roadmap</Link>
             <Link href="/blog" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Blog</Link>
             <Link href="/faq" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">FAQ</Link>
-            {/* <Link href="/pricing" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link> */}
+            <Link href="/pricing" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link>
             <Link href="/contact" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
-            <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai'}/signin?source=website`} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
+            <Link href={SIGN_IN_URL} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
             <Link
-              href="https://github.com/FaultMaven/faultmaven#quick-start"
+              href={TRY_CLOUD_URL}
               className="block px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
             >
-              Get Started
+              Try Cloud Beta
             </Link>
           </div>
         </div>

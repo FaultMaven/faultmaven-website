@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div>
             <h3 className="text-xl font-bold mb-2">Build Grounded AI Troubleshooting</h3>
             <p className="text-sm text-slate-300">
-              Deploy FaultMaven free — or join the Cloud beta waitlist.
+              Deploy FaultMaven free, or read a real investigation end to end.
             </p>
           </div>
           <div className="flex items-center gap-4">
@@ -128,8 +128,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             >
               Back to Blog
             </Link>
-            <Button asChild href="/waitlist" variant="primary">
-              Join Waitlist
+            <Button asChild href="/investigation" variant="primary">
+              See a real investigation
             </Button>
           </div>
         </div>

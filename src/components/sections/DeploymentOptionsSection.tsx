@@ -107,11 +107,11 @@ export default function DeploymentOptionsSection() {
 
             <Button
               asChild
-              href="/waitlist"
+              href="/pricing"
               variant="primary"
               className="w-full"
             >
-              Join the waitlist
+              Compare the two
             </Button>
           </div>
         </div>

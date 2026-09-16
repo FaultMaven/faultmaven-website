@@ -34,8 +34,8 @@ export default function TermsOfServicePage() {
                 non-transferable, revocable license to access and use the Site
                 strictly in accordance with these Terms, for informational
                 purposes, to learn about FaultMaven, and to engage with us
-                through the channels provided (e.g., waitlist sign-up, contact
-                email).
+                through the channels provided (e.g., contact email, the
+                community workspace).
               </li>
               <li>
                 <strong>Prohibited Activities:</strong> You agree not to use the
