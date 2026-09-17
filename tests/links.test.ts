@@ -23,6 +23,14 @@ describe('outbound links', () => {
     expect(new URL(SIGN_IN_URL).pathname).toBe('/signin');
   });
 
+  it('carries no campaign parameter on either entry point', () => {
+    // The dashboard's /signin is `<Navigate to="/login" replace />` with a
+    // bare string destination, so React Router drops the query; nothing reads
+    // `source` there either. Same defect as TRY_CLOUD_URL had, one hop earlier.
+    expect(new URL(SIGN_IN_URL).search).toBe('');
+    expect(new URL(TRY_CLOUD_URL).search).toBe('');
+  });
+
   // The assertion above can only ever see the origin this environment already
   // supplies, so on its own it proves nothing about the case that actually
   // breaks: a deployment setting NEXT_PUBLIC_DASHBOARD_URL with a trailing
@@ -56,12 +64,6 @@ describe('outbound links', () => {
     expect(CHROME_WEB_STORE_URL).toContain('fghoagggojmkdopidfopijfnlmchjcng');
   });
 
-  it('carries no campaign parameter that the handoff would discard', () => {
-    // The handoff to the IdP does not preserve one, so a ?source= here would
-    // look like attribution and measure nothing.
-    expect(new URL(TRY_CLOUD_URL).search).toBe('');
-  });
-
   it('sends a first-time visitor to sign-up, not to the app root (website#42)', () => {
     // The root routes through /cases to /login, which asks for an account the
     // visitor does not have yet. /signup is the shim that opens the hosted
@@ -74,6 +76,5 @@ describe('outbound links', () => {
     // a returning user sent to sign-up, or a new one sent to sign-in, is the
     // whole defect in both directions.
     expect(TRY_CLOUD_URL).not.toBe(SIGN_IN_URL);
-    expect(new URL(SIGN_IN_URL).pathname).toBe('/signin');
   });
 });

@@ -26,8 +26,18 @@ export const DASHBOARD_URL = normalizeOrigin(
   process.env.NEXT_PUBLIC_DASHBOARD_URL || 'https://app.faultmaven.ai'
 );
 
-/** Existing users. Kept distinct from the invitation so the two read differently. */
-export const SIGN_IN_URL = `${DASHBOARD_URL}/signin?source=website`;
+/**
+ * Existing users. Kept distinct from the invitation so the two read
+ * differently — and so neither entry point can be reached by the other's
+ * audience.
+ *
+ * No `?source=` for the same reason TRY_CLOUD_URL has none, one hop earlier:
+ * the dashboard's `/signin` route is `<Navigate to="/login" replace />` with a
+ * bare string destination, so React Router drops the query outright, and
+ * nothing there reads `source` anyway. A parameter that looks like
+ * attribution and measures nothing is worse than none.
+ */
+export const SIGN_IN_URL = `${DASHBOARD_URL}/signin`;
 
 /**
  * Where we send someone who wants to try Cloud beta.
