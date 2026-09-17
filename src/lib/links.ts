@@ -32,20 +32,19 @@ export const SIGN_IN_URL = `${DASHBOARD_URL}/signin?source=website`;
 /**
  * Where we send someone who wants to try Cloud beta.
  *
- * This is the dashboard root rather than a sign-up screen because no such
- * screen exists to link to: the cloud login hands off to AuthKit, and
- * `build_authorization_url` does not yet forward a sign-up hint. Landing a new
- * visitor on sign-up in one step is website#42, and it needs that hint plumbed
- * through the core auth contract first.
+ * `/signup`, not the dashboard root — that is website#42. A hosted login opens
+ * on its SIGN-IN screen by default, so the root sent a first-time visitor
+ * through `/cases` to `/login` and on to a form asking for an account they do
+ * not have. `/signup` is a redirect shim that asks nothing and hands off with
+ * `screen_hint=sign-up` (core contract 6.1.0), which is the issue's invariant:
+ * the primary call to action reaches the sign-up screen without an
+ * intermediate page that asks them to sign in.
  *
- * Deliberately carries no `?source=` campaign parameter. The dashboard root
- * redirects to `/cases` and then to `/login` with bare string destinations, so
- * React Router drops the query twice before anything could read it — a
- * parameter here would look like attribution and measure nothing. Attributing
- * this funnel needs the dashboard to preserve the query across those two
- * redirects first.
+ * Deliberately carries no `?source=` campaign parameter. The handoff to the
+ * IdP does not preserve one, so a parameter here would look like attribution
+ * and measure nothing.
  */
-export const TRY_CLOUD_URL = DASHBOARD_URL;
+export const TRY_CLOUD_URL = `${DASHBOARD_URL}/signup`;
 
 /**
  * The community workspace. FaultMaven is installed here, so someone can try it

@@ -56,10 +56,24 @@ describe('outbound links', () => {
     expect(CHROME_WEB_STORE_URL).toContain('fghoagggojmkdopidfopijfnlmchjcng');
   });
 
-  it('carries no campaign parameter that the dashboard would discard', () => {
-    // The dashboard root redirects to /cases and then /login with bare string
-    // destinations, so React Router drops the query twice. A ?source= here
-    // would look like attribution and measure nothing.
+  it('carries no campaign parameter that the handoff would discard', () => {
+    // The handoff to the IdP does not preserve one, so a ?source= here would
+    // look like attribution and measure nothing.
     expect(new URL(TRY_CLOUD_URL).search).toBe('');
+  });
+
+  it('sends a first-time visitor to sign-up, not to the app root (website#42)', () => {
+    // The root routes through /cases to /login, which asks for an account the
+    // visitor does not have yet. /signup is the shim that opens the hosted
+    // login on its sign-up screen instead.
+    expect(new URL(TRY_CLOUD_URL).pathname).toBe('/signup');
+  });
+
+  it('keeps the sign-in and sign-up entry points distinct', () => {
+    // They read differently on the page and must not collapse into one URL:
+    // a returning user sent to sign-up, or a new one sent to sign-in, is the
+    // whole defect in both directions.
+    expect(TRY_CLOUD_URL).not.toBe(SIGN_IN_URL);
+    expect(new URL(SIGN_IN_URL).pathname).toBe('/signin');
   });
 });
