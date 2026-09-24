@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Button from '@/components/ui/Button';
 import TranscriptTurn from '@/components/investigation/TranscriptTurn';
 import { transcript } from '@/data/redisOomTranscript';
-import { TRY_CLOUD_URL } from '@/lib/links';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'A real investigation, unedited',
@@ -276,25 +276,20 @@ export default function InvestigationPage() {
             Run it on a problem of your own
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto text-[15px] leading-relaxed">
-            A constructed scenario only tells you so much. Standalone is free and self-hosted: one command,
-            and budget 10&ndash;20 minutes for the first run, most of it pulling a 2.3 GB image that carries
-            its own embedding model so it works offline.
+            A constructed scenario only tells you so much. Put one of your own to it on FaultMaven Cloud —
+            nothing to install — or self-host the same engine with one command.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
-              Self-host it, free →
+            <Button asChild href={TRY_CLOUD_URL} variant="primary">
+              Start on FaultMaven Cloud →
+            </Button>
+            <Button asChild href={SELF_HOST_PATH} variant="secondary">
+              Self-host it
             </Button>
             <Button asChild href={RAW} variant="secondary">
               Read the raw transcript
             </Button>
           </div>
-          <p className="mt-8 text-sm text-slate-500">
-            Prefer we run it? Cloud beta is open —{' '}
-            <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">
-              try it in your browser
-            </a>
-            .
-          </p>
         </div>
       </section>
     </main>

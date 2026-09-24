@@ -5,6 +5,7 @@ import Link from 'next/link';
 import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
 import causalMapImage from '/public/images/copilot-causal-map-resolved.png';
 import Button from '@/components/ui/Button';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import {
   IconChartBar,
   IconSparkles,
@@ -27,11 +28,11 @@ export default function ProductPage() {
             FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
-              Deploy Now (Free)
+            <Button asChild href={TRY_CLOUD_URL} variant="primary">
+              Start on FaultMaven Cloud
             </Button>
-            <Button asChild href="#how-it-works" variant="secondary">
-              See How It Works
+            <Button asChild href={SELF_HOST_PATH} variant="secondary">
+              Self-host it
             </Button>
           </div>
         </div>
@@ -339,7 +340,7 @@ export default function ProductPage() {
                 Local-First
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                All case data (logs, configs, screenshots) is stored on your infrastructure. Nothing leaves unless you explicitly share it.
+                Self-hosted, all case data (logs, configs, screenshots) and your knowledge base are stored on your own infrastructure, and retrieval runs with no network. What leaves is each investigation prompt, sent to the model provider you choose.
               </p>
             </div>
 
@@ -354,11 +355,11 @@ export default function ProductPage() {
                 Data Redaction
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach an external LLM — or run local models so nothing leaves at all.
+                An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach the model provider you configure.
               </p>
             </div>
 
-            {/* Air-Gapped Capable */}
+            {/* No production credentials */}
             <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
                 <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -366,10 +367,10 @@ export default function ProductPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Air-Gapped Capable
+                No Production Credentials
               </h3>
               <p className="text-slate-600 dark:text-slate-400">
-                Run with local LLMs (Ollama, vLLM) for complete isolation. No external API calls required.
+                FaultMaven works from what you choose to share. It never asks for production API keys, root credentials, or access to your live systems, and takes no action on them.
               </p>
             </div>
           </div>
@@ -380,7 +381,7 @@ export default function ProductPage() {
       <section className="py-24 bg-slate-100 dark:bg-slate-800">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Ready to Try It?
+            Run It Yourself, or Let Us Run It for You
           </h2>
 
           {/* Primary CTA */}
@@ -397,9 +398,16 @@ cd faultmaven
                 </code>
               </pre>
               <div className="text-center">
-                <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
-                  Full Deployment Guide →
+                <Button asChild href={SELF_HOST_PATH} variant="primary" className="text-lg px-8">
+                  Self-hosting guide →
                 </Button>
+                <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+                  Rather not operate it?{' '}
+                  <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">
+                    Start on FaultMaven Cloud
+                  </a>{' '}
+                  — the same engine, run for you.
+                </p>
               </div>
             </div>
           </div>
@@ -408,10 +416,10 @@ cd faultmaven
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Need Team Features?
+                Working as a Team?
               </h3>
               <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-                SSO, shared team knowledge, managed infrastructure — on FaultMaven Cloud, free while it is in beta.
+                Team knowledge sharing and SSO need multi-tenancy, which is what FaultMaven Cloud adds — self-hosted FaultMaven is single-user.
               </p>
               <Button asChild href="/pricing" variant="secondary" className="w-full">
                 Compare Standalone and Cloud

@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
-import { TRY_CLOUD_URL } from '@/lib/links';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function PricingPage() {
   return (
@@ -10,10 +10,10 @@ export default function PricingPage() {
       <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Two ways to run FaultMaven
+            Run it yourself, or let us run it for you
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Self-host the open-core engine for free, or let us run it for you with team collaboration on Cloud. Same engine either way.
+            The same engine either way. FaultMaven Cloud runs it for you with nothing to operate — free during beta, with a daily limit on investigation turns. Self-hosting is free forever. Because the engine is fair source, you are never locked in to either.
           </p>
         </div>
       </section>
@@ -22,100 +22,6 @@ export default function PricingPage() {
       <section className="py-16 bg-white dark:bg-slate-900">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Standalone */}
-            <div className="border-2 border-slate-200 dark:border-slate-800 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-                  Standalone
-                </h3>
-                <div className="flex items-baseline mb-4">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-slate-50">Free</span>
-                  <span className="text-slate-600 dark:text-slate-400 ml-2">· Fair Source</span>
-                </div>
-                <p className="text-slate-600 dark:text-slate-400 mb-1">
-                  Self-hosted · FaultMaven Core
-                </p>
-                <p className="text-sm text-slate-500 dark:text-slate-500 italic">
-                  The complete engine, on your own infrastructure.
-                </p>
-              </div>
-
-              <p className="text-slate-700 dark:text-slate-300 mb-6">
-                Run FaultMaven as a single instance with Docker Compose. SQLite, an embedded vector store, and in-process caching — no external services to operate.
-              </p>
-
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Full AI troubleshooting and investigation engine</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Ships with starter runbooks, auto-loaded on first start</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Build a personal knowledge base; generate runbooks from resolved cases</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Browser extension (Copilot) + web Dashboard</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Multi-LLM support — 9 providers, bring your own API keys</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
-                  <span className="text-slate-700 dark:text-slate-300">Fair source (FSL-1.1-ALv2) — audit it, fork it, run it in your business</span>
-                </li>
-              </ul>
-
-              <div className="mb-6 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
-                <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-2">
-                  You provide:
-                </p>
-                <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Infrastructure (Docker, 8GB+ RAM)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>LLM API keys (OpenAI, Anthropic, or local via Ollama)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-                <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-2">
-                  Best for:
-                </p>
-                <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Engineers who want full control</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Air-gapped or privacy-first environments</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Contributors</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>Anyone evaluating before adopting</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="secondary" className="w-full">
-                Deploy Now →
-              </Button>
-            </div>
-
             {/* Cloud */}
             <div className="border-2 border-blue-500 dark:border-blue-600 rounded-xl p-8 bg-white dark:bg-slate-900 shadow-lg">
               <div className="mb-6">
@@ -129,12 +35,12 @@ export default function PricingPage() {
                   Multi-tenant SaaS · hosted by FaultMaven
                 </p>
                 <p className="text-sm text-slate-500 dark:text-slate-500 italic">
-                  Everything in Standalone, fully managed — plus team collaboration.
+                  FaultMaven run for you — nothing to install or operate.
                 </p>
               </div>
 
               <p className="text-slate-700 dark:text-slate-300 mb-6">
-                The same engine, run for you on Kubernetes with a managed data tier. Multi-tenancy adds the team knowledge scope a single-instance deployment can&apos;t.
+                The same engine as Standalone, operated by us, plus what a single-user install cannot do: the team knowledge scope, which needs multi-tenancy.
               </p>
 
               <ul className="space-y-3 mb-6">
@@ -187,16 +93,110 @@ export default function PricingPage() {
 
               <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                 <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">
-                  Works for individuals and teams. Cloud beta is open — sign up
-                  with your email, no invite needed. Pricing will be announced
-                  before general availability.
+                  In beta: free, with a daily limit on investigation turns.
+                  Sign up with your email, no invite needed. Pricing will be
+                  announced before general availability.
                 </p>
               </div>
 
               <Button asChild href={TRY_CLOUD_URL} variant="primary" className="w-full">
-                Try Cloud beta →
+                Start on FaultMaven Cloud →
               </Button>
             </div>
+            {/* Standalone */}
+            <div className="border-2 border-slate-200 dark:border-slate-800 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+                  Standalone
+                </h3>
+                <div className="flex items-baseline mb-4">
+                  <span className="text-4xl font-bold text-slate-900 dark:text-slate-50">Free forever</span>
+                  <span className="text-slate-600 dark:text-slate-400 ml-2">· Fair Source</span>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 mb-1">
+                  Self-hosted · FaultMaven Core
+                </p>
+                <p className="text-sm text-slate-500 dark:text-slate-500 italic">
+                  The complete engine, on your own infrastructure.
+                </p>
+              </div>
+
+              <p className="text-slate-700 dark:text-slate-300 mb-6">
+                Run FaultMaven as a single instance with Docker Compose. SQLite, an embedded vector store, and in-process caching — no external services to operate.
+              </p>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Full AI troubleshooting and investigation engine</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Ships with starter runbooks, auto-loaded on first start</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Build a personal knowledge base; generate runbooks from resolved cases</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Browser extension (Copilot) + web Dashboard</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Multi-LLM support — 9 providers, bring your own API keys</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-600 dark:text-green-400 mr-3">✓</span>
+                  <span className="text-slate-700 dark:text-slate-300">Fair source (FSL-1.1-ALv2) — audit it, fork it, run it in your business</span>
+                </li>
+              </ul>
+
+              <div className="mb-6 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-2">
+                  You provide:
+                </p>
+                <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Infrastructure (Docker, 8GB+ RAM)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>An API key for one model provider (Gemini, OpenAI, or Anthropic recommended)</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <p className="text-sm font-semibold text-slate-900 dark:text-slate-50 mb-2">
+                  Best for:
+                </p>
+                <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Engineers who want full control</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Keeping cases and knowledge on your own hardware</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Contributors</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2">•</span>
+                    <span>Running it day to day, with no usage limits</span>
+                  </li>
+                </ul>
+              </div>
+
+              <Button asChild href={SELF_HOST_PATH} variant="secondary" className="w-full">
+                Self-host it →
+              </Button>
+            </div>
+
           </div>
         </div>
       </section>
@@ -255,7 +255,7 @@ export default function PricingPage() {
                     <tr className="border-b border-slate-100 dark:border-slate-800">
                       <td className="py-2 px-3 text-slate-700 dark:text-slate-300">License</td>
                       <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Open core (fair source, FSL-1.1-ALv2)</td>
-                      <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Open core + managed service</td>
+                      <td className="py-2 px-3 text-slate-600 dark:text-slate-400">Same fair-source engine, run as a managed service</td>
                     </tr>
                   </tbody>
                 </table>
@@ -271,10 +271,10 @@ export default function PricingPage() {
                 I&apos;m a solo engineer. Should I use Cloud?
               </h3>
               <p className="text-slate-700 dark:text-slate-300 mb-3">
-                Not necessarily. Standalone has the full troubleshooting engine, ships with starter runbooks, and lets you build a personal knowledge base — all free, on your own machine.
+                Either works. Cloud is the quickest way to be productive — nothing to install, no API keys to manage — and it works just as well for one person as for a team. Standalone has the same troubleshooting engine, ships with the same starter runbooks, and runs free on your own machine if you would rather operate it yourself.
               </p>
               <p className="text-slate-700 dark:text-slate-300">
-                Cloud earns its place when you want a managed setup (no infrastructure or API keys to run) or need to share knowledge across a team.
+                The one thing only Cloud does is share knowledge across a team, because that needs multi-tenancy.
               </p>
             </div>
 
@@ -360,20 +360,20 @@ export default function PricingPage() {
                 Is it free?
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                Standalone is free under the fair-source FSL license — just deploy and use it.
+                Standalone is free forever under the fair-source FSL license, with no usage limits — deploy it and use it.
               </p>
               <p className="text-slate-700 dark:text-slate-300 mt-2">
-                Cloud is free while it is in beta. Sign up with your email — there is no waiting list and no invite code. Pricing will be announced before general availability.
+                FaultMaven Cloud is free while it is in beta, with a daily limit on investigation turns. Sign up with your email — there is no waiting list and no invite code. Pricing will be announced before general availability.
               </p>
             </div>
 
             {/* FAQ 7 */}
             <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-6">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-2">
-                Can I switch from Standalone to Cloud?
+                Am I locked in to Cloud?
               </h3>
               <p className="text-slate-700 dark:text-slate-300">
-                Yes — both run the same codebase and data model, so nothing you learn about one is wasted on the other. Be aware there is no automated migration today: you would re-upload your knowledge base documents, and past cases stay where they are (a case can be exported to Markdown from the dashboard). If that matters to you, tell us — it is the kind of thing beta feedback decides.
+                No. Cloud runs the same fair-source engine you can run yourself, so if FaultMaven Cloud ever stops suiting you, you can self-host it for free. Be aware that moving is manual today: there is no automated migration, so you would re-upload your knowledge base documents, and past cases stay where they are (a case can be exported to Markdown from the dashboard). If an export path matters to you, tell us — it is the kind of thing beta feedback decides.
               </p>
             </div>
           </div>
@@ -398,14 +398,19 @@ export default function PricingPage() {
       <section className="py-16 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Start free, self-hosted
+            Start working a case
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-            One command to self-host, then try it on a real incident. No credit card, no sign-up. Budget 10–20 minutes for the first run — mostly the 2.3 GB image pull.
+            Sign up for FaultMaven Cloud and put a real incident to it a minute later — or self-host it with one command (budget 10–20 minutes for the first run, mostly the 2.3 GB image pull). No credit card either way.
           </p>
-          <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
-            Deploy Now →
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild href={TRY_CLOUD_URL} variant="primary" className="text-lg px-8">
+              Start on FaultMaven Cloud →
+            </Button>
+            <Button asChild href={SELF_HOST_PATH} variant="secondary" className="text-lg px-8">
+              Self-host it
+            </Button>
+          </div>
         </div>
       </section>
     </main>

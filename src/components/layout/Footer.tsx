@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { IconGithub, IconLinkedin, IconX } from '@/components/icons';
 import Link from '@/components/ui/Link';
-import { COMMUNITY_SLACK_URL } from '@/lib/links';
+import { COMMUNITY_SLACK_URL, SELF_HOST_PATH } from '@/lib/links';
 
 export default function Footer() {
   return (
@@ -29,7 +29,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 font-normal">
-              Your AI copilot for troubleshooting.
+              Your AI troubleshooting copilot — self-hosted or run for you.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/FaultMaven" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-full">
@@ -81,7 +81,7 @@ export default function Footer() {
             <strong className="font-semibold text-slate-900 dark:text-slate-200 text-base block mb-3">Developer</strong>
             <ul className="mt-2 space-y-2 text-base">
               <li><a href="https://github.com/FaultMaven/faultmaven" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">GitHub</a></li>
-              <li><a href="https://github.com/FaultMaven/faultmaven#quick-start" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Documentation</a></li>
+              <li><Link href={SELF_HOST_PATH} className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Self-Hosting Guide</Link></li>
               <li><a href="https://github.com/FaultMaven/faultmaven-website/issues" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Report Issue</a></li>
             </ul>
           </div>
@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom Divider & Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-center">
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
-            Fair Source · Self-Hostable · Runs Air-Gapped
+            Fair Source · Self-Hostable · No Production Credentials
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
             <Link href="/privacy" className="hover:text-[#2563EB] hover:underline transition-colors duration-200">Privacy Policy</Link>

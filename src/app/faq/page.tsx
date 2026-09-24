@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
-import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL } from '@/lib/links';
+import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function FAQPage() {
   return (
@@ -33,7 +33,7 @@ export default function FAQPage() {
                   What is FaultMaven?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  FaultMaven is an AI-powered troubleshooting copilot that helps engineers resolve incidents faster. It correlates what you share—logs, metrics, traces, configs, and code—with a unified knowledge engine that combines global troubleshooting patterns with your team&apos;s institutional memory.
+                  FaultMaven is an AI troubleshooting copilot that helps engineers resolve incidents faster — run it yourself on your own hardware, or let us run it for you on FaultMaven Cloud. It correlates what you share—logs, metrics, traces, configs, and code—with a unified knowledge engine that combines global troubleshooting patterns with your team&apos;s institutional memory.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   Think of it as an expert teammate who remembers every past incident, knows every runbook, and correlates what you give it in seconds.
@@ -46,7 +46,7 @@ export default function FAQPage() {
                   How do I get started?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  Deploy Standalone (self-hosted) with one command:
+                  Two ways, same engine. <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">Sign up for FaultMaven Cloud</a> and we run it for you — nothing to install. Or run it yourself: Standalone (self-hosted) is one command:
                 </p>
                 <pre className="bg-slate-900 dark:bg-slate-950 p-4 rounded-lg mb-3 overflow-x-auto">
                   <code className="text-green-400 font-mono text-sm">
@@ -56,10 +56,7 @@ cd faultmaven
                   </code>
                 </pre>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  The deployment script handles everything: Docker containers, configuration, and database setup. Full instructions in the <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
-                </p>
-                <p className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
-                  <strong className="text-slate-900 dark:text-slate-50">💡 No API key?</strong> Use <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">CHAT_PROVIDER=local</code> for free local inference with Ollama.
+                  The deployment script handles everything: Docker containers, configuration, and database setup. Set one model provider&apos;s API key in <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">.env</code> first — see the <a href={SELF_HOST_PATH} className="text-blue-600 dark:text-blue-400 hover:underline">self-hosting guide</a>.
                 </p>
               </div>
 
@@ -69,10 +66,10 @@ cd faultmaven
                   How long does setup take?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> one command, but budget 10&ndash;20 minutes on a first run &mdash; and most of that is a 2.3 GB image pull, not configuration. The image is large on purpose: the BGE-M3 embedding model is baked into it, so FaultMaven indexes and retrieves without calling out to anyone. That is what lets it run fully offline and in air-gapped environments. Subsequent starts take seconds.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> one command, but budget 10&ndash;20 minutes on a first run &mdash; and most of that is a 2.3 GB image pull, not configuration. The image is large on purpose: the BGE-M3 embedding model is baked into it, so FaultMaven indexes and retrieves without calling out to anyone. Subsequent starts take seconds.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> as long as it takes to sign up. Beta is open — there is no waiting list and no invite code. We run the infrastructure; you get an account of your own.
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud (in beta):</strong> as long as it takes to sign up. Beta is open — there is no waiting list and no invite code. We run the infrastructure; you get an account of your own, free during beta with a daily limit on investigation turns.
                 </p>
               </div>
 
@@ -182,10 +179,10 @@ cd faultmaven
                   Where does my data go?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your data never leaves your infrastructure. Everything runs on your own servers, and no usage data is sent back to us.
+                  <strong className="text-slate-900 dark:text-slate-50">Standalone (self-hosted):</strong> Your cases, evidence, and knowledge base are stored on your own servers, and no usage data is sent back to us. Each investigation prompt goes to the model provider you configure — see the next two answers.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong className="text-slate-900 dark:text-slate-50">Cloud (hosted):</strong> Data is encrypted in transit (TLS 1.3) and at rest (AES-256). We never train models on your data or share it with third parties.
+                  <strong className="text-slate-900 dark:text-slate-50">Cloud (hosted):</strong> What you share — cases, evidence, and knowledge base — is stored in FaultMaven&apos;s deployment, and each investigation prompt goes to the model providers Cloud routes to. We never train models on your data. Cloud is in beta: do not paste production secrets or customer data you would not want stored. If data must stay on your own hardware, self-host.
                 </p>
               </div>
 
@@ -208,7 +205,7 @@ cd faultmaven
                   Do you train AI models on my data?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  No. FaultMaven never trains models on your data, and your case data stays in your instance (self-hosted or Cloud). When you route inference to a third-party provider, your prompts are subject to that provider&apos;s terms — so choose an endpoint with a no-training / zero-retention policy (most enterprise and API tiers offer one), or run fully local models (Ollama, vLLM) so nothing leaves your infrastructure at all. FaultMaven also ships an optional redaction layer that scrubs sensitive values (keys, tokens, PII) before prompts leave for a third-party provider — enable it when you route inference externally.
+                  No. FaultMaven never trains models on your data, and your case data stays in your instance (self-hosted or Cloud). When you route inference to a third-party provider, your prompts are subject to that provider&apos;s terms — so choose an endpoint with a no-training / zero-retention policy (most enterprise and API tiers offer one), and see the next answer for where local models stand. FaultMaven also ships an optional redaction layer that scrubs sensitive values (keys, tokens, PII) before prompts leave for a third-party provider — enable it when you route inference externally.
                 </p>
               </div>
 
@@ -218,7 +215,7 @@ cd faultmaven
                   Can I use my own AI models?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. FaultMaven supports bring-your-own-LLM across nine providers — Anthropic, OpenAI, Gemini, Fireworks, Groq, and more — including a local option that runs self-hosted open models (Llama and others) via Ollama or vLLM, i.e. any OpenAI-compatible endpoint. Full control over where inference happens.
+                  Yes — bring your own key for any of nine providers: Anthropic, OpenAI, Gemini, Fireworks, Groq, and more. For the main investigation role, use one that enforces structured output (Gemini, OpenAI, or Anthropic). There is also a local provider for OpenAI-compatible endpoints such as vLLM or Ollama. We have not yet verified a full investigation end to end on an open-weights model, and local endpoints are best-effort for structured output, so we do not recommend it for the investigation role until we publish a tested configuration. If you try one, tell us how it went.
                 </p>
               </div>
             </div>
@@ -236,17 +233,17 @@ cd faultmaven
                   Is FaultMaven really free?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes. Standalone is free—full features, no strings attached. You host it, you control it. The engine is fair source (FSL-1.1-ALv2): audit every line, and each release converts to Apache 2.0 two years after it ships. FaultMaven Cloud adds managed hosting and team collaboration through multi-tenancy.
+                  Yes. Standalone is free forever — full features, no usage limits. You host it, you control it. The engine is fair source (FSL-1.1-ALv2): audit every line, and each release converts to Apache 2.0 two years after it ships. FaultMaven Cloud is free during beta, with a daily limit on investigation turns; pricing will be announced before general availability.
                 </p>
               </div>
 
               {/* Q13 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                  Can I move from Standalone to Cloud later?
+                  What is FaultMaven Cloud, and am I locked in?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Absolutely. Start self-hosted with Standalone, then move to Cloud whenever you&apos;re ready. We&apos;ll help migrate your knowledge base and settings. No lock-in.
+                  FaultMaven Cloud is FaultMaven run for you: the same engine as the self-hosted version, with nothing to install or operate, plus team knowledge sharing (the team scope needs multi-tenancy, so it is Cloud-only). It is in beta — free, with a daily limit on investigation turns — and pricing will be announced before general availability. You are not locked in: the engine is fair source, so you can run it yourself for free at any time. Moving is manual today — there is no automated migration, so you would re-upload knowledge base documents, and a case can be exported to Markdown from the dashboard.
                 </p>
               </div>
             </div>

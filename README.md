@@ -1,6 +1,6 @@
 # FaultMaven Website
 
-**The AI-Powered Troubleshooting Copilot for Modern Engineering**
+**The AI Troubleshooting Copilot — Self-Hosted or Run for You**
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Ffaultmaven.ai)](https://faultmaven.ai)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
@@ -21,12 +21,13 @@ This repository contains the **source code for the official FaultMaven website**
 
 This is the official source code for the **FaultMaven** website. It is built with **Next.js**, **React**, and **Tailwind CSS**.
 
-**FaultMaven** is the fair-source AI troubleshooting copilot that helps SREs, DevOps engineers, and developers diagnose incidents faster by correlating full-stack data with a unified knowledge base.
+**FaultMaven** is a fair-source AI troubleshooting copilot that helps SREs, DevOps engineers, and developers diagnose incidents by correlating the logs, metrics, and configs they share with a unified knowledge base. The site presents two first-class ways to run it: on FaultMaven Cloud, or self-hosted — same engine.
 
 ### What's Inside
 
 - **Product Pages**: Features, capabilities, and how FaultMaven differs from generic AI tools
 - **Use Cases**: Real-world troubleshooting scenarios and time savings
+- **Self-Host** (`/self-host`): the landing every "run it yourself" call to action goes through, so visits to it are counted (Vercel Web Analytics page views)
 - **Cloud Beta**: Sign-up is open — the site points visitors at the dashboard rather than a waiting list
 - **Roadmap**: Product vision and upcoming features
 - **FAQ**: Everything you need to know about getting started

@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function RoadmapPage() {
   return (
@@ -72,7 +73,7 @@ export default function RoadmapPage() {
                 Copilot — turn-by-turn, at your side
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
-                An interactive troubleshooting companion in your browser, backed by your own self-hosted instance — with zero access to your production systems.
+                An interactive troubleshooting companion in your browser, backed by FaultMaven Cloud or your own self-hosted instance — with zero access to your production systems.
               </p>
               <dl className="grid md:grid-cols-3 gap-6">
                 <div>
@@ -89,8 +90,8 @@ export default function RoadmapPage() {
                 </div>
               </dl>
               <div className="mt-6">
-                <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="w-full md:w-auto">
-                  Deploy it today →
+                <Button asChild href={TRY_CLOUD_URL} variant="primary" className="w-full md:w-auto">
+                  Start on FaultMaven Cloud →
                 </Button>
               </div>
             </div>
@@ -178,10 +179,10 @@ export default function RoadmapPage() {
                 Standalone (Self-Hosted)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                The core troubleshooting engine is fair source (FSL-1.1-ALv2) — every line public, converting to Apache 2.0 two years after each release. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free.
+                The core troubleshooting engine is fair source (FSL-1.1-ALv2) — every line public, converting to Apache 2.0 two years after each release. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free — and because FaultMaven Cloud runs this same engine, no one who chooses Cloud is locked in.
               </p>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary">
-                View on GitHub →
+              <Button asChild href={SELF_HOST_PATH} variant="secondary">
+                Self-host it →
               </Button>
             </div>
 
@@ -190,10 +191,10 @@ export default function RoadmapPage() {
                 Cloud (Managed Service)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                Team collaboration, SSO, and managed infrastructure are built on the same open core — but packaged as a managed, multi-tenant service for teams that don&apos;t want to operate their own stack.
+                FaultMaven run for you: team collaboration, SSO, and managed infrastructure built on the same open core, as a multi-tenant service for individuals and teams who don&apos;t want to operate their own stack. It is in beta — free, with a daily limit on investigation turns — and pricing will be announced before general availability.
               </p>
               <p className="text-slate-700 dark:text-slate-300 font-medium">
-                Both options use the same codebase. Start self-hosted, upgrade when ready.
+                Both options use the same codebase — run it yourself, or <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">let us run it for you</a>.
               </p>
             </div>
           </div>
@@ -275,14 +276,14 @@ export default function RoadmapPage() {
             Start Today, Grow With Us
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            Deploy FaultMaven now and troubleshoot your next incident with it — then help shape where its reach goes from here.
+            Troubleshoot your next incident with FaultMaven — on Cloud or on your own hardware — then help shape where its reach goes from here.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
-              Deploy FaultMaven Now
+            <Button asChild href={TRY_CLOUD_URL} variant="primary">
+              Start on FaultMaven Cloud
             </Button>
-            <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary">
-              Star on GitHub
+            <Button asChild href={SELF_HOST_PATH} variant="secondary">
+              Self-host it
             </Button>
             <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary">
               Join Discussions

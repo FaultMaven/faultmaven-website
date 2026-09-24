@@ -40,7 +40,7 @@ export const DASHBOARD_URL = normalizeOrigin(
 export const SIGN_IN_URL = `${DASHBOARD_URL}/signin`;
 
 /**
- * Where we send someone who wants to try Cloud beta.
+ * Where we send someone who wants to start on FaultMaven Cloud.
  *
  * `/signup`, not the dashboard root — that is website#42. A hosted login opens
  * on its SIGN-IN screen by default, so the root sent a first-time visitor
@@ -55,6 +55,23 @@ export const SIGN_IN_URL = `${DASHBOARD_URL}/signin`;
  * and measure nothing.
  */
 export const TRY_CLOUD_URL = `${DASHBOARD_URL}/signup`;
+
+/**
+ * Where every "self-host it" call to action points.
+ *
+ * An on-site page rather than the GitHub Quick Start, so the visit is counted
+ * by the site's page analytics. A link straight to GitHub is not: GitHub's
+ * traffic view reports the referring domain, not the page or a query string,
+ * so tagging those links would measure nothing. The page then hands off to
+ * QUICKSTART_URL.
+ */
+export const SELF_HOST_PATH = '/self-host';
+
+/** The engine's own install instructions — the page SELF_HOST_PATH hands off to. */
+export const QUICKSTART_URL = 'https://github.com/FaultMaven/faultmaven#quick-start';
+
+/** The engine repository. */
+export const ENGINE_REPO_URL = 'https://github.com/FaultMaven/faultmaven';
 
 /**
  * The community workspace. FaultMaven is installed here, so someone can try it

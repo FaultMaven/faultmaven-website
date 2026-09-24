@@ -2,13 +2,14 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
+    default: 'FaultMaven | AI Troubleshooting Copilot — Self-Hosted or Run for You',
     template: '%s | FaultMaven'
   },
-  description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
+  description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Run it yourself, or let us run it for you on FaultMaven Cloud — same fair-source engine.',
   keywords: ['AI Troubleshooting', 'SRE Tools', 'Incident Response', 'Root Cause Analysis', 'MTTR', 'Operations AI', 'DevOps', 'Log Analysis', 'AI Copilot', 'Fair Source', 'Self-Hosted', 'FaultMaven Core', 'Docker'],
   authors: [{ name: 'FaultMaven Team' }],
   creator: 'FaultMaven',
@@ -23,14 +24,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.faultmaven.ai',
-    title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
+    title: 'FaultMaven | AI Troubleshooting Copilot — Self-Hosted or Run for You',
+    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Run it yourself, or let us run it for you on FaultMaven Cloud — same fair-source engine.',
     siteName: 'FaultMaven',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FaultMaven | The AI-Powered Troubleshooting Copilot for Modern Engineering',
-    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Self-host via Docker or scale with FaultMaven Cloud.',
+    title: 'FaultMaven | AI Troubleshooting Copilot — Self-Hosted or Run for You',
+    description: 'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Run it yourself, or let us run it for you on FaultMaven Cloud — same fair-source engine.',
     creator: '@faultmaven',
   },
   icons: {
@@ -78,6 +79,10 @@ export default function RootLayout({
         <Header />
         <main id="main-content" tabIndex={-1} aria-label="Main content" className="flex-grow">{children}</main>
         <Footer />
+        {/* Cookieless page-view counts (Vercel Web Analytics). Script and
+            beacon are same-origin (/_vercel/insights/*), so the 'self' CSP
+            admits them. */}
+        <Analytics />
       </body>
     </html>
   );

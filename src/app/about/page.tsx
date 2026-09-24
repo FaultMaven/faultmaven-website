@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function AboutPage() {
   return (
@@ -197,14 +198,14 @@ export default function AboutPage() {
               FaultMaven is fair source—every line is public. Deploy it, use it, improve it, break it—then tell us what you learned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="text-lg px-8">
-                Deploy Now (Free)
+              <Button asChild href={TRY_CLOUD_URL} variant="primary" className="text-lg px-8">
+                Start on FaultMaven Cloud
+              </Button>
+              <Button asChild href={SELF_HOST_PATH} variant="secondary" className="text-lg px-8">
+                Self-host it
               </Button>
               <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary" className="text-lg px-8">
                 Join Discussions
-              </Button>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven" variant="secondary" className="text-lg px-8">
-                View on GitHub
               </Button>
             </div>
           </div>

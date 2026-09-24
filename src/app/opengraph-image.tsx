@@ -14,7 +14,7 @@ import { ImageResponse } from 'next/og';
  * `src/` project means `src/middleware.ts`. The site ships none of those
  * headers today.)
  */
-export const alt = 'FaultMaven — the AI-powered troubleshooting copilot for modern engineering';
+export const alt = 'FaultMaven — the AI troubleshooting copilot, self-hosted or run for you';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -56,7 +56,7 @@ export default async function OpenGraphImage() {
             lineHeight: 1.15,
           }}
         >
-          The AI-Powered Troubleshooting Copilot
+          The AI Troubleshooting Copilot
         </div>
         <div
           style={{
@@ -67,7 +67,7 @@ export default async function OpenGraphImage() {
             lineHeight: 1.35,
           }}
         >
-          Built to solve, not to chat.
+          Run it yourself, or let us run it for you — same engine.
         </div>
         <div
           style={{
@@ -77,7 +77,7 @@ export default async function OpenGraphImage() {
             color: '#94a3b8',
           }}
         >
-          Fair Source · Self-Hostable · Runs Air-Gapped
+          Fair Source · Self-Hostable · FaultMaven Cloud
         </div>
       </div>
     ),
