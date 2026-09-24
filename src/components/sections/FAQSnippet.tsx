@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { SELF_HOST_PATH } from '@/lib/links';
 
 export default function FAQSnippet() {
   const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
@@ -14,8 +15,8 @@ export default function FAQSnippet() {
       answer: (
         <>
           An AI troubleshooting copilot for engineers. It works a problem the way a seasoned engineer does — goal-driven, methodical, grounded in evidence — correlating what you share with your runbooks, docs, and past fixes. You can{' '}
-          <a href="https://github.com/FaultMaven/faultmaven#quick-start" className="text-blue-600 hover:underline">
-            deploy it yourself for free
+          <a href={SELF_HOST_PATH} className="text-blue-600 hover:underline">
+            run it yourself for free
           </a>{' '}
           — one command, though budget 10–20 minutes the first time: the image is a 2.3 GB
           download because the embedding model ships inside it, so nothing is fetched at runtime.
@@ -30,7 +31,7 @@ export default function FAQSnippet() {
       question: 'Is it really free, and is the source open?',
       answer: (
         <>
-          Standalone (self-hosted) is free. The engine is fair source (FSL-1.1-ALv2): every line is public to audit and fork, and each release converts to Apache 2.0 two years after it ships. The Copilot, Dashboard, and Slack app are Apache 2.0. FaultMaven Cloud is a managed option, currently in beta —{' '}
+          Standalone (self-hosted) is free. The engine is fair source (FSL-1.1-ALv2): every line is public to audit and fork, and each release converts to Apache 2.0 two years after it ships. The Copilot, Dashboard, and Slack app are Apache 2.0. FaultMaven Cloud runs the same engine for you, with nothing to operate and team knowledge sharing — in beta it is free, with a daily limit on investigation turns —{' '}
           <a href="/pricing" className="text-blue-600 hover:underline">
             compare the two
           </a>
@@ -40,7 +41,7 @@ export default function FAQSnippet() {
     },
     {
       question: 'How does FaultMaven handle my data?',
-      answer: "The Copilot runs client-side in your browser and never asks for production credentials — you control exactly what you share. FaultMaven includes an optional redaction layer (regex for keys and tokens, Presidio for PII) you can enable to scrub sensitive values before prompts reach an external provider — or run local models (Ollama, vLLM) so nothing leaves your infrastructure at all. Your data stays on your infrastructure.",
+      answer: "FaultMaven never asks for production credentials — you control exactly what you share. Self-hosted, your cases, evidence and knowledge base are stored on your own disk; each investigation prompt goes to the model provider you configure, and an optional redaction layer (regex for keys and tokens, Presidio for PII) can scrub sensitive values first. On FaultMaven Cloud, what you share is stored in our deployment, so do not paste secrets or customer data you would not want stored.",
     },
   ];
 

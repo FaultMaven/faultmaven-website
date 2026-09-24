@@ -7,7 +7,7 @@ author: "The FaultMaven Team"
 status: "draft"
 ---
 
-FaultMaven Cloud is open. You can sign up at [app.faultmaven.ai](https://app.faultmaven.ai) with an email address and work a case in your browser a minute later. There is no waiting list, no invite code, and nothing to install. It is free while it is in beta.
+FaultMaven Cloud is open. You can sign up at [app.faultmaven.ai](https://app.faultmaven.ai) with an email address and work a case in your browser a minute later. There is no waiting list, no invite code, and nothing to install. It is free while it is in beta, with a daily limit on investigation turns.
 
 We are opening it for an unglamorous reason: we want to find out whether it is useful to people who are not us. We have run FaultMaven against our own incidents and against a simulator for long enough to be confident it does something real, and long enough to stop trusting our own judgement about it. The only way past that is to put it in front of people who have no reason to be kind about it.
 
@@ -31,9 +31,9 @@ The same engine, reached three ways.
 
 ## Standalone has not changed
 
-None of this narrows the self-hosted path. Standalone is still free, still fair source under FSL-1.1-ALv2, still has no usage limits, and still runs air-gapped — the embedding model ships inside the image precisely so it never has to call out to anyone. `git clone`, one command, and it is yours. That is not a trial edition of Cloud and it is not going away.
+None of this narrows the self-hosted path. Standalone is free forever, fair source under FSL-1.1-ALv2, with no usage limits, and your cases and knowledge base stay on your own disk; the embedding model ships inside the image so retrieval never has to call out to anyone. `git clone`, one command, and it is yours. That is not a trial edition of Cloud and it is not going away.
 
-Cloud exists for people who would rather not run it, and for teams who want shared knowledge across more than one person. Which of those is right for you is a real question with two real answers.
+They are the same engine, run two ways. Cloud is for anyone who would rather use FaultMaven than operate it, and it is where teams share what FaultMaven learns. Self-hosting is for anyone who would rather run it themselves — and it is also why choosing Cloud never locks you in: if we ever disappoint you, the engine is yours to run.
 
 ## What beta means
 

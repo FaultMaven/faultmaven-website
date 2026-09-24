@@ -63,12 +63,12 @@ export default function ComparisonSection() {
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Security</td>
                 <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Data may train public models</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Air-gapped capable; optional PII redaction; never trains on your data</td>
+                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Self-hosted store on your own disk; optional PII redaction; never trains on your data</td>
               </tr>
               <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                 <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Deployment</td>
                 <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Cloud-only</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Self-hosted or managed—your choice</td>
+                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Run it yourself, or let us run it for you — same engine</td>
               </tr>
             </tbody>
           </table>

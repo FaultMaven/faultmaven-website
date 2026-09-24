@@ -11,7 +11,7 @@ export default function OpenSourceTrustSection() {
             Source-Available. Auditable. Yours to Run.
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            We don&apos;t ask for trust—we show you the code.
+            We don&apos;t ask for trust—we show you the code. FaultMaven Cloud runs this same engine, so whichever way you run it, you are never locked in.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export default function OpenSourceTrustSection() {
               Your Data Stays Yours
             </h3>
             <p className="text-slate-600 dark:text-slate-400">
-              Self-hosted means your logs, configs, and knowledge base never leave your infrastructure. Air-gapped deployments supported with local LLMs. And because the Copilot runs client-side in your browser, FaultMaven never asks for production API keys or root credentials. It holds the flashlight and reads the manuals; you fix the plumbing.
+              Self-hosted means your cases, the logs and configs you share, and your knowledge base are stored on your own disk, and retrieval runs with no network. Investigation prompts go only to the model provider you choose. And because the Copilot runs client-side in your browser, FaultMaven never asks for production API keys or root credentials. It holds the flashlight and reads the manuals; you fix the plumbing.
             </p>
           </div>
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { SIGN_IN_URL, TRY_CLOUD_URL } from '@/lib/links';
+import { SELF_HOST_PATH, SIGN_IN_URL, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,14 +69,20 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Right-aligned: Sign In + Get Started */}
+        {/* Right-aligned: Sign In + the two ways to run FaultMaven */}
         <nav className="hidden md:flex space-x-4 text-base font-medium items-center">
           <Link href={SIGN_IN_URL} className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
+          <Link
+            href={SELF_HOST_PATH}
+            className="px-5 py-2 rounded-md text-[#2563EB] border border-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors duration-200"
+          >
+            Self-Host
+          </Link>
           <Link
             href={TRY_CLOUD_URL}
             className="px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
           >
-            Try Cloud Beta
+            Get Started
           </Link>
         </nav>
 
@@ -104,10 +110,16 @@ export default function Header() {
             <Link href="/contact" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
             <Link href={SIGN_IN_URL} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
             <Link
+              href={SELF_HOST_PATH}
+              className="block px-5 py-2 rounded-md text-[#2563EB] border border-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors duration-200"
+            >
+              Self-Host
+            </Link>
+            <Link
               href={TRY_CLOUD_URL}
               className="block px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
             >
-              Try Cloud Beta
+              Get Started
             </Link>
           </div>
         </div>

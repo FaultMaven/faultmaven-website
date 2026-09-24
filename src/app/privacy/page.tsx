@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
             <p className="text-sm text-slate-500 dark:text-slate-400">
               <em>Effective Date: June 2, 2025</em>
               <br />
-              <em>Last Updated: July 21, 2026</em>
+              <em>Last Updated: September 23, 2026</em>
             </p>
             <p>
               Welcome to FaultMaven (&quot;we,&quot; &quot;us,&quot; &quot;our,&quot; or &quot;FaultMaven&quot;). We
@@ -49,12 +49,15 @@ export default function PrivacyPolicyPage() {
                 app.faultmaven.ai rather than on this Site.
               </li>
               <li>
-                <strong>Standard Website Usage Data:</strong> Like most
-                websites, we may use cookies and similar tracking technologies
-                to collect non-personally identifiable information about your
-                interaction with our Site (e.g., pages visited, browser type,
-                general location based on IP address). This data helps us
-                improve website performance and user experience.
+                <strong>Standard Website Usage Data:</strong> We count page
+                views on this Site with Vercel Web Analytics, which sets no
+                cookies. It records the page visited, the referring site,
+                browser, operating system, device type, and country, and tells
+                visits apart with a hash of the request that is discarded
+                within 24 hours — so it cannot follow you across days or across
+                other websites. We use these counts to understand which pages
+                are read and which ways of running FaultMaven visitors
+                look into.
               </li>
             </ul>
 

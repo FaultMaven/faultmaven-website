@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 interface UseCaseProps {
   tag: string;
@@ -246,14 +247,17 @@ export default function UseCasesPage() {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Try It With Your Own Incidents
+            Put It to Work on Your Own Incidents
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-            One command to self-host, then test it on a real problem from your environment. No credit card. No sales call. Budget 10–20 minutes for the first run — mostly the 2.3 GB image pull.
+            Sign up for FaultMaven Cloud and put a real problem from your environment to it a minute later — or self-host the same engine with one command. No credit card. No sales call.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary">
-              Deploy Now (Free) →
+            <Button asChild href={TRY_CLOUD_URL} variant="primary">
+              Start on FaultMaven Cloud →
+            </Button>
+            <Button asChild href={SELF_HOST_PATH} variant="secondary">
+              Self-host it
             </Button>
             <Button asChild href="/contact" variant="secondary">
               Request a Demo →

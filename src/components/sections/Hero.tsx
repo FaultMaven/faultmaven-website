@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Button from '../ui/Button';
-import { TRY_CLOUD_URL } from '@/lib/links';
+import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import heroImage from '../../../public/images/hero-mttr.webp';
 
 export default function Hero() {
@@ -13,48 +13,48 @@ export default function Hero() {
           <div className="text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
               <span className="text-sm font-semibold text-green-600 dark:text-green-400">
-                Fair Source · Self-Hostable · Runs Air-Gapped
+                Fair Source · Self-Hostable · No Production Credentials
               </span>
             </div>
             <h1
               id="hero-heading"
               className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-50 leading-tight"
             >
-              The AI-Powered Troubleshooting Copilot for Modern Engineering
+              The AI Troubleshooting Copilot — Run It Yourself, or Let Us Run It for You
             </h1>
 
             <div className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400 space-y-4">
               <p className="font-semibold text-slate-900 dark:text-slate-200">
-                Built to solve, not to chat.
+                Same engine either way. Fair source, so you are never locked in.
               </p>
               <p>
-                FaultMaven works a problem the way a seasoned engineer does — goal-driven,
-                methodical, and grounded in evidence. It doesn&apos;t just answer questions; it
+                FaultMaven works a problem the way a
+                seasoned engineer does — goal-driven, methodical, and grounded in evidence — and
                 leads, driving the investigation to the next decisive step.
               </p>
               <p>
                 It correlates the logs, metrics, and configs you bring it with your runbooks, docs,
-                and past fixes to deliver answers grounded in your actual system—not generic
-                guesses. Every problem it solves becomes knowledge it reuses.
+                and past fixes, and every problem it solves becomes knowledge it reuses.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild href="https://github.com/FaultMaven/faultmaven#quick-start" variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                Deploy Now (Free)
+              <Button asChild href={TRY_CLOUD_URL} variant="primary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                Start on FaultMaven Cloud
               </Button>
-              <Button asChild href="/investigation" variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                See a real investigation
+              <Button asChild href={SELF_HOST_PATH} variant="secondary" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                Self-host it
               </Button>
             </div>
             <p className="mt-6 text-base text-slate-600 dark:text-slate-400">
-              Cloud beta is open —{' '}
+              FaultMaven Cloud runs it for you, with nothing to install or operate. Self-hosting runs
+              the same fair-source engine on your own hardware. Or{' '}
               <a
-                href={TRY_CLOUD_URL}
+                href="/investigation"
                 className="font-medium text-blue-600 dark:text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
               >
-                try it in your browser
-              </a>
-              , nothing to install.
+                read a real investigation
+              </a>{' '}
+              first.
             </p>
           </div>
           <div className="relative">
@@ -73,7 +73,7 @@ export default function Hero() {
           <hr className="my-10 border-slate-200 dark:border-slate-700" />
           <div className="mx-auto max-w-2xl mt-10">
             <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              No magic. Just deep context, vector search, and your full stack.
+              No magic. The evidence you share, the runbooks it retrieves, and a method it does not skip.
             </p>
           </div>
         </div>
