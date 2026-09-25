@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
-import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function FAQPage() {
   return (
@@ -312,7 +312,7 @@ cd faultmaven
             Join our community or reach out directly
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary">
+            <Button asChild href={DISCUSSIONS_URL} variant="secondary">
               GitHub Discussions
             </Button>
             <Button asChild href="/contact" variant="primary">

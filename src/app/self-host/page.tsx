@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Button from '@/components/ui/Button';
-import { ENGINE_REPO_URL, QUICKSTART_URL, TRY_CLOUD_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, ENGINE_REPO_URL, QUICKSTART_URL, TRY_CLOUD_URL } from '@/lib/links';
 
 // Every "self-host it" call to action on the site lands here (SELF_HOST_PATH
 // in lib/links). Keep it a short landing that hands off to the engine
@@ -104,7 +104,7 @@ cp .env.example .env   # set one provider's API key
           <p>
             If you run FaultMaven against a local model, we would like to hear how it went —{' '}
             <a
-              href="https://github.com/FaultMaven/faultmaven/discussions"
+              href={DISCUSSIONS_URL}
               className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               GitHub Discussions

@@ -1,7 +1,7 @@
 'use client';
 
 import Button from '@/components/ui/Button';
-import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function RoadmapPage() {
   return (
@@ -225,7 +225,7 @@ export default function RoadmapPage() {
               <p className="text-slate-600 dark:text-slate-400 mb-6">
                 Propose features, report bugs, vote on priorities.
               </p>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary" className="w-full">
+              <Button asChild href={DISCUSSIONS_URL} variant="secondary" className="w-full">
                 Join Discussions →
               </Button>
             </div>
@@ -285,7 +285,7 @@ export default function RoadmapPage() {
             <Button asChild href={SELF_HOST_PATH} variant="secondary">
               Self-host it
             </Button>
-            <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary">
+            <Button asChild href={DISCUSSIONS_URL} variant="secondary">
               Join Discussions
             </Button>
           </div>

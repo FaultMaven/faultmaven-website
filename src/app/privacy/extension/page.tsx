@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { DISCUSSIONS_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'FaultMaven Copilot Extension Privacy Policy',
@@ -321,7 +322,7 @@ export default function ExtensionPrivacyPolicyPage() {
               </a>
               <br />
               <strong>Discussions:</strong>{' '}
-              <a href="https://github.com/FaultMaven/faultmaven/discussions">
+              <a href={DISCUSSIONS_URL}>
                 github.com/FaultMaven/faultmaven/discussions
               </a>
               <br />

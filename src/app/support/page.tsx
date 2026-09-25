@@ -10,6 +10,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import Link from '@/components/ui/Link';
+import { DISCUSSIONS_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'Support',
@@ -50,7 +51,7 @@ const communityChannels = [
     icon: <MessagesSquare className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
     title: 'Community discussions',
     desc: 'See what other teams have worked through, or ask in the open.',
-    href: 'https://github.com/FaultMaven/faultmaven/discussions',
+    href: DISCUSSIONS_URL,
     cta: 'Open discussions',
   },
   {
