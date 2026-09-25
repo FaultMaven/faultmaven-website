@@ -9,6 +9,7 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "test": "jest",
+    "test:build": "jest --config jest.build.config.js",
     "test:watch": "jest --watch"
   },
   "dependencies": {

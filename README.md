@@ -110,7 +110,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 │   └── blog/                # Blog posts as Markdown (gray-matter frontmatter)
 ├── public/                  # Static assets
 │   └── images/              # Image files
-└── middleware.ts            # Next.js middleware
+├── tests/                   # jest: unit suites, plus tests/built-site against a production build
+└── next.config.js           # Security headers (CSP etc.) and redirects
 ```
 
 ---
@@ -134,6 +135,13 @@ pnpm lint
 
 # Type checking
 pnpm type-check
+
+# Unit tests (jest)
+pnpm test
+
+# Checks against a production build: starts `next start` and verifies the
+# security headers, 404 statuses, the post redirect and page titles.
+pnpm build && pnpm test:build
 ```
 
 ### Environment Variables

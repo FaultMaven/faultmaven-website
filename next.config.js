@@ -1,6 +1,6 @@
 // Every origin a page really loads from, by CSP directive. Keep this list
 // equal to what the site loads and nothing more: an origin missing here breaks
-// the page in the browser (the headless check in tests/build catches that), an
+// the page in the browser (the headless check in tests/built-site catches that), an
 // origin listed here that nothing uses is a hole with no purpose.
 //
 //   fonts.googleapis.com / fonts.gstatic.com  the Inter @import in globals.css

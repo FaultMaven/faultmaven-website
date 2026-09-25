@@ -48,19 +48,22 @@ jobs:
       - name: Type check
         run: pnpm exec tsc --noEmit
 
+      - name: Unit tests
+        run: pnpm test
+
       - name: Lint summary
         if: success()
         run: |
-          echo "### ✅ Lint & Type Check Passed" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ Lint, Type Check & Unit Tests Passed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "ESLint and TypeScript compilation successful." >> $GITHUB_STEP_SUMMARY
+          echo "ESLint, TypeScript compilation and jest successful." >> $GITHUB_STEP_SUMMARY
 
       - name: Lint failure
         if: failure()
         run: |
           echo "### ❌ Lint & Type Check Failed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Lint or type checking failed. Fix errors before proceeding." >> $GITHUB_STEP_SUMMARY
+          echo "Lint, type checking or unit tests failed. Fix errors before proceeding." >> $GITHUB_STEP_SUMMARY
           exit 1
 
   # ============================================================================
@@ -99,6 +102,11 @@ jobs:
         env:
           # Add any required build-time environment variables
           NODE_ENV: production
+
+      # Starts the build it just made and checks what the server sends:
+      # security headers, 404 statuses, the post redirect, titles.
+      - name: Built-site checks
+        run: pnpm run test:build
 
       - name: Build summary
         if: success()

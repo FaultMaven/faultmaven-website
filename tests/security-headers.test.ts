@@ -9,7 +9,7 @@ type Rule = { source: string; headers: Header[] };
 
 // The headers used to be set by a root `middleware.ts`, which Next.js never
 // loads in a `src/` project, so the site served none of them. They now come
-// from `next.config.js`; this pins the set, and `tests/build` checks that the
+// from `next.config.js`; this pins the set, and `tests/built-site` checks that the
 // built server really sends them.
 async function headersForEveryRoute(): Promise<Map<string, string>> {
   const rules: Rule[] = await nextConfig.headers();
