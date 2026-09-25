@@ -1,12 +1,11 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-// Bare title: the root layout's template appends ` | FaultMaven`.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Terms of Service',
   description:
     'The terms that govern your access to and use of the FaultMaven website at www.faultmaven.ai and any informational content or services provided there.',
-  alternates: { canonical: '/terms' },
-};
+  path: '/terms',
+});
 
 export default function TermsOfServicePage() {
   return (

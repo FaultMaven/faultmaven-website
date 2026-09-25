@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import {
   Mail,
   Bug,
@@ -11,15 +10,14 @@ import {
 } from 'lucide-react';
 import Link from '@/components/ui/Link';
 import { DISCUSSIONS_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Support',
   description:
     'How to get help with FaultMaven — email support, bug reports, discussions, and documentation, plus what to include so we can help fast.',
-  alternates: {
-    canonical: '/support',
-  },
-};
+  path: '/support',
+});
 
 const SUPPORT_EMAIL = 'support@faultmaven.ai';
 

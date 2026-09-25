@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import {
   ShieldCheck,
   BookOpen,
@@ -10,15 +9,14 @@ import {
 import Button from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
 import { COMMUNITY_SLACK_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'FaultMaven for Slack',
   description:
     'FaultMaven for Slack is an AI troubleshooting copilot that runs the investigation in your incident thread — triage, hypotheses, targeted data requests, a verified fix.',
-  alternates: {
-    canonical: '/slack',
-  },
-};
+  path: '/slack',
+});
 
 // No self-serve install during beta. Workspaces are connected by hand so a
 // team's cases land in their own account rather than a shared one, and the

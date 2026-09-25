@@ -1,7 +1,14 @@
-'use client';
-
 import Button from '@/components/ui/Button';
 import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
+
+
+export const metadata = pageMetadata({
+  title: 'Frequently Asked Questions',
+  description:
+    'Quick answers to common questions about FaultMaven.',
+  path: '/faq',
+});
 
 export default function FAQPage() {
   return (

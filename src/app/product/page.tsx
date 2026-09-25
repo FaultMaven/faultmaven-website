@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
@@ -11,6 +9,15 @@ import {
   IconSparkles,
   IconDocumentText
 } from '@/components/icons/homepage';
+import { pageMetadata } from '@/lib/metadata';
+
+
+export const metadata = pageMetadata({
+  title: 'How FaultMaven Works',
+  description:
+    'A methodical path from error to resolution.',
+  path: '/product',
+});
 
 export default function ProductPage() {
   return (

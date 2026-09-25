@@ -9,5 +9,10 @@ const createJestConfig = nextJest({ dir: './' });
 module.exports = createJestConfig({
   testEnvironment: 'node',
   testMatch: ['**/tests/built-site/**/*.test.ts'],
-  moduleNameMapper: { '^@/(.*)$': '<rootDir>/src/$1' },
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    // `src/lib/blog.ts` imports `marked`, which publishes only an ES module
+    // entry; jest loads CommonJS. Its UMD build is the same code.
+    '^marked$': '<rootDir>/node_modules/marked/lib/marked.umd.js',
+  },
 });

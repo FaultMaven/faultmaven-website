@@ -1,7 +1,7 @@
 // Every origin a page really loads from, by CSP directive. Keep this list
 // equal to what the site loads and nothing more: an origin missing here breaks
-// the page in the browser (the headless check in tests/built-site catches that), an
-// origin listed here that nothing uses is a hole with no purpose.
+// the page in the browser (`pnpm test:browser` catches that), an origin listed
+// here that nothing uses is a hole with no purpose.
 //
 //   fonts.googleapis.com / fonts.gstatic.com  the Inter @import in globals.css
 //   img.shields.io                            the last-commit badge on the home page
@@ -12,19 +12,31 @@
 // dynamic, and this site is static. Mermaid and DOMPurify are bundled, not
 // loaded from a CDN, so they are covered by 'self'.
 //
-// Development only: `next dev` serves eval-based bundles and its debug
-// analytics script from va.vercel-scripts.com; without these two the dev
-// server renders but never hydrates. Neither is in the production policy.
-function securityHeaders() {
-  const isDev = process.env.NODE_ENV !== 'production';
+// Two environments widen the policy, each on an exact match so any other value
+// gets the production policy:
+//   NODE_ENV === 'development'   `next dev` serves eval-based bundles and loads
+//                                its debug analytics script from
+//                                va.vercel-scripts.com; without these the dev
+//                                server renders but never hydrates.
+//   VERCEL_ENV === 'preview'     Vercel preview deployments build with
+//                                NODE_ENV=production and load the preview
+//                                toolbar (scripts, frames, a websocket) from
+//                                vercel.live.
+function securityHeaders(env = process.env) {
+  const isDev = env.NODE_ENV === 'development';
+  const isPreview = env.VERCEL_ENV === 'preview';
+  const preview = (...sources) => (isPreview ? ' ' + sources.join(' ') : '');
 
   const contentSecurityPolicy = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ''}`,
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "font-src 'self' https://fonts.gstatic.com",
-    "img-src 'self' data: https://img.shields.io",
-    "connect-src 'self'",
+    "script-src 'self' 'unsafe-inline'" +
+      (isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : '') +
+      preview('https://vercel.live'),
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com" + preview('https://vercel.live'),
+    "font-src 'self' https://fonts.gstatic.com" + preview('https://vercel.live'),
+    "img-src 'self' data: https://img.shields.io" + preview('https://vercel.live', 'https://vercel.com'),
+    "connect-src 'self'" + preview('https://vercel.live', 'wss://*.pusher.com'),
+    "frame-src 'self'" + preview('https://vercel.live'),
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
@@ -44,10 +56,12 @@ function securityHeaders() {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   async headers() {
     // Delivered from here rather than from middleware: in this `src/` layout
     // Next.js only loads middleware from `src/middleware.ts`, and a static
-    // site has no other reason to run one.
+    // site has no other reason to run one. `/(.*)` covers every page, asset
+    // and API response.
     return [{ source: '/(.*)', headers: securityHeaders() }];
   },
   async redirects() {
@@ -85,3 +99,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+module.exports.securityHeaders = securityHeaders;

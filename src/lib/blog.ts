@@ -74,7 +74,8 @@ function isPublished(status: PostStatus): boolean {
   return status === 'published';
 }
 
-export function getAllPosts(): BlogPost[] {
+/** Every post file, whatever its status, newest first. */
+export function getAllPostSummaries(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIRECTORY)) {
     return [];
   }
@@ -106,9 +107,12 @@ export function getAllPosts(): BlogPost[] {
     });
   }
 
-  return posts
-    .filter((post) => isPublished(post.status))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+/** The published posts: the only ones the site lists or serves. */
+export function getAllPosts(): BlogPost[] {
+  return getAllPostSummaries().filter((post) => isPublished(post.status));
 }
 
 export async function getPostBySlug(slugParam: string): Promise<BlogPost | null> {

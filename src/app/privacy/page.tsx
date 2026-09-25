@@ -1,12 +1,11 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-// Bare title: the root layout's template appends ` | FaultMaven`.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy Policy',
   description:
     'How FaultMaven collects, uses, discloses, and safeguards your information when you visit www.faultmaven.ai and engage with any services we offer.',
-  alternates: { canonical: '/privacy' },
-};
+  path: '/privacy',
+});
 
 export default function PrivacyPolicyPage() {
   return (

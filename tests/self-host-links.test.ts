@@ -27,6 +27,14 @@ function escape(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Bare: the URL, with or without a trailing slash, followed by a quote,
+// bracket, whitespace or the end of its line. Deep links into the repository
+// (`/blob/main/...`, `/issues`, `#quick-start`) and the other repositories that
+// share the prefix (`faultmaven-website`) are not this constant and are left
+// alone. Built from a plain string: in a template literal `\s` would be the
+// string escape for `s`, not the regex whitespace class.
+const BARE_ENGINE_URL = new RegExp(escape(ENGINE_REPO_URL) + '/?(?=["\'`<>)\\s]|$)', 'm');
+
 describe('self-host calls to action', () => {
   it('is an on-site path, so a visit is counted here before the hand-off', () => {
     expect(SELF_HOST_PATH.startsWith('/')).toBe(true);
@@ -48,12 +56,23 @@ describe('destinations owned by links.ts', () => {
   });
 
   it('never spells the bare engine repository URL outside the links module', () => {
-    // Bare: the URL followed by a quote or whitespace. Deep links into the
-    // repository (`/blob/main/...`, `/issues`, `#quick-start`) and the other
-    // repositories that share the prefix (`faultmaven-website`) are not this
-    // constant and are left alone.
-    // Built from a plain string: in a template literal `\s` is the string
-    // escape for `s`, not the regex whitespace class.
-    expect(offenders(new RegExp(escape(ENGINE_REPO_URL) + '(?=["\'`\\s)]|$)'))).toEqual([]);
+    expect(offenders(BARE_ENGINE_URL)).toEqual([]);
+  });
+
+  // The pattern itself, since the assertion above can only ever see a clean
+  // tree. `$` without the `m` flag would mean end of file, not end of line.
+  it.each([
+    ['"https://github.com/FaultMaven/faultmaven"', true],
+    ["'https://github.com/FaultMaven/faultmaven'", true],
+    ['https://github.com/FaultMaven/faultmaven/ then more', true],
+    ['<https://github.com/FaultMaven/faultmaven>', true],
+    ['see https://github.com/FaultMaven/faultmaven\nnext line', true],
+    ['(https://github.com/FaultMaven/faultmaven)', true],
+    ['https://github.com/FaultMaven/faultmaven/issues', false],
+    ['https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md', false],
+    ['https://github.com/FaultMaven/faultmaven#quick-start', false],
+    ['https://github.com/FaultMaven/faultmaven-website/issues', false],
+  ])('bare-URL pattern on %j -> %s', (text, matches) => {
+    expect(BARE_ENGINE_URL.test(text)).toBe(matches);
   });
 });

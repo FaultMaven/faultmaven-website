@@ -1,7 +1,14 @@
-'use client';
-
 import Button from '@/components/ui/Button';
 import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
+
+
+export const metadata = pageMetadata({
+  title: 'The FaultMaven Roadmap',
+  description:
+    'Trust first. Autonomy earned.',
+  path: '/roadmap',
+});
 
 export default function RoadmapPage() {
   return (

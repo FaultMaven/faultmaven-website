@@ -108,6 +108,15 @@ jobs:
       - name: Built-site checks
         run: pnpm run test:build
 
+      # Loads every prerendered page in headless Chromium under the
+      # production Content-Security-Policy: no policy violation, no console
+      # error, React hydrated, the menu responds, diagrams render.
+      - name: Install Chromium for the browser checks
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Browser checks
+        run: pnpm run test:browser
+
       - name: Build summary
         if: success()
         run: |

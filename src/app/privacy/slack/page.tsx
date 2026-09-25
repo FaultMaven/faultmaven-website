@@ -1,14 +1,12 @@
-import { Metadata } from 'next';
 import Link from '@/components/ui/Link';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'FaultMaven for Slack Privacy Policy',
   description:
     'What the FaultMaven Slack app accesses, when it accesses it, where that data goes, and what it does not do.',
-  alternates: {
-    canonical: '/privacy/slack',
-  },
-};
+  path: '/privacy/slack',
+});
 
 const accessTable = [
   {

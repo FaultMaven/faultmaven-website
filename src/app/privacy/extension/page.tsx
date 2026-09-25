@@ -1,11 +1,12 @@
-import { Metadata } from 'next';
 import { DISCUSSIONS_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'FaultMaven Copilot Extension Privacy Policy',
   description:
     'What data the FaultMaven Copilot browser extension accesses, where it goes, and what it does not do.',
-};
+  path: '/privacy/extension',
+});
 
 const accessTable = [
   {

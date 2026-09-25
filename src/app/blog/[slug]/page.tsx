@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import Button from '@/components/ui/Button';
 import ArticleBody from '@/components/blog/ArticleBody';
+import { pageMetadata } from '@/lib/metadata';
 
 interface PageProps {
   params: Promise<{
@@ -29,25 +30,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(resolvedParams.slug);
 
   if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+    return { title: 'Post Not Found' };
   }
 
-  // Bare title: the root layout's template appends ` | FaultMaven`.
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.description,
-    alternates: { canonical: `/blog/${post.slug}` },
+    path: `/blog/${post.slug}`,
     openGraph: {
-      title: post.title,
-      description: post.description,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
     },
-  };
+  });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

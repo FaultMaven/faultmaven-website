@@ -1,16 +1,15 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import { getAllPosts } from '@/lib/blog';
 import Button from '@/components/ui/Button';
+import { pageMetadata } from '@/lib/metadata';
 
-// A bare title: the root layout's template appends ` | FaultMaven`.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Blog',
   description:
     'Insights, guides, and engineering perspectives on AI-powered incident investigation, telemetry correlation, and SRE workflows.',
-  alternates: { canonical: '/blog' },
-};
+  path: '/blog',
+});
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();

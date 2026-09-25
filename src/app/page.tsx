@@ -10,13 +10,11 @@ import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSec
 import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
 
-// No `title` here, deliberately: the layout's title template applies to child
-// segments only, never to the page in its own segment, so a title set here
-// would render bare. The home page is the one page whose title is the
-// layout's `title.default`, brand first.
+// Only what differs from the root layout: the layout's title template applies
+// to child segments, never to the page in its own segment, so the home page is
+// the one page that carries the layout's `title.default`, description and
+// social card as they are.
 export const metadata: Metadata = {
-  description:
-    'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Run it yourself, or let us run it for you on FaultMaven Cloud — same fair-source engine.',
   alternates: { canonical: '/' },
 };
 
