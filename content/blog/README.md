@@ -33,7 +33,7 @@ status: "draft"   # draft → approved (founder sign-off) → published
   reputable external sources. No invented statistics or benchmarks.
 - Never claim a capability the product doesn't have.
 - Terminology and positioning follow the canonical brand-messaging skill
-  (`faultmaven/.claude/skills/brand-messaging.md`): the backend is
+  (`faultmaven/.claude/skills/brand-messaging/SKILL.md`): the backend is
   **fair-source (FSL-1.1-ALv2)**, never "open source"; deployments are
   **Standalone / Cloud**; it's a **troubleshooting copilot**, not an AIOps
   platform; cases, evidence, hypotheses, runbooks, investigations.
