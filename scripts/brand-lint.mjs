@@ -2,7 +2,7 @@
 /**
  * Brand-messaging terminology lint (downstream check).
  *
- * Canonical source: `.claude/skills/brand-messaging.md` (§3 terminology, §7
+ * Canonical source: `faultmaven/.claude/skills/brand-messaging/SKILL.md` (§3 terminology, §7
  * enforcement) in the faultmaven repo. This is the downstream copy for the
  * website, scoped to its surfaces. Stdlib only — no dependencies.
  *
@@ -27,7 +27,7 @@
  * review duty, not a grep — so do not add content/ here to 'close the gap'.
  *
  * Put 'brand-lint: allow' on a line to whitelist a deliberate, justified use.
- * When retiring a NEW term, add it here AND to brand-messaging.md §7 together.
+ * When retiring a NEW term, add it here AND to the brand-messaging skill §7 together.
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -100,7 +100,7 @@ if (SCAN_SRC && existsSync(join(ROOT, SRC_DIR))) {
 }
 
 if (hits.length) {
-  console.error('Brand-messaging lint failed (canonical: faultmaven/.claude/skills/brand-messaging.md):\n');
+  console.error('Brand-messaging lint failed (canonical: faultmaven/.claude/skills/brand-messaging/SKILL.md):\n');
   for (const h of hits) console.error(`  ${h}`);
   console.error("\nFix the wording, or append 'brand-lint: allow' to the line for a deliberate, justified use.");
   process.exit(1);
