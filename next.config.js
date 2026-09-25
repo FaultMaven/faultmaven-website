@@ -1,6 +1,51 @@
+// Every origin a page really loads from, by CSP directive. Keep this list
+// equal to what the site loads and nothing more: an origin missing here breaks
+// the page in the browser (the headless check in tests/build catches that), an
+// origin listed here that nothing uses is a hole with no purpose.
+//
+//   fonts.googleapis.com / fonts.gstatic.com  the Inter @import in globals.css
+//   img.shields.io                            the last-commit badge on the home page
+//   /_vercel/insights/*                       Vercel Web Analytics (same origin in
+//                                             production; the dev build loads its
+//                                             debug script from va.vercel-scripts.com)
+//
+// Scripts allow 'unsafe-inline' because Next inlines its hydration payload in
+// every page; the alternative, a per-request nonce, would turn every page
+// dynamic, and this site is static. Mermaid and DOMPurify are bundled, not
+// loaded from a CDN, so they are covered by 'self'.
+const isDev = process.env.NODE_ENV !== 'production';
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? ' https://va.vercel-scripts.com' : ''}`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data: https://img.shields.io",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+].join('; ');
+
+const securityHeaders = [
+  { key: 'Content-Security-Policy', value: contentSecurityPolicy },
+  { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()' },
+  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async headers() {
+    // Delivered from here rather than from middleware: in this `src/` layout
+    // Next.js only loads middleware from `src/middleware.ts`, and a static
+    // site has no other reason to run one.
+    return [{ source: '/(.*)', headers: securityHeaders }];
+  },
   async redirects() {
     return [
       {
