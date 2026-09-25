@@ -28,12 +28,12 @@ function escape(s: string): string {
 }
 
 // Bare: the URL, with or without a trailing slash, followed by a quote,
-// bracket, whitespace or the end of its line. Deep links into the repository
+// bracket, whitespace (a line break included) or the end of the file. Deep links into the repository
 // (`/blob/main/...`, `/issues`, `#quick-start`) and the other repositories that
 // share the prefix (`faultmaven-website`) are not this constant and are left
 // alone. Built from a plain string: in a template literal `\s` would be the
 // string escape for `s`, not the regex whitespace class.
-const BARE_ENGINE_URL = new RegExp(escape(ENGINE_REPO_URL) + '/?(?=["\'`<>)\\s]|$)', 'm');
+const BARE_ENGINE_URL = new RegExp(escape(ENGINE_REPO_URL) + '/?(?=["\'`<>)\\s]|$)');
 
 describe('self-host calls to action', () => {
   it('is an on-site path, so a visit is counted here before the hand-off', () => {
@@ -60,7 +60,7 @@ describe('destinations owned by links.ts', () => {
   });
 
   // The pattern itself, since the assertion above can only ever see a clean
-  // tree. `$` without the `m` flag would mean end of file, not end of line.
+  // tree.
   it.each([
     ['"https://github.com/FaultMaven/faultmaven"', true],
     ["'https://github.com/FaultMaven/faultmaven'", true],

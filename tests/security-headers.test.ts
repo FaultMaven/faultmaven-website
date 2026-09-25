@@ -3,6 +3,7 @@
 export {};
 
 const nextConfig = require('../next.config.js');
+const { securityHeaders } = require('../security-headers.js');
 
 type Header = { key: string; value: string };
 type Rule = { source: string; headers: Header[] };
@@ -20,7 +21,7 @@ async function headersForEveryRoute(): Promise<Map<string, string>> {
 
 /** The policy `headers()` would build under the given environment. */
 function policyFor(env: Record<string, string>): Map<string, string[]> {
-  const headers: Header[] = nextConfig.securityHeaders(env);
+  const headers: Header[] = securityHeaders(env);
   const csp = headers.find((h) => h.key === 'Content-Security-Policy');
   expect(csp).toBeDefined();
   return directives(csp!.value);
@@ -122,28 +123,31 @@ describe('security headers', () => {
 
       it('admits the Vercel preview toolbar under VERCEL_ENV=preview only', () => {
         // Preview deployments build with NODE_ENV=production and load the
-        // toolbar from vercel.live: scripts, styles, frames and a websocket.
+        // toolbar from the origins Vercel documents for it.
         const preview = policyFor({ NODE_ENV: 'production', VERCEL_ENV: 'preview' });
         expect(preview.get('script-src')).toContain('https://vercel.live');
+        expect(preview.get('style-src')).toContain('https://vercel.live');
         expect(preview.get('frame-src')).toContain('https://vercel.live');
-        expect(preview.get('connect-src')).toContain('https://vercel.live');
+        expect(preview.get('font-src')).toEqual(expect.arrayContaining(['https://vercel.live', 'https://assets.vercel.com']));
+        expect(preview.get('img-src')).toEqual(expect.arrayContaining(['https://vercel.live', 'https://vercel.com', 'blob:']));
+        expect(preview.get('connect-src')).toEqual(expect.arrayContaining(['https://vercel.live', 'wss://ws-us3.pusher.com']));
         expect(preview.get('script-src')).not.toEqual(expect.arrayContaining(DEV_ONLY));
       });
 
       it.each(['production', 'development', 'staging', ''])(
-        'never admits vercel.live under VERCEL_ENV=%p',
+        'never admits the preview toolbar origins under VERCEL_ENV=%p',
         (vercelEnv) => {
           const csp = policyFor({ NODE_ENV: 'production', VERCEL_ENV: vercelEnv });
           for (const sources of Array.from(csp.values())) {
-            expect(sources).not.toContain('https://vercel.live');
+            expect(sources.filter((s) => /vercel|pusher|^blob:$/.test(s))).toEqual([]);
           }
         }
       );
 
       it('uses the process environment when none is given', () => {
         // jest runs with NODE_ENV=test, so this is the production policy.
-        const fromProcess: Header[] = nextConfig.securityHeaders();
-        const explicit: Header[] = nextConfig.securityHeaders({
+        const fromProcess: Header[] = securityHeaders();
+        const explicit: Header[] = securityHeaders({
           NODE_ENV: process.env.NODE_ENV,
           VERCEL_ENV: process.env.VERCEL_ENV,
         });

@@ -33,10 +33,10 @@ describe('retired routes', () => {
   });
 });
 
-// A post's file is `YYYY-MM-DD-slug.md` and its address is `/blog/slug`. The
-// date-prefixed form used to render the same page at a second URL with no
-// canonical, so a post could be indexed twice. Links that carry the date now
-// land on the one address permanently; `tests/built-site` checks the live status.
+// A post's file is `YYYY-MM-DD-slug.md` and its address is `/blog/slug`: a
+// date-prefixed post URL redirects permanently to the canonical slug, so a
+// link that carries the date lands on the one address and nothing is indexed
+// twice. `tests/built-site` checks the live status.
 describe('date-prefixed post URLs', () => {
   const rule = async () => {
     const rules = await nextConfig.redirects();

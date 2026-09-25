@@ -1,57 +1,4 @@
-// Every origin a page really loads from, by CSP directive. Keep this list
-// equal to what the site loads and nothing more: an origin missing here breaks
-// the page in the browser (`pnpm test:browser` catches that), an origin listed
-// here that nothing uses is a hole with no purpose.
-//
-//   fonts.googleapis.com / fonts.gstatic.com  the Inter @import in globals.css
-//   img.shields.io                            the last-commit badge on the home page
-//   /_vercel/insights/*                       Vercel Web Analytics (same origin)
-//
-// Scripts allow 'unsafe-inline' because Next inlines its hydration payload in
-// every page; the alternative, a per-request nonce, would turn every page
-// dynamic, and this site is static. Mermaid and DOMPurify are bundled, not
-// loaded from a CDN, so they are covered by 'self'.
-//
-// Two environments widen the policy, each on an exact match so any other value
-// gets the production policy:
-//   NODE_ENV === 'development'   `next dev` serves eval-based bundles and loads
-//                                its debug analytics script from
-//                                va.vercel-scripts.com; without these the dev
-//                                server renders but never hydrates.
-//   VERCEL_ENV === 'preview'     Vercel preview deployments build with
-//                                NODE_ENV=production and load the preview
-//                                toolbar (scripts, frames, a websocket) from
-//                                vercel.live.
-function securityHeaders(env = process.env) {
-  const isDev = env.NODE_ENV === 'development';
-  const isPreview = env.VERCEL_ENV === 'preview';
-  const preview = (...sources) => (isPreview ? ' ' + sources.join(' ') : '');
-
-  const contentSecurityPolicy = [
-    "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'" +
-      (isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : '') +
-      preview('https://vercel.live'),
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com" + preview('https://vercel.live'),
-    "font-src 'self' https://fonts.gstatic.com" + preview('https://vercel.live'),
-    "img-src 'self' data: https://img.shields.io" + preview('https://vercel.live', 'https://vercel.com'),
-    "connect-src 'self'" + preview('https://vercel.live', 'wss://*.pusher.com'),
-    "frame-src 'self'" + preview('https://vercel.live'),
-    "object-src 'none'",
-    "base-uri 'self'",
-    "frame-ancestors 'none'",
-    "form-action 'self'",
-  ].join('; ');
-
-  return [
-    { key: 'Content-Security-Policy', value: contentSecurityPolicy },
-    { key: 'X-Frame-Options', value: 'DENY' },
-    { key: 'X-Content-Type-Options', value: 'nosniff' },
-    { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-    { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()' },
-    { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
-  ];
-}
+const { securityHeaders } = require('./security-headers');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -86,8 +33,8 @@ const nextConfig = {
       },
       {
         // A post's file is `content/blog/YYYY-MM-DD-slug.md` and its one URL is
-        // `/blog/slug`. The date-prefixed form used to render the same page at
-        // a second address; links that carry it now land on the canonical one.
+        // `/blog/slug`: a date-prefixed post URL redirects to the canonical
+        // slug, so links that carry the date land on the one address.
         // `:slug` carries its own pattern because path-to-regexp otherwise reads
         // the `-` before it as a prefix and forbids hyphens inside the slug.
         source: '/blog/:date(\\d{4}-\\d{2}-\\d{2})-:slug([^/]+)',
@@ -99,4 +46,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-module.exports.securityHeaders = securityHeaders;
