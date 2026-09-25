@@ -11,11 +11,20 @@ type Rule = { source: string; headers: Header[] };
 // loads in a `src/` project, so the site served none of them. They now come
 // from `next.config.js`; this pins the set, and `tests/built-site` checks that the
 // built server really sends them.
-async function headersForEveryRoute(): Promise<Map<string, string>> {
-  const rules: Rule[] = await nextConfig.headers();
-  const catchAll = rules.find((r) => r.source === '/(.*)');
-  expect(catchAll).toBeDefined();
-  return new Map(catchAll!.headers.map((h) => [h.key.toLowerCase(), h.value]));
+//
+// `headers()` reads NODE_ENV when called, so each policy can be asked for:
+// jest runs with NODE_ENV=test, which would otherwise look like development.
+async function headersForEveryRoute(env = 'production'): Promise<Map<string, string>> {
+  const saved = process.env.NODE_ENV;
+  Object.assign(process.env, { NODE_ENV: env });
+  try {
+    const rules: Rule[] = await nextConfig.headers();
+    const catchAll = rules.find((r) => r.source === '/(.*)');
+    expect(catchAll).toBeDefined();
+    return new Map(catchAll!.headers.map((h) => [h.key.toLowerCase(), h.value]));
+  } finally {
+    Object.assign(process.env, { NODE_ENV: saved });
+  }
 }
 
 function directives(csp: string): Map<string, string[]> {
@@ -78,9 +87,19 @@ describe('security headers', () => {
 
     it('never allows eval, and never allows scripts from a wildcard origin', async () => {
       const csp = directives((await headersForEveryRoute()).get('content-security-policy')!);
-      expect(csp.get('script-src')).not.toContain("'unsafe-eval'");
-      expect(csp.get('script-src')).not.toContain('*');
-      expect(csp.get('script-src')?.some((s) => s.startsWith('http:'))).toBe(false);
+      expect(csp.get('script-src')).toEqual(["'self'", "'unsafe-inline'"]);
+    });
+
+    it('admits eval and the debug analytics script in development only', async () => {
+      // `next dev` serves eval-based bundles; without this the dev server
+      // renders but never hydrates. It must not leak into production.
+      const dev = directives((await headersForEveryRoute('development')).get('content-security-policy')!);
+      expect(dev.get('script-src')).toEqual(
+        expect.arrayContaining(["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://va.vercel-scripts.com'])
+      );
+      const prod = directives((await headersForEveryRoute('production')).get('content-security-policy')!);
+      expect(prod.get('script-src')).not.toContain("'unsafe-eval'");
+      expect(prod.get('script-src')).not.toContain('https://va.vercel-scripts.com');
     });
 
     it.each([
