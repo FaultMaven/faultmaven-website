@@ -23,12 +23,10 @@ node scripts/brand-lint.mjs  # brand terminology lint, stdlib only
 
 | Workflow | Runs |
 |---|---|
-| `ci.yml` | `pnpm run lint` + `tsc --noEmit`, then `pnpm run build`; `pnpm audit --audit-level=moderate` in parallel |
+| `ci.yml` | `pnpm run lint` + `tsc --noEmit` + `pnpm test` (jest), then (after lint) `pnpm run build` + `pnpm run test:build` (headers, 404s, redirects, titles against the built site) + `pnpm run test:browser` (Playwright/Chromium); `pnpm audit --audit-level=moderate` runs in parallel |
 | `brand-lint.yml` | `node scripts/brand-lint.mjs` on push to `main`, and on PRs touching `README.md`, `src/**`, the script or its workflow |
 | `dependency-review.yml` | fails a PR that adds a dependency with a known advisory |
 | `policy-no-direct-k8s-deploy.yml` | PRs touching `*.yml`/`*.yaml`/`*.sh`: substring greps over `.github/workflows/`, case-sensitive for `kubectl`/`helm`, case-insensitive for `kubectl apply`/`kustomize`/`kubernetes` |
-
-CI does not run `pnpm test`. Run it locally before pushing.
 
 ## Layout
 
@@ -46,7 +44,6 @@ src/lib/            blog.ts (reads content/blog/*.md), links.ts, utils.ts (cn cl
 src/middleware/     rate-limit helper imported by /api/auth; NOT Next.js middleware
 src/types/          component-props.d.ts (currently empty)
 content/blog/       blog posts as Markdown; README.md there is the authoring guide
-docs/               a December 2025 content plan; not guidance (the brand skill and this file are)
 tests/              jest suites for links.ts, next.config.js redirects, the Quick Start literal
 ```
 
@@ -65,40 +62,41 @@ Imports use `@/*` → `src/*` (`tsconfig.json`, mirrored in `jest.config.js`).
   corrected in review, whatever the post's age.
 - **Post status.** Only `status: "published"` renders; a missing or unknown status is `draft`
   with a build warning. Unpublished posts get the not-found page and no sitemap entry.
-- **Links.** A destination used in more than one place goes in `src/lib/links.ts`; existing
-  exceptions include the engine repo URL (`Footer.tsx`, `OpenSourceTrustSection.tsx`) and
-  the Discussions URL. Self-host calls to action link `SELF_HOST_PATH`, by convention.
-  `tests/self-host-links.test.ts` checks only that the `QUICKSTART_URL` literal appears
-  nowhere in `src/` outside `links.ts`; it does not scan `content/` (blog posts link the
-  Quick Start directly).
+- **Links.** A destination used in more than one place goes in `src/lib/links.ts`, including
+  the engine repo URL (`Footer.tsx`, `OpenSourceTrustSection.tsx`) and the Discussions URL.
+  Self-host calls to action link `SELF_HOST_PATH`, by convention. `tests/self-host-links.test.ts`
+  checks that the `QUICKSTART_URL` and `DISCUSSIONS_URL` literals, and the bare engine repo
+  URL, appear nowhere in `src/` outside `links.ts`; it does not scan `content/` (blog posts
+  link the Quick Start directly).
 - **Retired routes** get a redirect in `next.config.js`, covered by `tests/redirects.test.ts`.
 
 ## Rendering and SEO
 
 - Pages are meant to be static: in the `next build` route table only `/api/*` may be
   dynamic (`ƒ`). A page turning dynamic has read a request-time API, a regression.
-- `/blog/[slug]` prerenders published posts through `generateStaticParams`. It leaves
-  `dynamicParams` at `true`, and `getPostBySlug` also accepts the date-prefixed file name,
-  so `/blog/YYYY-MM-DD-slug` URLs render on demand.
+- `/blog/[slug]` prerenders published posts through `generateStaticParams` and sets
+  `dynamicParams` to `false`, so a slug outside that list 404s at the router rather than
+  rendering on demand. Each post has one URL: `getPostBySlug` only resolves the clean slug,
+  and `next.config.js` redirects a date-prefixed `/blog/YYYY-MM-DD-slug` request to it.
 - Post Markdown becomes HTML at build time (`marked`) and renders as trusted HTML, so a
   post is repository content only. `ArticleBody` (client) swaps fenced `mermaid`
   blocks for SVG after hydration, sanitized with DOMPurify.
 - `src/app/layout.tsx` owns site metadata: `metadataBase` `https://www.faultmaven.ai`,
-  Open Graph, Twitter card, robots, and the title template `%s | FaultMaven`. A page sets
-  a bare `title`; the template appends ` | FaultMaven`. Exceptions: `blog/page.tsx` and
-  `blog/[slug]/page.tsx` add their own suffix and render double-branded; do not copy them.
-- A `'use client'` page cannot export metadata. Six client pages (about, faq, pricing,
-  product, roadmap, use-cases) and five server pages (`page.tsx`, terms, privacy, signin,
-  contact) export none and show the site default title. A page that needs its own title
-  keeps `page.tsx` a server component and moves interactivity into components.
+  Open Graph, Twitter card, robots, and the title template `%s | FaultMaven`. A page
+  exports metadata built with `pageMetadata(...)` (`src/lib/metadata.ts`): a bare `title`
+  (the template appends ` | FaultMaven`) plus its own branded Open Graph/Twitter title and
+  canonical `path`, since those aren't covered by the template. `page.tsx`, `signin/page.tsx`
+  and `not-found.tsx` set a plain `Metadata` object with just a bare title instead.
 - `src/app/sitemap.ts` lists static routes by hand (add new public pages) plus published posts.
 - Vercel Web Analytics (`<Analytics />`) is mounted in the root layout.
 
 ## Traps
 
-- **Middleware location.** In this `src/` layout Next.js loads middleware only from
-  `src/middleware.ts`; a root `middleware.ts` is ignored. Adding a CSP requires a nonce
-  design first (Next inlines hydration scripts).
+- **Middleware location.** Security headers are set in `next.config.js` (`headers()`,
+  `security-headers.js`), not middleware: there is no root `middleware.ts` — in this `src/`
+  layout Next.js would only load one from `src/middleware.ts`, and a static site has no
+  other reason to run one. The CSP allows `'unsafe-inline'` rather than a nonce, since a
+  nonce would make every page dynamic and this site stays static.
 - **Env in tests.** `next/jest` runs `loadEnvConfig` with `NODE_ENV=test`: it reads
   `.env.test.local`, `.env.test` and `.env`, never `.env.local`, and never overrides a
   variable already set in the shell. `NEXT_PUBLIC_DASHBOARD_URL` (optional, `.env.example`)
