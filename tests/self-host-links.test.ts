@@ -52,6 +52,8 @@ describe('destinations owned by links.ts', () => {
     // repository (`/blob/main/...`, `/issues`, `#quick-start`) and the other
     // repositories that share the prefix (`faultmaven-website`) are not this
     // constant and are left alone.
-    expect(offenders(new RegExp(`${escape(ENGINE_REPO_URL)}(?=["'\`\s)]|$)`))).toEqual([]);
+    // Built from a plain string: in a template literal `\s` is the string
+    // escape for `s`, not the regex whitespace class.
+    expect(offenders(new RegExp(escape(ENGINE_REPO_URL) + '(?=["\'`\\s)]|$)'))).toEqual([]);
   });
 });
