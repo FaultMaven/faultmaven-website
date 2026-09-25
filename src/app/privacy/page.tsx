@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+
+// Bare title: the root layout's template appends ` | FaultMaven`.
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    'How FaultMaven collects, uses, discloses, and safeguards your information when you visit www.faultmaven.ai and engage with any services we offer.',
+  alternates: { canonical: '/privacy' },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <main>

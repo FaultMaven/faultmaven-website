@@ -1,5 +1,14 @@
+import type { Metadata } from 'next';
 import Link from '@/components/ui/Link';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
+
+// Bare title: the root layout's template appends ` | FaultMaven`.
+export const metadata: Metadata = {
+  title: 'Connect with FaultMaven',
+  description:
+    "We're building FaultMaven to solve real operational problems, and the best way to do that is to talk with the engineers who live them.",
+  alternates: { canonical: '/contact' },
+};
 
 const subjectLines = [
   {

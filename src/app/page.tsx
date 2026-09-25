@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
@@ -8,6 +9,16 @@ import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
 import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
+
+// No `title` here, deliberately: the layout's title template applies to child
+// segments only, never to the page in its own segment, so a title set here
+// would render bare. The home page is the one page whose title is the
+// layout's `title.default`, brand first.
+export const metadata: Metadata = {
+  description:
+    'The AI troubleshooting copilot that works a problem like a seasoned engineer — goal-driven, methodical, evidence-based, and self-learning. Run it yourself, or let us run it for you on FaultMaven Cloud — same fair-source engine.',
+  alternates: { canonical: '/' },
+};
 
 // Dynamically import Hero with loading fallback
 const Hero = dynamic(() => import("@/components/sections/Hero"), {
