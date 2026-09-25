@@ -45,3 +45,6 @@ next-env.d.ts
 # Misc
 *.pem
 .eslintcache
+
+# Claude Code worktrees
+.claude/worktrees/
