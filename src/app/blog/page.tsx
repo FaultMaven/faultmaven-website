@@ -2,12 +2,14 @@ import Link from 'next/link';
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import { getAllPosts } from '@/lib/blog';
 import Button from '@/components/ui/Button';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata = {
-  title: 'Blog | FaultMaven - AI-Powered Incident Investigation',
+export const metadata = pageMetadata({
+  title: 'Blog',
   description:
     'Insights, guides, and engineering perspectives on AI-powered incident investigation, telemetry correlation, and SRE workflows.',
-};
+  path: '/blog',
+});
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();

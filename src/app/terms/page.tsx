@@ -1,3 +1,12 @@
+import { pageMetadata } from '@/lib/metadata';
+
+export const metadata = pageMetadata({
+  title: 'Terms of Service',
+  description:
+    'The terms that govern your access to and use of the FaultMaven website at www.faultmaven.ai and any informational content or services provided there.',
+  path: '/terms',
+});
+
 export default function TermsOfServicePage() {
   return (
     <main>

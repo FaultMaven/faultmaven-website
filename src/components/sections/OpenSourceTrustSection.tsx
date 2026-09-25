@@ -1,6 +1,7 @@
 'use client';
 
 import { Shield, Eye, Code } from 'lucide-react';
+import { ENGINE_REPO_URL } from '@/lib/links';
 
 export default function OpenSourceTrustSection() {
   return (
@@ -30,7 +31,7 @@ export default function OpenSourceTrustSection() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://img.shields.io/github/last-commit/FaultMaven/faultmaven?style=flat-square&color=blue" alt="Date of the most recent commit to the FaultMaven engine" className="h-5" />
             </div>
-            <a href="https://github.com/FaultMaven/faultmaven" className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+            <a href={ENGINE_REPO_URL} className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
               View on GitHub →
             </a>
           </div>

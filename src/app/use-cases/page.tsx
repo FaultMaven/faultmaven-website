@@ -1,7 +1,6 @@
-'use client';
-
 import Button from '@/components/ui/Button';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
 interface UseCaseProps {
   tag: string;
@@ -61,6 +60,14 @@ const UseCase = ({ tag, title, problem, howHelped, outcome, bgColor }: UseCasePr
     </div>
   </div>
 );
+
+
+export const metadata = pageMetadata({
+  title: 'See FaultMaven in Action',
+  description:
+    'Real problems. A methodical path to the cause.',
+  path: '/use-cases',
+});
 
 export default function UseCasesPage() {
   return (

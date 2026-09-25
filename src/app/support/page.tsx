@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import {
   Mail,
   Bug,
@@ -10,15 +9,15 @@ import {
   Trash2,
 } from 'lucide-react';
 import Link from '@/components/ui/Link';
+import { DISCUSSIONS_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Support',
   description:
     'How to get help with FaultMaven — email support, bug reports, discussions, and documentation, plus what to include so we can help fast.',
-  alternates: {
-    canonical: '/support',
-  },
-};
+  path: '/support',
+});
 
 const SUPPORT_EMAIL = 'support@faultmaven.ai';
 
@@ -50,7 +49,7 @@ const communityChannels = [
     icon: <MessagesSquare className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
     title: 'Community discussions',
     desc: 'See what other teams have worked through, or ask in the open.',
-    href: 'https://github.com/FaultMaven/faultmaven/discussions',
+    href: DISCUSSIONS_URL,
     cta: 'Open discussions',
   },
   {

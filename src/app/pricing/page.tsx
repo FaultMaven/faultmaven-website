@@ -1,7 +1,14 @@
-'use client';
-
 import Button from '@/components/ui/Button';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
+
+
+export const metadata = pageMetadata({
+  title: 'Run it yourself, or let us run it for you',
+  description:
+    'The same engine either way. FaultMaven Cloud runs it for you with nothing to operate — free during beta, with a daily limit on investigation turns. Self-hosting is free forever. Because the engine is fair source, you are never locked in to either.',
+  path: '/pricing',
+});
 
 export default function PricingPage() {
   return (

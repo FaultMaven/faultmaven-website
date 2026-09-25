@@ -1,5 +1,13 @@
 import Link from '@/components/ui/Link';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
+import { pageMetadata } from '@/lib/metadata';
+
+export const metadata = pageMetadata({
+  title: 'Connect with FaultMaven',
+  description:
+    "We're building FaultMaven to solve real operational problems, and the best way to do that is to talk with the engineers who live them.",
+  path: '/contact',
+});
 
 const subjectLines = [
   {

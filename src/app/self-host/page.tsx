@@ -1,24 +1,17 @@
-import type { Metadata } from 'next';
 import Button from '@/components/ui/Button';
-import { ENGINE_REPO_URL, QUICKSTART_URL, TRY_CLOUD_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, ENGINE_REPO_URL, QUICKSTART_URL, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-// Every "self-host it" call to action on the site lands here (SELF_HOST_PATH
-// in lib/links). Keep it a short landing that hands off to the engine
-// README — the README owns the full install instructions, and this page must
-// not become a second copy of them that drifts.
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Self-host FaultMaven',
   description:
     'Run FaultMaven on your own hardware: one command with Docker Compose, free forever, fair source (FSL-1.1-ALv2). Your cases, evidence and knowledge base stay on your machine.',
-  alternates: { canonical: '/self-host' },
+  path: '/self-host',
   openGraph: {
-    type: 'website',
-    url: 'https://www.faultmaven.ai/self-host',
-    title: 'Self-host FaultMaven',
     description:
       'One command with Docker Compose. Free forever, no usage limits, fair source. The same engine that runs FaultMaven Cloud.',
   },
-};
+});
 
 const codeClass = 'bg-slate-200 dark:bg-slate-800 px-1.5 py-0.5 rounded text-[0.9em] font-mono';
 
@@ -104,7 +97,7 @@ cp .env.example .env   # set one provider's API key
           <p>
             If you run FaultMaven against a local model, we would like to hear how it went —{' '}
             <a
-              href="https://github.com/FaultMaven/faultmaven/discussions"
+              href={DISCUSSIONS_URL}
               className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               GitHub Discussions

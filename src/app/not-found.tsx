@@ -1,6 +1,11 @@
+import type { Metadata } from 'next';
 import Link from '@/components/ui/Link';
 
-// src/app/not-found.tsx
+// Bare title: the root layout's template appends ` | FaultMaven`.
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+};
+
 export default function NotFound() {
   return (
     <main className="bg-white">

@@ -6,7 +6,6 @@ import { marked } from 'marked';
 
 export interface BlogPost {
   slug: string;
-  rawSlug: string;
   title: string;
   date: string;
   description: string;
@@ -75,7 +74,8 @@ function isPublished(status: PostStatus): boolean {
   return status === 'published';
 }
 
-export function getAllPosts(): BlogPost[] {
+/** Every post file, whatever its status, newest first. */
+export function getAllPostSummaries(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIRECTORY)) {
     return [];
   }
@@ -97,7 +97,6 @@ export function getAllPosts(): BlogPost[] {
 
     posts.push({
       slug: cleanSlug,
-      rawSlug,
       title: (data.title as string) || 'Untitled',
       date: (data.date as string) || '',
       description: (data.description as string) || '',
@@ -108,9 +107,12 @@ export function getAllPosts(): BlogPost[] {
     });
   }
 
-  return posts
-    .filter((post) => isPublished(post.status))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+/** The published posts: the only ones the site lists or serves. */
+export function getAllPosts(): BlogPost[] {
+  return getAllPostSummaries().filter((post) => isPublished(post.status));
 }
 
 export async function getPostBySlug(slugParam: string): Promise<BlogPost | null> {
@@ -128,7 +130,9 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
     const rawSlug = fileName.replace(/\.md$/, '');
     const cleanSlug = rawSlug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
 
-    if (cleanSlug === slugParam || rawSlug === slugParam) {
+    // Only the clean slug is an address. The date-prefixed file name is not:
+    // `next.config.js` redirects that form to the clean slug before routing.
+    if (cleanSlug === slugParam) {
       targetFileName = fileName;
       break;
     }
@@ -154,7 +158,6 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
 
   return {
     slug: cleanSlug,
-    rawSlug,
     title: (data.title as string) || 'Untitled',
     date: (data.date as string) || '',
     description: (data.description as string) || '',

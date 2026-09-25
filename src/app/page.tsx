@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
@@ -8,6 +9,14 @@ import ComparisonSection from "@/components/sections/ComparisonSection";
 import DeploymentOptionsSection from "@/components/sections/DeploymentOptionsSection";
 import OpenSourceTrustSection from "@/components/sections/OpenSourceTrustSection";
 import VisionSnippet from "@/components/sections/VisionSnippet";
+
+// Only what differs from the root layout: the layout's title template applies
+// to child segments, never to the page in its own segment, so the home page is
+// the one page that carries the layout's `title.default`, description and
+// social card as they are.
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 // Dynamically import Hero with loading fallback
 const Hero = dynamic(() => import("@/components/sections/Hero"), {

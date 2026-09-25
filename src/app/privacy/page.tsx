@@ -1,3 +1,12 @@
+import { pageMetadata } from '@/lib/metadata';
+
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
+  description:
+    'How FaultMaven collects, uses, discloses, and safeguards your information when you visit www.faultmaven.ai and engage with any services we offer.',
+  path: '/privacy',
+});
+
 export default function PrivacyPolicyPage() {
   return (
     <main>

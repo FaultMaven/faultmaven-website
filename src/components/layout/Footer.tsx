@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { IconGithub, IconLinkedin, IconX } from '@/components/icons';
 import Link from '@/components/ui/Link';
-import { COMMUNITY_SLACK_URL, SELF_HOST_PATH } from '@/lib/links';
+import { COMMUNITY_SLACK_URL, DISCUSSIONS_URL, ENGINE_REPO_URL, SELF_HOST_PATH } from '@/lib/links';
 
 export default function Footer() {
   return (
@@ -71,7 +71,7 @@ export default function Footer() {
               <li><Link href="/blog" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Blog</Link></li>
               <li><Link href="/faq" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">FAQ</Link></li>
               <li><Link href="/support" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Support</Link></li>
-              <li><a href="https://github.com/FaultMaven/faultmaven/discussions" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Discussions</a></li>
+              <li><a href={DISCUSSIONS_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Discussions</a></li>
               <li><a href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Community Slack</a></li>
             </ul>
           </div>
@@ -80,7 +80,7 @@ export default function Footer() {
           <div>
             <strong className="font-semibold text-slate-900 dark:text-slate-200 text-base block mb-3">Developer</strong>
             <ul className="mt-2 space-y-2 text-base">
-              <li><a href="https://github.com/FaultMaven/faultmaven" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">GitHub</a></li>
+              <li><a href={ENGINE_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">GitHub</a></li>
               <li><Link href={SELF_HOST_PATH} className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Self-Hosting Guide</Link></li>
               <li><a href="https://github.com/FaultMaven/faultmaven-website/issues" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-[#2563EB] hover:underline transition-colors duration-200">Report Issue</a></li>
             </ul>

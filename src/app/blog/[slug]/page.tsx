@@ -1,15 +1,22 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import Button from '@/components/ui/Button';
 import ArticleBody from '@/components/blog/ArticleBody';
+import { pageMetadata } from '@/lib/metadata';
 
 interface PageProps {
   params: Promise<{
     slug: string;
   }>;
 }
+
+// Every published post is prerendered below, and that list is the whole
+// route: a slug that is not in it is a 404 from the router, not a page that
+// renders on demand and then gives up.
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -18,28 +25,25 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const post = await getPostBySlug(resolvedParams.slug);
 
   if (!post) {
-    return {
-      title: 'Post Not Found | FaultMaven Blog',
-    };
+    return { title: 'Post Not Found' };
   }
 
-  return {
-    title: `${post.title} | FaultMaven Blog`,
+  return pageMetadata({
+    title: post.title,
     description: post.description,
+    path: `/blog/${post.slug}`,
     openGraph: {
-      title: post.title,
-      description: post.description,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
     },
-  };
+  });
 }
 
 export default async function BlogPostPage({ params }: PageProps) {

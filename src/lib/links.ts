@@ -73,6 +73,9 @@ export const QUICKSTART_URL = 'https://github.com/FaultMaven/faultmaven#quick-st
 /** The engine repository. */
 export const ENGINE_REPO_URL = 'https://github.com/FaultMaven/faultmaven';
 
+/** The engine repository's Discussions: questions, feedback, and requests for the engine. */
+export const DISCUSSIONS_URL = `${ENGINE_REPO_URL}/discussions`;
+
 /**
  * The community workspace. FaultMaven is installed here, so someone can try it
  * with no account and nothing installed — and it is where the instructions for

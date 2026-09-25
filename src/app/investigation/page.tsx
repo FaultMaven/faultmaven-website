@@ -1,22 +1,20 @@
-import type { Metadata } from 'next';
 import Button from '@/components/ui/Button';
 import TranscriptTurn from '@/components/investigation/TranscriptTurn';
 import { transcript } from '@/data/redisOomTranscript';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'A real investigation, unedited',
   description:
     'The full transcript of FaultMaven working a Redis out-of-memory case: the data it was given, the diagnostics it asked for, the cause it found in the application source — and the four points where it refused to claim more than the evidence supported.',
-  alternates: { canonical: '/investigation' },
+  path: '/investigation',
   openGraph: {
     type: 'article',
-    url: 'https://www.faultmaven.ai/investigation',
-    title: 'A real investigation, unedited — FaultMaven',
     description:
       'A Redis OOM case worked end to end. Includes the moments FaultMaven declined to assert a cause, refused an unsafe fix, and closed the case without claiming it was resolved.',
   },
-};
+});
 
 const RAW = '/transcripts/redis-oom-investigation.txt';
 

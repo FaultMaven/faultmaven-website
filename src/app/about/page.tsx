@@ -1,7 +1,14 @@
-'use client';
-
 import Button from '@/components/ui/Button';
-import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
+import { pageMetadata } from '@/lib/metadata';
+
+
+export const metadata = pageMetadata({
+  title: 'Built by engineers, for engineers',
+  description:
+    'We got tired of solving the same problem twice. So we built FaultMaven.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (
@@ -204,7 +211,7 @@ export default function AboutPage() {
               <Button asChild href={SELF_HOST_PATH} variant="secondary" className="text-lg px-8">
                 Self-host it
               </Button>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven/discussions" variant="secondary" className="text-lg px-8">
+              <Button asChild href={DISCUSSIONS_URL} variant="secondary" className="text-lg px-8">
                 Join Discussions
               </Button>
             </div>

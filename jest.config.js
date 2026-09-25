@@ -10,5 +10,8 @@ const createJestConfig = nextJest({ dir: './' });
 module.exports = createJestConfig({
   testEnvironment: 'jest-environment-jsdom',
   testMatch: ['**/src/**/*.test.ts', '**/src/**/*.test.tsx', '**/tests/**/*.test.ts'],
+  // tests/built-site speaks HTTP to a production build; `jest.build.config.js`
+  // runs it after `pnpm build`.
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/tests/built-site/'],
   moduleNameMapper: { '^@/(.*)$': '<rootDir>/src/$1' },
 });
