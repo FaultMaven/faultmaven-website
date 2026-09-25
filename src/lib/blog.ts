@@ -6,7 +6,6 @@ import { marked } from 'marked';
 
 export interface BlogPost {
   slug: string;
-  rawSlug: string;
   title: string;
   date: string;
   description: string;
@@ -97,7 +96,6 @@ export function getAllPosts(): BlogPost[] {
 
     posts.push({
       slug: cleanSlug,
-      rawSlug,
       title: (data.title as string) || 'Untitled',
       date: (data.date as string) || '',
       description: (data.description as string) || '',
@@ -128,7 +126,9 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
     const rawSlug = fileName.replace(/\.md$/, '');
     const cleanSlug = rawSlug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
 
-    if (cleanSlug === slugParam || rawSlug === slugParam) {
+    // Only the clean slug is an address. The date-prefixed file name is not:
+    // `next.config.js` redirects that form to the clean slug before routing.
+    if (cleanSlug === slugParam) {
       targetFileName = fileName;
       break;
     }
@@ -154,7 +154,6 @@ export async function getPostBySlug(slugParam: string): Promise<BlogPost | null>
 
   return {
     slug: cleanSlug,
-    rawSlug,
     title: (data.title as string) || 'Untitled',
     date: (data.date as string) || '',
     description: (data.description as string) || '',

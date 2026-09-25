@@ -66,6 +66,16 @@ const nextConfig = {
         destination: '/pricing',
         permanent: true,
       },
+      {
+        // A post's file is `content/blog/YYYY-MM-DD-slug.md` and its one URL is
+        // `/blog/slug`. The date-prefixed form used to render the same page at
+        // a second address; links that carry it now land on the canonical one.
+        // `:slug` carries its own pattern because path-to-regexp otherwise reads
+        // the `-` before it as a prefix and forbids hyphens inside the slug.
+        source: '/blog/:date(\\d{4}-\\d{2}-\\d{2})-:slug([^/]+)',
+        destination: '/blog/:slug',
+        permanent: true,
+      },
     ];
   },
 };
