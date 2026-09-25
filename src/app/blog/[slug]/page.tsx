@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
@@ -11,6 +12,11 @@ interface PageProps {
   }>;
 }
 
+// Every published post is prerendered below, and that list is the whole
+// route: a slug that is not in it is a 404 from the router, not a page that
+// renders on demand and then gives up.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -18,19 +24,21 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params;
   const post = await getPostBySlug(resolvedParams.slug);
 
   if (!post) {
     return {
-      title: 'Post Not Found | FaultMaven Blog',
+      title: 'Post Not Found',
     };
   }
 
+  // Bare title: the root layout's template appends ` | FaultMaven`.
   return {
-    title: `${post.title} | FaultMaven Blog`,
+    title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
