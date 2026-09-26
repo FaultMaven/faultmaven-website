@@ -13,6 +13,7 @@ import {
   IconDocumentText
 } from '@/components/icons/homepage';
 import { pageMetadata } from '@/lib/metadata';
+import RetrievalPipelineSection from '@/components/sections/RetrievalPipelineSection';
 
 const chipClass = 'rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
 const exampleClass = 'rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-400';
@@ -259,8 +260,11 @@ export default function ProductPage() {
         </div>
       </Section>
 
+      {/* How retrieval works — linked from the home page's knowledge section as /product#retrieval */}
+      <RetrievalPipelineSection tone="white" />
+
       {/* Input Methods */}
-      <Section>
+      <Section tone="muted">
         <SectionHeader title="Works the way you work" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {inputs.map(({ Icon, title, body }) => (
@@ -279,7 +283,7 @@ export default function ProductPage() {
       </Section>
 
       {/* Security & Privacy */}
-      <Section tone="muted">
+      <Section>
         <SectionHeader title="Your data stays yours" />
         <div className="grid gap-8 md:grid-cols-3">
           {safeguards.map(({ Icon, title, body }) => (
@@ -295,7 +299,7 @@ export default function ProductPage() {
       </Section>
 
       {/* CTA */}
-      <Section>
+      <Section tone="muted">
         <SectionHeader title="Run it yourself, or let us run it for you" />
 
         <Card highlight className="mx-auto mb-8 max-w-3xl">

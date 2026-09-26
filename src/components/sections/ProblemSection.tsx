@@ -1,6 +1,6 @@
 import { IconBellSlash, IconDocumentMinus, IconLoop } from '@/components/icons/homepage';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, type SectionTone } from '@/components/ui/Section';
 
 const gaps = [
   {
@@ -20,9 +20,9 @@ const gaps = [
   },
 ];
 
-export default function ProblemSection() {
+export default function ProblemSection({ tone = 'white' }: { tone?: SectionTone } = {}) {
   return (
-    <Section>
+    <Section tone={tone}>
       <SectionHeader title="Three gaps between the alert and the fix" />
       <div className="grid gap-8 md:grid-cols-3">
         {gaps.map(({ Icon, title, body }) => (

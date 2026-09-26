@@ -2,14 +2,14 @@ import { Cloud, Server } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../ui/Button';
 import { Card, CardTitle, CheckList, CodeBlock, IconTile, cardSubtitleClass } from '@/components/ui/card';
-import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass, type SectionTone } from '@/components/ui/Section';
 import { CHROME_WEB_STORE_URL, ENGINE_REPO_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 // The page's one closing choice: the two ways to run FaultMaven, then the
 // Copilot extension and the source.
-export default function FinalCTASection() {
+export default function FinalCTASection({ tone = 'muted' }: { tone?: SectionTone } = {}) {
   return (
-    <Section tone="muted">
+    <Section tone={tone}>
       <SectionHeader
         title="Two ways to run FaultMaven"
         lead="One engine, two ways to run it. Because it is fair source and self-hostable, whichever you choose, you are never locked in."

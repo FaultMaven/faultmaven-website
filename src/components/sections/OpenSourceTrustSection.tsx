@@ -1,11 +1,11 @@
 import { Code, Eye, Shield } from 'lucide-react';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, type SectionTone } from '@/components/ui/Section';
 import { ENGINE_REPO_URL } from '@/lib/links';
 
-export default function OpenSourceTrustSection() {
+export default function OpenSourceTrustSection({ tone = 'white' }: { tone?: SectionTone } = {}) {
   return (
-    <Section>
+    <Section tone={tone}>
       <SectionHeader
         title="Source-available. Auditable. Yours to run."
         lead="We don't ask for trust—we show you the code. FaultMaven Cloud runs this same engine, so whichever way you run it, you are never locked in."

@@ -20,6 +20,8 @@ const TONES = {
   muted: 'bg-slate-50 dark:bg-slate-800/50',
 } as const;
 
+export type SectionTone = keyof typeof TONES;
+
 // The heading scales: a page's title, a page section's title, and a subsection
 // within a document page (a guide, the FAQ, a legal page).
 export const pageTitleClass = 'text-4xl md:text-5xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-50';
