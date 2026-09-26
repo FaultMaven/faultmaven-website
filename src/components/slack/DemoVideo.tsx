@@ -4,11 +4,14 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { Play } from 'lucide-react';
-import poster from '../../../public/video/faultmaven-slack-demo-poster.jpg';
+import poster from '../../../public/video/faultmaven-slack-demo-poster.webp';
 
-// The one place the Slack demo recording is described. Its poster is a frame
-// of the recording, so the poster's size is the video's.
+// The one place the Slack demo recording is described. The frame takes the
+// recording's own proportions (1280x946), so the player fills it exactly when
+// it replaces the poster; the poster is a title card drawn to the same ratio.
 export const DEMO_VIDEO_SRC = '/video/faultmaven-slack-demo.mp4';
+const VIDEO_WIDTH = 1280;
+const VIDEO_HEIGHT = 946;
 const DURATION = '2:36';
 const DURATION_SPOKEN = '2 minutes 36 seconds';
 const DESCRIPTION =
@@ -39,8 +42,8 @@ export default function DemoVideo({ sizes, priority = false, caption }: DemoVide
   return (
     <figure>
       <div
-        className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white shadow-2xl"
-        style={{ aspectRatio: `${poster.width} / ${poster.height}` }}
+        className="relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 shadow-2xl"
+        style={{ aspectRatio: `${VIDEO_WIDTH} / ${VIDEO_HEIGHT}` }}
       >
         <Image src={poster} alt="" fill priority={priority} placeholder="blur" sizes={sizes} className="object-cover" />
         {playing ? (
@@ -68,18 +71,19 @@ export default function DemoVideo({ sizes, priority = false, caption }: DemoVide
           >
             <span
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-slate-900/0 transition-colors duration-200 group-hover:from-slate-900/60 group-focus-visible:from-slate-900/60"
+              className="absolute inset-0 transition-colors duration-200 group-hover:bg-slate-900/20 group-focus-visible:bg-slate-900/20"
             />
             <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-blue-600 text-white shadow-xl ring-8 ring-white/70 transition duration-200 group-hover:scale-105 group-hover:bg-blue-700 group-focus-visible:scale-105 group-focus-visible:bg-blue-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100">
-                <Play className="ml-1 h-8 w-8 fill-current" />
+              {/* Smaller on a phone, where a 5rem button would cover the card's title. */}
+              <span className="flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-blue-600 text-white shadow-xl ring-4 sm:ring-8 ring-white/25 transition duration-200 group-hover:scale-105 group-hover:bg-blue-700 group-focus-visible:scale-105 group-focus-visible:bg-blue-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100 motion-reduce:group-focus-visible:scale-100">
+                <Play className="ml-1 h-6 w-6 sm:h-8 sm:w-8 fill-current" />
               </span>
             </span>
             <span
               aria-hidden="true"
-              className="absolute bottom-4 left-4 rounded-md bg-slate-900/80 px-2.5 py-1 text-xs font-semibold text-white"
+              className="absolute bottom-4 right-4 rounded-md bg-slate-900/80 px-2 py-1 text-xs font-semibold tabular-nums text-white"
             >
-              FaultMaven for Slack · {DURATION}
+              {DURATION}
             </span>
           </button>
         )}
