@@ -26,7 +26,7 @@ body {
   transition: width 0.3s cubic-bezier(0.4,0,0.2,1), left 0.3s cubic-bezier(0.4,0,0.2,1);
   z-index: 1;
 }
-.nav-underline:hover::after, .nav-underline:focus::after {
+.nav-underline:hover::after, .nav-underline:focus-visible::after {
   width: 100%;
   left: 0;
 }
