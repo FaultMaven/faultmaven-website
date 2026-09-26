@@ -1,83 +1,8 @@
 'use client';
 
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import { Play } from 'lucide-react';
 import Button from '../ui/Button';
+import DemoVideo from '../slack/DemoVideo';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
-import demoPoster from '../../../public/video/faultmaven-slack-demo-poster.jpg';
-
-const DEMO_VIDEO_SRC = '/video/faultmaven-slack-demo.mp4';
-
-// The recording /slack plays, shown as its poster with a play button until
-// clicked. The poster goes through next/image, so it is sized, preloaded and
-// blurred in like the image it replaces; the 3.6 MB video loads only on play.
-function DemoVideo() {
-  const [playing, setPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // The play button unmounts on click; hand keyboard focus to the player.
-  useEffect(() => {
-    if (playing) videoRef.current?.focus();
-  }, [playing]);
-
-  return (
-    <figure>
-      <div className="relative aspect-[1280/946] overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white shadow-2xl">
-        {playing ? (
-          <video
-            ref={videoRef}
-            controls
-            autoPlay
-            playsInline
-            poster={demoPoster.src}
-            className="h-full w-full bg-slate-900"
-            aria-label="Screen recording: FaultMaven investigating an api-gateway 503 incident inside a Slack thread, from the initial PagerDuty alert through to a resolved case."
-          >
-            <source src={DEMO_VIDEO_SRC} type="video/mp4" />
-            Your browser cannot play this video. It is a screen recording of a FaultMaven
-            investigation running in a Slack thread.
-          </video>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setPlaying(true)}
-            className="group absolute inset-0 h-full w-full focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-blue-500"
-            aria-label="Play the screen recording: FaultMaven investigating a production incident in a Slack thread, 2 minutes 36 seconds, no sound"
-          >
-            <Image
-              src={demoPoster}
-              alt=""
-              priority
-              placeholder="blur"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="h-full w-full object-cover"
-            />
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-slate-900/0 transition-colors duration-200 group-hover:from-slate-900/60"
-            />
-            <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
-              <span className="flex h-20 w-20 items-center justify-center rounded-full bg-blue-600 text-white shadow-xl ring-8 ring-white/70 transition duration-200 group-hover:scale-105 group-hover:bg-blue-700 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
-                <Play className="ml-1 h-8 w-8 fill-current" />
-              </span>
-            </span>
-            <span
-              aria-hidden="true"
-              className="absolute bottom-4 left-4 rounded-md bg-slate-900/80 px-2.5 py-1 text-xs font-semibold text-white"
-            >
-              FaultMaven for Slack · 2:36
-            </span>
-          </button>
-        )}
-      </div>
-      <figcaption className="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-        Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread,
-        from the PagerDuty alert to a resolved case.
-      </figcaption>
-    </figure>
-  );
-}
 
 export default function Hero() {
   return (
@@ -131,7 +56,12 @@ export default function Hero() {
               first.
             </p>
           </div>
-          <DemoVideo />
+          {/* The column is half of max-w-6xl less its gutters and gap: 520px at most. */}
+          <DemoVideo
+            priority
+            sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
+            caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
+          />
         </div>
         <div className="text-center mt-24">
           <hr className="my-10 border-slate-200 dark:border-slate-700" />

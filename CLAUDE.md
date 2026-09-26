@@ -37,7 +37,8 @@ src/app/blog/       /blog index and /blog/[slug] post pages
 src/app/signin/     redirects to the dashboard sign-in (SIGN_IN_URL)
 src/app/api/        route handlers: /api/hello, and 501 stubs (auth, stripe/analytics webhooks)
 src/components/     layout/, sections/ (homepage), ui/, icons/, blog/ArticleBody,
-                    investigation/TranscriptTurn, auth/SignInForm (no route imports it)
+                    investigation/TranscriptTurn, slack/DemoVideo (the Slack demo recording,
+                    on / and /slack), auth/SignInForm (no route imports it)
 src/data/           redisOomTranscript.ts: generated verbatim from a test-harness transcript;
                     do not hand-edit, regenerate from the source transcript
 src/lib/            blog.ts (reads content/blog/*.md), links.ts, utils.ts (cn class merger)
