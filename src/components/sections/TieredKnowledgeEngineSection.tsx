@@ -18,8 +18,8 @@ const tiers = [
   {
     name: 'Team',
     badge: 'Cloud',
-    desc: 'Personal runbooks shared with your organization',
-    tags: ['Shared by teammates', 'Your services and procedures', 'Visible to your organization'],
+    desc: 'Personal runbooks you share with your team',
+    tags: ['Shared by teammates', 'Your services and procedures', 'Visible to your team'],
     width: 'md:w-5/6',
     dark: false,
     surface: 'border-blue-300 bg-blue-100 dark:border-blue-800 dark:bg-blue-900/50',
@@ -27,7 +27,7 @@ const tiers = [
   {
     name: 'Global',
     badge: 'Included',
-    desc: '91 curated runbooks, 641 documented causes — shipped with every deployment',
+    desc: '91 curated runbooks, 550 documented causes — shipped with every deployment',
     tags: ['Kubernetes', 'PostgreSQL', 'Redis', 'AWS/GCP/Azure'],
     width: 'w-full',
     dark: true,
@@ -104,7 +104,7 @@ export default function TieredKnowledgeEngineSection() {
           FaultMaven reasons over both and keeps them apart: a runbook says what might be true; the evidence says what is.
         </p>
         <p className="font-medium text-slate-700 dark:text-slate-300">
-          When a case resolves, FaultMaven can turn it into a runbook — that is how every problem it solves becomes knowledge it reuses. Share it, and your team starts from it too.
+          When a case resolves, FaultMaven can turn it into a runbook — that is how a problem it solves becomes knowledge it reuses. Share it, and your team starts from it too.
         </p>
       </div>
     </Section>

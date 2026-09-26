@@ -58,7 +58,7 @@ export default function AboutPage() {
               </li>
             </ol>
             <p className="pt-6">
-              AI can solve all three—<em>if</em> you build it right. Not a chatbot where you paste logs and beg for help. A system that <strong className="text-slate-900 dark:text-slate-50">correlates, retrieves, and learns</strong> — turning each problem it solves into a runbook it reuses.
+              AI can solve all three—<em>if</em> you build it right. Not a chatbot where you paste logs and beg for help. A system that <strong className="text-slate-900 dark:text-slate-50">correlates, retrieves, and learns</strong> — turning a problem it solves into a runbook it reuses.
             </p>
           </div>
       </Section>
@@ -150,7 +150,7 @@ export default function AboutPage() {
               </li>
             </ol>
             <p className="pt-6">
-              For the first time, we can build a system that <strong className="text-slate-900 dark:text-slate-50">learns, remembers, and accelerates</strong> incident response at scale. That&apos;s FaultMaven.
+              For the first time, we can build a system that <strong className="text-slate-900 dark:text-slate-50">learns from the problems it solves</strong> and accelerates incident response at scale. That&apos;s FaultMaven.
             </p>
           </div>
       </Section>

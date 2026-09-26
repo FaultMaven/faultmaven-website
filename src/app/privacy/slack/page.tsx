@@ -1,6 +1,7 @@
 import Link from '@/components/ui/Link';
 import { pageMetadata } from '@/lib/metadata';
 import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 
 export const metadata = pageMetadata({
   title: 'FaultMaven for Slack Privacy Policy',
@@ -387,7 +388,7 @@ export default function SlackPrivacyPolicyPage() {
             record, of investigation data held on FaultMaven Cloud, or to
             exercise other rights you may have under your jurisdiction,
             contact us at{' '}
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>.
             We will confirm when the deletion is complete.
           </p>
 
@@ -417,7 +418,7 @@ export default function SlackPrivacyPolicyPage() {
             FaultMaven
             <br />
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>
             <br />
             <strong>Support:</strong>{' '}
             <Link href="/support" className="text-blue-600 dark:text-blue-400">

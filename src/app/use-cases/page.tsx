@@ -29,7 +29,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* Problem */}
       <div>
         <h4 className={`${labelClass} text-slate-500 dark:text-slate-400`}>
-          THE pROBLEM
+          The problem
         </h4>
         <p className="text-slate-600 dark:text-slate-400">
           {problem}
@@ -39,7 +39,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* How FaultMaven Helped */}
       <div>
         <h4 className={`${labelClass} text-slate-500 dark:text-slate-400`}>
-          HOW fAULTMAVEN hELPED
+          How FaultMaven helped
         </h4>
         <ul className="space-y-2">
           {howHelped.map((step, index) => (
@@ -54,7 +54,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* Outcome */}
       <div className="border-t border-slate-200 pt-4 dark:border-slate-700">
         <h4 className={`${labelClass} text-blue-600 dark:text-blue-400`}>
-          THE oUTCOME
+          The outcome
         </h4>
         <p className="text-slate-700 dark:text-slate-300 font-medium">
           {outcome}
@@ -185,7 +185,7 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={1} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                CONTEXT iN
+                Context in
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
@@ -198,7 +198,7 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={2} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                INTELLIGENCE aPPLIED
+                Intelligence applied
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
@@ -211,7 +211,7 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={3} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                ACTIONABLE oUT
+                Actionable out
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
@@ -224,7 +224,7 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={4} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                KNOWLEDGE cAPTURED
+                Knowledge captured
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">

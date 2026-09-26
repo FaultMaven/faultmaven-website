@@ -27,7 +27,7 @@ function Feature({ title, children }: { title: string; children: ReactNode }) {
 }
 
 const comparison = [
-  ['Knowledge base', 'Global + personal scopes; ships with starter runbooks', 'Adds the team scope — share runbooks across your org'],
+  ['Knowledge base', 'Global + personal scopes; ships with starter runbooks', 'Adds the team scope — share runbooks with your team'],
   ['Hosting', 'Your infrastructure (Docker Compose)', 'Fully managed (Kubernetes)'],
   ['LLM', 'Bring your own keys', 'Managed multi-provider routing'],
   ['Tenancy', 'Single-user', 'Multi-tenant (orgs, teams, RBAC, SSO)'],
@@ -207,7 +207,7 @@ export default function PricingPage() {
               items={[
                 <span key="g"><strong>Global</strong> — ships with FaultMaven for every user; the community can contribute more.</span>,
                 <span key="p"><strong>Personal</strong> — yours, created manually or generated from a resolved case.</span>,
-                <span key="t"><strong>Team</strong> — a personal runbook you choose to share with your organization.</span>,
+                <span key="t"><strong>Team</strong> — a personal runbook you choose to share with your team.</span>,
               ]}
             />
             <p>

@@ -132,13 +132,13 @@ cd faultmaven
                   <li className="flex items-start gap-3">
                     <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Team:</strong> <span className="text-slate-700 dark:text-slate-300">personal runbooks shared with your organization. Sharing needs multi-tenancy, so the team scope is a FaultMaven Cloud capability</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Team:</strong> <span className="text-slate-700 dark:text-slate-300">personal runbooks you share with your team. Sharing needs multi-tenancy, so the team scope is a FaultMaven Cloud capability</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Global:</strong> <span className="text-slate-700 dark:text-slate-300">ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> carrying 641 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Global:</strong> <span className="text-slate-700 dark:text-slate-300">ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> carrying 550 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
                     </div>
                   </li>
                 </ul>
@@ -266,7 +266,7 @@ cd faultmaven
                   <strong>Minimum:</strong> 4 CPU cores, 8GB RAM, 20GB disk. Docker and Docker Compose required.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong>Recommended:</strong> 8 CPU cores, 16GB RAM, 50GB disk. Supports deployment on AWS, GCP, Azure, or any Linux server. Full deployment guide: <a href="https://github.com/FaultMaven/faultmaven#deployment" className={textLinkClass}>GitHub rEADME</a>.
+                  <strong>Recommended:</strong> 8 CPU cores, 16GB RAM, 50GB disk. Supports deployment on AWS, GCP, Azure, or any Linux server. Full deployment guide: <a href="https://github.com/FaultMaven/faultmaven#deployment" className={textLinkClass}>GitHub README</a>.
                 </p>
               </div>
 

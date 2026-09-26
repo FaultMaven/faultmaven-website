@@ -3,16 +3,19 @@ import {
   COMMUNITY_SLACK_URL,
   DASHBOARD_URL,
   SIGN_IN_URL,
+  SLACK_INSTALL_URL,
+  SUPPORT_EMAIL,
+  SUPPORT_MAILTO,
   TRY_CLOUD_URL,
   normalizeOrigin,
 } from '@/lib/links';
 
-// These five constants are the beta invitation. Each is reachable from several
+// These constants are the beta invitation. Each is reachable from several
 // pages, so a bad one is wrong everywhere at once and a reader only finds out
 // by clicking. The point of the module is that a change lands once; the point
 // of this file is that the change is still a working link when it lands.
 describe('outbound links', () => {
-  const all = { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, DASHBOARD_URL, SIGN_IN_URL, TRY_CLOUD_URL };
+  const all = { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, DASHBOARD_URL, SIGN_IN_URL, SLACK_INSTALL_URL, TRY_CLOUD_URL };
 
   it.each(Object.entries(all))('%s is an absolute https URL', (_name, url) => {
     expect(() => new URL(url)).not.toThrow();
@@ -58,6 +61,17 @@ describe('outbound links', () => {
     const url = new URL(COMMUNITY_SLACK_URL);
     expect(url.host).toBe('join.slack.com');
     expect(url.pathname).toContain('/shared_invite/');
+  });
+
+  it('points the Slack install link at the app host\'s install route', () => {
+    const url = new URL(SLACK_INSTALL_URL);
+    expect(url.host).toBe('slack.faultmaven.ai');
+    expect(url.pathname).toBe('/slack/install');
+  });
+
+  it('mails the support address', () => {
+    expect(SUPPORT_EMAIL).toMatch(/^[^@\s]+@faultmaven\.ai$/);
+    expect(SUPPORT_MAILTO).toBe(`mailto:${SUPPORT_EMAIL}`);
   });
 
   it('points the extension link at the published listing id', () => {

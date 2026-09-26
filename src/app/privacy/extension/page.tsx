@@ -1,4 +1,4 @@
-import { DISCUSSIONS_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
@@ -321,7 +321,7 @@ export default function ExtensionPrivacyPolicyPage() {
             </a>
             <br />
             <strong>Email:</strong>{' '}
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>
           </p>
         </div>
       </Section>

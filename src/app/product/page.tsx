@@ -222,7 +222,7 @@ export default function ProductPage() {
                   <li className="flex items-start gap-3">
                     <Dot />
                     <span>
-                      <strong className="text-slate-800 dark:text-slate-200">Team</strong> — personal runbooks shared across your organization{' '}
+                      <strong className="text-slate-800 dark:text-slate-200">Team</strong> — personal runbooks you share with your team{' '}
                       <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Cloud</span>
                     </span>
                   </li>

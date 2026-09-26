@@ -1,5 +1,6 @@
 import { pageMetadata } from '@/lib/metadata';
 import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 
 export const metadata = pageMetadata({
   title: 'Terms of Service',
@@ -109,7 +110,7 @@ export default function TermsOfServicePage() {
           <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>7. Contact us</h2>
           <p>
             If you have any questions about these Terms, please contact us at{' '}
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>.
           </p>
         </div>
       </Section>

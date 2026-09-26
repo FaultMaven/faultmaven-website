@@ -3,6 +3,7 @@ import { Card, CardTitle, IconTile } from '@/components/ui/card';
 import { PageHeader, Section, SectionHeader, subsectionTitleClass } from '@/components/ui/Section';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
 import { pageMetadata } from '@/lib/metadata';
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 
 export const metadata = pageMetadata({
   title: 'Connect with FaultMaven',
@@ -75,8 +76,8 @@ export default function ContactPage() {
             <IconTile>
               <Mail aria-hidden="true" />
             </IconTile>
-            <a href="mailto:support@faultmaven.ai" className="mb-2 text-2xl font-bold text-blue-700 hover:underline dark:text-blue-400">
-              support@faultmaven.ai
+            <a href={SUPPORT_MAILTO} className="mb-2 text-2xl font-bold text-blue-700 hover:underline dark:text-blue-400">
+              {SUPPORT_EMAIL}
             </a>
             <p className="text-lg text-slate-700 dark:text-slate-300">We&apos;d love to hear from you!</p>
           </Card>

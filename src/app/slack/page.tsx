@@ -12,7 +12,7 @@ import DemoVideo from '@/components/slack/DemoVideo';
 import { Card, CardTitle, IconTile, StepNumber } from '@/components/ui/card';
 import { PageHeader, Section, SectionHeader, quietLinkClass, textLinkClass } from '@/components/ui/Section';
 import type { ReactNode } from 'react';
-import { COMMUNITY_SLACK_URL, SIGN_IN_URL, SLACK_INSTALL_URL } from '@/lib/links';
+import { COMMUNITY_SLACK_URL, SLACK_INSTALL_URL, SUPPORT_EMAIL, SUPPORT_MAILTO, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
@@ -45,18 +45,16 @@ const howItWorks = [
   },
 ];
 
-const stepLinkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
-
 const setupSteps: { title: string; desc: ReactNode }[] = [
   {
-    title: 'Sign in with your work email',
+    title: 'Sign up with your work email',
     desc: (
       <>
-        Sign in to{' '}
-        <a href={SIGN_IN_URL} className={stepLinkClass}>
+        Sign up for{' '}
+        <a href={TRY_CLOUD_URL} className={textLinkClass}>
           FaultMaven Cloud
         </a>{' '}
-        with your work email. Your company account is created from your email domain, so a personal
+        with your work email, or sign in if you already have an account. Your company account is created from your email domain, so a personal
         address (gmail.com and the like) makes a private account your colleagues can&apos;t join.
       </>
     ),
@@ -66,12 +64,12 @@ const setupSteps: { title: string; desc: ReactNode }[] = [
     desc: (
       <>
         Install it from the{' '}
-        <a href={SLACK_INSTALL_URL} className={stepLinkClass}>
+        <a href={SLACK_INSTALL_URL} className={textLinkClass}>
           install page
         </a>
         . Slack shows exactly which permissions FaultMaven is asking for, and a workspace owner or
         admin approves them. Every scope FaultMaven requests, and why it needs it, is itemized in the{' '}
-        <Link href="/privacy/slack" className={stepLinkClass}>
+        <Link href="/privacy/slack" className={textLinkClass}>
           privacy policy
         </Link>
         .
@@ -84,8 +82,8 @@ const setupSteps: { title: string; desc: ReactNode }[] = [
       <>
         During beta we connect each workspace by hand, so that a team&apos;s cases land in that
         team&apos;s own account instead of a shared one. Email{' '}
-        <a href="mailto:support@faultmaven.ai" className={stepLinkClass}>
-          support@faultmaven.ai
+        <a href={SUPPORT_MAILTO} className={textLinkClass}>
+          {SUPPORT_EMAIL}
         </a>{' '}
         with your Slack workspace URL (for example, acme.slack.com), the work email you signed in
         with, and confirmation that you are an admin or owner of that workspace. We connect it and
@@ -190,7 +188,7 @@ export default function SlackAppPage() {
     <>
       <PageHeader
         eyebrow="FaultMaven for Slack"
-        title="The teammate who has seen every incident"
+        title="The teammate who knows every runbook"
         lead={
           <>
             <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">

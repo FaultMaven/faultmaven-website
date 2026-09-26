@@ -84,6 +84,10 @@ export const DISCUSSIONS_URL = `${ENGINE_REPO_URL}/discussions`;
 export const COMMUNITY_SLACK_URL =
   'https://join.slack.com/t/faultmaven-community/shared_invite/zt-493fv3w3o-mPBBI2v3mMYQKS4649mY1A';
 
+/** The support address: questions, bug and security reports, and connecting a Slack workspace. */
+export const SUPPORT_EMAIL = 'support@faultmaven.ai';
+export const SUPPORT_MAILTO = `mailto:${SUPPORT_EMAIL}`;
+
 /**
  * FaultMaven for Slack's install page. An installed workspace answers once it
  * is connected to its FaultMaven account, which during beta we do by hand
