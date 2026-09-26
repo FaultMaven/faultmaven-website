@@ -9,6 +9,8 @@ import {
 import Button from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
 import DemoVideo from '@/components/slack/DemoVideo';
+import { Card, CardTitle, IconTile, StepNumber } from '@/components/ui/card';
+import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
 import { COMMUNITY_SLACK_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -101,406 +103,362 @@ const slackIntegration = [
 
 const groundedIn = [
   {
-    icon: <Search className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    icon: <Search aria-hidden="true" />,
     title: 'Your data',
     desc: 'Logs, errors, configs, and files you share in the thread.',
   },
   {
-    icon: <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    icon: <BookOpen aria-hidden="true" />,
     title: 'Your runbooks',
     desc: 'Documentation and runbooks you have loaded into FaultMaven.',
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    icon: <ShieldCheck aria-hidden="true" />,
     title: 'Your past fixes',
     desc: 'Resolved cases become retrievable knowledge the next investigation starts from.',
   },
 ];
 
+const linkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
+const quietLinkClass = 'underline transition-colors hover:text-blue-600 dark:hover:text-blue-400';
+
+function NumberedSteps({ steps }: { steps: { title: string; desc: string }[] }) {
+  return (
+    <ol className="space-y-6">
+      {steps.map((step, idx) => (
+        <li key={step.title}>
+          <Card className="flex gap-6 md:p-6">
+            <StepNumber n={idx + 1} />
+            <div>
+              <CardTitle className="mb-2">{step.title}</CardTitle>
+              <p className="text-slate-600 dark:text-slate-400">{step.desc}</p>
+            </div>
+          </Card>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+// Semantic callouts: amber is a caution, blue is information, slate is a note.
+const CALLOUT = {
+  caution: 'border-amber-200 border-l-amber-500 bg-amber-50 dark:border-amber-900/40 dark:bg-amber-900/20',
+  info: 'border-blue-200 border-l-blue-500 bg-blue-50 dark:border-blue-900/40 dark:bg-blue-900/20',
+  note: 'border-slate-200 border-l-slate-400 bg-slate-50 dark:border-slate-700 dark:bg-slate-800/60',
+};
+
 export default function SlackAppPage() {
   return (
-    <main>
-      {/* Hero */}
-      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <span className="inline-block px-3 py-1 mb-6 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium">
-            FaultMaven for Slack
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            The teammate who has seen every incident
-          </h1>
-          <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            Troubleshooting, worked in the thread where it started.
-          </p>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
-            An AI troubleshooting copilot that works a problem the way a seasoned
-            engineer does — and does it where your team is already working. It
-            runs the investigation: triage, hypotheses, targeted data requests,
-            a verified fix.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
-              Try it in the Community Slack
-            </Button>
-            <Button asChild href="/product" variant="secondary">
-              See How It Works
-            </Button>
-          </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-6">
-            FaultMaven is already in the community workspace, so you can put a
-            real problem to it with no account and nothing installed. Want it in
-            your own workspace? During beta we connect workspaces by hand, so
-            your cases stay in your own account — ask us in the community
-            workspace and we will set it up.
-          </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
-            <Link href="/privacy/slack" className="underline hover:text-[#2563EB]">
-              Privacy Policy
-            </Link>
-            {' · '}
-            <Link href="/support" className="underline hover:text-[#2563EB]">
-              Support
-            </Link>
-            {' · '}
-            <Link href="/terms" className="underline hover:text-[#2563EB]">
-              Terms of Service
-            </Link>
-          </p>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        eyebrow="FaultMaven for Slack"
+        title="The teammate who has seen every incident"
+        lead={
+          <>
+            <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">
+              Troubleshooting, worked in the thread where it started.
+            </p>
+            <p className="text-lg">
+              An AI troubleshooting copilot that works a problem the way a seasoned
+              engineer does — and does it where your team is already working. It
+              runs the investigation: triage, hypotheses, targeted data requests,
+              a verified fix.
+            </p>
+          </>
+        }
+        footnote={
+          <>
+            <p>
+              FaultMaven is already in the community workspace, so you can put a
+              real problem to it with no account and nothing installed. Want it in
+              your own workspace? During beta we connect workspaces by hand, so
+              your cases stay in your own account — ask us in the community
+              workspace and we will set it up.
+            </p>
+            <p>
+              <Link href="/privacy/slack" className={quietLinkClass}>
+                Privacy Policy
+              </Link>
+              {' · '}
+              <Link href="/support" className={quietLinkClass}>
+                Support
+              </Link>
+              {' · '}
+              <Link href="/terms" className={quietLinkClass}>
+                Terms of Service
+              </Link>
+            </p>
+          </>
+        }
+      >
+        <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
+          Try it in the Community Slack
+        </Button>
+        <Button asChild href="/product" variant="secondary">
+          See How It Works
+        </Button>
+      </PageHeader>
 
       {/* What it is */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-8">
-            What FaultMaven is
-          </h2>
-          <div className="space-y-5 text-lg text-slate-700 dark:text-slate-300">
-            <p>
-              FaultMaven is an AI troubleshooting copilot for engineering
-              teams. You bring it a symptom — an error, a log, a failing
-              deploy, an alert nobody can explain — and it works the problem the
-              way an experienced engineer would, rather than returning a single
-              guess and stopping.
-            </p>
-            <p>
-              Concretely, that means it triages what actually failed before
-              proposing anything; forms competing hypotheses and tracks its
-              confidence in each; asks you for the specific piece of data
-              that would confirm or eliminate one of them; and keeps going until
-              a root cause is identified and the fix is verified. When a case
-              resolves, it can capture what was learned as a runbook, so the
-              next investigation starts from it instead of from scratch.
-            </p>
-            <p>
-              The Slack app is the team-facing front end for that engine. It
-              exists because troubleshooting already happens in Slack — someone
-              pastes a stack trace into a channel and three people start
-              guessing. FaultMaven joins that thread as a participant: it reads
-              the data shared in the thread, replies in the thread, and
-              keeps one investigation per thread so parallel incidents stay
-              separate. It reasons over your logs, errors, and configs alongside
-              the runbooks and past fixes your team has accumulated.
-            </p>
-            <p>
-              It is a copilot, not an autopilot. FaultMaven has no credentials
-              to your infrastructure and takes no action on your systems. It
-              proposes; you approve and execute.
-            </p>
-          </div>
+      <Section width="prose">
+        <SectionHeader align="left" title="What FaultMaven is" className="md:mb-8" />
+        <div className="space-y-5 text-lg text-slate-700 dark:text-slate-300">
+          <p>
+            FaultMaven is an AI troubleshooting copilot for engineering
+            teams. You bring it a symptom — an error, a log, a failing
+            deploy, an alert nobody can explain — and it works the problem the
+            way an experienced engineer would, rather than returning a single
+            guess and stopping.
+          </p>
+          <p>
+            Concretely, that means it triages what actually failed before
+            proposing anything; forms competing hypotheses and tracks its
+            confidence in each; asks you for the specific piece of data
+            that would confirm or eliminate one of them; and keeps going until
+            a root cause is identified and the fix is verified. When a case
+            resolves, it can capture what was learned as a runbook, so the
+            next investigation starts from it instead of from scratch.
+          </p>
+          <p>
+            The Slack app is the team-facing front end for that engine. It
+            exists because troubleshooting already happens in Slack — someone
+            pastes a stack trace into a channel and three people start
+            guessing. FaultMaven joins that thread as a participant: it reads
+            the data shared in the thread, replies in the thread, and
+            keeps one investigation per thread so parallel incidents stay
+            separate. It reasons over your logs, errors, and configs alongside
+            the runbooks and past fixes your team has accumulated.
+          </p>
+          <p>
+            It is a copilot, not an autopilot. FaultMaven has no credentials
+            to your infrastructure and takes no action on your systems. It
+            proposes; you approve and execute.
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Setup */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
-            Setting it up
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto text-center">
-            Four steps. The first one is a conversation, because during beta we
-            connect workspaces by hand.
+      <Section tone="muted" width="narrow">
+        <SectionHeader
+          title="Setting it up"
+          lead="Four steps. The first one is a conversation, because during beta we connect workspaces by hand."
+        />
+        <NumberedSteps steps={setupSteps} />
+        <Card className="mt-10 md:p-6">
+          <CardTitle className="mb-3 text-lg">How FaultMaven is triggered — and how it is not</CardTitle>
+          <p className="mb-4 text-slate-600 dark:text-slate-400">
+            FaultMaven is summon-only. It acts when you call it and stays out
+            of the way otherwise.
           </p>
-          <div className="space-y-6">
-            {setupSteps.map((step, idx) => (
-              <div
-                key={step.title}
-                className="flex gap-6 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
-              >
-                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center">
-                  {idx + 1}
-                </span>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-3">
-              How FaultMaven is triggered — and how it is not
-            </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-4">
-              FaultMaven is summon-only. It acts when you call it and stays out
-              of the way otherwise.
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
-              <li>
-                <strong>@mentions</strong> — the primary trigger. @mention
-                FaultMaven in a channel thread to start an investigation, then
-                simply reply in that thread to continue it; no further @mention
-                is needed.
-              </li>
-              <li>
-                <strong>The &quot;Ask FaultMaven&quot; message shortcut</strong>{' '}
-                — available from the &quot;More actions&quot; menu on any
-                message.
-              </li>
-              <li>
-                <strong>Direct messages</strong> — message FaultMaven directly
-                to work a problem privately.
-              </li>
-              <li>
-                <strong>No slash commands.</strong> FaultMaven does not register
-                any; there is no <code>/faultmaven</code> command to remember.
-              </li>
-              <li>
-                <strong>No automatic channel responses.</strong> FaultMaven
-                never replies on its own to channel chatter. It acts only on a
-                summons or on a reply inside a thread it is already
-                investigating — every other message is discarded.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+          <ul className="list-disc space-y-2 pl-5 text-slate-600 marker:text-blue-600 dark:text-slate-400">
+            <li>
+              <strong>@mentions</strong> — the primary trigger. @mention
+              FaultMaven in a channel thread to start an investigation, then
+              simply reply in that thread to continue it; no further @mention
+              is needed.
+            </li>
+            <li>
+              <strong>The &quot;Ask FaultMaven&quot; message shortcut</strong>{' '}
+              — available from the &quot;More actions&quot; menu on any
+              message.
+            </li>
+            <li>
+              <strong>Direct messages</strong> — message FaultMaven directly
+              to work a problem privately.
+            </li>
+            <li>
+              <strong>No slash commands.</strong> FaultMaven does not register
+              any; there is no <code>/faultmaven</code> command to remember.
+            </li>
+            <li>
+              <strong>No automatic channel responses.</strong> FaultMaven
+              never replies on its own to channel chatter. It acts only on a
+              summons or on a reply inside a thread it is already
+              investigating — every other message is discarded.
+            </li>
+          </ul>
+        </Card>
+      </Section>
 
       {/* How it works a case */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-12 text-center">
-            How it works a case
-          </h2>
-          <div className="space-y-6">
-            {howItWorks.map((step, idx) => (
-              <div
-                key={step.title}
-                className="flex gap-6 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
-              >
-                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center">
-                  {idx + 1}
-                </span>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400">{step.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section width="narrow">
+        <SectionHeader title="How it works a case" />
+        <NumberedSteps steps={howItWorks} />
+      </Section>
 
       {/* Watch it work — real recording, audio removed */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-            Watch it work a case
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-3">
-            A screen recording of the whole thing, uncut: a PagerDuty alert lands in a channel, the
-            investigation runs in a thread, and the case ends with its evidence, the hypotheses it
-            considered, and an offer to turn the result into a runbook. Two and a half minutes, start to
-            finish.
-          </p>
-          <p className="text-slate-600 dark:text-slate-400 mb-8">
-            The part worth watching for is what happens after the certificate is found to have expired.
-            That is the obvious answer, and FaultMaven takes it and keeps going &mdash; asking why
-            auto-renewal failed, because the expiry is the mechanism and not yet the cause.
-          </p>
+      <Section tone="muted" width="narrow">
+        <SectionHeader
+          align="left"
+          title="Watch it work a case"
+          className="md:mb-8"
+          lead={
+            <>
+              <p>
+                A screen recording of the whole thing, uncut: a PagerDuty alert lands in a channel, the
+                investigation runs in a thread, and the case ends with its evidence, the hypotheses it
+                considered, and an offer to turn the result into a runbook. Two and a half minutes, start to
+                finish.
+              </p>
+              <p className="text-base">
+                The part worth watching for is what happens after the certificate is found to have expired.
+                That is the obvious answer, and FaultMaven takes it and keeps going &mdash; asking why
+                auto-renewal failed, because the expiry is the mechanism and not yet the cause.
+              </p>
+            </>
+          }
+        />
 
-          {/* max-w-4xl less its gutters: 848px at most. */}
-          <DemoVideo sizes="(min-width: 896px) 848px, calc(100vw - 48px)" />
+        {/* max-w-4xl less its gutters: 848px at most. */}
+        <DemoVideo sizes="(min-width: 896px) 848px, calc(100vw - 48px)" />
 
-          <p className="mt-5 text-sm text-slate-500 dark:text-slate-500 leading-relaxed">
-            Recorded in a real workspace and left uncut. There is no soundtrack &mdash; it was recorded
-            with narration and the narration was not good enough to ship, so it is gone rather than
-            polished. Everything the recording shows is on screen. If you would rather read than watch,
-            the{' '}
-            <Link href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
-              full transcript of a different case
-            </Link>{' '}
-            is here in text, including the points where it declines to conclude.
-          </p>
-        </div>
-      </section>
+        <p className="mt-5 text-sm leading-relaxed text-slate-500 dark:text-slate-500">
+          Recorded in a real workspace and left uncut. There is no soundtrack &mdash; it was recorded
+          with narration and the narration was not good enough to ship, so it is gone rather than
+          polished. Everything the recording shows is on screen. If you would rather read than watch,
+          the{' '}
+          <Link href="/investigation" className={linkClass}>
+            full transcript of a different case
+          </Link>{' '}
+          is here in text, including the points where it declines to conclude.
+        </p>
+      </Section>
 
       {/* Slack integration detail */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
-            How it fits into Slack
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto text-center">
-            Where each capability actually lands in your workspace.
-          </p>
-          <dl className="divide-y divide-slate-200 dark:divide-slate-800 border-y border-slate-200 dark:border-slate-800">
-            {slackIntegration.map((row) => (
-              <div key={row.surface} className="py-6 md:flex md:gap-8">
-                <dt className="font-bold text-slate-900 dark:text-slate-100 md:w-56 md:flex-shrink-0 mb-2 md:mb-0">
-                  {row.surface}
-                </dt>
-                <dd className="text-slate-600 dark:text-slate-400">
-                  {row.detail}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+      <Section width="narrow">
+        <SectionHeader title="How it fits into Slack" lead="Where each capability actually lands in your workspace." />
+        <dl className="divide-y divide-slate-200 border-y border-slate-200 dark:divide-slate-800 dark:border-slate-800">
+          {slackIntegration.map((row) => (
+            <div key={row.surface} className="py-6 md:flex md:gap-8">
+              <dt className="mb-2 font-semibold text-slate-900 md:mb-0 md:w-56 md:flex-shrink-0 dark:text-slate-100">
+                {row.surface}
+              </dt>
+              <dd className="text-slate-600 dark:text-slate-400">{row.detail}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
 
       {/* Grounded in */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4 text-center">
-            Grounded in what your team already knows
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto text-center">
-            FaultMaven reasons from your own material, and shows the evidence
-            behind every step.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {groundedIn.map((item) => (
-              <div key={item.title} className="text-center">
-                <div className="flex justify-center mb-4">{item.icon}</div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+      <Section tone="muted">
+        <SectionHeader
+          title="Grounded in what your team already knows"
+          lead="FaultMaven reasons from your own material, and shows the evidence behind every step."
+        />
+        <div className="grid gap-8 md:grid-cols-3">
+          {groundedIn.map((item) => (
+            <Card key={item.title}>
+              <IconTile>{item.icon}</IconTile>
+              <CardTitle className="mb-2">{item.title}</CardTitle>
+              <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+            </Card>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Required disclaimers */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-10 text-center">
-            Three things to know first
-          </h2>
-          <div className="space-y-6">
-            <div className="p-8 rounded-xl border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/40">
-              <div className="flex items-center gap-3 mb-3">
-                <AlertTriangle className="w-6 h-6 text-amber-600 dark:text-amber-400 flex-shrink-0" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-                  AI accuracy
-                </h3>
-              </div>
-              <p className="text-slate-700 dark:text-slate-300">
-                FaultMaven is powered by large language models. Its output —
-                including its triage, its hypotheses, the data it asks for,
-                and the fixes it proposes — may be incomplete, misleading, or
-                simply wrong, and it can be confidently wrong. Treat every
-                response as a suggestion from a colleague you have not verified
-                yet, not as an authoritative answer. Review and validate before
-                acting on production systems. FaultMaven proposes; you approve
-                and execute.
-              </p>
+      <Section width="prose">
+        <SectionHeader title="Three things to know first" />
+        <div className="space-y-6">
+          <div className={`rounded-xl border border-l-4 p-6 md:p-8 ${CALLOUT.caution}`}>
+            <div className="mb-3 flex items-center gap-3">
+              <AlertTriangle aria-hidden="true" className="h-6 w-6 flex-shrink-0 text-amber-600 dark:text-amber-400" />
+              <CardTitle>AI accuracy</CardTitle>
             </div>
-            <div className="p-8 rounded-xl border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-900/40">
-              <div className="flex items-center gap-3 mb-3">
-                <CreditCard className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-                  A paid Slack plan is required for the AI agent container
-                </h3>
-              </div>
-              <p className="text-slate-700 dark:text-slate-300">
-                Slack&apos;s AI agent container — the dedicated assistant panel
-                that opens alongside your conversation — is a paid Slack
-                feature. Reaching FaultMaven there requires a paid Slack
-                subscription (Pro, Business+, or Enterprise Grid).
-              </p>
-              <p className="text-slate-700 dark:text-slate-300 mt-4">
-                FaultMaven&apos;s other surfaces do not depend on that
-                container: <strong>@mentioning FaultMaven in a channel
-                thread</strong> and the <strong>&quot;Ask FaultMaven&quot;
-                message shortcut</strong> work on any Slack plan, including
-                free. Those are the primary ways teams use it, so a free
-                workspace can still run full investigations.
-              </p>
+            <p className="text-slate-700 dark:text-slate-300">
+              FaultMaven is powered by large language models. Its output —
+              including its triage, its hypotheses, the data it asks for,
+              and the fixes it proposes — may be incomplete, misleading, or
+              simply wrong, and it can be confidently wrong. Treat every
+              response as a suggestion from a colleague you have not verified
+              yet, not as an authoritative answer. Review and validate before
+              acting on production systems. FaultMaven proposes; you approve
+              and execute.
+            </p>
+          </div>
+          <div className={`rounded-xl border border-l-4 p-6 md:p-8 ${CALLOUT.info}`}>
+            <div className="mb-3 flex items-center gap-3">
+              <CreditCard aria-hidden="true" className="h-6 w-6 flex-shrink-0 text-blue-600 dark:text-blue-400" />
+              <CardTitle>A paid Slack plan is required for the AI agent container</CardTitle>
             </div>
-            <div className="p-8 rounded-xl border-l-4 border-slate-400 bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-3 mb-3">
-                <Users className="w-6 h-6 text-slate-600 dark:text-slate-300 flex-shrink-0" />
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-                  The community workspace is shared
-                </h3>
-              </div>
-              <p className="text-slate-700 dark:text-slate-300">
-                The community workspace is a public, shared space. Anything you
-                post there is visible to the other people in it, and the
-                investigations it produces run under a FaultMaven-managed
-                account rather than one of your own. It is the right place to
-                put a real but unremarkable problem to FaultMaven and see how it
-                works — not the place for production secrets or customer data.
-              </p>
-              <p className="text-slate-700 dark:text-slate-300 mt-4">
-                Your own workspace is different: during beta we connect those by
-                hand, precisely so your team&apos;s cases stay in your own
-                account. Ask in the community workspace and we will walk you
-                through it.
-              </p>
+            <p className="text-slate-700 dark:text-slate-300">
+              Slack&apos;s AI agent container — the dedicated assistant panel
+              that opens alongside your conversation — is a paid Slack
+              feature. Reaching FaultMaven there requires a paid Slack
+              subscription (Pro, Business+, or Enterprise Grid).
+            </p>
+            <p className="mt-4 text-slate-700 dark:text-slate-300">
+              FaultMaven&apos;s other surfaces do not depend on that
+              container: <strong>@mentioning FaultMaven in a channel
+              thread</strong> and the <strong>&quot;Ask FaultMaven&quot;
+              message shortcut</strong> work on any Slack plan, including
+              free. Those are the primary ways teams use it, so a free
+              workspace can still run full investigations.
+            </p>
+          </div>
+          <div className={`rounded-xl border border-l-4 p-6 md:p-8 ${CALLOUT.note}`}>
+            <div className="mb-3 flex items-center gap-3">
+              <Users aria-hidden="true" className="h-6 w-6 flex-shrink-0 text-slate-600 dark:text-slate-300" />
+              <CardTitle>The community workspace is shared</CardTitle>
             </div>
+            <p className="text-slate-700 dark:text-slate-300">
+              The community workspace is a public, shared space. Anything you
+              post there is visible to the other people in it, and the
+              investigations it produces run under a FaultMaven-managed
+              account rather than one of your own. It is the right place to
+              put a real but unremarkable problem to FaultMaven and see how it
+              works — not the place for production secrets or customer data.
+            </p>
+            <p className="mt-4 text-slate-700 dark:text-slate-300">
+              Your own workspace is different: during beta we connect those by
+              hand, precisely so your team&apos;s cases stay in your own
+              account. Ask in the community workspace and we will walk you
+              through it.
+            </p>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Trust + links */}
-      <section className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
-            You stay in command
-          </h2>
-          <p className="text-lg text-slate-700 dark:text-slate-300 mb-6 text-center">
-            FaultMaven suggests; you approve and execute. It has no access to
-            your infrastructure and takes no action on your systems. Data you
-            share is processed to run the investigation and nothing else — see
-            the{' '}
-            <Link href="/privacy/slack" className="text-blue-600 dark:text-blue-400">
-              FaultMaven for Slack privacy policy
-            </Link>{' '}
-            for exactly what it accesses and why.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
-              Try it in the Community Slack
-            </Button>
-            <Button asChild href="/support" variant="secondary">
-              Get support
-            </Button>
-          </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-8 text-center">
-            <Link href="/privacy/slack" className="hover:text-[#2563EB]">
-              Privacy Policy
-            </Link>
-            {' · '}
-            <Link href="/terms" className="hover:text-[#2563EB]">
-              Terms of Service
-            </Link>
-            {' · '}
-            <Link href="/support" className="hover:text-[#2563EB]">
-              Support
-            </Link>
-          </p>
+      <Section tone="muted" width="prose">
+        <SectionHeader
+          title="You stay in command"
+          className="md:mb-10"
+          lead={
+            <p className="text-slate-700 dark:text-slate-300">
+              FaultMaven suggests; you approve and execute. It has no access to
+              your infrastructure and takes no action on your systems. Data you
+              share is processed to run the investigation and nothing else — see
+              the{' '}
+              <Link href="/privacy/slack" className={linkClass}>
+                FaultMaven for Slack privacy policy
+              </Link>{' '}
+              for exactly what it accesses and why.
+            </p>
+          }
+        />
+        <div className="flex flex-col justify-center gap-4 sm:flex-row">
+          <Button asChild href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" variant="primary">
+            Try it in the Community Slack
+          </Button>
+          <Button asChild href="/support" variant="secondary">
+            Get support
+          </Button>
         </div>
-      </section>
-    </main>
+        <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+          <Link href="/privacy/slack" className={quietLinkClass}>
+            Privacy Policy
+          </Link>
+          {' · '}
+          <Link href="/terms" className={quietLinkClass}>
+            Terms of Service
+          </Link>
+          {' · '}
+          <Link href="/support" className={quietLinkClass}>
+            Support
+          </Link>
+        </p>
+      </Section>
+    </>
   );
 }

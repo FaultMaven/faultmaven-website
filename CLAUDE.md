@@ -71,6 +71,20 @@ Imports use `@/*` → `src/*` (`tsconfig.json`, mirrored in `jest.config.js`).
   link the Quick Start directly).
 - **Retired routes** get a redirect in `next.config.js`, covered by `tests/redirects.test.ts`.
 
+## Page layout and style
+
+- Pages are built from `src/components/ui/Section.tsx` (`PageHeader`, `Section`,
+  `SectionHeader`, `Eyebrow`, `Badge`, `proseClass`) and `src/components/ui/card.tsx`
+  (`Card`, `CardTitle`, `IconTile`, `StepNumber`, `CheckList`, `CodeBlock`). An interior
+  page opens with a `PageHeader`; its `Section`s alternate `white` and `muted` tones.
+  Spacing, widths and heading sizes live in those components, not in pages.
+- Blue (`blue-600`) is the one accent. Green marks status (something available now, a
+  case state), amber a caution; neither is decoration.
+- The site has one theme: `color-scheme` is `light`, and nothing sets the `dark` class
+  (`darkMode: 'class'`), so the `dark:` variants in the code are inert.
+- Inter is served from this origin by `next/font/local` (`src/app/fonts`, SIL OFL), so
+  the CSP admits no font or stylesheet host.
+
 ## Rendering and SEO
 
 - Pages are meant to be static: in the `next build` route table only `/api/*` may be

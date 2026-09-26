@@ -1,85 +1,54 @@
-'use client';
+import { Section, SectionHeader } from '@/components/ui/Section';
+
+const rows: { feature: string; generic: string; faultmaven: string | null }[] = [
+  { feature: "Input", generic: "Copy-paste snippets manually", faultmaven: null },
+  { feature: "Direction", generic: "Answers the question you asked", faultmaven: "Drives the investigation to the next decisive step" },
+  { feature: "Certainty", generic: "Confidently guesses, even when wrong", faultmaven: "Won't present a root cause it can't back with evidence from your data — and drops a \"confirmed\" cause the moment a fix fails" },
+  { feature: "Context", generic: "Training data only", faultmaven: "Your full stack (code + config + telemetry)" },
+  { feature: "Memory", generic: "Forgets when you close the tab", faultmaven: "Persistent knowledge base (RAG)" },
+  { feature: "Learning", generic: "Static", faultmaven: "Grows smarter with every resolved incident" },
+  { feature: "Security", generic: "Data may train public models", faultmaven: "Self-hosted store on your own disk; optional PII redaction; never trains on your data" },
+  { feature: "Deployment", generic: "Cloud-only", faultmaven: "Run it yourself, or let us run it for you — same engine" },
+];
 
 export default function ComparisonSection() {
   return (
-    <section className="py-24 bg-white dark:bg-slate-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
-          FaultMaven vs. Generic AI
-        </h2>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto text-center font-medium">
-          ChatGPT is a great research assistant. It&apos;s a terrible SRE.
-        </p>
+    <Section tone="muted">
+      <SectionHeader title="FaultMaven vs. Generic AI" lead="ChatGPT is a great research assistant. It's a terrible SRE." />
 
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                <th className="text-left py-4 px-4 font-semibold text-slate-900 dark:text-slate-100 min-w-[150px]">Feature</th>
-                <th className="text-left py-4 px-4 font-semibold text-slate-500 dark:text-slate-400">Generic LLMs (ChatGPT/Claude)</th>
-                <th className="text-left py-4 px-4 font-semibold text-blue-600 dark:text-blue-400">FaultMaven</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Input</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Copy-paste snippets manually</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
-                  Auto-ingest logs, files, metrics, configs*
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    *Automatically processes context you share (paste, upload, or page capture)
-                  </div>
+      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <table className="w-full border-collapse text-left">
+          <thead>
+            <tr className="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-800/50">
+              <th scope="col" className="min-w-[150px] px-6 py-4 font-semibold text-slate-900 dark:text-slate-100">Feature</th>
+              <th scope="col" className="px-6 py-4 font-semibold text-slate-500 dark:text-slate-400">Generic LLMs (ChatGPT/Claude)</th>
+              <th scope="col" className="px-6 py-4 font-semibold text-blue-600 dark:text-blue-400">FaultMaven</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            {rows.map((r) => (
+              <tr key={r.feature}>
+                <th scope="row" className="px-6 py-4 font-medium text-slate-900 dark:text-slate-100">{r.feature}</th>
+                <td className="px-6 py-4 text-slate-600 dark:text-slate-400">{r.generic}</td>
+                <td className="px-6 py-4 text-slate-900 dark:text-slate-100">
+                  {r.faultmaven ?? (
+                    <>
+                      Auto-ingest logs, files, metrics, configs*
+                      <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                        *Automatically processes context you share (paste, upload, or page capture)
+                      </div>
+                    </>
+                  )}
                 </td>
               </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Direction</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Answers the question you asked</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
-                  Drives the investigation to the next decisive step
-                </td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Certainty</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Confidently guesses, even when wrong</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">
-                  Won&apos;t present a root cause it can&apos;t back with evidence from your data — and drops a &quot;confirmed&quot; cause the moment a fix fails
-                </td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Context</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Training data only</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Your full stack (code + config + telemetry)</td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Memory</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Forgets when you close the tab</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Persistent knowledge base (RAG)</td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Learning</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Static</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Grows smarter with every resolved incident</td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Security</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Data may train public models</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Self-hosted store on your own disk; optional PII redaction; never trains on your data</td>
-              </tr>
-              <tr className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                <td className="py-4 px-4 font-medium text-slate-900 dark:text-slate-100">Deployment</td>
-                <td className="py-4 px-4 text-slate-600 dark:text-slate-400">Cloud-only</td>
-                <td className="py-4 px-4 text-slate-900 dark:text-slate-100">Run it yourself, or let us run it for you — same engine</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-12 p-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <p className="text-center text-lg text-slate-700 dark:text-slate-300 font-medium">
-            FaultMaven isn&apos;t a better chatbot. It&apos;s a different tool entirely.
-          </p>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </section>
+
+      <p className="mt-12 rounded-xl border border-blue-200 bg-blue-50 p-6 text-center text-lg font-medium text-slate-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-slate-300">
+        FaultMaven isn&apos;t a better chatbot. It&apos;s a different tool entirely.
+      </p>
+    </Section>
   );
 }

@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { codeBlockClass } from '@/components/ui/card';
+import { Section, SectionHeader } from '@/components/ui/Section';
 
 const REPO = 'https://github.com/FaultMaven/faultmaven/blob/main';
 const STORE = `${REPO}/faultmaven/infrastructure/knowledge/knowledge_vector_store.py`;
@@ -88,100 +90,99 @@ const weights = [
 
 export default function RetrievalPipelineSection() {
   return (
-    <section className="py-24 bg-white dark:bg-slate-900">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-          What actually happens when you ask
-        </h2>
-        <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-          Start with a question, not necessarily a crisis. Share a log or point FaultMaven at a dashboard and
-          ask whether anything looks off; when something real surfaces it shifts from that inquiry into a
-          full investigation. Underneath, retrieval is not &ldquo;search the docs and hope&rdquo;. It is five
-          stages, and the constants below are the ones in the shipped code.
-        </p>
-
-        <div className="mt-14 space-y-12">
-          {stages.map((s) => (
-            <div key={s.n} className="grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-7">
-              <div className="font-mono text-sm font-bold text-blue-600 dark:text-blue-400 pt-1 tabular-nums">
-                {s.n}
-              </div>
-              <div className="border-l border-slate-200 dark:border-slate-800 pl-5 md:pl-7 -ml-px pb-2">
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">{s.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed [&_code]:font-mono [&_code]:text-[0.87em] [&_code]:bg-slate-100 [&_code]:dark:bg-slate-800 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded">
-                  {s.body}
-                </p>
-
-                {s.code ? (
-                  <pre className="mt-4 overflow-x-auto rounded-md bg-slate-900 dark:bg-slate-950 border border-slate-700 p-4">
-                    <code className="font-mono text-[12.5px] leading-relaxed text-slate-100 whitespace-pre">
-                      {s.code}
-                    </code>
-                  </pre>
-                ) : null}
-
-                {s.table ? (
-                  <div className="mt-4 overflow-x-auto">
-                    <table className="w-full text-sm border-collapse">
-                      <thead>
-                        <tr className="border-b border-slate-300 dark:border-slate-700">
-                          <th className="text-left font-semibold text-slate-700 dark:text-slate-300 py-2 pr-4">
-                            Signal
-                          </th>
-                          <th className="text-right font-semibold text-slate-700 dark:text-slate-300 py-2 px-3 whitespace-nowrap">
-                            Prose query
-                          </th>
-                          <th className="text-right font-semibold text-slate-700 dark:text-slate-300 py-2 pl-3 whitespace-nowrap">
-                            Identifier query
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
-                        {weights.map(([sig, a, b]) => (
-                          <tr key={sig}>
-                            <td className="py-2 pr-4 text-slate-600 dark:text-slate-400">{sig}</td>
-                            <td className="py-2 px-3 text-right font-mono tabular-nums text-slate-700 dark:text-slate-300">
-                              {a}
-                            </td>
-                            <td className="py-2 pl-3 text-right font-mono tabular-nums text-slate-900 dark:text-slate-100 font-semibold">
-                              {b}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                ) : null}
-
-                {s.href ? (
-                  <a
-                    href={s.href}
-                    className="inline-block mt-3 text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium"
-                  >
-                    Read the source &rarr;
-                  </a>
-                ) : null}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-14 border-t border-slate-200 dark:border-slate-800 pt-6 text-sm text-slate-500 dark:text-slate-500 leading-relaxed">
+    <Section tone="muted" width="narrow">
+      <SectionHeader
+        align="left"
+        title="What actually happens when you ask"
+        lead={
           <p>
-            One precision, since the distinction matters to anyone who has built this: the lexical arm is a
-            contains-gate plus IDF-weighted term overlap, not true BM25 with term-frequency statistics — the
-            vector store does not expose them. It captures most of the value, which is refusing to lose exact
-            identifiers. A real BM25 index is still on the list. The full argument is in{' '}
-            <Link
-              href="/blog/rag-for-troubleshooting-knowledge"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              RAG for troubleshooting knowledge
-            </Link>
-            .
+            Start with a question, not necessarily a crisis. Share a log or point FaultMaven at a dashboard and
+            ask whether anything looks off; when something real surfaces it shifts from that inquiry into a
+            full investigation. Underneath, retrieval is not &ldquo;search the docs and hope&rdquo;. It is five
+            stages, and the constants below are the ones in the shipped code.
           </p>
-        </div>
+        }
+      />
+
+      <div className="space-y-12">
+        {stages.map((s) => (
+          <div key={s.n} className="grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-7">
+            <div className="font-mono text-sm font-bold text-blue-600 dark:text-blue-400 pt-1 tabular-nums">
+              {s.n}
+            </div>
+            <div className="border-l border-slate-200 dark:border-slate-800 pl-5 md:pl-7 -ml-px pb-2">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">{s.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed [&_code]:font-mono [&_code]:text-[0.87em] [&_code]:bg-white [&_code]:border [&_code]:border-slate-200 [&_code]:dark:bg-slate-800 [&_code]:dark:border-slate-700 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded">
+                {s.body}
+              </p>
+
+              {s.code ? (
+                <pre className={`mt-4 ${codeBlockClass}`}>
+                  <code className="whitespace-pre">{s.code}</code>
+                </pre>
+              ) : null}
+
+              {s.table ? (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="border-b border-slate-300 dark:border-slate-700">
+                        <th className="text-left font-semibold text-slate-700 dark:text-slate-300 py-2 pr-4">
+                          Signal
+                        </th>
+                        <th className="text-right font-semibold text-slate-700 dark:text-slate-300 py-2 px-3 whitespace-nowrap">
+                          Prose query
+                        </th>
+                        <th className="text-right font-semibold text-slate-700 dark:text-slate-300 py-2 pl-3 whitespace-nowrap">
+                          Identifier query
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                      {weights.map(([sig, a, b]) => (
+                        <tr key={sig}>
+                          <td className="py-2 pr-4 text-slate-600 dark:text-slate-400">{sig}</td>
+                          <td className="py-2 px-3 text-right font-mono tabular-nums text-slate-700 dark:text-slate-300">
+                            {a}
+                          </td>
+                          <td className="py-2 pl-3 text-right font-mono tabular-nums text-slate-900 dark:text-slate-100 font-semibold">
+                            {b}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : null}
+
+              {s.href ? (
+                <a
+                  href={s.href}
+                  className="inline-block mt-3 text-sm text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  Read the source &rarr;
+                </a>
+              ) : null}
+            </div>
+          </div>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-14 border-t border-slate-200 dark:border-slate-800 pt-6 text-sm text-slate-500 dark:text-slate-500 leading-relaxed">
+        <p>
+          One precision, since the distinction matters to anyone who has built this: the lexical arm is a
+          contains-gate plus IDF-weighted term overlap, not true BM25 with term-frequency statistics — the
+          vector store does not expose them. It captures most of the value, which is refusing to lose exact
+          identifiers. A real BM25 index is still on the list. The full argument is in{' '}
+          <Link
+            href="/blog/rag-for-troubleshooting-knowledge"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            RAG for troubleshooting knowledge
+          </Link>
+          .
+        </p>
+      </div>
+    </Section>
   );
 }

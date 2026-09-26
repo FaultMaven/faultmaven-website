@@ -2,7 +2,18 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/next';
+
+// Inter's variable font, Latin subset, served from this origin: every weight
+// the site uses (400 to 800, medium included) from one 48 KB file, with no
+// request to a font host. Licence: fonts/Inter-LICENSE.txt (SIL OFL 1.1).
+const inter = localFont({
+  src: './fonts/inter-latin.woff2',
+  weight: '100 900',
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -64,11 +75,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <head>
-        <meta name="color-scheme" content="light dark" />
+        {/* The site has one theme; `light dark` would draw dark scrollbars and
+            form controls on its light pages for a reader whose OS is dark. */}
+        <meta name="color-scheme" content="light" />
       </head>
-      <body className="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 flex flex-col min-h-screen">
+      <body className="bg-slate-50 font-sans text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50 flex flex-col min-h-screen">
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"

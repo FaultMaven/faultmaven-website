@@ -7,9 +7,11 @@
 // the page in the browser (`pnpm test:browser` catches that), an origin listed
 // here that nothing uses is a hole with no purpose.
 //
-//   fonts.googleapis.com / fonts.gstatic.com  the Inter @import in globals.css
-//   img.shields.io                            the last-commit badge on the home page
-//   /_vercel/insights/*                       Vercel Web Analytics (same origin)
+//   img.shields.io        the last-commit badge on the home page
+//   /_vercel/insights/*   Vercel Web Analytics (same origin)
+//
+// Inter is served from this origin by next/font/local (src/app/fonts), so
+// styles and fonts need no third-party origin.
 //
 // Scripts allow 'unsafe-inline' because Next inlines its hydration payload in
 // every page; the alternative, a per-request nonce, would turn every page
@@ -39,8 +41,8 @@ function securityHeaders(env = process.env) {
     "script-src 'self' 'unsafe-inline'" +
       (isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : '') +
       preview('https://vercel.live'),
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com" + preview('https://vercel.live'),
-    "font-src 'self' https://fonts.gstatic.com" + preview('https://vercel.live', 'https://assets.vercel.com'),
+    "style-src 'self' 'unsafe-inline'" + preview('https://vercel.live'),
+    "font-src 'self'" + preview('https://vercel.live', 'https://assets.vercel.com'),
     "img-src 'self' data: https://img.shields.io" + preview('https://vercel.live', 'https://vercel.com', 'blob:'),
     "connect-src 'self'" + preview('https://vercel.live', 'wss://ws-us3.pusher.com'),
     "frame-src 'self'" + preview('https://vercel.live'),

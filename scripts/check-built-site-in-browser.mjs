@@ -22,7 +22,7 @@ import { chromium } from 'playwright';
 
 const ROOT = process.cwd();
 const NEXT_DIR = path.join(ROOT, '.next');
-const ALLOWED_HOSTS = new Set(['fonts.googleapis.com', 'fonts.gstatic.com', 'img.shields.io']);
+const ALLOWED_HOSTS = new Set(['img.shields.io']);
 
 // Vercel serves /_vercel/insights/script.js on its platform; `next start`
 // answers 404. That is the local environment, not the policy, so it is not

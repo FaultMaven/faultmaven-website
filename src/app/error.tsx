@@ -1,20 +1,21 @@
 'use client'
 
 import Button from '@/components/ui/Button';
+import { PageHeader } from '@/components/ui/Section';
 
 export default function Error({ error, reset }: {
   error: Error
   reset: () => void
 }) {
   return (
-    <div className="grid min-h-screen place-items-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold text-red-600">Something went wrong!</h1>
-        <p className="mt-2 text-gray-600">{error.message}</p>
-        <Button onClick={() => reset()} variant="primary" className="mt-4">
-          Try Again
-        </Button>
-      </div>
-    </div>
-  )
+    <PageHeader
+      title="Something went wrong!"
+      lead={<p>{error.message}</p>}
+      className="border-b-0 md:pb-32"
+    >
+      <Button onClick={() => reset()} variant="primary">
+        Try Again
+      </Button>
+    </PageHeader>
+  );
 }

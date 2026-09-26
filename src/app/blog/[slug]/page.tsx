@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12 md:py-16">
+    <div className="bg-slate-50 py-12 md:py-16 dark:bg-slate-900">
       <article className="max-w-4xl mx-auto px-6">
         {/* Back Link */}
         <Link
@@ -67,7 +67,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </Link>
 
         {/* Article Header Header Card */}
-        <header className="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-12">
+        <header className="mb-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-12 dark:border-slate-800 dark:bg-slate-900">
           {/* Date & Reading Time */}
           <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-blue-600 dark:text-blue-400 mb-6">
             <div className="flex items-center gap-1.5 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full">
@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-slate-50 tracking-tight leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight leading-tight mb-6">
             {post.title}
           </h1>
 
@@ -113,22 +113,22 @@ export default async function BlogPostPage({ params }: PageProps) {
         </header>
 
         {/* Content Body */}
-        <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-14 border border-slate-200/80 dark:border-slate-700/80 shadow-sm mb-16">
+        <div className="mb-12 rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-12 dark:border-slate-800 dark:bg-slate-900">
           <ArticleBody html={post.contentHtml || ''} />
         </div>
 
         {/* Footer Navigation & CTA */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-slate-900 text-white rounded-2xl p-8 shadow-lg">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-xl border border-blue-200 bg-blue-50 p-8 md:flex-row dark:border-blue-900 dark:bg-blue-950/40">
           <div>
-            <h3 className="text-xl font-bold mb-2">Build Grounded AI Troubleshooting</h3>
-            <p className="text-sm text-slate-300">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Build Grounded AI Troubleshooting</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
               Deploy FaultMaven free, or read a real investigation end to end.
             </p>
           </div>
           <div className="flex items-center gap-4">
             <Link
               href="/blog"
-              className="text-sm font-semibold text-slate-300 hover:text-white transition-colors"
+              className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition-colors dark:text-slate-400 dark:hover:text-blue-400"
             >
               Back to Blog
             </Link>
@@ -138,6 +138,6 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </div>
       </article>
-    </main>
+    </div>
   );
 }

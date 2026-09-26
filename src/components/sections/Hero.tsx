@@ -1,23 +1,18 @@
-'use client';
-
 import Button from '../ui/Button';
 import DemoVideo from '../slack/DemoVideo';
+import { Badge } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900" aria-labelledby="hero-heading">
+    <section className="bg-slate-50 pt-16 pb-20 md:pt-24 md:pb-24 dark:bg-slate-900" aria-labelledby="hero-heading">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="text-left">
-            <div className="inline-block mb-4 px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full">
-              <span className="text-sm font-semibold text-green-600 dark:text-green-400">
-                Fair Source · Self-Hostable · No Production Credentials
-              </span>
-            </div>
+            <Badge className="mb-5">Fair Source · Self-Hostable · No Production Credentials</Badge>
             <h1
               id="hero-heading"
-              className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-50 leading-tight"
+              className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 text-slate-900 dark:text-slate-50"
             >
               The AI Troubleshooting Copilot — Run It Yourself, or Let Us Run It for You
             </h1>
@@ -63,14 +58,9 @@ export default function Hero() {
             caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
           />
         </div>
-        <div className="text-center mt-24">
-          <hr className="my-10 border-slate-200 dark:border-slate-700" />
-          <div className="mx-auto max-w-2xl mt-10">
-            <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              No magic. The evidence you share, the runbooks it retrieves, and a method it does not skip.
-            </p>
-          </div>
-        </div>
+        <p className="mt-16 border-t border-slate-200 pt-10 text-center text-sm leading-relaxed text-slate-500 md:mt-20 dark:border-slate-700 dark:text-slate-400">
+          No magic. The evidence you share, the runbooks it retrieves, and a method it does not skip.
+        </p>
       </div>
     </section>
   );
