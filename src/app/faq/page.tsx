@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/metadata';
 
 
 export const metadata = pageMetadata({
-  title: 'Frequently Asked Questions',
+  title: 'Frequently asked questions',
   description:
     'Quick answers to common questions about FaultMaven.',
   path: '/faq',
@@ -17,7 +17,7 @@ export default function FAQPage() {
     <>
       {/* Hero Section */}
       <PageHeader
-        title="Frequently Asked Questions"
+        title="Frequently asked questions"
         lead={<p>Quick answers to common questions about FaultMaven</p>}
       />
 
@@ -26,7 +26,7 @@ export default function FAQPage() {
           {/* Getting Started */}
           <div className="mb-16">
             <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
-              Getting Started
+              Getting started
             </h2>
             <div className="space-y-8">
               {/* Q1 */}
@@ -38,7 +38,7 @@ export default function FAQPage() {
                   FaultMaven is an AI troubleshooting copilot that helps engineers resolve incidents faster — run it yourself on your own hardware, or let us run it for you on FaultMaven Cloud. It correlates what you share—logs, metrics, traces, configs, and code—with a unified knowledge engine that combines global troubleshooting patterns with your team&apos;s institutional memory.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Think of it as an expert teammate who remembers every past incident, knows every runbook, and correlates what you give it in seconds.
+                  Think of it as an expert teammate who knows every runbook you have given it and correlates what you share in seconds.
                 </p>
               </div>
 
@@ -111,39 +111,39 @@ cd faultmaven
           {/* How It Works */}
           <div className="mb-16">
             <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
-              How It Works
+              How it works
             </h2>
             <div className="space-y-8">
               {/* Q5 */}
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                  What is the Tiered Knowledge Engine?
+                  How is FaultMaven&apos;s knowledge organized?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  The Tiered Knowledge Engine is what makes FaultMaven different from generic AI chatbots. It searches three layers of context when you ask a question:
+                  As runbooks — reusable procedures — kept at three scopes that differ only in who can see them. An investigation searches every scope you can see:
                 </p>
                 <ul className="space-y-2 ml-6 mb-3">
                   <li className="flex items-start gap-3">
                     <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Personal Context:</strong> <span className="text-slate-700 dark:text-slate-300">Your specific environment, recent changes, and local configurations</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Personal:</strong> <span className="text-slate-700 dark:text-slate-300">your own runbooks, written by you or generated from a case you resolved</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Runbooks, past incidents, post-mortems, and tribal knowledge — indexed in any deployment, shared across your team in Cloud</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Team:</strong> <span className="text-slate-700 dark:text-slate-300">personal runbooks you share with your team. Sharing needs multi-tenancy, so the team scope is a FaultMaven Cloud capability</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> carrying 641 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Global:</strong> <span className="text-slate-700 dark:text-slate-300">ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> carrying 550 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
                     </div>
                   </li>
                 </ul>
                 <p className="text-slate-700 dark:text-slate-300">
-                  The result: answers tailored to YOUR infrastructure, not generic StackOverflow suggestions.
+                  Knowledge is kept apart from evidence — the logs, metrics, and configs you share in a case. A runbook can suggest where to look; only the evidence says what is happening.
                 </p>
               </div>
 
@@ -163,7 +163,7 @@ cd faultmaven
                   What makes this better than ChatGPT or Claude?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  General-purpose AI has no memory of your infrastructure, your past incidents, or your team&apos;s solutions. FaultMaven does. It also stays in context—no switching tabs to paste logs into a separate chat window. The Copilot lives alongside your tools (Grafana, AWS Console, terminal) and correlates multiple data sources automatically.
+                  General-purpose AI has no access to your runbooks or your team&apos;s solutions, and nothing it learns in one conversation carries to the next. FaultMaven retrieves your runbooks on every investigation, and a case you resolve can become the next one. It also stays in context—no switching tabs to paste logs into a separate chat window. The Copilot lives alongside your tools (Grafana, AWS Console, terminal) and correlates multiple data sources automatically.
                 </p>
               </div>
             </div>
@@ -172,7 +172,7 @@ cd faultmaven
           {/* Security & Privacy */}
           <div className="mb-16">
             <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
-              Security &amp; Privacy
+              Security &amp; privacy
             </h2>
             <div className="space-y-8">
               {/* Q8 */}
@@ -226,7 +226,7 @@ cd faultmaven
           {/* Pricing & Plans */}
           <div className="mb-16">
             <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
-              Pricing &amp; Plans
+              Pricing &amp; plans
             </h2>
             <div className="space-y-8">
               {/* Q12 */}
@@ -296,7 +296,7 @@ cd faultmaven
                   Can I contribute to FaultMaven?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes! FaultMaven&apos;s source is public—the engine is fair source (FSL-1.1-ALv2), the frontends Apache 2.0. We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className={textLinkClass}>Contributing Guide</a>.
+                  Yes! FaultMaven&apos;s source is public—the engine is fair source (FSL-1.1-ALv2), the frontends Apache 2.0. We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className={textLinkClass}>Contributing guide</a>.
                 </p>
               </div>
             </div>
@@ -317,7 +317,7 @@ cd faultmaven
               GitHub Discussions
             </Button>
             <Button asChild href="/contact" variant="primary">
-              Contact Us
+              Contact us
             </Button>
           </div>
         </div>

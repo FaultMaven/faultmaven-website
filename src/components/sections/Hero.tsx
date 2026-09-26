@@ -14,7 +14,7 @@ export default function Hero() {
               id="hero-heading"
               className={`${pageTitleClass} mb-6`}
             >
-              The AI Troubleshooting Copilot — Run It Yourself, or Let Us Run It for You
+              The AI troubleshooting copilot — run it yourself, or let us run it for you
             </h1>
 
             <div className="text-lg md:text-xl mb-6 max-w-2xl text-slate-600 dark:text-slate-400 space-y-4">

@@ -11,9 +11,9 @@ const phases = [
 
 export default function VisionSnippet() {
   return (
-    <Section width="narrow">
+    <Section tone="muted" width="narrow">
       <SectionHeader
-        title="The Vision: Earned Autonomy"
+        title="The vision: earned autonomy"
         lead={
           <>
             <p className="font-medium text-slate-700 dark:text-slate-300">Trust first. Autonomy earned.</p>
@@ -34,7 +34,7 @@ export default function VisionSnippet() {
       </div>
       <div className="text-center">
         <Button asChild href="/roadmap" variant="secondary">
-          Read the Roadmap →
+          Read the roadmap →
         </Button>
       </div>
     </Section>

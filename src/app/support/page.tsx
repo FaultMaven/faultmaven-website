@@ -11,7 +11,7 @@ import {
 import Link from '@/components/ui/Link';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
 import { PageHeader, Section, sectionTitleClass, textLinkClass } from '@/components/ui/Section';
-import { DISCUSSIONS_URL } from '@/lib/links';
+import { DISCUSSIONS_URL, SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
@@ -21,7 +21,6 @@ export const metadata = pageMetadata({
   path: '/support',
 });
 
-const SUPPORT_EMAIL = 'support@faultmaven.ai';
 
 const emailTopics = [
   {
@@ -107,7 +106,7 @@ export default function SupportPage() {
         <div className="inline-flex flex-col items-center gap-3 rounded-xl border border-blue-200 bg-blue-50 px-10 py-8 dark:border-blue-900 dark:bg-blue-950/40">
           <Mail aria-hidden="true" className="h-8 w-8 text-blue-600 dark:text-blue-400" />
           <a
-            href={`mailto:${SUPPORT_EMAIL}`}
+            href={SUPPORT_MAILTO}
             className="break-all text-2xl font-bold text-blue-700 hover:underline md:text-3xl dark:text-blue-400"
           >
             {SUPPORT_EMAIL}
@@ -140,7 +139,7 @@ export default function SupportPage() {
           </div>
           <p className="text-center mt-10">
             <a
-              href={`mailto:${SUPPORT_EMAIL}`}
+              href={SUPPORT_MAILTO}
               className="text-lg font-semibold text-blue-600 dark:text-blue-400 hover:underline"
             >
               Email {SUPPORT_EMAIL}
@@ -207,7 +206,7 @@ export default function SupportPage() {
             We are a focused team and we read every message. Security reports
             are triaged ahead of everything else — send those to{' '}
             <a
-              href={`mailto:${SUPPORT_EMAIL}`}
+              href={SUPPORT_MAILTO}
               className={textLinkClass}
             >
               {SUPPORT_EMAIL}

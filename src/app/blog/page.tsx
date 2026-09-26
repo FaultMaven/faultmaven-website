@@ -18,7 +18,7 @@ export default function BlogIndexPage() {
   return (
     <>
       <PageHeader
-        title="FaultMaven Blog"
+        title="FaultMaven blog"
         lead={
           <p>
             Engineering insights, diagnostic methodologies, and perspectives on AI-powered incident investigation for engineers, SREs, and platform teams.
@@ -99,7 +99,7 @@ export default function BlogIndexPage() {
         {/* CTA Section */}
         <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 text-center md:p-12 dark:border-blue-900 dark:bg-blue-950/40">
           <h2 className={`${sectionTitleClass} mb-4`}>
-            Stay Ahead in AI-Powered Operations
+            Stay ahead in AI-powered operations
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 text-lg">
             Deploy FaultMaven Standalone free right now, or read a real investigation end to end and judge it for yourself.

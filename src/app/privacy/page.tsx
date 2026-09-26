@@ -1,5 +1,6 @@
 import { pageMetadata } from '@/lib/metadata';
 import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 
 export const metadata = pageMetadata({
   title: 'Privacy Policy',
@@ -36,7 +37,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h2 className={`${subsectionTitleClass} !mt-12 !mb-4`}>
-            1. Information We Collect (Pre-Launch Phase)
+            1. Information we collect (pre-launch phase)
           </h2>
           <p>
             As FaultMaven is currently in a pre-launch and development phase,
@@ -63,7 +64,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>2. How We Use Your Information</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>2. How we use your information</h2>
           <p>
             We use the information collected during this pre-launch phase to:
           </p>
@@ -83,7 +84,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p>We will not sell your personal information to third parties.</p>
 
-          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>3. Data Security</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>3. Data security</h2>
           <p>
             We are implementing reasonable administrative, technical, and
             physical security measures to help protect your information. While
@@ -93,7 +94,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
-            4. Product Data &amp; Related Policies
+            4. Product data &amp; related policies
           </h2>
           <p>
             This Privacy Policy primarily addresses data collected via our
@@ -116,18 +117,18 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>5. Your Choices &amp; Rights</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>5. Your choices &amp; rights</h2>
           <p>
             You may opt-out of any future email communications from us by
             following the unsubscribe link provided in our emails or by
             contacting us directly at{' '}
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>.
             Depending on your jurisdiction, you may have other rights
             regarding your personal data.
           </p>
 
           <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
-            6. Changes to This Privacy Policy
+            6. Changes to this Privacy Policy
           </h2>
           <p>
             We reserve the right to make changes to this Privacy Policy at any
@@ -135,14 +136,14 @@ export default function PrivacyPolicyPage() {
             updating the &quot;Last Updated&quot; date of this Privacy Policy.
           </p>
 
-          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>7. Contact Us</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>7. Contact us</h2>
           <p>
             If you have questions or comments about this Privacy Policy,
             please contact us at:
             <br />
             FaultMaven
             <br />
-            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+            <a href={SUPPORT_MAILTO}>{SUPPORT_EMAIL}</a>
           </p>
         </div>
       </Section>

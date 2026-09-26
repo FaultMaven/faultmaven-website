@@ -6,13 +6,13 @@ import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
 export default function ApproachSection() {
   return (
     <Section id="how-it-works" tone="muted">
-      <SectionHeader title="How FaultMaven Works" lead="What it reads, how it reasons, and where it runs." />
+      <SectionHeader title="How FaultMaven works" lead="What it reads, how it reasons, and where it runs." />
       <div className="grid gap-8 md:grid-cols-3">
         <Card>
           <IconTile>
             <IconChartBar aria-hidden="true" />
           </IconTile>
-          <CardTitle className="mb-3">Deep Context Awareness</CardTitle>
+          <CardTitle className="mb-3">Deep context awareness</CardTitle>
           <p className="text-slate-600 dark:text-slate-400">
             FaultMaven doesn&apos;t just read your error message—it correlates what you share across the stack: logs, metrics, traces, configs, and source code. It reasons a causal chain from the symptom to the system state that caused it, not just the error itself.
           </p>
@@ -21,7 +21,7 @@ export default function ApproachSection() {
           <IconTile>
             <IconSparkles aria-hidden="true" />
           </IconTile>
-          <CardTitle className="mb-3">It Says What It Cannot Prove</CardTitle>
+          <CardTitle className="mb-3">It says what it cannot prove</CardTitle>
           <p className="mb-4 text-slate-600 dark:text-slate-400">
             The failure mode of an AI in an incident is a confident wrong answer. FaultMaven separates
             what the evidence establishes from what it does not, and asks for the specific reading that
@@ -39,7 +39,7 @@ export default function ApproachSection() {
           <IconTile>
             <IconLink aria-hidden="true" />
           </IconTile>
-          <CardTitle className="mb-3">Zero Context-Switching</CardTitle>
+          <CardTitle className="mb-3">Zero context-switching</CardTitle>
           <p className="text-slate-600 dark:text-slate-400">
             The FaultMaven Copilot lives where you work—a browser side-panel alongside the AWS Console, Datadog, Grafana, your terminal, or localhost. The fix comes to the problem, not the other way around. No production API keys to hand over and no agents on your systems — the extension runs client-side and talks only to your own FaultMaven instance.
           </p>

@@ -3,6 +3,7 @@ import { Card, CardTitle, IconTile } from '@/components/ui/card';
 import { PageHeader, Section, SectionHeader, subsectionTitleClass } from '@/components/ui/Section';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
 import { pageMetadata } from '@/lib/metadata';
+import { SUPPORT_EMAIL, SUPPORT_MAILTO } from '@/lib/links';
 
 export const metadata = pageMetadata({
   title: 'Connect with FaultMaven',
@@ -37,13 +38,13 @@ const subjectLines = [
 const navCards = [
   {
     icon: <TrendingUp aria-hidden="true" />, 
-    title: 'Explore Our Vision',
+    title: 'Explore our vision',
     desc: 'See our long-term plans and product evolution.',
     href: '/roadmap',
   },
   {
     icon: <Users aria-hidden="true" />,
-    title: 'Get Support',
+    title: 'Get support',
     desc: 'Report a bug, or find out what to include when you do.',
     href: '/support',
   },
@@ -75,14 +76,14 @@ export default function ContactPage() {
             <IconTile>
               <Mail aria-hidden="true" />
             </IconTile>
-            <a href="mailto:support@faultmaven.ai" className="mb-2 text-2xl font-bold text-blue-700 hover:underline dark:text-blue-400">
-              support@faultmaven.ai
+            <a href={SUPPORT_MAILTO} className="mb-2 text-2xl font-bold text-blue-700 hover:underline dark:text-blue-400">
+              {SUPPORT_EMAIL}
             </a>
             <p className="text-lg text-slate-700 dark:text-slate-300">We&apos;d love to hear from you!</p>
           </Card>
           {/* Right: Subject Lines */}
           <Card>
-            <h2 className={`${subsectionTitleClass} mb-2`}>How to Reach Us</h2>
+            <h2 className={`${subsectionTitleClass} mb-2`}>How to reach us</h2>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
               When emailing us, please use one of the following subject lines to help us respond quickly:
             </p>
@@ -103,7 +104,7 @@ export default function ContactPage() {
 
       {/* Other ways to engage */}
       <Section tone="muted" width="narrow">
-        <SectionHeader title="More Ways to Connect" />
+        <SectionHeader title="More ways to connect" />
         <div className="grid gap-8 md:grid-cols-3">
           {navCards.map((card, idx) => (
             <Link key={idx} href={card.href} className="group block rounded-xl hover:no-underline">
@@ -121,7 +122,7 @@ export default function ContactPage() {
       <Section size="compact" width="narrow">
         <div className="flex flex-col items-center rounded-xl border border-blue-200 bg-blue-50 p-8 text-center dark:border-blue-900 dark:bg-blue-950/40">
           <HeartHandshake aria-hidden="true" className="mb-4 h-8 w-8 text-blue-600 dark:text-blue-400" />
-          <h2 className={`${subsectionTitleClass} mb-3`}>Our Commitment</h2>
+          <h2 className={`${subsectionTitleClass} mb-3`}>Our commitment</h2>
           <p className="mx-auto mb-2 max-w-2xl text-lg text-slate-700 dark:text-slate-300">
             We value your interest and aim to respond to all inquiries as promptly as possible. As we are a focused team in a dynamic development phase, please allow for a reasonable response time.
           </p>
