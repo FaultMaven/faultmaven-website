@@ -1,5 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 export type ButtonSize = 'md' | 'sm';
@@ -20,8 +21,11 @@ type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLAnchor
 
 type ButtonProps = NativeButtonProps | AnchorButtonProps;
 
+// The ring is for keyboard focus only. On plain :focus, a link clicked with
+// the mouse keeps its ring, and in the header, which survives client-side
+// navigation, keeps it on the next page too.
 export const buttonBase =
-  'inline-flex items-center justify-center font-medium rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2';
+  'inline-flex items-center justify-center font-medium rounded-md transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2';
 
 // The transparent border keeps a primary button the same height as a
 // secondary one beside it.
@@ -40,14 +44,14 @@ const sizeClasses: Record<ButtonSize, string> = {
   sm: 'px-4 py-2 text-sm',
 };
 
-// The same classes for a caller that renders its own element, e.g. a
-// next/link that should look like a button.
-export function buttonClasses(
-  variant: ButtonVariant = 'primary',
-  size: ButtonSize = 'md',
-  className?: string,
-) {
-  return clsx(buttonBase, variantClasses[variant], variant !== 'tertiary' && sizeClasses[size], className);
+// A page on this site navigates client-side through next/link. Another
+// origin, a protocol-relative URL, mailto: or a bare #fragment stays a plain
+// anchor, and so does a file (a path ending in an extension, such as the raw
+// transcript), which next/link would otherwise prefetch as a page.
+export function isSitePage(href: string) {
+  if (!href.startsWith('/') || href.startsWith('//')) return false;
+  const path = href.split(/[?#]/)[0];
+  return !/\.[a-z0-9]+$/i.test(path);
 }
 
 export default function Button({
@@ -59,10 +63,19 @@ export default function Button({
   children,
   ...props
 }: ButtonProps) {
-  const classes = buttonClasses(variant, size, className);
+  // cn, not clsx: a caller's class replaces the conflicting default rather
+  // than competing with it on stylesheet order.
+  const classes = cn(buttonBase, variantClasses[variant], variant !== 'tertiary' && sizeClasses[size], className);
   if (asChild && href) {
     // Render as a link, only spread anchor props
     const { type, ...anchorProps } = props as React.AnchorHTMLAttributes<HTMLAnchorElement>;
+    if (isSitePage(href)) {
+      return (
+        <Link href={href} className={classes} {...anchorProps}>
+          {children}
+        </Link>
+      );
+    }
     return (
       <a href={href} className={classes} {...anchorProps}>
         {children}
