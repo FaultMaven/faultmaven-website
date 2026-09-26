@@ -6,7 +6,6 @@ import TieredKnowledgeEngineSection from '@/components/sections/TieredKnowledgeE
 import RetrievalPipelineSection from '@/components/sections/RetrievalPipelineSection';
 import SurfacesSection from '@/components/sections/SurfacesSection';
 import ComparisonSection from '@/components/sections/ComparisonSection';
-import DeploymentOptionsSection from '@/components/sections/DeploymentOptionsSection';
 import OpenSourceTrustSection from '@/components/sections/OpenSourceTrustSection';
 import VisionSnippet from '@/components/sections/VisionSnippet';
 import FAQSnippet from '@/components/sections/FAQSnippet';
@@ -32,7 +31,6 @@ export default function Home() {
       <RetrievalPipelineSection />
       <SurfacesSection />
       <ComparisonSection />
-      <DeploymentOptionsSection />
       <OpenSourceTrustSection />
       <VisionSnippet />
       <FAQSnippet />

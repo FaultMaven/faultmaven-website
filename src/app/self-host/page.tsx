@@ -118,7 +118,7 @@ cp .env.example .env   # set one provider's API key
 
         <div className="border-t border-slate-200 dark:border-slate-700 pt-10 flex flex-col sm:flex-row gap-4">
           <Button asChild href={QUICKSTART_URL} variant="primary">
-            Open the full Quick Start on GitHub →
+            Open the full quick start on GitHub →
           </Button>
           <Button asChild href={ENGINE_REPO_URL} variant="secondary">
             Read the source

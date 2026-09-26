@@ -78,12 +78,18 @@ export const DISCUSSIONS_URL = `${ENGINE_REPO_URL}/discussions`;
 
 /**
  * The community workspace. FaultMaven is installed here, so someone can try it
- * with no account and nothing installed — and it is where the instructions for
- * getting FaultMaven into your own workspace live, because during beta that is
- * a conversation rather than a button.
+ * with no account and nothing installed. The steps for bringing it into your
+ * own workspace are on /slack and in the community workspace.
  */
 export const COMMUNITY_SLACK_URL =
   'https://join.slack.com/t/faultmaven-community/shared_invite/zt-493fv3w3o-mPBBI2v3mMYQKS4649mY1A';
+
+/**
+ * FaultMaven for Slack's install page. An installed workspace answers once it
+ * is connected to its FaultMaven account, which during beta we do by hand
+ * (the steps on /slack).
+ */
+export const SLACK_INSTALL_URL = 'https://slack.faultmaven.ai/slack/install';
 
 /** The published Copilot listing. One install serves Cloud or a self-hosted server. */
 export const CHROME_WEB_STORE_URL =

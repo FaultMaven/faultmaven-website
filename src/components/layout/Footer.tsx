@@ -49,7 +49,7 @@ export default function Footer() {
             <strong className="mb-4 block text-sm font-semibold text-slate-900 dark:text-slate-200">Product</strong>
             <ul className="space-y-3 text-sm">
               <li><Link href="/product" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Product</Link></li>
-              <li><Link href="/use-cases" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Use Cases</Link></li>
+              <li><Link href="/use-cases" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Use cases</Link></li>
               <li><Link href="/slack" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">FaultMaven for Slack</Link></li>
             </ul>
           </div>
@@ -58,9 +58,9 @@ export default function Footer() {
           <div>
             <strong className="mb-4 block text-sm font-semibold text-slate-900 dark:text-slate-200">Company</strong>
             <ul className="space-y-3 text-sm">
-              <li><Link href="/about" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">About Us</Link></li>
-              <li><Link href="/roadmap" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Our Vision</Link></li>
-              <li><Link href="/contact" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Contact Us</Link></li>
+              <li><Link href="/about" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">About us</Link></li>
+              <li><Link href="/roadmap" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Our vision</Link></li>
+              <li><Link href="/contact" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Contact us</Link></li>
             </ul>
           </div>
 
@@ -81,8 +81,8 @@ export default function Footer() {
             <strong className="mb-4 block text-sm font-semibold text-slate-900 dark:text-slate-200">Developer</strong>
             <ul className="space-y-3 text-sm">
               <li><a href={ENGINE_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">GitHub</a></li>
-              <li><Link href={SELF_HOST_PATH} className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Self-Hosting Guide</Link></li>
-              <li><a href="https://github.com/FaultMaven/faultmaven-website/issues" target="_blank" rel="noopener noreferrer" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Report Issue</a></li>
+              <li><Link href={SELF_HOST_PATH} className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Self-hosting guide</Link></li>
+              <li><a href="https://github.com/FaultMaven/faultmaven-website/issues" target="_blank" rel="noopener noreferrer" className="text-slate-600 transition-colors duration-200 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">Report issue</a></li>
             </ul>
           </div>
         </div>
@@ -95,9 +95,9 @@ export default function Footer() {
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
             <Link href="/privacy" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Privacy Policy</Link>
             {' · '}
-            <Link href="/privacy/extension" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Extension Privacy</Link>
+            <Link href="/privacy/extension" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Extension privacy</Link>
             {' · '}
-            <Link href="/privacy/slack" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Slack Privacy</Link>
+            <Link href="/privacy/slack" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Slack privacy</Link>
             {' · '}
             <Link href="/terms" className="transition-colors duration-200 hover:text-blue-600 dark:hover:text-blue-400">Terms of Service</Link>
           </p>

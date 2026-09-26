@@ -241,10 +241,10 @@ export default function PricingPage() {
           <p className="mb-4 text-slate-600 dark:text-slate-400">More questions?</p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button asChild href="/faq" variant="secondary">
-              View Full FAQ
+              View full FAQ
             </Button>
             <Button asChild href="/contact" variant="secondary">
-              Contact Us
+              Contact us
             </Button>
           </div>
         </div>

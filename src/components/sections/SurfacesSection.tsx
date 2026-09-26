@@ -50,12 +50,12 @@ export default function SurfacesSection() {
           </p>
         </Card>
 
-        {/* Slack agent — team */}
+        {/* FaultMaven for Slack — team */}
         <Card className="flex flex-col">
           <IconTile>
             <Slack aria-hidden="true" />
           </IconTile>
-          <CardTitle>FaultMaven Slack Agent</CardTitle>
+          <CardTitle>FaultMaven for Slack</CardTitle>
           <p className={`${cardSubtitleClass} mt-2 mb-4`}>For the team · in the channel</p>
           <p className="mb-4 flex-grow text-slate-600 dark:text-slate-400">
             Invite it to any channel and @mention it like the teammate who has seen every incident and knows every runbook. Always on and shared by the whole team — a go-to first responder, right in the channel where the conversation is already happening.

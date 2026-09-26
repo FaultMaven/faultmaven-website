@@ -22,7 +22,7 @@ export default function AboutPage() {
       {/* Origin Story */}
       <Section width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            The Problem We Lived
+            The problem we lived
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
@@ -40,7 +40,7 @@ export default function AboutPage() {
       {/* The Insight */}
       <Section tone="muted" width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            The Insight
+            The insight
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
@@ -58,7 +58,7 @@ export default function AboutPage() {
               </li>
             </ol>
             <p className="pt-6">
-              AI can solve all three—<em>if</em> you build it right. Not a chatbot where you paste logs and beg for help. A system that <strong className="text-slate-900 dark:text-slate-50">captures, indexes, and correlates</strong> everything automatically.
+              AI can solve all three—<em>if</em> you build it right. Not a chatbot where you paste logs and beg for help. A system that <strong className="text-slate-900 dark:text-slate-50">correlates, retrieves, and learns</strong> — turning each problem it solves into a runbook it reuses.
             </p>
           </div>
       </Section>
@@ -66,16 +66,16 @@ export default function AboutPage() {
       {/* Our Philosophy */}
       <Section width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            Our Philosophy
+            Our philosophy
           </h2>
           <div className="space-y-8">
             {/* Principle 1 */}
             <div className="border-l-4 border-blue-600 pl-6 dark:border-blue-500">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
-                1. Memory is the killer feature
+                1. Knowledge is the killer feature
               </h3>
               <p className="text-lg text-slate-700 dark:text-slate-300">
-                Generic AI is smart but forgetful. FaultMaven remembers: your infrastructure, your past incidents, your team&apos;s solutions. Memory turns &quot;pretty good AI&quot; into &quot;indispensable teammate.&quot;
+                Generic AI is smart but forgetful. FaultMaven keeps what your team knows as runbooks — the ones you write, and the ones it drafts from cases you resolve — and retrieves them on every investigation. Knowledge turns &quot;pretty good AI&quot; into &quot;indispensable teammate.&quot;
               </p>
             </div>
 
@@ -117,7 +117,7 @@ export default function AboutPage() {
       {/* Who We Are */}
       <Section tone="muted" width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            Who We Are
+            Who we are
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
@@ -135,7 +135,7 @@ export default function AboutPage() {
       {/* Why Now */}
       <Section width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            Why Now?
+            Why now?
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <strong className="text-slate-900 dark:text-slate-50">LLMs got good enough.</strong> GPT-4, Claude Sonnet, and similar models can actually reason about complex systems. They understand logs, correlate symptoms, and explain root causes. This wasn&apos;t possible 3 years ago.
               </li>
               <li>
-                <strong className="text-slate-900 dark:text-slate-50">RAG (Retrieval-Augmented Generation) matured.</strong> Modern vector databases and embeddings let AI &quot;remember&quot; your past incidents with high accuracy. The knowledge retrieval problem is solved.
+                <strong className="text-slate-900 dark:text-slate-50">RAG (Retrieval-Augmented Generation) matured.</strong> Modern embeddings, paired with keyword recall for the exact error codes and identifiers engineers paste, let AI find the runbook that fits the problem in front of it.
               </li>
             </ol>
             <p className="pt-6">
@@ -158,7 +158,7 @@ export default function AboutPage() {
       {/* What We're Building Toward */}
       <Section tone="muted" width="narrow">
           <h2 className={`${sectionTitleClass} mb-8`}>
-            What We&apos;re Building Toward
+            What we&apos;re building toward
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
             <p>
@@ -177,7 +177,7 @@ export default function AboutPage() {
       <Section width="narrow">
           <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 md:p-10 dark:border-blue-900 dark:bg-blue-950/40">
             <h2 className={`${sectionTitleClass} mb-6 text-center`}>
-              Join Us
+              Join us
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 text-center max-w-2xl mx-auto">
               FaultMaven is fair source—every line is public. Deploy it, use it, improve it, break it—then tell us what you learned.

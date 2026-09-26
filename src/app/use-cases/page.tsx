@@ -29,7 +29,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* Problem */}
       <div>
         <h4 className={`${labelClass} text-slate-500 dark:text-slate-400`}>
-          THE PROBLEM
+          THE pROBLEM
         </h4>
         <p className="text-slate-600 dark:text-slate-400">
           {problem}
@@ -39,7 +39,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* How FaultMaven Helped */}
       <div>
         <h4 className={`${labelClass} text-slate-500 dark:text-slate-400`}>
-          HOW FAULTMAVEN HELPED
+          HOW fAULTMAVEN hELPED
         </h4>
         <ul className="space-y-2">
           {howHelped.map((step, index) => (
@@ -54,7 +54,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       {/* Outcome */}
       <div className="border-t border-slate-200 pt-4 dark:border-slate-700">
         <h4 className={`${labelClass} text-blue-600 dark:text-blue-400`}>
-          THE OUTCOME
+          THE oUTCOME
         </h4>
         <p className="text-slate-700 dark:text-slate-300 font-medium">
           {outcome}
@@ -66,7 +66,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
 
 
 export const metadata = pageMetadata({
-  title: 'See FaultMaven in Action',
+  title: 'See FaultMaven in action',
   description:
     'Real problems. A methodical path to the cause.',
   path: '/use-cases',
@@ -76,7 +76,7 @@ export default function UseCasesPage() {
   return (
     <>
       <PageHeader
-        title="See FaultMaven in Action"
+        title="See FaultMaven in action"
         lead={
           <>
           <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">
@@ -95,7 +95,7 @@ export default function UseCasesPage() {
           {/* Use Case 1: Kubernetes OOM */}
           <UseCase
             tag="Kubernetes"
-            title="Kubernetes OOM Analysis"
+            title="Kubernetes OOM analysis"
             problem="Pods keep getting OOMKilled, but memory usage looks normal in Grafana. The engineer has already checked resource limits and found nothing obvious."
             howHelped={[
               "Engineer pastes pod describe output and recent logs",
@@ -108,7 +108,7 @@ export default function UseCasesPage() {
           {/* Use Case 2: 3 AM Error Spike */}
           <UseCase
             tag="Incident Response"
-            title="3 AM Error Spike"
+            title="3 AM error spike"
             problem="PagerDuty fires at 3 AM. Error rates spiking. Engineer is half-asleep and needs to triage fast."
             howHelped={[
               "Engineer shares error logs and the Datadog dashboard screenshot",
@@ -121,20 +121,20 @@ export default function UseCasesPage() {
           {/* Use Case 3: Database Connection Timeouts */}
           <UseCase
             tag="Database"
-            title="Database Connection Timeouts"
+            title="Database connection timeouts"
             problem="Intermittent 'connection timeout' errors in production. Sometimes works, sometimes doesn't. No obvious pattern."
             howHelped={[
               "Engineer uploads application logs and connection pool config",
               "FaultMaven identifies pattern: timeouts correlate with batch job schedule",
-              "Surfaces similar incident from 6 months ago (same root cause)"
+              "Retrieves the runbook written after the same failure six months ago"
             ]}
-            outcome="The pattern behind the intermittency — connection-pool exhaustion during the batch window — tied back to the fix that worked on the same issue before."
+            outcome="The pattern behind the intermittency — connection-pool exhaustion during the batch window — tied back to the fix recorded in that runbook."
           />
 
           {/* Use Case 4: Code-Level Root Cause */}
           <UseCase
             tag="Debugging"
-            title="Code-Level Root Cause"
+            title="Code-level root cause"
             problem="Null pointer exception in production. Stack trace points to a line that shouldn't be null based on the code path."
             howHelped={[
               "Engineer shares stack trace and relevant source file",
@@ -147,7 +147,7 @@ export default function UseCasesPage() {
           {/* Use Case 5: Network Black Hole */}
           <UseCase
             tag="Infrastructure"
-            title="Network Black Hole"
+            title="Network black hole"
             problem="VM can reach some endpoints but not others. Not a firewall rule (already checked). Intermittent and hard to reproduce."
             howHelped={[
               "Engineer describes symptoms and shares traceroute output",
@@ -160,7 +160,7 @@ export default function UseCasesPage() {
           {/* Use Case 6: Incident Channel Chaos */}
           <UseCase
             tag="Collaboration"
-            title="Incident Channel Chaos"
+            title="Incident channel chaos"
             problem="Major incident. 15 people in a Slack channel. Multiple theories flying. Hard to track what's been tried and what hasn't."
             howHelped={[
               "Engineer shares Slack thread with FaultMaven",
@@ -175,7 +175,7 @@ export default function UseCasesPage() {
       {/* The Pattern Section */}
       <Section tone="muted" width="narrow">
         <SectionHeader
-          title="The Pattern: How FaultMaven Accelerates Resolution"
+          title="The pattern: how FaultMaven accelerates resolution"
           lead="Every use case follows the same pattern:"
         />
 
@@ -185,7 +185,7 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={1} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                CONTEXT IN
+                CONTEXT iN
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
@@ -198,11 +198,11 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={2} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                INTELLIGENCE APPLIED
+                INTELLIGENCE aPPLIED
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
-              FaultMaven searches three layers: global patterns, team knowledge, and your personal context.
+              FaultMaven reads your evidence and searches runbooks at three scopes: global, team, and your own.
             </p>
           </Card>
 
@@ -211,11 +211,11 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={3} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                ACTIONABLE OUT
+                ACTIONABLE oUT
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
-              Get specific next steps, relevant documentation, and similar past incidents—not generic advice.
+              Get specific next steps and the runbook sections that apply—not generic advice.
             </p>
           </Card>
 
@@ -224,11 +224,11 @@ export default function UseCasesPage() {
             <div className="flex items-center gap-4 mb-4">
               <StepNumber n={4} />
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                KNOWLEDGE CAPTURED
+                KNOWLEDGE cAPTURED
               </h3>
             </div>
             <p className="text-slate-600 dark:text-slate-400">
-              Every resolution is automatically indexed for the next time.
+              Turn a resolved case into a runbook, and the next investigation starts from it.
             </p>
           </Card>
         </div>
@@ -238,7 +238,7 @@ export default function UseCasesPage() {
       <Section size="compact" width="narrow">
         <div className="text-center">
           <h2 className={`${sectionTitleClass} mb-4`}>
-            Put It to Work on Your Own Incidents
+            Put it to work on your own incidents
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto">
             Sign up for FaultMaven Cloud and put a real problem from your environment to it a minute later — or self-host the same engine with one command. No credit card. No sales call.
@@ -251,7 +251,7 @@ export default function UseCasesPage() {
               Self-host it
             </Button>
             <Button asChild href="/contact" variant="secondary">
-              Request a Demo →
+              Request a demo →
             </Button>
           </div>
         </div>

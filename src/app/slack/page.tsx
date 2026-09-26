@@ -11,7 +11,8 @@ import Link from '@/components/ui/Link';
 import DemoVideo from '@/components/slack/DemoVideo';
 import { Card, CardTitle, IconTile, StepNumber } from '@/components/ui/card';
 import { PageHeader, Section, SectionHeader, quietLinkClass, textLinkClass } from '@/components/ui/Section';
-import { COMMUNITY_SLACK_URL } from '@/lib/links';
+import type { ReactNode } from 'react';
+import { COMMUNITY_SLACK_URL, SIGN_IN_URL, SLACK_INSTALL_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
@@ -21,9 +22,9 @@ export const metadata = pageMetadata({
   path: '/slack',
 });
 
-// No self-serve install during beta. Workspaces are connected by hand so a
-// team's cases land in their own account rather than a shared one, and the
-// how-to lives in the community workspace rather than on this page.
+// During beta a workspace is connected to its FaultMaven account by hand after
+// the app is installed, so a team's cases land in its own account rather than
+// a shared one. The steps below match the ones in the community workspace.
 
 const howItWorks = [
   {
@@ -44,14 +45,53 @@ const howItWorks = [
   },
 ];
 
-const setupSteps = [
+const stepLinkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
+
+const setupSteps: { title: string; desc: ReactNode }[] = [
   {
-    title: 'Ask us for your workspace',
-    desc: 'Join the FaultMaven Community Slack and tell us which workspace you want it in. During beta we connect each workspace by hand rather than offering a self-serve install, so that a team’s cases land in that team’s own account instead of a shared one.',
+    title: 'Sign in with your work email',
+    desc: (
+      <>
+        Sign in to{' '}
+        <a href={SIGN_IN_URL} className={stepLinkClass}>
+          FaultMaven Cloud
+        </a>{' '}
+        with your work email. Your company account is created from your email domain, so a personal
+        address (gmail.com and the like) makes a private account your colleagues can&apos;t join.
+      </>
+    ),
   },
   {
-    title: 'A workspace admin approves the permissions',
-    desc: 'We send you the install link for your workspace. Slack shows exactly which permissions FaultMaven is asking for, and an owner or admin approves them. Every scope FaultMaven requests, and why it needs it, is itemized in the privacy policy.',
+    title: 'Install FaultMaven for Slack',
+    desc: (
+      <>
+        Install it from the{' '}
+        <a href={SLACK_INSTALL_URL} className={stepLinkClass}>
+          install page
+        </a>
+        . Slack shows exactly which permissions FaultMaven is asking for, and a workspace owner or
+        admin approves them. Every scope FaultMaven requests, and why it needs it, is itemized in the{' '}
+        <Link href="/privacy/slack" className={stepLinkClass}>
+          privacy policy
+        </Link>
+        .
+      </>
+    ),
+  },
+  {
+    title: 'Email us to connect it',
+    desc: (
+      <>
+        During beta we connect each workspace by hand, so that a team&apos;s cases land in that
+        team&apos;s own account instead of a shared one. Email{' '}
+        <a href="mailto:support@faultmaven.ai" className={stepLinkClass}>
+          support@faultmaven.ai
+        </a>{' '}
+        with your Slack workspace URL (for example, acme.slack.com), the work email you signed in
+        with, and confirmation that you are an admin or owner of that workspace. We connect it and
+        reply once it is live.
+      </>
+    ),
   },
   {
     title: 'Invite it to a channel',
@@ -115,12 +155,12 @@ const groundedIn = [
   {
     icon: <ShieldCheck aria-hidden="true" />,
     title: 'Your past fixes',
-    desc: 'Resolved cases become retrievable knowledge the next investigation starts from.',
+    desc: 'Cases you resolve and turn into runbooks, so the next investigation starts from them.',
   },
 ];
 
 
-function NumberedSteps({ steps }: { steps: { title: string; desc: string }[] }) {
+function NumberedSteps({ steps }: { steps: { title: string; desc: ReactNode }[] }) {
   return (
     <ol className="space-y-6">
       {steps.map((step, idx) => (
@@ -170,8 +210,11 @@ export default function SlackAppPage() {
               FaultMaven is already in the community workspace, so you can put a
               real problem to it with no account and nothing installed. Want it in
               your own workspace? During beta we connect workspaces by hand, so
-              your cases stay in your own account — ask us in the community
-              workspace and we will set it up.
+              your cases stay in your own account —{' '}
+              <a href="#setup" className={quietLinkClass}>
+                the steps are below
+              </a>
+              .
             </p>
             <p>
               <Link href="/privacy/slack" className={quietLinkClass}>
@@ -193,7 +236,7 @@ export default function SlackAppPage() {
           Try it in the Community Slack
         </Button>
         <Button asChild href="/product" variant="secondary">
-          See How It Works
+          See how it works
         </Button>
       </PageHeader>
 
@@ -236,10 +279,10 @@ export default function SlackAppPage() {
       </Section>
 
       {/* Setup */}
-      <Section tone="muted" width="narrow">
+      <Section id="setup" tone="muted" width="narrow">
         <SectionHeader
           title="Setting it up"
-          lead="Four steps. The first one is a conversation, because during beta we connect workspaces by hand."
+          lead="Five steps. During beta we connect each workspace by hand, so one of them is an email to us."
         />
         <NumberedSteps steps={setupSteps} />
         <Card className="mt-10 md:p-6">
@@ -410,8 +453,7 @@ export default function SlackAppPage() {
             <p className="mt-4 text-slate-700 dark:text-slate-300">
               Your own workspace is different: during beta we connect those by
               hand, precisely so your team&apos;s cases stay in your own
-              account. Ask in the community workspace and we will walk you
-              through it.
+              account. The setup steps above walk you through it.
             </p>
           </div>
         </div>

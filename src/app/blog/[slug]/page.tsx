@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(resolvedParams.slug);
 
   if (!post) {
-    return { title: 'Post Not Found' };
+    return { title: 'Post not found' };
   }
 
   return pageMetadata({
@@ -121,7 +121,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Footer Navigation & CTA */}
         <div className="flex flex-col items-center justify-between gap-6 rounded-xl border border-blue-200 bg-blue-50 p-8 md:flex-row dark:border-blue-900 dark:bg-blue-950/40">
           <div>
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Build Grounded AI Troubleshooting</h3>
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Build grounded AI troubleshooting</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Deploy FaultMaven free, or read a real investigation end to end.
             </p>

@@ -6,7 +6,7 @@ import { cardClass, highlightCardClass, iconTileClass } from '@/components/ui/ca
 
 
 export const metadata = pageMetadata({
-  title: 'The FaultMaven Roadmap',
+  title: 'The FaultMaven roadmap',
   description:
     'Trust first. Autonomy earned.',
   path: '/roadmap',
@@ -17,7 +17,7 @@ export default function RoadmapPage() {
     <>
       {/* Hero Section */}
       <PageHeader
-        title="The FaultMaven Roadmap"
+        title="The FaultMaven roadmap"
         lead={
           <>
             <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">
@@ -180,7 +180,7 @@ export default function RoadmapPage() {
 
             <div className={cardClass}>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-4">
-                Standalone (Self-Hosted)
+                Standalone (self-hosted)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
                 The core troubleshooting engine is fair source (FSL-1.1-ALv2) — every line public, converting to Apache 2.0 two years after each release. Audit it, fork it, run it anywhere. Self-hosted deployments will always be free — and because FaultMaven Cloud runs this same engine, no one who chooses Cloud is locked in.
@@ -192,7 +192,7 @@ export default function RoadmapPage() {
 
             <div className={highlightCardClass}>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-4">
-                Cloud (Managed Service)
+                Cloud (managed service)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
                 FaultMaven run for you: team collaboration, SSO, and managed infrastructure built on the same open core, as a multi-tenant service for individuals and teams who don&apos;t want to operate their own stack. It is in beta — free, with a daily limit on investigation turns — and pricing will be announced before general availability.
@@ -207,7 +207,7 @@ export default function RoadmapPage() {
       {/* Influence Section */}
       <Section tone="muted">
           <h2 className={`${sectionTitleClass} text-center mb-16`}>
-            Shape the Roadmap
+            Shape the roadmap
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-12">
             FaultMaven is built by practitioners, for practitioners. Your feedback directly influences what we build next.
@@ -240,7 +240,7 @@ export default function RoadmapPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Talk to the Team
+                Talk to the team
               </h3>
               <p className="flex-grow text-slate-600 dark:text-slate-400 mb-6">
                 Bring your hardest troubleshooting problems to the people building FaultMaven.
@@ -258,13 +258,13 @@ export default function RoadmapPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Contribute Code
+                Contribute code
               </h3>
               <p className="flex-grow text-slate-600 dark:text-slate-400 mb-6">
                 FaultMaven is fair source — every line is public. PRs welcome.
               </p>
               <Button asChild href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" variant="secondary" className="w-full">
-                Contributing Guide →
+                Contributing guide →
               </Button>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function RoadmapPage() {
       <Section width="narrow">
         <div className="text-center">
           <h2 className={`${sectionTitleClass} mb-6`}>
-            Start Today, Grow With Us
+            Start today, grow with us
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
             Troubleshoot your next incident with FaultMaven — on Cloud or on your own hardware — then help shape where its reach goes from here.

@@ -19,48 +19,48 @@ const exampleClass = 'rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm
 
 const steps = [
   {
-    title: 'Share Context',
+    title: 'Share context',
     body: 'Paste an error, upload a log file, or let FaultMaven capture your current page context.',
     chips: ['Copy/Paste', 'File Upload', 'Page Context', 'Conversation'],
   },
   {
-    title: 'AI Analysis',
-    body: 'FaultMaven correlates your input with global patterns, team knowledge, and your personal context to identify likely root causes.',
+    title: 'AI analysis',
+    body: 'FaultMaven correlates the evidence you share with the runbooks in its knowledge base — global, team, and your own — to identify likely root causes.',
   },
   {
-    title: 'Actionable Next Steps',
-    body: "FaultMaven doesn't just answer — it leads: it names the most decisive next step and points you to the relevant runbook sections and similar past incidents your team has already solved.",
+    title: 'Actionable next steps',
+    body: "FaultMaven doesn't just answer — it leads: it names the most decisive next step and points you to the runbook sections that apply.",
   },
 ];
 
 const inputs = [
   { Icon: ClipboardPaste, title: 'Copy/Paste', body: 'Paste error messages or stack traces directly' },
-  { Icon: FileUp, title: 'File Upload', body: 'Upload logs, configs, or YAML files' },
-  { Icon: Monitor, title: 'Page Context', body: 'Capture your current page (Grafana, AWS Console)' },
+  { Icon: FileUp, title: 'File upload', body: 'Upload logs, configs, or YAML files' },
+  { Icon: Monitor, title: 'Page context', body: 'Capture your current page (Grafana, AWS Console)' },
   { Icon: MessageSquare, title: 'Conversation', body: 'Talk through the problem naturally' },
 ];
 
 const safeguards = [
   {
     Icon: Server,
-    title: 'Local-First',
+    title: 'Local-first',
     body: 'Self-hosted, all case data (logs, configs, screenshots) and your knowledge base are stored on your own infrastructure, and retrieval runs with no network. What leaves is each investigation prompt, sent to the model provider you choose.',
   },
   {
     Icon: Lock,
-    title: 'Data Redaction',
+    title: 'Data redaction',
     body: 'An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach the model provider you configure.',
   },
   {
     Icon: ShieldCheck,
-    title: 'No Production Credentials',
+    title: 'No production credentials',
     body: 'FaultMaven works from what you choose to share. It never asks for production API keys, root credentials, or access to your live systems, and takes no action on them.',
   },
 ];
 
 
 export const metadata = pageMetadata({
-  title: 'How FaultMaven Works',
+  title: 'How FaultMaven works',
   description:
     'A methodical path from error to resolution.',
   path: '/product',
@@ -70,12 +70,12 @@ export default function ProductPage() {
   return (
     <>
       <PageHeader
-        title="How FaultMaven Works"
+        title="How FaultMaven works"
         lead={
           <>
             <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">A methodical path from error to resolution.</p>
             <p className="text-lg">
-              FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
+              FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack app for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
             </p>
           </>
         }
@@ -90,7 +90,7 @@ export default function ProductPage() {
 
       {/* How It Works */}
       <Section id="how-it-works" width="narrow">
-        <SectionHeader title="Three Steps to Faster Resolution" />
+        <SectionHeader title="Three steps to faster resolution" />
         <ol>
           {steps.map((step, i) => (
             <li key={step.title}>
@@ -117,7 +117,7 @@ export default function ProductPage() {
           ))}
         </ol>
         <p className="mx-auto mt-12 max-w-2xl text-center text-lg text-slate-600 dark:text-slate-400">
-          Every resolution is captured automatically—building your knowledge base for the next incident.
+          When a case resolves, FaultMaven can turn it into a runbook, so the next investigation starts from what this one learned.
         </p>
       </Section>
 
@@ -126,7 +126,7 @@ export default function ProductPage() {
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <h2 className={`${sectionTitleClass} mb-6`}>
-              Always Available, Right in Your Browser
+              Always available, right in your browser
             </h2>
             <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
               FaultMaven lives in a browser side-panel that stays with you across tabs. Whether you&apos;re in Grafana, AWS Console, Datadog, or your terminal output—your AI copilot is always one click away.
@@ -183,7 +183,7 @@ export default function ProductPage() {
 
       {/* Core Capabilities */}
       <Section tone="muted" width="narrow">
-        <SectionHeader title="Core Capabilities" />
+        <SectionHeader title="Core capabilities" />
         <div className="space-y-8">
           <Card>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
@@ -191,7 +191,7 @@ export default function ProductPage() {
                 <IconChartBar aria-hidden="true" />
               </IconTile>
               <div>
-                <CardTitle className="mb-3 text-2xl">Deep Context Awareness</CardTitle>
+                <CardTitle className="mb-3 text-2xl">Deep context awareness</CardTitle>
                 <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
                   FaultMaven doesn&apos;t just read your error message—it correlates logs, metrics, configs, and code to understand the system state that caused the problem. Not just what broke, but why.
                 </p>
@@ -208,28 +208,28 @@ export default function ProductPage() {
                 <IconSparkles aria-hidden="true" />
               </IconTile>
               <div className="flex-1">
-                <CardTitle className="mb-3 text-2xl">The Tiered Knowledge Engine</CardTitle>
+                <CardTitle className="mb-3 text-2xl">Runbooks at three scopes</CardTitle>
                 <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
-                  Every answer is informed by three layers of intelligence:
+                  Every investigation searches the runbooks you can see, at three scopes:
                 </p>
                 <ul className="mb-6 space-y-4 text-slate-600 dark:text-slate-400">
                   <li className="flex items-start gap-3">
                     <Dot />
                     <span>
-                      <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more
+                      <strong className="text-slate-800 dark:text-slate-200">Global</strong> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Dot />
                     <span>
-                      <strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Runbooks shared across your org, post-mortems, and past resolutions{' '}
+                      <strong className="text-slate-800 dark:text-slate-200">Team</strong> — personal runbooks shared across your organization{' '}
                       <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Cloud</span>
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Dot />
                     <span>
-                      <strong className="text-slate-800 dark:text-slate-200">Personal Context</strong> — Your specific environment and local configurations
+                      <strong className="text-slate-800 dark:text-slate-200">Personal</strong> — your own runbooks, written by you or generated from a case you resolved
                     </span>
                   </li>
                 </ul>
@@ -246,12 +246,12 @@ export default function ProductPage() {
                 <IconDocumentText aria-hidden="true" />
               </IconTile>
               <div>
-                <CardTitle className="mb-3 text-2xl">Auto-Generated Documentation</CardTitle>
+                <CardTitle className="mb-3 text-2xl">Auto-generated documentation</CardTitle>
                 <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
-                  As you troubleshoot, FaultMaven captures the context, timeline, and resolution. Export to post-mortem format with one click. Stop losing institutional knowledge to Slack threads.
+                  When a case resolves, FaultMaven writes its summary — the problem, the root cause, and the solution applied — beside the evidence and hypotheses the case kept, and the case exports to Markdown. Stop losing institutional knowledge to Slack threads.
                 </p>
                 <p className={exampleClass}>
-                  <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Incident → Investigation → Resolution → Searchable knowledge (automatic)
+                  <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Case resolved → summary written → runbook generated on request → retrieved in the next investigation
                 </p>
               </div>
             </div>
@@ -261,7 +261,7 @@ export default function ProductPage() {
 
       {/* Input Methods */}
       <Section>
-        <SectionHeader title="Works the Way You Work" />
+        <SectionHeader title="Works the way you work" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {inputs.map(({ Icon, title, body }) => (
             <Card key={title} className="md:p-6">
@@ -280,7 +280,7 @@ export default function ProductPage() {
 
       {/* Security & Privacy */}
       <Section tone="muted">
-        <SectionHeader title="Your Data Stays Yours" />
+        <SectionHeader title="Your data stays yours" />
         <div className="grid gap-8 md:grid-cols-3">
           {safeguards.map(({ Icon, title, body }) => (
             <Card key={title}>
@@ -296,7 +296,7 @@ export default function ProductPage() {
 
       {/* CTA */}
       <Section>
-        <SectionHeader title="Run It Yourself, or Let Us Run It for You" />
+        <SectionHeader title="Run it yourself, or let us run it for you" />
 
         <Card highlight className="mx-auto mb-8 max-w-3xl">
           <CardTitle className="mb-6 text-center text-2xl">Self-host it: one command</CardTitle>
@@ -321,7 +321,7 @@ cd faultmaven
 
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           <Card className="flex flex-col">
-            <CardTitle className="mb-3">Working as a Team?</CardTitle>
+            <CardTitle className="mb-3">Working as a team?</CardTitle>
             <p className="mb-6 flex-grow text-slate-600 dark:text-slate-400">
               Team knowledge sharing and SSO need multi-tenancy, which is what FaultMaven Cloud adds — self-hosted FaultMaven is single-user.
             </p>

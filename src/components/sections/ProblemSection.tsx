@@ -5,17 +5,17 @@ import { Section, SectionHeader } from '@/components/ui/Section';
 const gaps = [
   {
     Icon: IconLoop,
-    title: 'Your Observability Stack Tells You What. Not Why.',
+    title: 'Your observability stack tells you what. Not why.',
     body: "Dashboards light up red. Alerts fire. You know something is broken—but you're still manually hunting through logs, correlating timestamps, and guessing at root cause.",
   },
   {
     Icon: IconBellSlash,
-    title: "Generic AI Doesn't Know Your Systems",
+    title: "Generic AI doesn't know your systems",
     body: "ChatGPT can explain a stack trace. It can't see your Kubernetes configs, your deployment history, or the fix your teammate applied last month. Every incident starts from zero.",
   },
   {
     Icon: IconDocumentMinus,
-    title: 'Tribal Knowledge Disappears',
+    title: 'Tribal knowledge disappears',
     body: 'The senior engineer who knew why that service fails under load? They left. Their expertise is buried in Slack threads nobody will ever find.',
   },
 ];
@@ -23,7 +23,7 @@ const gaps = [
 export default function ProblemSection() {
   return (
     <Section>
-      <SectionHeader title="Three Gaps Between the Alert and the Fix" />
+      <SectionHeader title="Three gaps between the alert and the fix" />
       <div className="grid gap-8 md:grid-cols-3">
         {gaps.map(({ Icon, title, body }) => (
           <Card key={title}>
