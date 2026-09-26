@@ -3,7 +3,7 @@ import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 import { getAllPosts } from '@/lib/blog';
 import Button from '@/components/ui/Button';
 import { pageMetadata } from '@/lib/metadata';
-import { PageHeader, Section } from '@/components/ui/Section';
+import { PageHeader, Section, sectionTitleClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'Blog',
@@ -54,7 +54,7 @@ export default function BlogIndexPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className={`${subsectionTitleClass} mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors`}>
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
 
@@ -98,7 +98,7 @@ export default function BlogIndexPage() {
 
         {/* CTA Section */}
         <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 text-center md:p-12 dark:border-blue-900 dark:bg-blue-950/40">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4">
+          <h2 className={`${sectionTitleClass} mb-4`}>
             Stay Ahead in AI-Powered Operations
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 text-lg">

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Button from '@/components/ui/Button';
-import { Card, CardTitle, CheckList } from '@/components/ui/card';
+import { BulletList, Card, CardTitle, CheckList } from '@/components/ui/card';
 import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
@@ -23,19 +23,6 @@ function Feature({ title, children }: { title: string; children: ReactNode }) {
       <strong className="text-slate-900 dark:text-slate-50">{title}</strong>
       <span className="mt-1 block text-sm text-slate-600 dark:text-slate-400">{children}</span>
     </>
-  );
-}
-
-function Bullets({ items, className }: { items: ReactNode[]; className?: string }) {
-  return (
-    <ul className={className ?? 'space-y-1'}>
-      {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2">
-          <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -91,12 +78,12 @@ export default function PricingPage() {
                 <Feature key="5" title="Persistent sessions across devices">Investigation sessions are saved across restarts and reachable from any device — not held in-process like a single-instance deployment. (Your cases persist either way.)</Feature>,
               ]}
             />
-            <p className={`${blueNote} mb-8 flex-grow font-medium text-slate-700 dark:text-slate-300`}>
+            <p className={`${blueNote} mb-8 font-medium text-slate-700 dark:text-slate-300`}>
               In beta: free, with a daily limit on investigation turns.
               Sign up with your email, no invite needed. Pricing will be
               announced before general availability.
             </p>
-            <Button asChild href={TRY_CLOUD_URL} variant="primary" className="w-full">
+            <Button asChild href={TRY_CLOUD_URL} variant="primary" className="mt-auto w-full">
               Start on FaultMaven Cloud →
             </Button>
           </Card>
@@ -126,7 +113,7 @@ export default function PricingPage() {
             />
             <div className={`${greyNote} mb-4`}>
               <p className="mb-2 font-semibold text-slate-900 dark:text-slate-50">You provide:</p>
-              <Bullets
+              <BulletList
                 className="space-y-1 text-slate-600 dark:text-slate-400"
                 items={[
                   'Infrastructure (Docker, 8GB+ RAM)',
@@ -134,9 +121,9 @@ export default function PricingPage() {
                 ]}
               />
             </div>
-            <div className={`${greyNote} mb-8 flex-grow`}>
+            <div className={`${greyNote} mb-8`}>
               <p className="mb-2 font-semibold text-slate-900 dark:text-slate-50">Best for:</p>
-              <Bullets
+              <BulletList
                 className="space-y-1 text-slate-600 dark:text-slate-400"
                 items={[
                   'Engineers who want full control',
@@ -146,7 +133,7 @@ export default function PricingPage() {
                 ]}
               />
             </div>
-            <Button asChild href={SELF_HOST_PATH} variant="secondary" className="w-full">
+            <Button asChild href={SELF_HOST_PATH} variant="secondary" className="mt-auto w-full">
               Self-host it →
             </Button>
           </Card>
@@ -197,7 +184,7 @@ export default function PricingPage() {
             <p className="text-slate-600 dark:text-slate-400">
               Both deployments ship with starter runbooks covering common stacks:
             </p>
-            <Bullets
+            <BulletList
               className="grid gap-2 md:grid-cols-2"
               items={[
                 'Container orchestration (Kubernetes, Docker)',
@@ -215,7 +202,7 @@ export default function PricingPage() {
 
           <Faq question="How does team knowledge sharing work?">
             <p>Runbooks live in three scopes:</p>
-            <Bullets
+            <BulletList
               className="space-y-2"
               items={[
                 <span key="g"><strong>Global</strong> — ships with FaultMaven for every user; the community can contribute more.</span>,
@@ -266,7 +253,7 @@ export default function PricingPage() {
       {/* CTA */}
       <Section size="compact" width="narrow">
         <SectionHeader
-          className="md:mb-8"
+          spacing="tight"
           title="Start working a case"
           lead="Sign up for FaultMaven Cloud and put a real incident to it a minute later — or self-host it with one command (budget 10–20 minutes for the first run, mostly the 2.3 GB image pull). No credit card either way."
         />

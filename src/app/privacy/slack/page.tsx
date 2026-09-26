@@ -1,6 +1,6 @@
 import Link from '@/components/ui/Link';
 import { pageMetadata } from '@/lib/metadata';
-import { PageHeader, Section, proseClass } from '@/components/ui/Section';
+import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'FaultMaven for Slack Privacy Policy',
@@ -123,7 +123,7 @@ export default function SlackPrivacyPolicyPage() {
             .
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-12 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-12 !mb-4`}>
             1. Who controls your data
           </h2>
           <p>
@@ -151,7 +151,7 @@ export default function SlackPrivacyPolicyPage() {
             threads to FaultMaven cases.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             2. What the app accesses and transmits
           </h2>
           <p>
@@ -184,7 +184,7 @@ export default function SlackPrivacyPolicyPage() {
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             3. Summon-only: what happens to everything else
           </h2>
           <p>
@@ -226,7 +226,7 @@ export default function SlackPrivacyPolicyPage() {
             posts its replies in-thread so the parent channel stays quiet.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             4. Permissions and why they are needed
           </h2>
           <div className="overflow-x-auto">
@@ -250,7 +250,7 @@ export default function SlackPrivacyPolicyPage() {
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             5. What the app does NOT do
           </h2>
           <ul className="list-disc pl-5 space-y-2">
@@ -283,7 +283,7 @@ export default function SlackPrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             6. Sensitive data
           </h2>
           <p>
@@ -315,7 +315,7 @@ export default function SlackPrivacyPolicyPage() {
             disclose.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             7. What we store, and for how long
           </h2>
           <p>
@@ -377,7 +377,7 @@ export default function SlackPrivacyPolicyPage() {
             organization&apos;s decision.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             8. Your choices and rights
           </h2>
           <p>
@@ -391,7 +391,7 @@ export default function SlackPrivacyPolicyPage() {
             We will confirm when the deletion is complete.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             9. Children
           </h2>
           <p>
@@ -399,7 +399,7 @@ export default function SlackPrivacyPolicyPage() {
             to children under 13.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             10. Changes to this policy
           </h2>
           <p>
@@ -408,7 +408,7 @@ export default function SlackPrivacyPolicyPage() {
             above and publishing the revised policy at this URL.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             11. Contact
           </h2>
           <p>

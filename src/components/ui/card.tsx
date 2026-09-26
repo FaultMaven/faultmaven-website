@@ -6,6 +6,15 @@ import { cn } from '@/lib/utils';
 // list, and the code block. Blue is the accent throughout; green is kept for
 // status (something available now, a verified result), never decoration.
 
+export const cardClass =
+  'rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-8 dark:border-slate-800 dark:bg-slate-900';
+export const highlightCardClass =
+  'rounded-xl border border-blue-600 bg-white p-6 shadow-sm ring-1 ring-blue-600 md:p-8 dark:border-blue-500 dark:bg-slate-900 dark:ring-blue-500';
+export const iconTileClass =
+  'mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 [&>svg]:h-6 [&>svg]:w-6';
+// The short blue line under a card's title ("We run it for you").
+export const cardSubtitleClass = 'text-sm font-semibold text-blue-600 dark:text-blue-400';
+
 type CardProps = {
   children: ReactNode;
   /** The recommended option in a set: a blue border instead of the grey one. */
@@ -15,15 +24,7 @@ type CardProps = {
 
 export function Card({ children, highlight = false, className }: CardProps) {
   return (
-    <div
-      className={cn(
-        'rounded-xl border bg-white p-6 shadow-sm md:p-8 dark:bg-slate-900',
-        highlight
-          ? 'border-blue-600 ring-1 ring-blue-600 dark:border-blue-500 dark:ring-blue-500'
-          : 'border-slate-200 dark:border-slate-800',
-        className,
-      )}
-    >
+    <div className={cn(highlight ? highlightCardClass : cardClass, className)}>
       {children}
     </div>
   );
@@ -37,12 +38,7 @@ export function CardTitle({ children, className }: { children: ReactNode; classN
 
 export function IconTile({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div
-      className={cn(
-        'mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 [&>svg]:h-6 [&>svg]:w-6',
-        className,
-      )}
-    >
+    <div className={cn(iconTileClass, className)}>
       {children}
     </div>
   );
@@ -54,6 +50,25 @@ export function StepNumber({ n }: { n: number }) {
     <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 font-bold text-white dark:bg-blue-500">
       {n}
     </span>
+  );
+}
+
+// The bullet in a plain list: a small blue dot on the first line's centre,
+// set in em so it sits right at any text size.
+export function Dot() {
+  return <span aria-hidden="true" className="mt-[0.55em] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />;
+}
+
+export function BulletList({ items, className }: { items: ReactNode[]; className?: string }) {
+  return (
+    <ul className={cn('space-y-1', className)}>
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-2">
+          <Dot />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

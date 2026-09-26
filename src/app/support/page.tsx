@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import Link from '@/components/ui/Link';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { PageHeader, Section } from '@/components/ui/Section';
+import { PageHeader, Section, sectionTitleClass, textLinkClass } from '@/components/ui/Section';
 import { DISCUSSIONS_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -120,7 +120,7 @@ export default function SupportPage() {
 
       {/* What to email us about */}
       <Section>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4 text-center">
+          <h2 className={`${sectionTitleClass} mb-4 text-center`}>
             What to email us about
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto text-center">
@@ -150,7 +150,7 @@ export default function SupportPage() {
 
       {/* Per-product help */}
       <Section tone="muted" width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-12 text-center">
+          <h2 className={`${sectionTitleClass} mb-12 text-center`}>
             Help by product
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -166,7 +166,7 @@ export default function SupportPage() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                        className={textLinkClass}
                       >
                         {link.label}
                       </Link>
@@ -180,7 +180,7 @@ export default function SupportPage() {
 
       {/* What to include */}
       <Section width="prose">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-6">
+          <h2 className={`${sectionTitleClass} mb-6`}>
             What to include
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -200,7 +200,7 @@ export default function SupportPage() {
       {/* Response expectations */}
       <Section tone="muted" width="prose">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4">
+          <h2 className={`${sectionTitleClass} mb-4`}>
             What to expect
           </h2>
           <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
@@ -208,7 +208,7 @@ export default function SupportPage() {
             are triaged ahead of everything else — send those to{' '}
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
-              className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              className={textLinkClass}
             >
               {SUPPORT_EMAIL}
             </a>{' '}
@@ -226,7 +226,7 @@ export default function SupportPage() {
 
       {/* Optional community channels */}
       <Section width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4 text-center">
+          <h2 className={`${sectionTitleClass} mb-4 text-center`}>
             Prefer to ask in public?
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto text-center">

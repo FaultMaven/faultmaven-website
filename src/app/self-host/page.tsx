@@ -1,6 +1,6 @@
 import Button from '@/components/ui/Button';
 import { CodeBlock } from '@/components/ui/card';
-import { PageHeader, Section } from '@/components/ui/Section';
+import { PageHeader, Section, subsectionTitleClass, textLinkClass } from '@/components/ui/Section';
 import { DISCUSSIONS_URL, ENGINE_REPO_URL, QUICKSTART_URL, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -20,7 +20,7 @@ const codeClass = 'bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-[0.
 function GuideSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4">{title}</h2>
+      <h2 className={`${subsectionTitleClass} mb-4`}>{title}</h2>
       <div className="space-y-4 text-base text-slate-700 dark:text-slate-300 leading-relaxed">{children}</div>
     </section>
   );
@@ -31,6 +31,7 @@ export default function SelfHostPage() {
     <>
       <PageHeader
         align="left"
+        width="prose"
         title="Run FaultMaven on your own hardware"
         lead={
           <p>
@@ -99,7 +100,7 @@ cp .env.example .env   # set one provider's API key
             If you run FaultMaven against a local model, we would like to hear how it went —{' '}
             <a
               href={DISCUSSIONS_URL}
-              className="font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              className={textLinkClass}
             >
               GitHub Discussions
             </a>{' '}
@@ -125,7 +126,7 @@ cp .env.example .env   # set one provider's API key
         </div>
         <p className="mt-6 text-sm text-slate-600 dark:text-slate-400">
           Rather not operate it?{' '}
-          <a href={TRY_CLOUD_URL} className="font-medium text-blue-600 dark:text-blue-400 hover:underline">
+          <a href={TRY_CLOUD_URL} className={textLinkClass}>
             FaultMaven Cloud
           </a>{' '}
           runs the same engine for you, with nothing to install.

@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button';
-import { PageHeader, Section } from '@/components/ui/Section';
+import { PageHeader, Section, sectionTitleClass } from '@/components/ui/Section';
 import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
 
       {/* Origin Story */}
       <Section width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             The Problem We Lived
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
       {/* The Insight */}
       <Section tone="muted" width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             The Insight
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -65,7 +65,7 @@ export default function AboutPage() {
 
       {/* Our Philosophy */}
       <Section width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Our Philosophy
           </h2>
           <div className="space-y-8">
@@ -116,7 +116,7 @@ export default function AboutPage() {
 
       {/* Who We Are */}
       <Section tone="muted" width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Who We Are
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -134,7 +134,7 @@ export default function AboutPage() {
 
       {/* Why Now */}
       <Section width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Why Now?
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -157,7 +157,7 @@ export default function AboutPage() {
 
       {/* What We're Building Toward */}
       <Section tone="muted" width="narrow">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-8">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             What We&apos;re Building Toward
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -176,7 +176,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <Section width="narrow">
           <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 md:p-10 dark:border-blue-900 dark:bg-blue-950/40">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-6 text-center">
+            <h2 className={`${sectionTitleClass} mb-6 text-center`}>
               Join Us
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 text-center max-w-2xl mx-auto">

@@ -1,6 +1,6 @@
 import Button from '@/components/ui/Button';
-import { Card, StepNumber } from '@/components/ui/card';
-import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
+import { Card, StepNumber, Dot } from '@/components/ui/card';
+import { PageHeader, Section, SectionHeader, sectionTitleClass, subsectionTitleClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -20,7 +20,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
       <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
         {tag}
       </span>
-      <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+      <h3 className={subsectionTitleClass}>
         {title}
       </h3>
     </div>
@@ -44,7 +44,7 @@ const UseCase = ({ tag, title, problem, howHelped, outcome }: UseCaseProps) => (
         <ul className="space-y-2">
           {howHelped.map((step, index) => (
             <li key={index} className="flex items-start gap-3">
-              <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+              <Dot />
               <span className="text-slate-600 dark:text-slate-400">{step}</span>
             </li>
           ))}
@@ -237,7 +237,7 @@ export default function UseCasesPage() {
       {/* CTA Section */}
       <Section size="compact" width="narrow">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4">
+          <h2 className={`${sectionTitleClass} mb-4`}>
             Put It to Work on Your Own Incidents
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto">

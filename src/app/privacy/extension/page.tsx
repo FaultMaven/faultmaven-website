@@ -1,6 +1,6 @@
 import { DISCUSSIONS_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
-import { PageHeader, Section, proseClass } from '@/components/ui/Section';
+import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'FaultMaven Copilot Extension Privacy Policy',
@@ -109,7 +109,7 @@ export default function ExtensionPrivacyPolicyPage() {
             that you or your organization operates.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-12 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-12 !mb-4`}>
             1. Who controls your data
           </h2>
           <p>The data controller depends on which backend you connect to:</p>
@@ -132,7 +132,7 @@ export default function ExtensionPrivacyPolicyPage() {
             self-hosted server at any time from the Settings screen.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             2. What the extension accesses and transmits
           </h2>
           <p>
@@ -177,7 +177,7 @@ export default function ExtensionPrivacyPolicyPage() {
             prompt that you can decline.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             3. What is stored on your device
           </h2>
           <p>
@@ -202,7 +202,7 @@ export default function ExtensionPrivacyPolicyPage() {
             browser&apos;s extension settings.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             4. What the extension does NOT do
           </h2>
           <ul className="list-disc pl-5 space-y-2">
@@ -230,7 +230,7 @@ export default function ExtensionPrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             5. Sensitive data and redaction
           </h2>
           <p>
@@ -246,7 +246,7 @@ export default function ExtensionPrivacyPolicyPage() {
             submit. Avoid submitting data you are not authorized to share.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             6. Permissions and why they are needed
           </h2>
           <div className="overflow-x-auto">
@@ -270,7 +270,7 @@ export default function ExtensionPrivacyPolicyPage() {
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             7. Data retention
           </h2>
           <ul className="list-disc pl-5 space-y-2">
@@ -287,7 +287,7 @@ export default function ExtensionPrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             8. Children
           </h2>
           <p>
@@ -295,7 +295,7 @@ export default function ExtensionPrivacyPolicyPage() {
             directed to children under 13.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             9. Changes to this policy
           </h2>
           <p>
@@ -304,7 +304,7 @@ export default function ExtensionPrivacyPolicyPage() {
             and publishing the revised policy at this URL.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             10. Contact
           </h2>
           <p>

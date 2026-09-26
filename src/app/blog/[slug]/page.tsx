@@ -6,6 +6,7 @@ import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import Button from '@/components/ui/Button';
 import ArticleBody from '@/components/blog/ArticleBody';
 import { pageMetadata } from '@/lib/metadata';
+import { pageTitleClass } from '@/components/ui/Section';
 
 interface PageProps {
   params: Promise<{
@@ -81,7 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight leading-tight mb-6">
+          <h1 className={`${pageTitleClass} mb-6`}>
             {post.title}
           </h1>
 

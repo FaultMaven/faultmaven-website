@@ -1,8 +1,8 @@
 import { Cloud, Server } from 'lucide-react';
 import Link from 'next/link';
 import Button from '../ui/Button';
-import { Card, CardTitle, CheckList, IconTile } from '@/components/ui/card';
-import { Section, SectionHeader, eyebrowClass } from '@/components/ui/Section';
+import { Card, CardTitle, CheckList, IconTile, cardSubtitleClass } from '@/components/ui/card';
+import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function DeploymentOptionsSection() {
@@ -20,7 +20,7 @@ export default function DeploymentOptionsSection() {
             <Cloud aria-hidden="true" />
           </IconTile>
           <CardTitle className="text-2xl">FaultMaven Cloud</CardTitle>
-          <p className={`${eyebrowClass} mt-2 mb-4 normal-case tracking-normal`}>We run it for you</p>
+          <p className={`${cardSubtitleClass} mt-2 mb-4`}>We run it for you</p>
           <p className="mb-6 text-slate-700 dark:text-slate-300">
             <strong>Best for:</strong> individuals and teams who would rather use FaultMaven than operate it.
           </p>
@@ -45,7 +45,7 @@ export default function DeploymentOptionsSection() {
             <Server aria-hidden="true" />
           </IconTile>
           <CardTitle className="text-2xl">Standalone</CardTitle>
-          <p className={`${eyebrowClass} mt-2 mb-4 normal-case tracking-normal`}>You run it yourself · Free forever</p>
+          <p className={`${cardSubtitleClass} mt-2 mb-4`}>You run it yourself · Free forever</p>
           <p className="mb-6 text-slate-700 dark:text-slate-300">
             <strong>Best for:</strong> engineers who want FaultMaven on hardware they control.
           </p>
@@ -67,7 +67,7 @@ export default function DeploymentOptionsSection() {
 
       <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
         Both are built from one codebase, fair source (FSL-1.1-ALv2).{' '}
-        <Link href="/pricing" className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+        <Link href="/pricing" className={textLinkClass}>
           Compare them in detail
         </Link>
         .

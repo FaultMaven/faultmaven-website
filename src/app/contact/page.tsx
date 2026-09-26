@@ -1,6 +1,6 @@
 import Link from '@/components/ui/Link';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
+import { PageHeader, Section, SectionHeader, subsectionTitleClass } from '@/components/ui/Section';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -82,7 +82,7 @@ export default function ContactPage() {
           </Card>
           {/* Right: Subject Lines */}
           <Card>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">How to Reach Us</h2>
+            <h2 className={`${subsectionTitleClass} mb-2`}>How to Reach Us</h2>
             <p className="mb-6 text-slate-600 dark:text-slate-400">
               When emailing us, please use one of the following subject lines to help us respond quickly:
             </p>
@@ -121,7 +121,7 @@ export default function ContactPage() {
       <Section size="compact" width="narrow">
         <div className="flex flex-col items-center rounded-xl border border-blue-200 bg-blue-50 p-8 text-center dark:border-blue-900 dark:bg-blue-950/40">
           <HeartHandshake aria-hidden="true" className="mb-4 h-8 w-8 text-blue-600 dark:text-blue-400" />
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Our Commitment</h2>
+          <h2 className={`${subsectionTitleClass} mb-3`}>Our Commitment</h2>
           <p className="mx-auto mb-2 max-w-2xl text-lg text-slate-700 dark:text-slate-300">
             We value your interest and aim to respond to all inquiries as promptly as possible. As we are a focused team in a dynamic development phase, please allow for a reasonable response time.
           </p>

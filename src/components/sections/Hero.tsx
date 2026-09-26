@@ -1,6 +1,6 @@
 import Button from '../ui/Button';
 import DemoVideo from '../slack/DemoVideo';
-import { Badge } from '@/components/ui/Section';
+import { Badge, pageTitleClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
 export default function Hero() {
@@ -12,7 +12,7 @@ export default function Hero() {
             <Badge className="mb-5">Fair Source · Self-Hostable · No Production Credentials</Badge>
             <h1
               id="hero-heading"
-              className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6 text-slate-900 dark:text-slate-50"
+              className={`${pageTitleClass} mb-6`}
             >
               The AI Troubleshooting Copilot — Run It Yourself, or Let Us Run It for You
             </h1>

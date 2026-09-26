@@ -20,6 +20,16 @@ const TONES = {
   muted: 'bg-slate-50 dark:bg-slate-800/50',
 } as const;
 
+// The heading scales: a page's title, a page section's title, and a subsection
+// within a document page (a guide, the FAQ, a legal page).
+export const pageTitleClass = 'text-4xl md:text-5xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-50';
+export const sectionTitleClass = 'text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50';
+export const subsectionTitleClass = 'text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50';
+
+// A link inside running text, and a quieter one for small print.
+export const textLinkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
+export const quietLinkClass = 'underline transition-colors hover:text-blue-600 dark:hover:text-blue-400';
+
 // Running text on a document page (legal pages, guides). Links need the
 // explicit style: the base reset makes a bare <a> inherit its colour and drop
 // its underline, which leaves it indistinguishable from the text around it.
@@ -83,15 +93,24 @@ type SectionHeaderProps = {
   eyebrow?: ReactNode;
   lead?: ReactNode;
   align?: 'center' | 'left';
+  /** `tight` when the header introduces a single block (an image, a paragraph) rather than a grid. */
+  spacing?: 'default' | 'tight';
   id?: string;
   className?: string;
 };
 
-export function SectionHeader({ title, eyebrow, lead, align = 'center', id, className }: SectionHeaderProps) {
+export function SectionHeader({ title, eyebrow, lead, align = 'center', spacing = 'default', id, className }: SectionHeaderProps) {
   return (
-    <div className={cn('mb-12 md:mb-16 max-w-3xl', align === 'center' && 'mx-auto text-center', className)}>
+    <div
+      className={cn(
+        spacing === 'tight' ? 'mb-8' : 'mb-12 md:mb-16',
+        'max-w-3xl',
+        align === 'center' && 'mx-auto text-center',
+        className,
+      )}
+    >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 id={id} className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+      <h2 id={id} className={sectionTitleClass}>
         {title}
       </h2>
       {lead ? (
@@ -110,13 +129,17 @@ type PageHeaderProps = {
   /** Small print under the calls to action. */
   footnote?: ReactNode;
   align?: 'center' | 'left';
+  /** Match the body's width so the heading lines up with the text under it.
+   *  Defaults: `prose` when centred, `narrow` when left-aligned. */
+  width?: SectionWidth;
   className?: string;
 };
 
 // The opening band of every interior page: the page's h1 on the muted tone,
 // ruled off from the white section that follows.
-export function PageHeader({ title, eyebrow, lead, children, footnote, align = 'center', className }: PageHeaderProps) {
+export function PageHeader({ title, eyebrow, lead, children, footnote, align = 'center', width, className }: PageHeaderProps) {
   const centered = align === 'center';
+  const w = WIDTHS[width ?? (centered ? 'prose' : 'narrow')];
   return (
     <section
       className={cn(
@@ -124,11 +147,9 @@ export function PageHeader({ title, eyebrow, lead, children, footnote, align = '
         className,
       )}
     >
-      <div className={cn('mx-auto px-6', centered ? 'max-w-3xl text-center' : 'max-w-4xl')}>
+      <div className={cn('mx-auto px-6', w, centered && 'text-center')}>
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-50">
-          {title}
-        </h1>
+        <h1 className={pageTitleClass}>{title}</h1>
         {lead ? (
           <div className="mt-6 space-y-4 text-lg md:text-xl leading-relaxed text-slate-600 dark:text-slate-400">
             {lead}

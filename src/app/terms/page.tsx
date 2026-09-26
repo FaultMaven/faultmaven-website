@@ -1,5 +1,5 @@
 import { pageMetadata } from '@/lib/metadata';
-import { PageHeader, Section, proseClass } from '@/components/ui/Section';
+import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'Terms of Service',
@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
             the terms, then you may not access the Site.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">1. Use of Our Website</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>1. Use of Our Website</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>
               <strong>Permitted Use:</strong> You are granted a non-exclusive,
@@ -55,7 +55,7 @@ export default function TermsOfServicePage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             2. Pre-Launch Status &amp; Future Services
           </h2>
           <p>
@@ -70,7 +70,7 @@ export default function TermsOfServicePage() {
             will be provided separately.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">3. Disclaimer of Warranties</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>3. Disclaimer of Warranties</h2>
           <p>
             The Site is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis.
             FaultMaven makes no warranties, expressed or implied, regarding
@@ -79,7 +79,7 @@ export default function TermsOfServicePage() {
             the Site is at your sole risk.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">4. Limitation of Liability</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>4. Limitation of Liability</h2>
           <p>
             To the fullest extent permitted by applicable law, FaultMaven
             shall not be liable for any indirect, incidental, special,
@@ -90,7 +90,7 @@ export default function TermsOfServicePage() {
             Site; (ii) any conduct or content of any third party on the Site.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">5. Changes to These Terms</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>5. Changes to These Terms</h2>
           <p>
             We reserve the right, at our sole discretion, to modify or
             replace these Terms at any time. If a revision is material, we
@@ -99,14 +99,14 @@ export default function TermsOfServicePage() {
             material change will be determined at our sole discretion.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">6. Governing Law</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>6. Governing Law</h2>
           <p>
             These Terms shall be governed and construed in accordance with the
             laws of [Your Jurisdiction - e.g., State of Delaware, USA],
             without regard to its conflict of law provisions.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">7. Contact Us</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>7. Contact Us</h2>
           <p>
             If you have any questions about these Terms, please contact us at{' '}
             <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.

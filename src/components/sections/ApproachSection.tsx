@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { IconChartBar, IconLink, IconSparkles } from '@/components/icons/homepage';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
 
 export default function ApproachSection() {
   return (
@@ -31,7 +31,7 @@ export default function ApproachSection() {
             &ldquo;The logs do not identify which writer or key population is responsible for the buildup,
             so that remains unestablished.&rdquo;
           </blockquote>
-          <Link href="/investigation" className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+          <Link href="/investigation" className={textLinkClass}>
             Read the full investigation &rarr;
           </Link>
         </Card>

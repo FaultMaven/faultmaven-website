@@ -1,5 +1,5 @@
 import { pageMetadata } from '@/lib/metadata';
-import { PageHeader, Section, proseClass } from '@/components/ui/Section';
+import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'Privacy Policy',
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
             Site.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-12 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-12 !mb-4`}>
             1. Information We Collect (Pre-Launch Phase)
           </h2>
           <p>
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">2. How We Use Your Information</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>2. How We Use Your Information</h2>
           <p>
             We use the information collected during this pre-launch phase to:
           </p>
@@ -83,7 +83,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p>We will not sell your personal information to third parties.</p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">3. Data Security</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>3. Data Security</h2>
           <p>
             We are implementing reasonable administrative, technical, and
             physical security measures to help protect your information. While
@@ -92,7 +92,7 @@ export default function PrivacyPolicyPage() {
             or method of electronic storage is 100% secure.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             4. Product Data &amp; Related Policies
           </h2>
           <p>
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">5. Your Choices &amp; Rights</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>5. Your Choices &amp; Rights</h2>
           <p>
             You may opt-out of any future email communications from us by
             following the unsubscribe link provided in our emails or by
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
             regarding your personal data.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
             6. Changes to This Privacy Policy
           </h2>
           <p>
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPage() {
             updating the &quot;Last Updated&quot; date of this Privacy Policy.
           </p>
 
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 !mt-10 !mb-4">7. Contact Us</h2>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>7. Contact Us</h2>
           <p>
             If you have questions or comments about this Privacy Policy,
             please contact us at:

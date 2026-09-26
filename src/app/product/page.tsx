@@ -4,8 +4,8 @@ import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
 import causalMapImage from '/public/images/copilot-causal-map-resolved.png';
 import { ArrowDown, ClipboardPaste, FileUp, Lock, MessageSquare, Monitor, Server, ShieldCheck } from 'lucide-react';
 import Button from '@/components/ui/Button';
-import { Card, CardTitle, CodeBlock, IconTile, StepNumber } from '@/components/ui/card';
-import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
+import { Card, CardTitle, CodeBlock, IconTile, StepNumber, Dot } from '@/components/ui/card';
+import { PageHeader, Section, SectionHeader, sectionTitleClass, textLinkClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import {
   IconChartBar,
@@ -16,7 +16,6 @@ import { pageMetadata } from '@/lib/metadata';
 
 const chipClass = 'rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
 const exampleClass = 'rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-400';
-const linkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
 
 const steps = [
   {
@@ -126,7 +125,7 @@ export default function ProductPage() {
       <Section tone="muted">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <h2 className="mb-6 text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+            <h2 className={`${sectionTitleClass} mb-6`}>
               Always Available, Right in Your Browser
             </h2>
             <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
@@ -151,7 +150,7 @@ export default function ProductPage() {
         <SectionHeader
           align="left"
           title="How a case ends"
-          className="md:mb-8"
+          spacing="tight"
           lead={
             <p>
               The same investigation, resolved. The causal map is the part worth reading closely, because of
@@ -175,7 +174,7 @@ export default function ProductPage() {
         <p className="mt-6 text-slate-600 dark:text-slate-400">
           Alongside it the case keeps what it was built from — the evidence, the hypotheses considered,
           and the solution applied. You can read a{' '}
-          <Link href="/investigation" className={linkClass}>
+          <Link href="/investigation" className={textLinkClass}>
             full unedited transcript
           </Link>{' '}
           of a different case, start to finish, including the points where it declines to conclude.
@@ -215,20 +214,20 @@ export default function ProductPage() {
                 </p>
                 <ul className="mb-6 space-y-4 text-slate-600 dark:text-slate-400">
                   <li className="flex items-start gap-3">
-                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <Dot />
                     <span>
-                      <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={linkClass}>91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more
+                      <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <Dot />
                     <span>
                       <strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Runbooks shared across your org, post-mortems, and past resolutions{' '}
                       <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Cloud</span>
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <Dot />
                     <span>
                       <strong className="text-slate-800 dark:text-slate-200">Personal Context</strong> — Your specific environment and local configurations
                     </span>
@@ -312,7 +311,7 @@ cd faultmaven
             </Button>
             <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
               Rather not operate it?{' '}
-              <a href={TRY_CLOUD_URL} className={linkClass}>
+              <a href={TRY_CLOUD_URL} className={textLinkClass}>
                 Start on FaultMaven Cloud
               </a>{' '}
               — the same engine, run for you.

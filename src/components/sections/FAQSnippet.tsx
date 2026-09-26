@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 import { SELF_HOST_PATH } from '@/lib/links';
 
@@ -18,7 +18,7 @@ export default function FAQSnippet() {
       answer: (
         <>
           An AI troubleshooting copilot for engineers. It works a problem the way a seasoned engineer does — goal-driven, methodical, grounded in evidence — correlating what you share with your runbooks, docs, and past fixes. You can{' '}
-          <a href={SELF_HOST_PATH} className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+          <a href={SELF_HOST_PATH} className={textLinkClass}>
             run it yourself for free
           </a>{' '}
           — one command, though budget 10–20 minutes the first time: the image is a 2.3 GB
@@ -35,7 +35,7 @@ export default function FAQSnippet() {
       answer: (
         <>
           Standalone (self-hosted) is free. The engine is fair source (FSL-1.1-ALv2): every line is public to audit and fork, and each release converts to Apache 2.0 two years after it ships. The Copilot, Dashboard, and Slack app are Apache 2.0. FaultMaven Cloud runs the same engine for you, with nothing to operate and team knowledge sharing — in beta it is free, with a daily limit on investigation turns —{' '}
-          <a href="/pricing" className="font-medium text-blue-600 hover:underline dark:text-blue-400">
+          <a href="/pricing" className={textLinkClass}>
             compare the two
           </a>
           .

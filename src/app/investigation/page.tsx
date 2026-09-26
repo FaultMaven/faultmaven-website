@@ -1,5 +1,5 @@
 import Button from '@/components/ui/Button';
-import { PageHeader } from '@/components/ui/Section';
+import { PageHeader, subsectionTitleClass } from '@/components/ui/Section';
 import TranscriptTurn from '@/components/investigation/TranscriptTurn';
 import { transcript } from '@/data/redisOomTranscript';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
@@ -85,6 +85,7 @@ export default function InvestigationPage() {
       {/* Header */}
       <PageHeader
         align="left"
+        width="prose"
         eyebrow="Transcript"
         title="A real investigation, unedited"
         lead={
@@ -148,7 +149,7 @@ export default function InvestigationPage() {
       {/* The case at a glance — table, not a card grid */}
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-5">The case at a glance</h2>
+          <h2 className={`${subsectionTitleClass} mb-5`}>The case at a glance</h2>
           <div className="overflow-x-auto">
             <table className="w-full text-[15px] border-collapse">
               <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
@@ -176,7 +177,7 @@ export default function InvestigationPage() {
       {/* Transcript */}
       <section className="pb-12">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-2">The transcript</h2>
+          <h2 className={`${subsectionTitleClass} mb-2`}>The transcript</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8 text-[15px]">
             Grey blocks are what the operator sent. Blue-ruled blocks are FaultMaven, verbatim, with the
             case status and any milestone it recorded on that turn. Amber notes are ours.
@@ -226,7 +227,7 @@ export default function InvestigationPage() {
       {/* Closing read */}
       <section className="py-14 bg-slate-50 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-5">
+          <h2 className={`${subsectionTitleClass} mb-5`}>
             What the transcript is evidence of
           </h2>
           <div className="space-y-4 text-[15px] text-slate-700 dark:text-slate-400 leading-relaxed">
@@ -270,7 +271,7 @@ export default function InvestigationPage() {
       {/* Next step */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-4">
+          <h2 className={`${subsectionTitleClass} mb-4`}>
             Run it on a problem of your own
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto text-[15px] leading-relaxed">

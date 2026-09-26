@@ -10,7 +10,7 @@ import Button from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
 import DemoVideo from '@/components/slack/DemoVideo';
 import { Card, CardTitle, IconTile, StepNumber } from '@/components/ui/card';
-import { PageHeader, Section, SectionHeader } from '@/components/ui/Section';
+import { PageHeader, Section, SectionHeader, quietLinkClass, textLinkClass } from '@/components/ui/Section';
 import { COMMUNITY_SLACK_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -119,8 +119,6 @@ const groundedIn = [
   },
 ];
 
-const linkClass = 'font-medium text-blue-600 hover:underline dark:text-blue-400';
-const quietLinkClass = 'underline transition-colors hover:text-blue-600 dark:hover:text-blue-400';
 
 function NumberedSteps({ steps }: { steps: { title: string; desc: string }[] }) {
   return (
@@ -201,7 +199,7 @@ export default function SlackAppPage() {
 
       {/* What it is */}
       <Section width="prose">
-        <SectionHeader align="left" title="What FaultMaven is" className="md:mb-8" />
+        <SectionHeader align="left" title="What FaultMaven is" spacing="tight" />
         <div className="space-y-5 text-lg text-slate-700 dark:text-slate-300">
           <p>
             FaultMaven is an AI troubleshooting copilot for engineering
@@ -291,7 +289,7 @@ export default function SlackAppPage() {
         <SectionHeader
           align="left"
           title="Watch it work a case"
-          className="md:mb-8"
+          spacing="tight"
           lead={
             <>
               <p>
@@ -317,7 +315,7 @@ export default function SlackAppPage() {
           with narration and the narration was not good enough to ship, so it is gone rather than
           polished. Everything the recording shows is on screen. If you would rather read than watch,
           the{' '}
-          <Link href="/investigation" className={linkClass}>
+          <Link href="/investigation" className={textLinkClass}>
             full transcript of a different case
           </Link>{' '}
           is here in text, including the points where it declines to conclude.
@@ -423,14 +421,14 @@ export default function SlackAppPage() {
       <Section tone="muted" width="prose">
         <SectionHeader
           title="You stay in command"
-          className="md:mb-10"
+          spacing="tight"
           lead={
             <p className="text-slate-700 dark:text-slate-300">
               FaultMaven suggests; you approve and execute. It has no access to
               your infrastructure and takes no action on your systems. Data you
               share is processed to run the investigation and nothing else — see
               the{' '}
-              <Link href="/privacy/slack" className={linkClass}>
+              <Link href="/privacy/slack" className={textLinkClass}>
                 FaultMaven for Slack privacy policy
               </Link>{' '}
               for exactly what it accesses and why.
