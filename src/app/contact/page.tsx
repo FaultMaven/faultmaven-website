@@ -1,4 +1,6 @@
 import Link from '@/components/ui/Link';
+import { Card, CardTitle, IconTile } from '@/components/ui/card';
+import { PageHeader, Section, SectionHeader, subsectionTitleClass } from '@/components/ui/Section';
 import { Mail, Handshake, TrendingUp, Users, Info, HeartHandshake } from 'lucide-react';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -11,22 +13,22 @@ export const metadata = pageMetadata({
 
 const subjectLines = [
   {
-    icon: <Handshake className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
+    icon: <Handshake aria-hidden="true" />,
     title: 'Product Feedback & Cloud Beta',
     desc: 'For engineers running FaultMaven (deploy Standalone free) or interested in the Cloud beta — share troubleshooting challenges, bugs, or what you’d like to see next.'
   },
   {
-    icon: <TrendingUp className="w-6 h-6 text-blue-600 dark:text-blue-400" />, 
+    icon: <TrendingUp aria-hidden="true" />, 
     title: 'Investor Inquiry',
     desc: 'For discussions regarding strategic investment opportunities or to request our Vision Deck.'
   },
   {
-    icon: <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />, 
+    icon: <Users aria-hidden="true" />, 
     title: 'Talent & Collaboration Inquiry',
-    desc: 'If you&apos;re passionate about our mission and interested in exploring future roles or contributing your expertise.'
+    desc: "If you're passionate about our mission and interested in exploring future roles or contributing your expertise."
   },
   {
-    icon: <Info className="w-6 h-6 text-blue-600 dark:text-blue-400" />, 
+    icon: <Info aria-hidden="true" />, 
     title: 'General Question / Other',
     desc: 'For any other questions, comments, or information requests about FaultMaven.'
   },
@@ -34,19 +36,19 @@ const subjectLines = [
 
 const navCards = [
   {
-    icon: <TrendingUp className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />, 
+    icon: <TrendingUp aria-hidden="true" />, 
     title: 'Explore Our Vision',
     desc: 'See our long-term plans and product evolution.',
     href: '/roadmap',
   },
   {
-    icon: <Users className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />,
+    icon: <Users aria-hidden="true" />,
     title: 'Get Support',
     desc: 'Report a bug, or find out what to include when you do.',
     href: '/support',
   },
   {
-    icon: <Info className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto" />, 
+    icon: <Info aria-hidden="true" />, 
     title: 'Read the FAQ',
     desc: 'Find answers to common questions.',
     href: '/faq',
@@ -55,90 +57,77 @@ const navCards = [
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50/60 via-white to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
-      {/* Hero Section */}
-      <section className="py-20 flex items-center justify-center">
-        <div className="max-w-3xl w-full px-6">
-          <div className="rounded-2xl shadow-xl bg-white/90 dark:bg-slate-900/90 p-10 border border-slate-200 dark:border-slate-800 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-              Connect with FaultMaven
-            </h1>
-            <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              We&apos;re building FaultMaven to solve real operational problems, and the best way to do that is to talk with the engineers who live them. Whether you have a question, want to share your expertise, explore a collaboration, or simply learn more, we&apos;re ready to listen.<br />
-              Your insights, feedback, and inquiries directly shape where FaultMaven goes next.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        title="Connect with FaultMaven"
+        lead={
+          <p>
+            We&apos;re building FaultMaven to solve real operational problems, and the best way to do that is to talk with the engineers who live them. Whether you have a question, want to share your expertise, explore a collaboration, or simply learn more, we&apos;re ready to listen.<br />
+            Your insights, feedback, and inquiries directly shape where FaultMaven goes next.
+          </p>
+        }
+      />
 
-      {/* Contact Card Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-stretch">
+      <Section width="narrow">
+        <div className="grid items-stretch gap-8 md:grid-cols-2">
           {/* Left: Email */}
-          <div className="flex flex-col justify-center items-center bg-blue-50 dark:bg-blue-900/30 rounded-2xl shadow-md border border-blue-100 dark:border-blue-900 p-10 text-center">
-            <Mail className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4" />
-            <a href="mailto:support@faultmaven.ai" className="text-2xl font-bold text-blue-700 dark:text-blue-400 hover:underline mb-2">
+          <Card highlight className="flex flex-col items-center justify-center text-center">
+            <IconTile>
+              <Mail aria-hidden="true" />
+            </IconTile>
+            <a href="mailto:support@faultmaven.ai" className="mb-2 text-2xl font-bold text-blue-700 hover:underline dark:text-blue-400">
               support@faultmaven.ai
             </a>
-            <p className="text-lg text-slate-700 dark:text-slate-300 mb-0">We&apos;d love to hear from you!</p>
-          </div>
+            <p className="text-lg text-slate-700 dark:text-slate-300">We&apos;d love to hear from you!</p>
+          </Card>
           {/* Right: Subject Lines */}
-          <div className="flex flex-col justify-center bg-white dark:bg-slate-900 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 p-8">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4 text-center">How to Reach Us</h2>
-            <p className="text-slate-700 dark:text-slate-300 text-center mb-4 text-base">
+          <Card>
+            <h2 className={`${subsectionTitleClass} mb-2`}>How to Reach Us</h2>
+            <p className="mb-6 text-slate-600 dark:text-slate-400">
               When emailing us, please use one of the following subject lines to help us respond quickly:
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-5">
               {subjectLines.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-4">
-                  <span className="mt-1">{item.icon}</span>
+                  <span className="mt-0.5 text-blue-600 dark:text-blue-400 [&>svg]:h-5 [&>svg]:w-5">{item.icon}</span>
                   <div>
-                    <span className="font-semibold text-slate-800 dark:text-slate-200">{item.title}</span>
-                    <br />
-                    <span className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</span>
+                    <p className="font-semibold text-slate-900 dark:text-slate-200">{item.title}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{item.desc}</p>
                   </div>
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
         </div>
-      </section>
+      </Section>
 
-      {/* Other Ways to Engage Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <h2 className="col-span-full text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">More Ways to Connect</h2>
-            {navCards.map((card, idx) => (
-              <Link key={idx} href={card.href}>
-                <div>{card.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-4 mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition">
-                  {card.title}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 text-base mb-0">{card.desc}</p>
-              </Link>
-            ))}
-          </div>
+      {/* Other ways to engage */}
+      <Section tone="muted" width="narrow">
+        <SectionHeader title="More Ways to Connect" />
+        <div className="grid gap-8 md:grid-cols-3">
+          {navCards.map((card, idx) => (
+            <Link key={idx} href={card.href} className="group block rounded-xl hover:no-underline">
+              <Card className="h-full transition group-hover:border-blue-300 group-hover:shadow-md">
+                <IconTile>{card.icon}</IconTile>
+                <CardTitle className="mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-400">{card.title}</CardTitle>
+                <p className="text-slate-600 dark:text-slate-400">{card.desc}</p>
+              </Card>
+            </Link>
+          ))}
         </div>
-      </section>
+      </Section>
 
-      {/* Commitment Banner Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="rounded-2xl bg-blue-50 dark:bg-blue-900/30 shadow-md border border-blue-100 dark:border-blue-900 p-8 flex flex-col items-center text-center">
-            <HeartHandshake className="w-10 h-10 text-blue-600 dark:text-blue-400 mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-              Our Commitment
-            </h2>
-            <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-2">
-              We value your interest and aim to respond to all inquiries as promptly as possible. As we are a focused team in a dynamic development phase, please allow for a reasonable response time.
-            </p>
-            <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              We look forward to connecting with you!
-            </p>
-          </div>
+      {/* Commitment */}
+      <Section size="compact" width="narrow">
+        <div className="flex flex-col items-center rounded-xl border border-blue-200 bg-blue-50 p-8 text-center dark:border-blue-900 dark:bg-blue-950/40">
+          <HeartHandshake aria-hidden="true" className="mb-4 h-8 w-8 text-blue-600 dark:text-blue-400" />
+          <h2 className={`${subsectionTitleClass} mb-3`}>Our Commitment</h2>
+          <p className="mx-auto mb-2 max-w-2xl text-lg text-slate-700 dark:text-slate-300">
+            We value your interest and aim to respond to all inquiries as promptly as possible. As we are a focused team in a dynamic development phase, please allow for a reasonable response time.
+          </p>
+          <p className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300">We look forward to connecting with you!</p>
         </div>
-      </section>
-    </main>
+      </Section>
+    </>
   );
 }

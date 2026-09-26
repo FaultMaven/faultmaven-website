@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button';
+import { PageHeader, Section, sectionTitleClass } from '@/components/ui/Section';
 import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -12,23 +13,15 @@ export const metadata = pageMetadata({
 
 export default function AboutPage() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Built by engineers, for engineers
-          </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            We got tired of solving the same problem twice. So we built FaultMaven.
-          </p>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        title="Built by engineers, for engineers"
+        lead={<p>We got tired of solving the same problem twice. So we built FaultMaven.</p>}
+      />
 
       {/* Origin Story */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             The Problem We Lived
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -42,13 +35,11 @@ export default function AboutPage() {
               <strong className="text-slate-900 dark:text-slate-50">This is a solved problem.</strong> Your team solved it. But the solution died in Slack, or got lost in a runbook no one remembers, or lived in someone&apos;s head—until they left.
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* The Insight */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section tone="muted" width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             The Insight
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -70,18 +61,16 @@ export default function AboutPage() {
               AI can solve all three—<em>if</em> you build it right. Not a chatbot where you paste logs and beg for help. A system that <strong className="text-slate-900 dark:text-slate-50">captures, indexes, and correlates</strong> everything automatically.
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Our Philosophy */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Our Philosophy
           </h2>
           <div className="space-y-8">
             {/* Principle 1 */}
-            <div className="border-l-4 border-blue-500 pl-6">
+            <div className="border-l-4 border-blue-600 pl-6 dark:border-blue-500">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                 1. Memory is the killer feature
               </h3>
@@ -91,7 +80,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 2 */}
-            <div className="border-l-4 border-green-500 pl-6">
+            <div className="border-l-4 border-blue-600 pl-6 dark:border-blue-500">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                 2. Zero context-switching
               </h3>
@@ -101,7 +90,7 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 3 */}
-            <div className="border-l-4 border-purple-500 pl-6">
+            <div className="border-l-4 border-blue-600 pl-6 dark:border-blue-500">
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
                 3. Show the code
               </h3>
@@ -111,13 +100,10 @@ export default function AboutPage() {
             </div>
 
             {/* Principle 4 */}
-            <div className="border-l-4 border-orange-500 pl-6">
-              <div className="flex items-start gap-4 mb-3">
-                <span className="text-3xl">🌙</span>
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50">
-                  4. Built for 3 AM
-                </h3>
-              </div>
+            <div className="border-l-4 border-blue-600 pl-6 dark:border-blue-500">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-50 mb-3">
+                4. Built for 3 AM
+              </h3>
               <p className="text-lg text-slate-700 dark:text-slate-300 mb-2">
                 When you&apos;re half-asleep and production is on fire, you don&apos;t want clever AI—you want <strong className="text-slate-900 dark:text-slate-50">the answer, fast</strong>. FaultMaven optimizes for incident response, not parlor tricks.
               </p>
@@ -126,13 +112,11 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Who We Are */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section tone="muted" width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Who We Are
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -146,13 +130,11 @@ export default function AboutPage() {
               <strong className="text-slate-900 dark:text-slate-50">We build FaultMaven because we kept needing it ourselves</strong> — and we doubt we&apos;re the only ones. Whether we got it right is yours to judge, and you don&apos;t have to take our word for it: the source is public — fair source — and there&apos;s a <a href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">full unedited transcript</a> of it working a case, refusals and all.
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Why Now */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             Why Now?
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -171,13 +153,11 @@ export default function AboutPage() {
               For the first time, we can build a system that <strong className="text-slate-900 dark:text-slate-50">learns, remembers, and accelerates</strong> incident response at scale. That&apos;s FaultMaven.
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* What We're Building Toward */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-8">
+      <Section tone="muted" width="narrow">
+          <h2 className={`${sectionTitleClass} mb-8`}>
             What We&apos;re Building Toward
           </h2>
           <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
@@ -191,33 +171,30 @@ export default function AboutPage() {
               <strong className="text-slate-900 dark:text-slate-50">That&apos;s the roadmap.</strong> We&apos;re not there yet — but we&apos;re building toward it one incident, one resolution, one piece of captured knowledge at a time. <a href="/roadmap" className="text-blue-600 dark:text-blue-400 hover:underline">See the roadmap →</a>
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-slate-800 dark:to-slate-800/50 border-2 border-blue-500 dark:border-blue-600 rounded-xl p-10">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
+      <Section width="narrow">
+          <div className="rounded-xl border border-blue-200 bg-blue-50 p-8 md:p-10 dark:border-blue-900 dark:bg-blue-950/40">
+            <h2 className={`${sectionTitleClass} mb-6 text-center`}>
               Join Us
             </h2>
             <p className="text-lg text-slate-700 dark:text-slate-300 mb-8 text-center max-w-2xl mx-auto">
               FaultMaven is fair source—every line is public. Deploy it, use it, improve it, break it—then tell us what you learned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild href={TRY_CLOUD_URL} variant="primary" className="text-lg px-8">
+              <Button asChild href={TRY_CLOUD_URL} variant="primary">
                 Start on FaultMaven Cloud
               </Button>
-              <Button asChild href={SELF_HOST_PATH} variant="secondary" className="text-lg px-8">
+              <Button asChild href={SELF_HOST_PATH} variant="secondary">
                 Self-host it
               </Button>
-              <Button asChild href={DISCUSSIONS_URL} variant="secondary" className="text-lg px-8">
+              <Button asChild href={DISCUSSIONS_URL} variant="secondary">
                 Join Discussions
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+      </Section>
+    </>
   );
 }

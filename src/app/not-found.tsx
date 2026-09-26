@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import Link from '@/components/ui/Link';
+import Button from '@/components/ui/Button';
+import { PageHeader } from '@/components/ui/Section';
 
 // Bare title: the root layout's template appends ` | FaultMaven`.
 export const metadata: Metadata = {
@@ -8,16 +9,15 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="bg-white">
-      <section className="py-20 px-6 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Page Not Found</h1>
-        <p className="text-gray-600 mb-6">
-          Sorry, the page you&apos;re looking for doesn&apos;t exist.
-        </p>
-        <Link href="/" className="text-[#2563EB] hover:underline">
-          Return to Home
-        </Link>
-      </section>
-    </main>
+    <PageHeader
+      eyebrow="404"
+      title="Page Not Found"
+      lead={<p>Sorry, the page you&apos;re looking for doesn&apos;t exist.</p>}
+      className="border-b-0 md:pb-32"
+    >
+      <Button asChild href="/" variant="primary">
+        Return to Home
+      </Button>
+    </PageHeader>
   );
 }

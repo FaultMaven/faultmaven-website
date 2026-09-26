@@ -1,6 +1,8 @@
 import Button from '@/components/ui/Button';
+import { PageHeader, Section, eyebrowClass, sectionTitleClass } from '@/components/ui/Section';
 import { DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
+import { cardClass, highlightCardClass, iconTileClass } from '@/components/ui/card';
 
 
 export const metadata = pageMetadata({
@@ -12,29 +14,28 @@ export const metadata = pageMetadata({
 
 export default function RoadmapPage() {
   return (
-    <main>
+    <>
       {/* Hero Section */}
-      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            The FaultMaven Roadmap
-          </h1>
-          <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
+      <PageHeader
+        title="The FaultMaven Roadmap"
+        lead={
+          <>
+            <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">
             Trust first. Autonomy earned.
           </p>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            <p className="text-lg">
             We&apos;re building FaultMaven in the open. It&apos;s a copilot by choice, not by limitation: rather than demand broad access and full automation on day one, it starts hands-on — with zero access to your systems — and earns more autonomy as it proves itself. Here&apos;s the progression, and how you can shape it.
           </p>
-        </div>
-      </section>
+          </>
+        }
+      />
 
       {/* Thesis Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400 text-center mb-3">
+      <Section width="narrow">
+          <p className={`${eyebrowClass} text-center mb-3`}>
             Our philosophy: Earned Autonomy
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-6">
+          <h2 className={`${sectionTitleClass} text-center mb-6`}>
             Autonomy is earned, not assumed
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
@@ -54,13 +55,11 @@ export default function RoadmapPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Phases Section */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-4">
+      <Section tone="muted">
+          <h2 className={`${sectionTitleClass} text-center mb-4`}>
             Three phases, growing autonomy
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-16">
@@ -69,14 +68,14 @@ export default function RoadmapPage() {
 
           <div className="space-y-10">
             {/* Phase 1 — Copilot (Available now) */}
-            <div className="border-2 border-green-500 rounded-xl p-8 bg-white dark:bg-slate-900">
+            <div className={cardClass}>
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <span className="text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-3 py-1 rounded-full">
                   Phase 1 · Available now
                 </span>
                 <span className="text-sm text-slate-500 dark:text-slate-400">You guide it, turn by turn</span>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-1">
                 Copilot — turn-by-turn, at your side
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -104,14 +103,14 @@ export default function RoadmapPage() {
             </div>
 
             {/* Phase 2 — Investigator (Next) */}
-            <div className="border-2 border-blue-500 rounded-xl p-8 bg-white dark:bg-slate-900">
+            <div className={cardClass}>
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <span className="text-xs font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">
                   Phase 2 · Next
                 </span>
                 <span className="text-sm text-slate-500 dark:text-slate-400">It works on your bundle</span>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-1">
                 Investigator — hand it the data, get back a diagnosis
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -134,14 +133,14 @@ export default function RoadmapPage() {
             </div>
 
             {/* Phase 3 — Integrated Agent (On the roadmap) */}
-            <div className="border-2 border-slate-300 dark:border-slate-700 rounded-xl p-8 bg-slate-50 dark:bg-slate-800/50">
+            <div className={cardClass}>
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <span className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-3 py-1 rounded-full">
                   Phase 3 · On the roadmap
                 </span>
                 <span className="text-sm text-slate-500 dark:text-slate-400">It connects to your stack</span>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-1">
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-1">
                 Integrated Agent — from alert to resolution, on its own
               </h3>
               <p className="text-slate-600 dark:text-slate-400 mb-6">
@@ -167,13 +166,11 @@ export default function RoadmapPage() {
           <p className="text-center text-slate-600 dark:text-slate-400 mt-12 max-w-3xl mx-auto">
             Phase 1 ships today. Phases 2 and 3 are where we&apos;re headed — and the order and detail are still open to the practitioners who use it.
           </p>
-        </div>
-      </section>
+      </Section>
 
       {/* Open Core Philosophy Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
+      <Section width="narrow">
+          <h2 className={`${sectionTitleClass} text-center mb-16`}>
             Open core: the same engine, run your way
           </h2>
           <div className="max-w-3xl mx-auto space-y-8">
@@ -181,8 +178,8 @@ export default function RoadmapPage() {
               FaultMaven follows an open-core model:
             </p>
 
-            <div className="p-8 border-2 border-green-500 dark:border-green-600 rounded-xl bg-green-50 dark:bg-green-900/10">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
+            <div className={cardClass}>
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-4">
                 Standalone (Self-Hosted)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
@@ -193,8 +190,8 @@ export default function RoadmapPage() {
               </Button>
             </div>
 
-            <div className="p-8 border-2 border-blue-500 dark:border-blue-600 rounded-xl bg-blue-50 dark:bg-blue-900/10">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
+            <div className={highlightCardClass}>
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-50 mb-4">
                 Cloud (Managed Service)
               </h3>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
@@ -205,13 +202,11 @@ export default function RoadmapPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Influence Section */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
+      <Section tone="muted">
+          <h2 className={`${sectionTitleClass} text-center mb-16`}>
             Shape the Roadmap
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 text-center max-w-3xl mx-auto mb-12">
@@ -220,16 +215,16 @@ export default function RoadmapPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* GitHub Discussions */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <div className={`flex flex-col ${cardClass}`}>
+              <div className={iconTileClass}>
+                <svg aria-hidden="true" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
                 GitHub Discussions
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6">
+              <p className="flex-grow text-slate-600 dark:text-slate-400 mb-6">
                 Propose features, report bugs, vote on priorities.
               </p>
               <Button asChild href={DISCUSSIONS_URL} variant="secondary" className="w-full">
@@ -238,16 +233,16 @@ export default function RoadmapPage() {
             </div>
 
             {/* Office Hours */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className={`flex flex-col ${cardClass}`}>
+              <div className={iconTileClass}>
+                <svg aria-hidden="true" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
                 Talk to the Team
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6">
+              <p className="flex-grow text-slate-600 dark:text-slate-400 mb-6">
                 Bring your hardest troubleshooting problems to the people building FaultMaven.
               </p>
               <Button asChild href="/contact" variant="secondary" className="w-full">
@@ -256,16 +251,16 @@ export default function RoadmapPage() {
             </div>
 
             {/* Contribute Code */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-900 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className={`flex flex-col ${cardClass}`}>
+              <div className={iconTileClass}>
+                <svg aria-hidden="true" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
                 Contribute Code
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-6">
+              <p className="flex-grow text-slate-600 dark:text-slate-400 mb-6">
                 FaultMaven is fair source — every line is public. PRs welcome.
               </p>
               <Button asChild href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" variant="secondary" className="w-full">
@@ -273,13 +268,12 @@ export default function RoadmapPage() {
               </Button>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+      <Section width="narrow">
+        <div className="text-center">
+          <h2 className={`${sectionTitleClass} mb-6`}>
             Start Today, Grow With Us
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
@@ -297,7 +291,7 @@ export default function RoadmapPage() {
             </Button>
           </div>
         </div>
-      </section>
-    </main>
+      </Section>
+    </>
   );
 }

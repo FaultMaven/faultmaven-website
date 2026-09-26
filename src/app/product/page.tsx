@@ -2,7 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import sidepanelImage from '/public/images/copilot-investigating-in-flow.png';
 import causalMapImage from '/public/images/copilot-causal-map-resolved.png';
+import { ArrowDown, ClipboardPaste, FileUp, Lock, MessageSquare, Monitor, Server, ShieldCheck } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import { Card, CardTitle, CodeBlock, IconTile, StepNumber, Dot } from '@/components/ui/card';
+import { PageHeader, Section, SectionHeader, sectionTitleClass, textLinkClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import {
   IconChartBar,
@@ -10,6 +13,50 @@ import {
   IconDocumentText
 } from '@/components/icons/homepage';
 import { pageMetadata } from '@/lib/metadata';
+
+const chipClass = 'rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300';
+const exampleClass = 'rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-400';
+
+const steps = [
+  {
+    title: 'Share Context',
+    body: 'Paste an error, upload a log file, or let FaultMaven capture your current page context.',
+    chips: ['Copy/Paste', 'File Upload', 'Page Context', 'Conversation'],
+  },
+  {
+    title: 'AI Analysis',
+    body: 'FaultMaven correlates your input with global patterns, team knowledge, and your personal context to identify likely root causes.',
+  },
+  {
+    title: 'Actionable Next Steps',
+    body: "FaultMaven doesn't just answer — it leads: it names the most decisive next step and points you to the relevant runbook sections and similar past incidents your team has already solved.",
+  },
+];
+
+const inputs = [
+  { Icon: ClipboardPaste, title: 'Copy/Paste', body: 'Paste error messages or stack traces directly' },
+  { Icon: FileUp, title: 'File Upload', body: 'Upload logs, configs, or YAML files' },
+  { Icon: Monitor, title: 'Page Context', body: 'Capture your current page (Grafana, AWS Console)' },
+  { Icon: MessageSquare, title: 'Conversation', body: 'Talk through the problem naturally' },
+];
+
+const safeguards = [
+  {
+    Icon: Server,
+    title: 'Local-First',
+    body: 'Self-hosted, all case data (logs, configs, screenshots) and your knowledge base are stored on your own infrastructure, and retrieval runs with no network. What leaves is each investigation prompt, sent to the model provider you choose.',
+  },
+  {
+    Icon: Lock,
+    title: 'Data Redaction',
+    body: 'An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach the model provider you configure.',
+  },
+  {
+    Icon: ShieldCheck,
+    title: 'No Production Credentials',
+    body: 'FaultMaven works from what you choose to share. It never asks for production API keys, root credentials, or access to your live systems, and takes no action on them.',
+  },
+];
 
 
 export const metadata = pageMetadata({
@@ -21,431 +68,278 @@ export const metadata = pageMetadata({
 
 export default function ProductPage() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            How FaultMaven Works
-          </h1>
-          <p className="text-2xl text-slate-700 dark:text-slate-300 mb-6 font-medium">
-            A methodical path from error to resolution.
-          </p>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
-            FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild href={TRY_CLOUD_URL} variant="primary">
-              Start on FaultMaven Cloud
-            </Button>
-            <Button asChild href={SELF_HOST_PATH} variant="secondary">
-              Self-host it
-            </Button>
-          </div>
-        </div>
-      </section>
+    <>
+      <PageHeader
+        title="How FaultMaven Works"
+        lead={
+          <>
+            <p className="text-2xl font-medium text-slate-700 dark:text-slate-300">A methodical path from error to resolution.</p>
+            <p className="text-lg">
+              FaultMaven meets you where you work — a browser side-panel for individual engineers, and a Slack agent for teams — bringing AI-powered troubleshooting directly into your workflow. No complex integrations. No context-switching. Just paste an error, share a log, or describe the problem—and get actionable answers informed by global patterns and your own institutional knowledge.
+            </p>
+          </>
+        }
+      >
+        <Button asChild href={TRY_CLOUD_URL} variant="primary">
+          Start on FaultMaven Cloud
+        </Button>
+        <Button asChild href={SELF_HOST_PATH} variant="secondary">
+          Self-host it
+        </Button>
+      </PageHeader>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Three Steps to Faster Resolution
-          </h2>
-          <div className="space-y-8">
-            {/* Step 1 */}
-            <div className="p-8 border-2 border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-xl font-bold text-blue-600 dark:text-blue-400">1</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    Share Context
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-4">
-                    Paste an error, upload a log file, or let FaultMaven capture your current page context.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full">Copy/Paste</span>
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full">File Upload</span>
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full">Page Context</span>
-                    <span className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full">Conversation</span>
+      {/* How It Works */}
+      <Section id="how-it-works" width="narrow">
+        <SectionHeader title="Three Steps to Faster Resolution" />
+        <ol>
+          {steps.map((step, i) => (
+            <li key={step.title}>
+              {i > 0 ? <ArrowDown aria-hidden="true" className="mx-auto my-4 h-6 w-6 text-slate-400 dark:text-slate-500" /> : null}
+              <Card>
+                <div className="flex items-start gap-6">
+                  <StepNumber n={i + 1} />
+                  <div>
+                    <CardTitle className="mb-3 text-2xl">{step.title}</CardTitle>
+                    <p className="text-lg text-slate-600 dark:text-slate-400">{step.body}</p>
+                    {step.chips ? (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {step.chips.map((c) => (
+                          <span key={c} className={chipClass}>
+                            {c}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
-              </div>
-            </div>
+              </Card>
+            </li>
+          ))}
+        </ol>
+        <p className="mx-auto mt-12 max-w-2xl text-center text-lg text-slate-600 dark:text-slate-400">
+          Every resolution is captured automatically—building your knowledge base for the next incident.
+        </p>
+      </Section>
 
-            <div className="text-center text-slate-400 dark:text-slate-600 text-3xl">↓</div>
-
-            {/* Step 2 */}
-            <div className="p-8 border-2 border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-xl font-bold text-green-600 dark:text-green-400">2</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    AI Analysis
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400">
-                    FaultMaven correlates your input with global patterns, team knowledge, and your personal context to identify likely root causes.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center text-slate-400 dark:text-slate-600 text-3xl">↓</div>
-
-            {/* Step 3 */}
-            <div className="p-8 border-2 border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-xl font-bold text-purple-600 dark:text-purple-400">3</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    Actionable Next Steps
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400">
-                    FaultMaven doesn&apos;t just answer — it leads: it names the most decisive next step and points you to the relevant runbook sections and similar past incidents your team has already solved.
-                  </p>
-                </div>
-              </div>
-            </div>
+      {/* Browser Extension */}
+      <Section tone="muted">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          <div>
+            <h2 className={`${sectionTitleClass} mb-6`}>
+              Always Available, Right in Your Browser
+            </h2>
+            <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
+              FaultMaven lives in a browser side-panel that stays with you across tabs. Whether you&apos;re in Grafana, AWS Console, Datadog, or your terminal output—your AI copilot is always one click away.
+            </p>
+            <p className="text-lg text-slate-600 dark:text-slate-400">
+              No integrations required. No separate apps to launch. Just open the panel and start troubleshooting.
+            </p>
           </div>
-
-          <p className="mt-12 text-center text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Every resolution is captured automatically—building your knowledge base for the next incident.
-          </p>
+          <Image
+            src={sidepanelImage}
+            alt="The FaultMaven side panel open beside a staging ops console, working a CrashLoopBackOff case: it names an unbounded cache as the mechanism, cites the log lines it read, and says the root cause is not yet validated because it still needs the release config diff."
+            placeholder="blur"
+            sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
+            className="rounded-xl border border-slate-200 shadow-2xl dark:border-slate-800"
+          />
         </div>
-      </section>
-
-      {/* Browser Extension Section */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-                Always Available, Right in Your Browser
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                FaultMaven lives in a browser side-panel that stays with you across tabs. Whether you&apos;re in Grafana, AWS Console, Datadog, or your terminal output—your AI copilot is always one click away.
-              </p>
-              <p className="text-lg text-slate-600 dark:text-slate-400">
-                No integrations required. No separate apps to launch. Just open the panel and start troubleshooting.
-              </p>
-            </div>
-            <div>
-              <Image
-                src={sidepanelImage}
-                alt="The FaultMaven side panel open beside a staging ops console, working a CrashLoopBackOff case: it names an unbounded cache as the mechanism, cites the log lines it read, and says the root cause is not yet validated because it still needs the release config diff."
-                placeholder="blur"
-                className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      </Section>
 
       {/* How a case ends — the same case as the screenshot above, resolved */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-            How a case ends
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-            The same investigation, resolved. The causal map is the part worth reading closely, because of
-            what it refuses to colour in: every node is marked{' '}
-            <strong className="text-slate-900 dark:text-slate-200">validated</strong>,{' '}
-            <strong className="text-slate-900 dark:text-slate-200">not established</strong>, or{' '}
-            <strong className="text-slate-900 dark:text-slate-200">refuted</strong>, and solid arrows lead
-            only from validated causes. Most of this map is still open circles — candidate paths the
-            evidence never settled. A tool that shaded them all in would look more confident and be worth
-            less.
-          </p>
-          <Image
-            src={causalMapImage}
-            alt="A resolved FaultMaven case showing its causal map. Every node is marked validated, not established, or refuted; most remain not established, and solid arrows lead only from the two validated causes to the confirmed root cause."
-            placeholder="blur"
-            className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
-          />
-          <p className="mt-6 text-slate-600 dark:text-slate-400">
-            Alongside it the case keeps what it was built from — the evidence, the hypotheses considered,
-            and the solution applied. You can read a{' '}
-            <Link href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
-              full unedited transcript
-            </Link>{' '}
-            of a different case, start to finish, including the points where it declines to conclude.
-          </p>
-        </div>
-      </section>
+      <Section width="narrow">
+        <SectionHeader
+          align="left"
+          title="How a case ends"
+          spacing="tight"
+          lead={
+            <p>
+              The same investigation, resolved. The causal map is the part worth reading closely, because of
+              what it refuses to colour in: every node is marked{' '}
+              <strong className="text-slate-900 dark:text-slate-200">validated</strong>,{' '}
+              <strong className="text-slate-900 dark:text-slate-200">not established</strong>, or{' '}
+              <strong className="text-slate-900 dark:text-slate-200">refuted</strong>, and solid arrows lead
+              only from validated causes. Most of this map is still open circles — candidate paths the
+              evidence never settled. A tool that shaded them all in would look more confident and be worth
+              less.
+            </p>
+          }
+        />
+        <Image
+          src={causalMapImage}
+          alt="A resolved FaultMaven case showing its causal map. Every node is marked validated, not established, or refuted; most remain not established, and solid arrows lead only from the two validated causes to the confirmed root cause."
+          placeholder="blur"
+          sizes="(min-width: 896px) 848px, calc(100vw - 48px)"
+          className="rounded-xl border border-slate-200 shadow-2xl dark:border-slate-800"
+        />
+        <p className="mt-6 text-slate-600 dark:text-slate-400">
+          Alongside it the case keeps what it was built from — the evidence, the hypotheses considered,
+          and the solution applied. You can read a{' '}
+          <Link href="/investigation" className={textLinkClass}>
+            full unedited transcript
+          </Link>{' '}
+          of a different case, start to finish, including the points where it declines to conclude.
+        </p>
+      </Section>
 
-      {/* Core Capabilities Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Core Capabilities
-          </h2>
-          <div className="space-y-12">
-            {/* Deep Context Awareness */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <IconChartBar className="w-12 h-12 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    Deep Context Awareness
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                    FaultMaven doesn&apos;t just read your error message—it correlates logs, metrics, configs, and code to understand the system state that caused the problem. Not just what broke, but why.
-                  </p>
-                  <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700">
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Paste a CrashLoopBackOff error → FaultMaven checks your deployment manifest, recent config changes, and resource limits.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Tiered Knowledge Engine */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <IconSparkles className="w-12 h-12 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    The Tiered Knowledge Engine
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                    Every answer is informed by three layers of intelligence:
-                  </p>
-                  <ul className="space-y-4 mb-6">
-                    <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
-                      <div>
-                        <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className="text-blue-600 dark:text-blue-400 hover:underline">91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
-                      <div>
-                        <strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — Runbooks shared across your org, post-mortems, and past resolutions </span>
-                        <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-2 py-1 rounded">Cloud</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 dark:text-blue-400 mr-3 font-bold">•</span>
-                      <div>
-                        <strong className="text-slate-800 dark:text-slate-200">Personal Context</strong>
-                        <span className="text-slate-600 dark:text-slate-400"> — Your specific environment and local configurations</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <p className="text-lg text-slate-700 dark:text-slate-300 font-medium">
-                    So you spend less time re-solving problems you&apos;ve already cracked.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Auto-Generated Documentation */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-800/50">
-              <div className="flex items-start gap-6">
-                <IconDocumentText className="w-12 h-12 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
-                    Auto-Generated Documentation
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
-                    As you troubleshoot, FaultMaven captures the context, timeline, and resolution. Export to post-mortem format with one click. Stop losing institutional knowledge to Slack threads.
-                  </p>
-                  <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700">
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Incident → Investigation → Resolution → Searchable knowledge (automatic)
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Input Methods Section */}
-      <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Works the Way You Work
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Copy/Paste */}
-            <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900">
-              <div className="text-4xl mb-4">📋</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                Copy/Paste
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Paste error messages or stack traces directly
-              </p>
-            </div>
-
-            {/* File Upload */}
-            <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900">
-              <div className="text-4xl mb-4">📁</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                File Upload
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Upload logs, configs, or YAML files
-              </p>
-            </div>
-
-            {/* Page Context */}
-            <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900">
-              <div className="text-4xl mb-4">🖥️</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                Page Context
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Capture your current page (Grafana, AWS Console)
-              </p>
-            </div>
-
-            {/* Conversation */}
-            <div className="p-6 border border-slate-200 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-900">
-              <div className="text-4xl mb-4">💬</div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                Conversation
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Talk through the problem naturally
-              </p>
-            </div>
-          </div>
-          <p className="mt-8 text-center text-lg text-slate-600 dark:text-slate-400">
-            No integrations required. Works with whatever&apos;s in front of you.
-          </p>
-        </div>
-      </section>
-
-      {/* Security & Privacy Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Your Data Stays Yours
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Local-First */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Local-First
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                Self-hosted, all case data (logs, configs, screenshots) and your knowledge base are stored on your own infrastructure, and retrieval runs with no network. What leaves is each investigation prompt, sent to the model provider you choose.
-              </p>
-            </div>
-
-            {/* Data Redaction */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Data Redaction
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                An optional redaction layer detects sensitive patterns (API keys, passwords, PII) and scrubs them before prompts reach the model provider you configure.
-              </p>
-            </div>
-
-            {/* No production credentials */}
-            <div className="p-8 border border-slate-200 dark:border-slate-800 rounded-xl text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
-                <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                No Production Credentials
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400">
-                FaultMaven works from what you choose to share. It never asks for production API keys, root credentials, or access to your live systems, and takes no action on them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-slate-100 dark:bg-slate-800">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50 mb-16">
-            Run It Yourself, or Let Us Run It for You
-          </h2>
-
-          {/* Primary CTA */}
-          <div className="max-w-3xl mx-auto mb-16">
-            <div className="bg-white dark:bg-slate-900 border-2 border-blue-500 dark:border-blue-600 rounded-xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6 text-center">
-                Self-host it: one command
-              </h3>
-              <pre className="bg-slate-900 dark:bg-slate-950 p-6 rounded-lg mb-6 overflow-x-auto">
-                <code className="text-green-400 font-mono text-sm block">
-{`git clone https://github.com/FaultMaven/faultmaven.git
-cd faultmaven
-./faultmaven.sh start`}
-                </code>
-              </pre>
-              <div className="text-center">
-                <Button asChild href={SELF_HOST_PATH} variant="primary" className="text-lg px-8">
-                  Self-hosting guide →
-                </Button>
-                <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
-                  Rather not operate it?{' '}
-                  <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">
-                    Start on FaultMaven Cloud
-                  </a>{' '}
-                  — the same engine, run for you.
+      {/* Core Capabilities */}
+      <Section tone="muted" width="narrow">
+        <SectionHeader title="Core Capabilities" />
+        <div className="space-y-8">
+          <Card>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+              <IconTile className="mb-0 flex-shrink-0">
+                <IconChartBar aria-hidden="true" />
+              </IconTile>
+              <div>
+                <CardTitle className="mb-3 text-2xl">Deep Context Awareness</CardTitle>
+                <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
+                  FaultMaven doesn&apos;t just read your error message—it correlates logs, metrics, configs, and code to understand the system state that caused the problem. Not just what broke, but why.
+                </p>
+                <p className={exampleClass}>
+                  <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Paste a CrashLoopBackOff error → FaultMaven checks your deployment manifest, recent config changes, and resource limits.
                 </p>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* Secondary CTAs */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Working as a Team?
-              </h3>
-              <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-                Team knowledge sharing and SSO need multi-tenancy, which is what FaultMaven Cloud adds — self-hosted FaultMaven is single-user.
-              </p>
-              <Button asChild href="/pricing" variant="secondary" className="w-full">
-                Compare Standalone and Cloud
-              </Button>
+          <Card>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+              <IconTile className="mb-0 flex-shrink-0">
+                <IconSparkles aria-hidden="true" />
+              </IconTile>
+              <div className="flex-1">
+                <CardTitle className="mb-3 text-2xl">The Tiered Knowledge Engine</CardTitle>
+                <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
+                  Every answer is informed by three layers of intelligence:
+                </p>
+                <ul className="mb-6 space-y-4 text-slate-600 dark:text-slate-400">
+                  <li className="flex items-start gap-3">
+                    <Dot />
+                    <span>
+                      <strong className="text-slate-800 dark:text-slate-200">Global Intelligence</strong> — <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> for Kubernetes, databases, cloud platforms, message queues, and more
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Dot />
+                    <span>
+                      <strong className="text-slate-800 dark:text-slate-200">Team Knowledge</strong> — Runbooks shared across your org, post-mortems, and past resolutions{' '}
+                      <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">Cloud</span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Dot />
+                    <span>
+                      <strong className="text-slate-800 dark:text-slate-200">Personal Context</strong> — Your specific environment and local configurations
+                    </span>
+                  </li>
+                </ul>
+                <p className="text-lg font-medium text-slate-700 dark:text-slate-300">
+                  So you spend less time re-solving problems you&apos;ve already cracked.
+                </p>
+              </div>
             </div>
-            <div className="p-8 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800/50">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-3">
-                Questions?
-              </h3>
-              <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-                Check the docs or ask in GitHub Discussions.
-              </p>
-              <Button asChild href="https://github.com/FaultMaven/faultmaven#documentation" variant="secondary" className="w-full">
-                Documentation →
-              </Button>
+          </Card>
+
+          <Card>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+              <IconTile className="mb-0 flex-shrink-0">
+                <IconDocumentText aria-hidden="true" />
+              </IconTile>
+              <div>
+                <CardTitle className="mb-3 text-2xl">Auto-Generated Documentation</CardTitle>
+                <p className="mb-6 text-lg text-slate-600 dark:text-slate-400">
+                  As you troubleshoot, FaultMaven captures the context, timeline, and resolution. Export to post-mortem format with one click. Stop losing institutional knowledge to Slack threads.
+                </p>
+                <p className={exampleClass}>
+                  <strong className="text-slate-800 dark:text-slate-200">Example:</strong> Incident → Investigation → Resolution → Searchable knowledge (automatic)
+                </p>
+              </div>
             </div>
-          </div>
+          </Card>
         </div>
-      </section>
-    </main>
+      </Section>
+
+      {/* Input Methods */}
+      <Section>
+        <SectionHeader title="Works the Way You Work" />
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {inputs.map(({ Icon, title, body }) => (
+            <Card key={title} className="md:p-6">
+              <IconTile>
+                <Icon aria-hidden="true" />
+              </IconTile>
+              <CardTitle className="mb-2">{title}</CardTitle>
+              <p className="text-slate-600 dark:text-slate-400">{body}</p>
+            </Card>
+          ))}
+        </div>
+        <p className="mt-10 text-center text-lg text-slate-600 dark:text-slate-400">
+          No integrations required. Works with whatever&apos;s in front of you.
+        </p>
+      </Section>
+
+      {/* Security & Privacy */}
+      <Section tone="muted">
+        <SectionHeader title="Your Data Stays Yours" />
+        <div className="grid gap-8 md:grid-cols-3">
+          {safeguards.map(({ Icon, title, body }) => (
+            <Card key={title}>
+              <IconTile>
+                <Icon aria-hidden="true" />
+              </IconTile>
+              <CardTitle className="mb-3">{title}</CardTitle>
+              <p className="text-slate-600 dark:text-slate-400">{body}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* CTA */}
+      <Section>
+        <SectionHeader title="Run It Yourself, or Let Us Run It for You" />
+
+        <Card highlight className="mx-auto mb-8 max-w-3xl">
+          <CardTitle className="mb-6 text-center text-2xl">Self-host it: one command</CardTitle>
+          <CodeBlock className="mb-6">
+            {`git clone https://github.com/FaultMaven/faultmaven.git
+cd faultmaven
+./faultmaven.sh start`}
+          </CodeBlock>
+          <div className="text-center">
+            <Button asChild href={SELF_HOST_PATH} variant="primary" className="px-8">
+              Self-hosting guide →
+            </Button>
+            <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+              Rather not operate it?{' '}
+              <a href={TRY_CLOUD_URL} className={textLinkClass}>
+                Start on FaultMaven Cloud
+              </a>{' '}
+              — the same engine, run for you.
+            </p>
+          </div>
+        </Card>
+
+        <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+          <Card className="flex flex-col">
+            <CardTitle className="mb-3">Working as a Team?</CardTitle>
+            <p className="mb-6 flex-grow text-slate-600 dark:text-slate-400">
+              Team knowledge sharing and SSO need multi-tenancy, which is what FaultMaven Cloud adds — self-hosted FaultMaven is single-user.
+            </p>
+            <Button asChild href="/pricing" variant="secondary" className="w-full">
+              Compare Standalone and Cloud
+            </Button>
+          </Card>
+          <Card className="flex flex-col">
+            <CardTitle className="mb-3">Questions?</CardTitle>
+            <p className="mb-6 flex-grow text-slate-600 dark:text-slate-400">
+              Check the docs or ask in GitHub Discussions.
+            </p>
+            <Button asChild href="https://github.com/FaultMaven/faultmaven#documentation" variant="secondary" className="w-full">
+              Documentation →
+            </Button>
+          </Card>
+        </div>
+      </Section>
+    </>
   );
 }

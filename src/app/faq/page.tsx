@@ -1,4 +1,6 @@
 import Button from '@/components/ui/Button';
+import { codeBlockClass, Dot } from '@/components/ui/card';
+import { PageHeader, Section, sectionTitleClass, subsectionTitleClass, textLinkClass } from '@/components/ui/Section';
 import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, DISCUSSIONS_URL, SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -12,25 +14,18 @@ export const metadata = pageMetadata({
 
 export default function FAQPage() {
   return (
-    <main>
+    <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Quick answers to common questions about FaultMaven
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Frequently Asked Questions"
+        lead={<p>Quick answers to common questions about FaultMaven</p>}
+      />
 
       {/* FAQ Content */}
-      <section className="py-16 bg-white dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6">
+      <Section width="narrow">
           {/* Getting Started */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8 pb-4 border-b-2 border-blue-500">
+            <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
               Getting Started
             </h2>
             <div className="space-y-8">
@@ -53,17 +48,17 @@ export default function FAQPage() {
                   How do I get started?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  Two ways, same engine. <a href={TRY_CLOUD_URL} className="text-blue-600 dark:text-blue-400 hover:underline">Sign up for FaultMaven Cloud</a> and we run it for you — nothing to install. Or run it yourself: Standalone (self-hosted) is one command:
+                  Two ways, same engine. <a href={TRY_CLOUD_URL} className={textLinkClass}>Sign up for FaultMaven Cloud</a> and we run it for you — nothing to install. Or run it yourself: Standalone (self-hosted) is one command:
                 </p>
-                <pre className="bg-slate-900 dark:bg-slate-950 p-4 rounded-lg mb-3 overflow-x-auto">
-                  <code className="text-green-400 font-mono text-sm">
+                <pre className={`${codeBlockClass} mb-3`}>
+                  <code>
 {`git clone https://github.com/FaultMaven/faultmaven.git
 cd faultmaven
 ./faultmaven.sh start`}
                   </code>
                 </pre>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
-                  The deployment script handles everything: Docker containers, configuration, and database setup. Set one model provider&apos;s API key in <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">.env</code> first — see the <a href={SELF_HOST_PATH} className="text-blue-600 dark:text-blue-400 hover:underline">self-hosting guide</a>.
+                  The deployment script handles everything: Docker containers, configuration, and database setup. Set one model provider&apos;s API key in <code className="bg-slate-200 dark:bg-slate-900 px-2 py-1 rounded text-xs">.env</code> first — see the <a href={SELF_HOST_PATH} className={textLinkClass}>self-hosting guide</a>.
                 </p>
               </div>
 
@@ -87,14 +82,14 @@ cd faultmaven
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300 mb-3">
                   Yes, two ways. To <strong className="text-slate-900 dark:text-slate-50">see</strong> it: we publish{' '}
-                  <a href="/investigation" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  <a href="/investigation" className={textLinkClass}>
                     a complete investigation transcript
                   </a>
                   , unedited, including the points where FaultMaven refused to conclude more than the evidence supported.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
                   To <strong className="text-slate-900 dark:text-slate-50">try</strong> it: FaultMaven is installed in the{' '}
-                  <a href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  <a href={COMMUNITY_SLACK_URL} target="_blank" rel="noopener noreferrer" className={textLinkClass}>
                     FaultMaven Community Slack
                   </a>
                   , so you can put a real problem to it with no account and nothing installed. It is a shared, public workspace — good for seeing how it works, not the place for production secrets or customer data.
@@ -115,7 +110,7 @@ cd faultmaven
 
           {/* How It Works */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8 pb-4 border-b-2 border-blue-500">
+            <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
               How It Works
             </h2>
             <div className="space-y-8">
@@ -128,22 +123,22 @@ cd faultmaven
                   The Tiered Knowledge Engine is what makes FaultMaven different from generic AI chatbots. It searches three layers of context when you ask a question:
                 </p>
                 <ul className="space-y-2 ml-6 mb-3">
-                  <li className="flex items-start">
-                    <span className="text-green-600 dark:text-green-400 mr-3 mt-1">▸</span>
+                  <li className="flex items-start gap-3">
+                    <Dot />
                     <div>
                       <strong className="text-slate-900 dark:text-slate-50">Personal Context:</strong> <span className="text-slate-700 dark:text-slate-300">Your specific environment, recent changes, and local configurations</span>
                     </div>
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">▸</span>
+                  <li className="flex items-start gap-3">
+                    <Dot />
                     <div>
                       <strong className="text-slate-900 dark:text-slate-50">Team Knowledge:</strong> <span className="text-slate-700 dark:text-slate-300">Runbooks, past incidents, post-mortems, and tribal knowledge — indexed in any deployment, shared across your team in Cloud</span>
                     </div>
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-slate-600 dark:text-slate-400 mr-3 mt-1">▸</span>
+                  <li className="flex items-start gap-3">
+                    <Dot />
                     <div>
-                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className="text-blue-600 dark:text-blue-400 hover:underline">91 curated runbooks</a> carrying 641 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
+                      <strong className="text-slate-900 dark:text-slate-50">Global Intelligence:</strong> <span className="text-slate-700 dark:text-slate-300">Ships with <a href="https://github.com/FaultMaven/faultmaven/tree/main/resources/knowledge/pack/runbooks" className={textLinkClass}>91 curated runbooks</a> carrying 641 documented root causes, spanning Kubernetes, databases, cloud platforms, message queues, web servers, and monitoring. They are in the engine repository — you can read them before installing anything.</span>
                     </div>
                   </li>
                 </ul>
@@ -176,7 +171,7 @@ cd faultmaven
 
           {/* Security & Privacy */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8 pb-4 border-b-2 border-blue-500">
+            <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
               Security &amp; Privacy
             </h2>
             <div className="space-y-8">
@@ -202,7 +197,7 @@ cd faultmaven
                   <strong>Self-hosted (Standalone):</strong> because everything runs on your own infrastructure, the environment sits fully inside your existing compliance boundary — you control data residency, retention, and access to meet your own SOC 2, HIPAA, or GDPR obligations.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong>Cloud:</strong> FaultMaven Cloud is currently in beta. We build to GDPR principles — data export and deletion on request, and a data processing agreement (DPA) available for customers. Formal certifications will be pursued as Cloud moves toward general availability; if you have a specific compliance requirement, <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">talk to us</a> about where it stands today.
+                  <strong>Cloud:</strong> FaultMaven Cloud is currently in beta. We build to GDPR principles — data export and deletion on request, and a data processing agreement (DPA) available for customers. Formal certifications will be pursued as Cloud moves toward general availability; if you have a specific compliance requirement, <a href="/contact" className={textLinkClass}>talk to us</a> about where it stands today.
                 </p>
               </div>
 
@@ -230,7 +225,7 @@ cd faultmaven
 
           {/* Pricing & Plans */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8 pb-4 border-b-2 border-blue-500">
+            <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
               Pricing &amp; Plans
             </h2>
             <div className="space-y-8">
@@ -258,7 +253,7 @@ cd faultmaven
 
           {/* Technical */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-8 pb-4 border-b-2 border-blue-500">
+            <h2 className={`${subsectionTitleClass} mb-8 pb-4 border-b border-slate-200 dark:border-slate-800`}>
               Technical
             </h2>
             <div className="space-y-8">
@@ -271,7 +266,7 @@ cd faultmaven
                   <strong>Minimum:</strong> 4 CPU cores, 8GB RAM, 20GB disk. Docker and Docker Compose required.
                 </p>
                 <p className="text-slate-700 dark:text-slate-300">
-                  <strong>Recommended:</strong> 8 CPU cores, 16GB RAM, 50GB disk. Supports deployment on AWS, GCP, Azure, or any Linux server. Full deployment guide: <a href="https://github.com/FaultMaven/faultmaven#deployment" className="text-blue-600 dark:text-blue-400 hover:underline">GitHub README</a>.
+                  <strong>Recommended:</strong> 8 CPU cores, 16GB RAM, 50GB disk. Supports deployment on AWS, GCP, Azure, or any Linux server. Full deployment guide: <a href="https://github.com/FaultMaven/faultmaven#deployment" className={textLinkClass}>GitHub README</a>.
                 </p>
               </div>
 
@@ -281,7 +276,7 @@ cd faultmaven
                   Which browsers does the Copilot extension support?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Install it from the <a href={CHROME_WEB_STORE_URL} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Chrome Web Store</a> — Chrome, Edge, Brave, and other Chromium browsers. The same install works whether your backend is FaultMaven Cloud or a server you self-host; you choose that in Settings. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
+                  Install it from the <a href={CHROME_WEB_STORE_URL} target="_blank" rel="noopener noreferrer" className={textLinkClass}>Chrome Web Store</a> — Chrome, Edge, Brave, and other Chromium browsers. The same install works whether your backend is FaultMaven Cloud or a server you self-host; you choose that in Settings. The extension works as a side-panel alongside any webpage—Grafana, AWS Console, Datadog, or even your terminal output.
                 </p>
               </div>
 
@@ -301,18 +296,17 @@ cd faultmaven
                   Can I contribute to FaultMaven?
                 </h3>
                 <p className="text-slate-700 dark:text-slate-300">
-                  Yes! FaultMaven&apos;s source is public—the engine is fair source (FSL-1.1-ALv2), the frontends Apache 2.0. We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className="text-blue-600 dark:text-blue-400 hover:underline">Contributing Guide</a>.
+                  Yes! FaultMaven&apos;s source is public—the engine is fair source (FSL-1.1-ALv2), the frontends Apache 2.0. We welcome contributions: bug fixes, new integrations, troubleshooting patterns, documentation improvements. See the <a href="https://github.com/FaultMaven/faultmaven/blob/main/CONTRIBUTING.md" className={textLinkClass}>Contributing Guide</a>.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-900">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+      <Section tone="muted" width="narrow">
+        <div className="text-center">
+          <h2 className={`${sectionTitleClass} mb-4`}>
             Still have questions?
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
@@ -327,7 +321,7 @@ cd faultmaven
             </Button>
           </div>
         </div>
-      </section>
-    </main>
+      </Section>
+    </>
   );
 }

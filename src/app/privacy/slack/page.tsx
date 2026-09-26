@@ -1,5 +1,6 @@
 import Link from '@/components/ui/Link';
 import { pageMetadata } from '@/lib/metadata';
+import { PageHeader, Section, proseClass, subsectionTitleClass } from '@/components/ui/Section';
 
 export const metadata = pageMetadata({
   title: 'FaultMaven for Slack Privacy Policy',
@@ -91,349 +92,340 @@ const tdClass =
 
 export default function SlackPrivacyPolicyPage() {
   return (
-    <main>
-      <section className="relative py-20 bg-slate-50 dark:bg-slate-800/50">
-        <div className="absolute inset-0 bg-grid-slate-200/[0.05] dark:bg-grid-slate-700/[0.1] [mask-image:linear-gradient(to_bottom,white_5%,transparent_50%)]"></div>
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50">
-            FaultMaven for Slack Privacy Policy
-          </h1>
-        </div>
-      </section>
+    <>
+      <PageHeader title="FaultMaven for Slack Privacy Policy" />
 
-      <div className="py-20 bg-white dark:bg-slate-900">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="space-y-6">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              <em>Effective Date: June 2, 2025</em>
-              <br />
-              <em>Last Updated: August 7, 2026</em>
-              <br />
-              <em>Applies to: the FaultMaven app for Slack</em>
-            </p>
-            <p>
-              This policy explains what the FaultMaven Slack app
-              (&quot;FaultMaven,&quot; &quot;the app&quot;) accesses in your
-              workspace, when it accesses it, where that data goes, and what it
-              does <strong>not</strong> do. For data collected by this website,
-              see the{' '}
-              <Link href="/privacy" className="text-blue-600 dark:text-blue-400">
-                general FaultMaven privacy policy
-              </Link>
-              . For the browser extension, see the{' '}
-              <Link
-                href="/privacy/extension"
-                className="text-blue-600 dark:text-blue-400"
-              >
-                FaultMaven Copilot extension privacy policy
-              </Link>
-              .
-            </p>
+      <Section width="prose">
+        <div className={proseClass}>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            <em>Effective Date: June 2, 2025</em>
+            <br />
+            <em>Last Updated: August 7, 2026</em>
+            <br />
+            <em>Applies to: the FaultMaven app for Slack</em>
+          </p>
+          <p>
+            This policy explains what the FaultMaven Slack app
+            (&quot;FaultMaven,&quot; &quot;the app&quot;) accesses in your
+            workspace, when it accesses it, where that data goes, and what it
+            does <strong>not</strong> do. For data collected by this website,
+            see the{' '}
+            <Link href="/privacy" className="text-blue-600 dark:text-blue-400">
+              general FaultMaven privacy policy
+            </Link>
+            . For the browser extension, see the{' '}
+            <Link
+              href="/privacy/extension"
+              className="text-blue-600 dark:text-blue-400"
+            >
+              FaultMaven Copilot extension privacy policy
+            </Link>
+            .
+          </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-12 !mb-4">
-              1. Who controls your data
-            </h2>
-            <p>
-              The FaultMaven Slack app is a client. It forwards what you share
-              to a FaultMaven backend, and which backend that is determines who
-              controls the data:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <strong>FaultMaven Cloud</strong> — operated by the FaultMaven
-                team. Investigation data you share in Slack is processed on
-                FaultMaven Cloud to provide the troubleshooting service.
-              </li>
-              <li>
-                <strong>FaultMaven Standalone</strong> — the self-hosted
-                deployment, operated entirely by you or your organization on
-                infrastructure you control. Investigation data goes to your
-                server; retention and redaction are governed by your
-                deployment&apos;s configuration.
-              </li>
-            </ul>
-            <p>
-              In both cases, the Slack app itself holds only what §2 lists: the
-              workspace credentials it needs to reply, and a map from Slack
-              threads to FaultMaven cases.
-            </p>
+          <h2 className={`${subsectionTitleClass} !mt-12 !mb-4`}>
+            1. Who controls your data
+          </h2>
+          <p>
+            The FaultMaven Slack app is a client. It forwards what you share
+            to a FaultMaven backend, and which backend that is determines who
+            controls the data:
+          </p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <strong>FaultMaven Cloud</strong> — operated by the FaultMaven
+              team. Investigation data you share in Slack is processed on
+              FaultMaven Cloud to provide the troubleshooting service.
+            </li>
+            <li>
+              <strong>FaultMaven Standalone</strong> — the self-hosted
+              deployment, operated entirely by you or your organization on
+              infrastructure you control. Investigation data goes to your
+              server; retention and redaction are governed by your
+              deployment&apos;s configuration.
+            </li>
+          </ul>
+          <p>
+            In both cases, the Slack app itself holds only what §2 lists: the
+            workspace credentials it needs to reply, and a map from Slack
+            threads to FaultMaven cases.
+          </p>
 
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              2. What the app accesses and transmits
-            </h2>
-            <p>
-              FaultMaven transmits data only as a result of an action you take —
-              a summons, a reply in an investigation thread, or a file you
-              share.
-            </p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr>
-                    <th className={thClass}>Data</th>
-                    <th className={thClass}>When</th>
-                    <th className={thClass}>Where it goes</th>
-                    <th className={thClass}>Why</th>
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            2. What the app accesses and transmits
+          </h2>
+          <p>
+            FaultMaven transmits data only as a result of an action you take —
+            a summons, a reply in an investigation thread, or a file you
+            share.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr>
+                  <th className={thClass}>Data</th>
+                  <th className={thClass}>When</th>
+                  <th className={thClass}>Where it goes</th>
+                  <th className={thClass}>Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                {accessTable.map((row) => (
+                  <tr key={row.data}>
+                    <td className={tdClass}>
+                      <strong>{row.data}</strong>
+                    </td>
+                    <td className={tdClass}>{row.when}</td>
+                    <td className={tdClass}>{row.where}</td>
+                    <td className={tdClass}>{row.why}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {accessTable.map((row) => (
-                    <tr key={row.data}>
-                      <td className={tdClass}>
-                        <strong>{row.data}</strong>
-                      </td>
-                      <td className={tdClass}>{row.when}</td>
-                      <td className={tdClass}>{row.where}</td>
-                      <td className={tdClass}>{row.why}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              3. Summon-only: what happens to everything else
-            </h2>
-            <p>
-              To recognize a summons and to follow a conversation it has been
-              invited into, Slack delivers message events from channels
-              FaultMaven is a member of. The app applies a strict gate to those
-              events before anything is read, stored, or transmitted:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                A message that <strong>@mentions FaultMaven</strong> starts or
-                re-engages an investigation in that thread.
-              </li>
-              <li>
-                A reply <strong>inside a thread FaultMaven is already
-                investigating</strong> continues that investigation.
-              </li>
-              <li>
-                <strong>Every other channel message is discarded.</strong> The
-                gate inspects only what it needs to make that decision — is
-                this the app&apos;s own post, is it a reply in a thread, does it
-                mention FaultMaven — and the message is then dropped in memory:
-                not stored, not forwarded to the backend, not sent anywhere.
-                Top-level channel messages never start an investigation, and
-                FaultMaven never acts on threads it does not already own.
-              </li>
-            </ul>
-            <p>
-              The one exception to &quot;only what you send it&quot; is
-              deliberate and bounded: on the <strong>first</strong> summons in a
-              thread, FaultMaven reads that thread&apos;s recent prior replies
-              once, as catch-up context, so it is not blind to the discussion
-              that led you to call it. That read is limited to the summoned
-              thread, excludes the app&apos;s own messages, is capped in both
-              message count and size, and does not repeat on later turns.
-            </p>
-            <p>
-              FaultMaven is not in any channel until someone invites it, and it
-              posts its replies in-thread so the parent channel stays quiet.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              4. Permissions and why they are needed
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr>
-                    <th className={thClass}>Scope</th>
-                    <th className={thClass}>Purpose</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {scopeTable.map((row) => (
-                    <tr key={row.scope}>
-                      <td className={tdClass}>
-                        <strong>{row.scope}</strong>
-                      </td>
-                      <td className={tdClass}>{row.purpose}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              5. What the app does NOT do
-            </h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <strong>No ambient monitoring.</strong> FaultMaven does not
-                follow along with channel conversations, build a record of who
-                said what, or act on messages that neither summon it nor
-                continue an investigation it owns.
-              </li>
-              <li>
-                <strong>No third-party analytics or trackers.</strong> The app
-                contains no advertising SDKs, session-replay, or behavioral
-                telemetry.
-              </li>
-              <li>
-                <strong>No data selling or sharing.</strong> Your data is not
-                sold or shared with third parties. It is sent only to the
-                FaultMaven backend serving your installation, and to the LLM
-                provider that backend is configured to use.
-              </li>
-              <li>
-                <strong>No access to your systems.</strong> FaultMaven has no
-                credentials to your infrastructure and takes no action on it. It
-                proposes; you approve and execute.
-              </li>
-              <li>
-                <strong>No cross-workspace access.</strong> Installations are
-                keyed by Slack workspace and are never cross-read between
-                workspaces.
-              </li>
-            </ul>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              6. Sensitive data
-            </h2>
-            <p>
-              Troubleshooting data — logs, traces, configs — can contain
-              sensitive values. Two things are worth being precise about.
-            </p>
-            <p>
-              <strong>Redaction.</strong> On FaultMaven Cloud, server-side PII
-              redaction is enabled: content is passed through a redaction
-              pipeline that strips values such as credentials, secrets, and
-              personal identifiers before it is stored and processed. On a
-              Standalone deployment, redaction is controlled by your own
-              configuration and is not enabled by default. In either case,
-              treat redaction as a safety net rather than a guarantee — no
-              automated pipeline catches every sensitive value in arbitrary log
-              output.
-            </p>
-            <p>
-              <strong>Model providers.</strong> Running an investigation means
-              sending your content to the large language model provider the
-              backend is configured to use. That is a third party, and its own
-              data-handling terms govern what it does with what it receives.
-              FaultMaven does not add a retention guarantee on top of the
-              provider&apos;s.
-            </p>
-            <p>
-              You remain responsible for the content you choose to share with
-              FaultMaven; avoid sharing data you are not authorized to
-              disclose.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              7. What we store, and for how long
-            </h2>
-            <p>
-              FaultMaven stores your investigation data. That is not incidental
-              — it is how the product works. An investigation has to survive
-              between turns, a report has to be readable after the incident, and
-              a resolved case only becomes reusable knowledge if it is kept.
-            </p>
-            <p>Concretely, the FaultMaven backend persists:</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <strong>Cases and their conversations</strong> — the messages
-                exchanged in an investigation, and the case&apos;s state.
-              </li>
-              <li>
-                <strong>Case data and evidence</strong> — the logs, configs, and
-                files you share, along with the evidence extracted from them.
-              </li>
-              <li>
-                <strong>Reasoning artifacts</strong> — hypotheses, the evidence
-                linked to each, and the resulting reports and solutions.
-              </li>
-              <li>
-                <strong>Derived search indexes</strong> — vector embeddings
-                built from the above so past cases and documents can be
-                retrieved later.
-              </li>
-            </ul>
-            <p>
-              <strong>How long we keep it.</strong> We keep your investigation
-              data for as long as we need it to provide the service to you. In
-              practice that means it remains until you delete it, because
-              nothing currently expires on a timer. This is a description of how
-              the service works today, not a commitment to retain your data
-              indefinitely — if we introduce retention limits as the product
-              matures, we will update this policy to say so.
-            </p>
-            <p>
-              <strong>Deleting it.</strong> You can delete your investigation
-              data, or ask us to delete it, at any time. We remove it from our
-              production systems and from the search indexes built over it. Our
-              backups are retained for up to seven years, so content you have
-              deleted can still exist in a backup until that backup ages out. If
-              we restore from a backup, we re-apply deletions rather than
-              reviving removed data.
-            </p>
-            <p>
-              The Slack app itself stores much less: the installation record
-              (workspace identifiers and the bot token) and a thread-to-case map
-              holding identifiers only — workspace, channel, thread, and case
-              IDs — never message content. Removing FaultMaven from your
-              workspace revokes its access immediately, and the stored token
-              stops working; the installation record is not purged
-              automatically, and we delete it on request (see §8).
-            </p>
-            <p>
-              On a Standalone deployment, all of the above lives on
-              infrastructure you control, and retention is entirely your
-              organization&apos;s decision.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              8. Your choices and rights
-            </h2>
-            <p>
-              You can remove FaultMaven from your Slack workspace at any time
-              from your workspace&apos;s app management settings; this revokes
-              its access immediately. To request deletion of your installation
-              record, of investigation data held on FaultMaven Cloud, or to
-              exercise other rights you may have under your jurisdiction,
-              contact us at{' '}
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
-              We will confirm when the deletion is complete.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              9. Children
-            </h2>
-            <p>
-              FaultMaven is a professional engineering tool and is not directed
-              to children under 13.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              10. Changes to this policy
-            </h2>
-            <p>
-              We may update this policy as the app evolves. Material changes
-              will be reflected by updating the &quot;Last Updated&quot; date
-              above and publishing the revised policy at this URL.
-            </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 !mt-10 !mb-4">
-              11. Contact
-            </h2>
-            <p>
-              Questions about this policy or your data:
-              <br />
-              FaultMaven
-              <br />
-              <strong>Email:</strong>{' '}
-              <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
-              <br />
-              <strong>Support:</strong>{' '}
-              <Link href="/support" className="text-blue-600 dark:text-blue-400">
-                www.faultmaven.ai/support
-              </Link>
-            </p>
+                ))}
+              </tbody>
+            </table>
           </div>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            3. Summon-only: what happens to everything else
+          </h2>
+          <p>
+            To recognize a summons and to follow a conversation it has been
+            invited into, Slack delivers message events from channels
+            FaultMaven is a member of. The app applies a strict gate to those
+            events before anything is read, stored, or transmitted:
+          </p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              A message that <strong>@mentions FaultMaven</strong> starts or
+              re-engages an investigation in that thread.
+            </li>
+            <li>
+              A reply <strong>inside a thread FaultMaven is already
+              investigating</strong> continues that investigation.
+            </li>
+            <li>
+              <strong>Every other channel message is discarded.</strong> The
+              gate inspects only what it needs to make that decision — is
+              this the app&apos;s own post, is it a reply in a thread, does it
+              mention FaultMaven — and the message is then dropped in memory:
+              not stored, not forwarded to the backend, not sent anywhere.
+              Top-level channel messages never start an investigation, and
+              FaultMaven never acts on threads it does not already own.
+            </li>
+          </ul>
+          <p>
+            The one exception to &quot;only what you send it&quot; is
+            deliberate and bounded: on the <strong>first</strong> summons in a
+            thread, FaultMaven reads that thread&apos;s recent prior replies
+            once, as catch-up context, so it is not blind to the discussion
+            that led you to call it. That read is limited to the summoned
+            thread, excludes the app&apos;s own messages, is capped in both
+            message count and size, and does not repeat on later turns.
+          </p>
+          <p>
+            FaultMaven is not in any channel until someone invites it, and it
+            posts its replies in-thread so the parent channel stays quiet.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            4. Permissions and why they are needed
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr>
+                  <th className={thClass}>Scope</th>
+                  <th className={thClass}>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                {scopeTable.map((row) => (
+                  <tr key={row.scope}>
+                    <td className={tdClass}>
+                      <strong>{row.scope}</strong>
+                    </td>
+                    <td className={tdClass}>{row.purpose}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            5. What the app does NOT do
+          </h2>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <strong>No ambient monitoring.</strong> FaultMaven does not
+              follow along with channel conversations, build a record of who
+              said what, or act on messages that neither summon it nor
+              continue an investigation it owns.
+            </li>
+            <li>
+              <strong>No third-party analytics or trackers.</strong> The app
+              contains no advertising SDKs, session-replay, or behavioral
+              telemetry.
+            </li>
+            <li>
+              <strong>No data selling or sharing.</strong> Your data is not
+              sold or shared with third parties. It is sent only to the
+              FaultMaven backend serving your installation, and to the LLM
+              provider that backend is configured to use.
+            </li>
+            <li>
+              <strong>No access to your systems.</strong> FaultMaven has no
+              credentials to your infrastructure and takes no action on it. It
+              proposes; you approve and execute.
+            </li>
+            <li>
+              <strong>No cross-workspace access.</strong> Installations are
+              keyed by Slack workspace and are never cross-read between
+              workspaces.
+            </li>
+          </ul>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            6. Sensitive data
+          </h2>
+          <p>
+            Troubleshooting data — logs, traces, configs — can contain
+            sensitive values. Two things are worth being precise about.
+          </p>
+          <p>
+            <strong>Redaction.</strong> On FaultMaven Cloud, server-side PII
+            redaction is enabled: content is passed through a redaction
+            pipeline that strips values such as credentials, secrets, and
+            personal identifiers before it is stored and processed. On a
+            Standalone deployment, redaction is controlled by your own
+            configuration and is not enabled by default. In either case,
+            treat redaction as a safety net rather than a guarantee — no
+            automated pipeline catches every sensitive value in arbitrary log
+            output.
+          </p>
+          <p>
+            <strong>Model providers.</strong> Running an investigation means
+            sending your content to the large language model provider the
+            backend is configured to use. That is a third party, and its own
+            data-handling terms govern what it does with what it receives.
+            FaultMaven does not add a retention guarantee on top of the
+            provider&apos;s.
+          </p>
+          <p>
+            You remain responsible for the content you choose to share with
+            FaultMaven; avoid sharing data you are not authorized to
+            disclose.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            7. What we store, and for how long
+          </h2>
+          <p>
+            FaultMaven stores your investigation data. That is not incidental
+            — it is how the product works. An investigation has to survive
+            between turns, a report has to be readable after the incident, and
+            a resolved case only becomes reusable knowledge if it is kept.
+          </p>
+          <p>Concretely, the FaultMaven backend persists:</p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>
+              <strong>Cases and their conversations</strong> — the messages
+              exchanged in an investigation, and the case&apos;s state.
+            </li>
+            <li>
+              <strong>Case data and evidence</strong> — the logs, configs, and
+              files you share, along with the evidence extracted from them.
+            </li>
+            <li>
+              <strong>Reasoning artifacts</strong> — hypotheses, the evidence
+              linked to each, and the resulting reports and solutions.
+            </li>
+            <li>
+              <strong>Derived search indexes</strong> — vector embeddings
+              built from the above so past cases and documents can be
+              retrieved later.
+            </li>
+          </ul>
+          <p>
+            <strong>How long we keep it.</strong> We keep your investigation
+            data for as long as we need it to provide the service to you. In
+            practice that means it remains until you delete it, because
+            nothing currently expires on a timer. This is a description of how
+            the service works today, not a commitment to retain your data
+            indefinitely — if we introduce retention limits as the product
+            matures, we will update this policy to say so.
+          </p>
+          <p>
+            <strong>Deleting it.</strong> You can delete your investigation
+            data, or ask us to delete it, at any time. We remove it from our
+            production systems and from the search indexes built over it. Our
+            backups are retained for up to seven years, so content you have
+            deleted can still exist in a backup until that backup ages out. If
+            we restore from a backup, we re-apply deletions rather than
+            reviving removed data.
+          </p>
+          <p>
+            The Slack app itself stores much less: the installation record
+            (workspace identifiers and the bot token) and a thread-to-case map
+            holding identifiers only — workspace, channel, thread, and case
+            IDs — never message content. Removing FaultMaven from your
+            workspace revokes its access immediately, and the stored token
+            stops working; the installation record is not purged
+            automatically, and we delete it on request (see §8).
+          </p>
+          <p>
+            On a Standalone deployment, all of the above lives on
+            infrastructure you control, and retention is entirely your
+            organization&apos;s decision.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            8. Your choices and rights
+          </h2>
+          <p>
+            You can remove FaultMaven from your Slack workspace at any time
+            from your workspace&apos;s app management settings; this revokes
+            its access immediately. To request deletion of your installation
+            record, of investigation data held on FaultMaven Cloud, or to
+            exercise other rights you may have under your jurisdiction,
+            contact us at{' '}
+            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>.
+            We will confirm when the deletion is complete.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            9. Children
+          </h2>
+          <p>
+            FaultMaven is a professional engineering tool and is not directed
+            to children under 13.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            10. Changes to this policy
+          </h2>
+          <p>
+            We may update this policy as the app evolves. Material changes
+            will be reflected by updating the &quot;Last Updated&quot; date
+            above and publishing the revised policy at this URL.
+          </p>
+
+          <h2 className={`${subsectionTitleClass} !mt-10 !mb-4`}>
+            11. Contact
+          </h2>
+          <p>
+            Questions about this policy or your data:
+            <br />
+            FaultMaven
+            <br />
+            <strong>Email:</strong>{' '}
+            <a href="mailto:support@faultmaven.ai">support@faultmaven.ai</a>
+            <br />
+            <strong>Support:</strong>{' '}
+            <Link href="/support" className="text-blue-600 dark:text-blue-400">
+              www.faultmaven.ai/support
+            </Link>
+          </p>
         </div>
-      </div>
-    </main>
+      </Section>
+    </>
   );
 }

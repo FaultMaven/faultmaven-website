@@ -89,14 +89,13 @@ describe('security headers', () => {
       expect(policyFor(PRODUCTION).get('script-src')).toEqual(["'self'", "'unsafe-inline'"]);
     });
 
-    it.each([
-      // The Inter @import in globals.css: its stylesheet, then its font files.
-      ['style-src', 'https://fonts.googleapis.com'],
-      ['font-src', 'https://fonts.gstatic.com'],
-      // The engine's last-commit badge on the home page.
-      ['img-src', 'https://img.shields.io'],
-    ])('admits the one third-party origin the site loads for %s', (name, origin) => {
-      expect(policyFor(PRODUCTION).get(name)).toContain(origin);
+    it('admits the one third-party origin the site loads: the last-commit badge image', () => {
+      expect(policyFor(PRODUCTION).get('img-src')).toContain('https://img.shields.io');
+    });
+
+    it('serves styles and fonts from this origin only, since next/font/local self-hosts Inter', () => {
+      expect(policyFor(PRODUCTION).get('style-src')).toEqual(["'self'", "'unsafe-inline'"]);
+      expect(policyFor(PRODUCTION).get('font-src')).toEqual(["'self'"]);
     });
 
     it('keeps XHR and beacons same-origin (Vercel Web Analytics posts to /_vercel/insights)', () => {

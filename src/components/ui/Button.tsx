@@ -31,11 +31,11 @@ export const buttonBase =
 // secondary one beside it.
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'border border-transparent bg-[#2563EB] text-white shadow-sm hover:bg-blue-700',
+    'border border-transparent bg-blue-600 text-white shadow-sm hover:bg-blue-700',
   secondary:
-    'border border-[#2563EB] text-[#2563EB] bg-transparent hover:bg-[#2563EB] hover:text-white',
+    'border border-blue-600 text-blue-600 bg-transparent hover:bg-blue-600 hover:text-white',
   tertiary:
-    'text-[#2563EB] bg-transparent hover:underline px-2 py-1',
+    'text-blue-600 bg-transparent hover:underline px-2 py-1',
 };
 
 // Tertiary is a text link and carries its own padding.

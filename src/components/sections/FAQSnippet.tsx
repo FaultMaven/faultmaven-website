@@ -1,5 +1,8 @@
 'use client';
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
+import { cn } from '@/lib/utils';
 import { SELF_HOST_PATH } from '@/lib/links';
 
 export default function FAQSnippet() {
@@ -15,7 +18,7 @@ export default function FAQSnippet() {
       answer: (
         <>
           An AI troubleshooting copilot for engineers. It works a problem the way a seasoned engineer does — goal-driven, methodical, grounded in evidence — correlating what you share with your runbooks, docs, and past fixes. You can{' '}
-          <a href={SELF_HOST_PATH} className="text-blue-600 hover:underline">
+          <a href={SELF_HOST_PATH} className={textLinkClass}>
             run it yourself for free
           </a>{' '}
           — one command, though budget 10–20 minutes the first time: the image is a 2.3 GB
@@ -32,7 +35,7 @@ export default function FAQSnippet() {
       answer: (
         <>
           Standalone (self-hosted) is free. The engine is fair source (FSL-1.1-ALv2): every line is public to audit and fork, and each release converts to Apache 2.0 two years after it ships. The Copilot, Dashboard, and Slack app are Apache 2.0. FaultMaven Cloud runs the same engine for you, with nothing to operate and team knowledge sharing — in beta it is free, with a daily limit on investigation turns —{' '}
-          <a href="/pricing" className="text-blue-600 hover:underline">
+          <a href="/pricing" className={textLinkClass}>
             compare the two
           </a>
           .
@@ -46,43 +49,41 @@ export default function FAQSnippet() {
   ];
 
   return (
-    <section className="py-24 bg-white dark:bg-slate-900">
-      <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-slate-50 mb-8">
-          Your Questions Answered
-        </h2>
-        <p className="text-lg text-slate-600 dark:text-slate-400 text-center mb-12">
-          We believe in clarity. Here are answers to some common initial questions:
-        </p>
-        <div className="space-y-4">
-          {faqSnippet.map((item, idx) => (
-            <div key={idx} className="border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+    <Section tone="muted" width="prose">
+      <SectionHeader
+        title="Your Questions Answered"
+        lead="We believe in clarity. Here are answers to some common initial questions:"
+      />
+      <div className="space-y-4">
+        {faqSnippet.map((item, idx) => {
+          const open = faqOpenIndex === idx;
+          return (
+            <div
+              key={idx}
+              className="rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
+            >
               <button
+                type="button"
                 onClick={() => toggleFAQ(idx)}
-                className="w-full text-left flex justify-between items-center p-6 focus:outline-none"
+                aria-expanded={open}
+                aria-controls={`faq-answer-${idx}`}
+                className="flex w-full items-center justify-between gap-4 rounded-xl p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
-                <span className="font-semibold text-slate-800 dark:text-slate-100">{item.question}</span>
-                <svg
-                  className={`h-6 w-6 text-slate-500 transform transition-transform ${
-                    faqOpenIndex === idx ? 'rotate-180' : ''
-                  }`}
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <span className="font-semibold text-slate-900 dark:text-slate-100">{item.question}</span>
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn('h-5 w-5 shrink-0 text-slate-500 transition-transform', open && 'rotate-180')}
+                />
               </button>
-              {faqOpenIndex === idx && (
-                <div className="px-6 pb-6 text-slate-600 dark:text-slate-400">
+              {open && (
+                <div id={`faq-answer-${idx}`} className="px-6 pb-6 text-slate-600 dark:text-slate-400">
                   <p>{item.answer}</p>
                 </div>
               )}
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 }
