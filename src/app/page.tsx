@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Hero from "@/components/sections/Hero";
 import ProblemSection from "@/components/sections/ProblemSection";
 import ApproachSection from "@/components/sections/ApproachSection";
 import TieredKnowledgeEngineSection from "@/components/sections/TieredKnowledgeEngineSection";
@@ -17,25 +18,6 @@ import VisionSnippet from "@/components/sections/VisionSnippet";
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
-
-// Dynamically import Hero with loading fallback
-const Hero = dynamic(() => import("@/components/sections/Hero"), {
-  loading: () => (
-    <div className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900 animate-pulse">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
-            <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded w-3/4"></div>
-            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-full"></div>
-            <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-5/6"></div>
-            <div className="h-10 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
-          </div>
-          <div className="h-96 bg-slate-200 dark:bg-slate-700 rounded-xl"></div>
-        </div>
-      </div>
-    </div>
-  )
-});
 
 // Dynamically import FAQSnippet for code splitting
 const FAQSnippet = dynamic(() => import("@/components/sections/FAQSnippet"), {

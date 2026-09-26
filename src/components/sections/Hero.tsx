@@ -1,9 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import Button from '../ui/Button';
+import DemoVideo from '../slack/DemoVideo';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
-import heroImage from '../../../public/images/hero-mttr.webp';
 
 export default function Hero() {
   return (
@@ -57,17 +56,12 @@ export default function Hero() {
               first.
             </p>
           </div>
-          <div className="relative">
-            <Image
-              src={heroImage}
-              alt="FaultMaven AI Copilot analyzing logs, metrics, and configs"
-              priority
-              placeholder="blur"
-              className="rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={90}
-            />
-          </div>
+          {/* The column is half of max-w-6xl less its gutters and gap: 520px at most. */}
+          <DemoVideo
+            priority
+            sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
+            caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
+          />
         </div>
         <div className="text-center mt-24">
           <hr className="my-10 border-slate-200 dark:border-slate-700" />

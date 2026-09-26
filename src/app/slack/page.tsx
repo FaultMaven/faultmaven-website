@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Link from '@/components/ui/Link';
+import DemoVideo from '@/components/slack/DemoVideo';
 import { COMMUNITY_SLACK_URL } from '@/lib/links';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -324,18 +325,8 @@ export default function SlackAppPage() {
             auto-renewal failed, because the expiry is the mechanism and not yet the cause.
           </p>
 
-          <video
-            controls
-            preload="none"
-            playsInline
-            poster="/video/faultmaven-slack-demo-poster.jpg"
-            className="w-full rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-900"
-            aria-label="Screen recording: FaultMaven investigating an api-gateway 503 incident inside a Slack thread, from the initial PagerDuty alert through to a resolved case."
-          >
-            <source src="/video/faultmaven-slack-demo.mp4" type="video/mp4" />
-            Your browser cannot play this video. It is a screen recording of a FaultMaven
-            investigation running in a Slack thread.
-          </video>
+          {/* max-w-4xl less its gutters: 848px at most. */}
+          <DemoVideo sizes="(min-width: 896px) 848px, calc(100vw - 48px)" />
 
           <p className="mt-5 text-sm text-slate-500 dark:text-slate-500 leading-relaxed">
             Recorded in a real workspace and left uncut. There is no soundtrack &mdash; it was recorded
