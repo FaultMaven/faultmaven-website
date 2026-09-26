@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, type SectionTone, textLinkClass } from '@/components/ui/Section';
 
 // Knowledge is runbooks, at three scopes that differ only in who can see
 // them. Case history is not a scope: a case becomes knowledge only when it is
@@ -35,9 +36,9 @@ const tiers = [
   },
 ];
 
-export default function TieredKnowledgeEngineSection() {
+export default function TieredKnowledgeEngineSection({ tone = 'white' }: { tone?: SectionTone } = {}) {
   return (
-    <Section>
+    <Section tone={tone}>
       <SectionHeader
         title="Knowledge that grows as you resolve cases"
         lead="FaultMaven's knowledge is runbooks — reusable procedures — kept at three scopes that differ only in who can see them. Every investigation searches all the runbooks you can see."
@@ -105,6 +106,11 @@ export default function TieredKnowledgeEngineSection() {
         </p>
         <p className="font-medium text-slate-700 dark:text-slate-300">
           When a case resolves, FaultMaven can turn it into a runbook — that is how a problem it solves becomes knowledge it reuses. Share it, and your team starts from it too.
+        </p>
+        <p className="text-base">
+          <Link href="/product#retrieval" className={textLinkClass}>
+            How retrieval works &rarr;
+          </Link>
         </p>
       </div>
     </Section>

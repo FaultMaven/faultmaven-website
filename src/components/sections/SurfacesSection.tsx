@@ -1,13 +1,13 @@
 import { LayoutDashboard, PanelRight, Slack } from 'lucide-react';
 import Link from '@/components/ui/Link';
 import { Card, CardTitle, IconTile, cardSubtitleClass } from '@/components/ui/card';
-import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass, type SectionTone } from '@/components/ui/Section';
 import { CHROME_WEB_STORE_URL, COMMUNITY_SLACK_URL, TRY_CLOUD_URL } from '@/lib/links';
 
 
-export default function SurfacesSection() {
+export default function SurfacesSection({ tone = 'white' }: { tone?: SectionTone } = {}) {
   return (
-    <Section>
+    <Section tone={tone}>
       <SectionHeader
         title="Three ways to bring FaultMaven to work"
         lead="The same engine, met where you already work — in the browser, alongside the page you are staring at, or in the channel where the incident is already being discussed."

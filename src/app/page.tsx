@@ -3,7 +3,6 @@ import Hero from '@/components/sections/Hero';
 import ProblemSection from '@/components/sections/ProblemSection';
 import ApproachSection from '@/components/sections/ApproachSection';
 import TieredKnowledgeEngineSection from '@/components/sections/TieredKnowledgeEngineSection';
-import RetrievalPipelineSection from '@/components/sections/RetrievalPipelineSection';
 import SurfacesSection from '@/components/sections/SurfacesSection';
 import ComparisonSection from '@/components/sections/ComparisonSection';
 import OpenSourceTrustSection from '@/components/sections/OpenSourceTrustSection';
@@ -20,21 +19,21 @@ export const metadata: Metadata = {
 };
 
 // The layout already wraps every page in <main>. Sections alternate white and
-// muted from the hero down; each section sets its own tone.
+// muted from the hero down; the tones are set here, in page order, so moving or
+// removing a section means editing this list and nothing else.
 export default function Home() {
   return (
     <>
       <Hero />
-      <ProblemSection />
-      <ApproachSection />
-      <TieredKnowledgeEngineSection />
-      <RetrievalPipelineSection />
-      <SurfacesSection />
-      <ComparisonSection />
-      <OpenSourceTrustSection />
-      <VisionSnippet />
-      <FAQSnippet />
-      <FinalCTASection />
+      <ProblemSection tone="white" />
+      <ApproachSection tone="muted" />
+      <TieredKnowledgeEngineSection tone="white" />
+      <SurfacesSection tone="muted" />
+      <ComparisonSection tone="white" />
+      <OpenSourceTrustSection tone="muted" />
+      <VisionSnippet tone="white" />
+      <FAQSnippet tone="muted" />
+      <FinalCTASection tone="white" />
     </>
   );
 }

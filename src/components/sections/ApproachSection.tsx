@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { IconChartBar, IconLink, IconSparkles } from '@/components/icons/homepage';
 import { Card, CardTitle, IconTile } from '@/components/ui/card';
-import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass, type SectionTone } from '@/components/ui/Section';
 
-export default function ApproachSection() {
+export default function ApproachSection({ tone = 'muted' }: { tone?: SectionTone } = {}) {
   return (
-    <Section id="how-it-works" tone="muted">
+    <Section id="how-it-works" tone={tone}>
       <SectionHeader title="How FaultMaven works" lead="What it reads, how it reasons, and where it runs." />
       <div className="grid gap-8 md:grid-cols-3">
         <Card>

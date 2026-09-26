@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Section, SectionHeader, textLinkClass } from '@/components/ui/Section';
+import { Section, SectionHeader, textLinkClass, type SectionTone } from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 import { SELF_HOST_PATH } from '@/lib/links';
 
-export default function FAQSnippet() {
+export default function FAQSnippet({ tone = 'white' }: { tone?: SectionTone } = {}) {
   const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -49,7 +49,7 @@ export default function FAQSnippet() {
   ];
 
   return (
-    <Section width="prose">
+    <Section tone={tone} width="prose">
       <SectionHeader
         title="Your questions answered"
         lead="We believe in clarity. Here are answers to some common initial questions:"

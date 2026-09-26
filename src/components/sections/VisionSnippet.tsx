@@ -1,6 +1,6 @@
 import Button from '../ui/Button';
 import { Card } from '@/components/ui/card';
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, type SectionTone } from '@/components/ui/Section';
 
 // Phase labels carry status colour: green is what ships now, blue is next.
 const phases = [
@@ -9,9 +9,9 @@ const phases = [
   { label: 'Phase 3 · Roadmap', tone: 'text-slate-600 dark:text-slate-300', name: 'Integrated Agent', desc: 'Connected to your stack, alert-triggered — autonomous from detection to fix.' },
 ];
 
-export default function VisionSnippet() {
+export default function VisionSnippet({ tone = 'muted' }: { tone?: SectionTone } = {}) {
   return (
-    <Section tone="muted" width="narrow">
+    <Section tone={tone} width="narrow">
       <SectionHeader
         title="The vision: earned autonomy"
         lead={

@@ -36,7 +36,7 @@ src/app/            App Router: one directory per route, plus sitemap.ts, robots
 src/app/blog/       /blog index and /blog/[slug] post pages
 src/app/signin/     redirects to the dashboard sign-in (SIGN_IN_URL)
 src/app/api/        route handlers: /api/hello, and 501 stubs (auth, stripe/analytics webhooks)
-src/components/     layout/, sections/ (homepage), ui/, icons/, blog/ArticleBody,
+src/components/     layout/, sections/ (home page; RetrievalPipelineSection is on /product), ui/, icons/, blog/ArticleBody,
                     investigation/TranscriptTurn, slack/DemoVideo (the Slack demo recording,
                     on / and /slack), auth/SignInForm (no route imports it)
 src/data/           redisOomTranscript.ts: generated verbatim from a test-harness transcript;
@@ -76,7 +76,9 @@ Imports use `@/*` → `src/*` (`tsconfig.json`, mirrored in `jest.config.js`).
 - Pages are built from `src/components/ui/Section.tsx` (`PageHeader`, `Section`,
   `SectionHeader`, `Eyebrow`, `Badge`, `proseClass`) and `src/components/ui/card.tsx`
   (`Card`, `CardTitle`, `IconTile`, `StepNumber`, `CheckList`, `CodeBlock`). An interior
-  page opens with a `PageHeader`; its `Section`s alternate `white` and `muted` tones.
+  page opens with a `PageHeader`; its `Section`s alternate `white` and `muted` tones. The
+  section components in `sections/` take their tone as a prop, and the page passes it, so
+  the alternation is decided in one place (`src/app/page.tsx` for the home page).
   Spacing, widths and heading sizes live in those components, not in pages.
 - Blue (`blue-600`) is the one accent. Green marks status (something available now, a
   case state), amber a caution; neither is decoration.

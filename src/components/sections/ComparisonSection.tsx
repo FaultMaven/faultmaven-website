@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from '@/components/ui/Section';
+import { Section, SectionHeader, type SectionTone } from '@/components/ui/Section';
 
 const rows: { feature: string; generic: string; faultmaven: string | null }[] = [
   { feature: "Input", generic: "Copy-paste snippets manually", faultmaven: null },
@@ -11,9 +11,9 @@ const rows: { feature: string; generic: string; faultmaven: string | null }[] = 
   { feature: "Deployment", generic: "Cloud-only", faultmaven: "Run it yourself, or let us run it for you — same engine" },
 ];
 
-export default function ComparisonSection() {
+export default function ComparisonSection({ tone = 'muted' }: { tone?: SectionTone } = {}) {
   return (
-    <Section tone="muted">
+    <Section tone={tone}>
       <SectionHeader title="FaultMaven vs. generic AI" lead="ChatGPT is a great research assistant. It's a terrible SRE." />
 
       <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
