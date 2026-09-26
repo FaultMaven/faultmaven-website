@@ -1,128 +1,270 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { useState, useEffect, useRef } from 'react';
+import type { FocusEvent, MouseEvent as ReactMouseEvent } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import Button from '@/components/ui/Button';
 import { SELF_HOST_PATH, SIGN_IN_URL, TRY_CLOUD_URL } from '@/lib/links';
+import { cn } from '@/lib/utils';
+
+type NavLink = { href: string; label: string };
+
+// Five top-level entries is what fits one line beside the logo and the three
+// actions at the desktop breakpoint; anything more belongs under Resources.
+const PRIMARY_LINKS: NavLink[] = [
+  { href: '/product', label: 'Product' },
+  { href: '/use-cases', label: 'Use cases' },
+  { href: '/pricing', label: 'Pricing' },
+];
+
+const RESOURCE_LINKS: NavLink[] = [
+  { href: '/investigation', label: 'Real investigation' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/roadmap', label: 'Roadmap' },
+];
+
+const CONTACT_LINK: NavLink = { href: '/contact', label: 'Contact' };
+
+// The desktop layout switches on at 64em rather than Tailwind's `lg` (1024px).
+// An em in a media query follows the browser's default font size while the
+// header's rem-sized text does too, so a reader who sets 20px gets the menu
+// button up to 1280px instead of links drawn over each other. At the default
+// 16px it is the same 1024px.
+const DESKTOP_ONLY = 'hidden [@media(min-width:64em)]:flex';
+const MOBILE_ONLY = '[@media(min-width:64em)]:hidden';
+
+// 'page' is the page showing; 'section' is a page under it, such as a post
+// under /blog. Both are highlighted, but only 'page' is the current page to
+// assistive technology.
+function matchPath(pathname: string, href: string): 'page' | 'section' | null {
+  if (pathname === href) return 'page';
+  if (pathname.startsWith(`${href}/`)) return 'section';
+  return null;
+}
+
+const linkTone = (active: boolean) =>
+  active
+    ? 'text-blue-600 dark:text-blue-500'
+    : 'text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500';
+
+const desktopLinkClass = (active: boolean) =>
+  cn('nav-underline whitespace-nowrap transition-colors duration-200', linkTone(active));
+
+const mobileLinkClass = (active: boolean) => cn('block py-2 transition-colors duration-200', linkTone(active));
+
+const resourceLinkClass = (active: boolean) =>
+  cn('block px-4 py-2 transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-700', linkTone(active));
+
+function NavItem({
+  link,
+  pathname,
+  className,
+}: {
+  link: NavLink;
+  pathname: string;
+  className: (active: boolean) => string;
+}) {
+  const match = matchPath(pathname, link.href);
+  return (
+    <Link
+      href={link.href}
+      aria-current={match === 'page' ? 'page' : match === 'section' ? 'true' : undefined}
+      className={className(match !== null)}
+    >
+      {link.label}
+    </Link>
+  );
+}
 
 export default function Header() {
+  const pathname = usePathname() ?? '/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // The header lives in the root layout and survives navigation, so an open
+  // menu has to be closed when the route changes (including back/forward).
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
+    if (!isDropdownOpen) return;
     const handleClickOutside = (event: MouseEvent) => {
-      if (isDropdownOpen && !(event.target as HTMLElement).closest('.dropdown')) {
-        setIsDropdownOpen(false);
-      }
+      if (!dropdownRef.current?.contains(event.target as Node)) setIsDropdownOpen(false);
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isDropdownOpen]);
 
+  // Escape closes whichever menu is open. Focus goes back to the control that
+  // opened it only if focus was inside the menu; from anywhere else on the
+  // page, Escape is not ours to take.
+  useEffect(() => {
+    if (!isDropdownOpen && !isMenuOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      const focused = document.activeElement;
+      if (isDropdownOpen) {
+        setIsDropdownOpen(false);
+        if (dropdownRef.current?.contains(focused)) dropdownButtonRef.current?.focus();
+      }
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+        if (menuRef.current?.contains(focused)) menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isDropdownOpen, isMenuOpen]);
+
+  // Tabbing out of Resources closes it. A null relatedTarget is a press on
+  // something unfocusable, which the mousedown handler already decides;
+  // closing here too would unmount the menu before a click on one of its links
+  // landed in browsers that do not focus links on click.
+  const handleDropdownBlur = (event: FocusEvent<HTMLDivElement>) => {
+    const next = event.relatedTarget as Node | null;
+    if (next && !event.currentTarget.contains(next)) setIsDropdownOpen(false);
+  };
+
+  // Any link in the header closes an open menu, including one to the page
+  // already showing, which changes no route. That link was focused and is
+  // about to unmount with its menu, so focus goes back to the control that
+  // opened the menu instead of falling to the top of the document.
+  const handleLinkClick = (event: ReactMouseEvent<HTMLElement>) => {
+    const link = (event.target as HTMLElement).closest('a');
+    if (!link) return;
+    const openedFrom = menuRef.current?.contains(link)
+      ? menuButtonRef.current
+      : dropdownRef.current?.contains(link)
+        ? dropdownButtonRef.current
+        : null;
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+    const url = new URL(link.href, window.location.href);
+    if (openedFrom && url.origin === window.location.origin && url.pathname === pathname) openedFrom.focus();
+  };
+
+  const resourcesActive = RESOURCE_LINKS.some((l) => matchPath(pathname, l.href) !== null);
+
   return (
-    <header className="sticky top-0 z-50 bg-slate-50/95 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
-        {/* Left-aligned: Logo + Primary Nav */}
-        <nav className="flex space-x-8 text-base font-medium items-center">
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/images/fmlogo-darktext-transparent.svg" 
+    <header
+      onClick={handleLinkClick}
+      className="sticky top-0 z-50 bg-slate-50/95 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800"
+    >
+      <div className="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center gap-8">
+        {/* Left: logo + primary nav */}
+        <div className="flex items-center gap-8 min-w-0">
+          <Link href="/" className="flex shrink-0 items-center">
+            <Image
+              src="/images/fmlogo-darktext-transparent.svg"
               alt="FaultMaven Logo Light"
               width={150}
               height={40}
+              priority
               className="dark:hidden"
             />
-            <Image 
-              src="/images/fmlogo-whitetext-transparent.svg" 
+            <Image
+              src="/images/fmlogo-whitetext-transparent.svg"
               alt="FaultMaven Logo Dark"
               width={150}
               height={40}
               className="hidden dark:block"
             />
           </Link>
-          <div className="hidden md:flex space-x-8 items-center">
-            <Link href="/product" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Product</Link>
-            <Link href="/investigation" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Transcript</Link>
-            <Link href="/use-cases" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Use Cases</Link>
-            <Link href="/roadmap" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Roadmap</Link>
-            <div className="relative dropdown">
+          <nav aria-label="Main" className={cn(DESKTOP_ONLY, 'items-center gap-6 text-sm font-medium')}>
+            {PRIMARY_LINKS.map((l) => (
+              <NavItem key={l.href} link={l} pathname={pathname} className={desktopLinkClass} />
+            ))}
+            <div className="relative" ref={dropdownRef} onBlur={handleDropdownBlur}>
               <button
+                ref={dropdownButtonRef}
                 type="button"
-                className="nav-underline flex items-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200"
+                className={cn('flex items-center', desktopLinkClass(resourcesActive))}
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 aria-expanded={isDropdownOpen}
-                aria-haspopup="true"
+                aria-controls="resources-menu"
               >
-                Resources <ChevronDown className="ml-1 w-4 h-4" />
+                Resources
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn('ml-1 w-4 h-4 transition-transform duration-200', isDropdownOpen && 'rotate-180')}
+                />
               </button>
               {isDropdownOpen && (
-                <ul className="absolute mt-2 pt-2 bg-transparent -left-4 w-40">
-                  <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg py-1 text-base text-slate-700 dark:text-slate-300">
-                    <Link href="/blog" className="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200 rounded-t-lg">Blog</Link>
-                    <Link href="/faq" className="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200 rounded-b-lg">FAQ</Link>
-                  </div>
-                </ul>
+                <div
+                  id="resources-menu"
+                  className="absolute -left-4 top-full mt-3 w-52 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg"
+                >
+                  {RESOURCE_LINKS.map((l) => (
+                    <NavItem key={l.href} link={l} pathname={pathname} className={resourceLinkClass} />
+                  ))}
+                </div>
               )}
             </div>
-            <Link href="/pricing" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link>
-            <Link href="/contact" className="nav-underline text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
-          </div>
-        </nav>
+            <NavItem link={CONTACT_LINK} pathname={pathname} className={desktopLinkClass} />
+          </nav>
+        </div>
 
-        {/* Right-aligned: Sign In + the two ways to run FaultMaven */}
-        <nav className="hidden md:flex space-x-4 text-base font-medium items-center">
-          <Link href={SIGN_IN_URL} className="nav-underline text-blue-600 dark:text-blue-500 transition-colors duration-200">Sign In</Link>
-          <Link
-            href={SELF_HOST_PATH}
-            className="px-5 py-2 rounded-md text-[#2563EB] border border-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors duration-200"
-          >
-            Self-Host
+        {/* Right: sign in + the two ways to run FaultMaven */}
+        <div className={cn(DESKTOP_ONLY, 'shrink-0 items-center gap-3 text-sm font-medium')}>
+          <Link href={SIGN_IN_URL} className={cn('mr-2', desktopLinkClass(false))}>
+            Sign in
           </Link>
-          <Link
-            href={TRY_CLOUD_URL}
-            className="px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
-          >
-            Get Started
-          </Link>
-        </nav>
+          <Button asChild href={SELF_HOST_PATH} variant="secondary" size="sm" className="whitespace-nowrap">
+            Self-host
+          </Button>
+          <Button asChild href={TRY_CLOUD_URL} variant="primary" size="sm" className="whitespace-nowrap">
+            Get started
+          </Button>
+        </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile menu button */}
         <button
-          className="md:hidden text-slate-700 dark:text-slate-300"
+          ref={menuButtonRef}
+          type="button"
+          className={cn(MOBILE_ONLY, 'text-slate-700 dark:text-slate-300')}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-          <div className="px-6 py-4 space-y-4">
-            <Link href="/product" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Product</Link>
-            <Link href="/investigation" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Transcript</Link>
-            <Link href="/use-cases" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Use Cases</Link>
-            <Link href="/roadmap" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Roadmap</Link>
-            <Link href="/blog" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Blog</Link>
-            <Link href="/faq" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">FAQ</Link>
-            <Link href="/pricing" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Pricing</Link>
-            <Link href="/contact" className="block text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200">Contact</Link>
-            <Link href={SIGN_IN_URL} className="block text-blue-600 dark:text-blue-500 hover:underline transition-colors duration-200">Sign In</Link>
-            <Link
-              href={SELF_HOST_PATH}
-              className="block px-5 py-2 rounded-md text-[#2563EB] border border-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-colors duration-200"
-            >
-              Self-Host
-            </Link>
-            <Link
-              href={TRY_CLOUD_URL}
-              className="block px-5 py-2 rounded-md text-white bg-[#2563EB] hover:bg-blue-700 transition-colors duration-200 shadow-sm hover:shadow-md"
-            >
-              Get Started
-            </Link>
+        <nav
+          ref={menuRef}
+          id="mobile-menu"
+          aria-label="Main"
+          className={cn(MOBILE_ONLY, 'bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800')}
+        >
+          <div className="px-6 py-4">
+            {[...PRIMARY_LINKS, ...RESOURCE_LINKS, CONTACT_LINK].map((l) => (
+              <NavItem key={l.href} link={l} pathname={pathname} className={mobileLinkClass} />
+            ))}
+            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
+              <Link href={SIGN_IN_URL} className={mobileLinkClass(false)}>
+                Sign in
+              </Link>
+              <Button asChild href={SELF_HOST_PATH} variant="secondary" className="w-full">
+                Self-host
+              </Button>
+              <Button asChild href={TRY_CLOUD_URL} variant="primary" className="w-full">
+                Get started
+              </Button>
+            </div>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );
