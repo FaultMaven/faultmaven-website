@@ -188,7 +188,8 @@ export default function RetrievalPipelineSection({ tone = 'muted' }: { tone?: Se
           One precision, since the distinction matters to anyone who has built this: the lexical arm is a
           contains-gate plus IDF-weighted term overlap, not true BM25 with term-frequency statistics — the
           vector store does not expose them. It captures most of the value, which is refusing to lose exact
-          identifiers. There is no BM25 index today. The full argument is in{' '}
+          identifiers. What BM25 would add on top — weighting repeated terms and normalising for chunk length —
+          is unproven here, so there is no separate BM25 index. The full argument is in{' '}
           <Link
             href="/blog/rag-for-troubleshooting-knowledge"
             className={textLinkClass}
