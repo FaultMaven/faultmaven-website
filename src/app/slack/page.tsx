@@ -25,6 +25,9 @@ export const metadata = pageMetadata({
 // During beta a workspace is connected to its FaultMaven account by hand after
 // the app is installed, so a team's cases land in its own account rather than
 // a shared one. The steps below match the ones in the community workspace.
+// Two notes are true only for now: Slack's "not approved" install warning goes
+// once the Marketplace listing is approved, and the Slack-only answers note goes
+// once Slack cases appear in the dashboard.
 
 const howItWorks = [
   {
@@ -72,7 +75,8 @@ const setupSteps: { title: string; desc: ReactNode }[] = [
         <Link href="/privacy/slack" className={textLinkClass}>
           privacy policy
         </Link>
-        .
+        . While the Slack Marketplace listing is in review, that screen also says &quot;This app is
+        not approved by Slack.&quot;
       </>
     ),
   },
@@ -97,7 +101,7 @@ const setupSteps: { title: string; desc: ReactNode }[] = [
   },
   {
     title: 'Summon it',
-    desc: '@mention FaultMaven in a thread, run the "Ask FaultMaven" shortcut on a message, or send it a direct message. There is no account for your teammates to create, no API key to paste, and no backend to configure.',
+    desc: '@mention FaultMaven in a thread, run the "Ask FaultMaven" shortcut on a message, or send it a direct message. There is no account for your teammates to create, no API key to paste, and no backend to configure. During beta, an investigation started in Slack is answered in Slack; it does not appear in the web dashboard yet.',
   },
 ];
 
