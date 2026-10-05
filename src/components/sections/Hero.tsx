@@ -53,21 +53,27 @@ export default function Hero() {
             </p>
           </div>
           {/* The column is half of max-w-6xl less its gutters and gap: 520px at most.
-              The membership line sits in the room above the video, so it is in the
-              first screen without competing with the heading. The badge's -mr-1.5
-              lets the artwork's built-in clear space overhang, so its border lines
-              up with the video's right edge. */}
-          <div className="flex flex-col gap-4">
+              From md up it stretches to the text column's height: the membership
+              line opens it, level with the pill that opens the text column, and the
+              video centres in the room below, so the line reads as part of the
+              hero rather than as a title for the video. On narrow screens it
+              follows the video instead, as the hero's closing note. md:-mt-2
+              centres the row on the pill. The badge's -mr-1.5 lets the artwork's
+              built-in clear space overhang, so its border lines up with the
+              video's right edge. */}
+          <div className="flex flex-col gap-12 md:self-stretch">
             <InceptionMembership
-              className="justify-between"
-              textClassName="max-w-xs"
-              badgeClassName="-mr-1.5 h-12"
+              className="order-last md:order-none md:-mt-2 md:justify-end"
+              textClassName="md:text-right"
+              badgeClassName="-mr-1.5 h-11"
             />
-            <DemoVideo
-              priority
-              sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
-              caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
-            />
+            <div className="md:my-auto">
+              <DemoVideo
+                priority
+                sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
+                caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
+              />
+            </div>
           </div>
         </div>
         <p className="mt-16 border-t border-slate-200 pt-10 text-center text-sm leading-relaxed text-slate-500 md:mt-20 dark:border-slate-700 dark:text-slate-400">
