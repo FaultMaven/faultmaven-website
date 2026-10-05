@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { IconGithub, IconLinkedin, IconX } from '@/components/icons';
+import InceptionBadge from '@/components/ui/InceptionBadge';
 import Link from '@/components/ui/Link';
 import { COMMUNITY_SLACK_URL, DISCUSSIONS_URL, ENGINE_REPO_URL, SELF_HOST_PATH } from '@/lib/links';
 
@@ -42,24 +43,9 @@ export default function Footer() {
                 <IconLinkedin className="w-5 h-5 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
             </div>
-            {/* NVIDIA's artwork, unmodified: the file carries its own clear space,
-                and at h-11 the badge itself is ~34px tall (NVIDIA's digital minimum
-                is 30px) and narrower than the FaultMaven logo above it, as the
-                badge guidelines require. */}
-            <a
-              href="https://www.nvidia.com/en-us/startups/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-            >
-              <Image
-                src="/images/nvidia-inception-program-badge.svg"
-                alt="FaultMaven is a member of NVIDIA Inception"
-                width={500}
-                height={216}
-                className="h-11 w-auto"
-              />
-            </a>
+            <div className="mt-4">
+              <InceptionBadge className="h-11" />
+            </div>
           </div>
 
           {/* Product Links */}

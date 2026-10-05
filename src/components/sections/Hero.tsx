@@ -1,5 +1,6 @@
 import Button from '../ui/Button';
 import DemoVideo from '../slack/DemoVideo';
+import InceptionBadge from '@/components/ui/InceptionBadge';
 import { Badge, pageTitleClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
@@ -51,12 +52,21 @@ export default function Hero() {
               first.
             </p>
           </div>
-          {/* The column is half of max-w-6xl less its gutters and gap: 520px at most. */}
-          <DemoVideo
-            priority
-            sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
-            caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
-          />
+          {/* The column is half of max-w-6xl less its gutters and gap: 520px at most.
+              The badge sits in the room above the video, so it is in the first
+              screen without competing with the heading. The 6px margin lets the
+              artwork's built-in clear space overhang, so the badge's border lines
+              up with the text (narrow) or the video's right edge (md and up). */}
+          <div className="flex flex-col gap-4">
+            <div className="-ml-1.5 md:-mr-1.5 md:ml-0 md:self-end">
+              <InceptionBadge className="h-12" />
+            </div>
+            <DemoVideo
+              priority
+              sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
+              caption="Uncut screen recording, no sound: FaultMaven works an api-gateway 503 in a Slack thread, from the PagerDuty alert to a resolved case."
+            />
+          </div>
         </div>
         <p className="mt-16 border-t border-slate-200 pt-10 text-center text-sm leading-relaxed text-slate-500 md:mt-20 dark:border-slate-700 dark:text-slate-400">
           No magic. The evidence you share, the runbooks it retrieves, and a method it does not skip.
