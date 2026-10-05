@@ -108,8 +108,11 @@ export default function Footer() {
           <p className="text-sm text-slate-500 dark:text-slate-400">
             &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.
           </p>
+          {/* NVIDIA's standard legal line, required wherever the NVIDIA logo appears.
+              NVIDIA asks for it exactly as written, so the year is theirs, not ours:
+              it does not follow the build year as our own copyright line does. */}
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-            &copy; {new Date().getFullYear()} NVIDIA, the NVIDIA logo, and NVIDIA Inception are
+            &copy; 2025 NVIDIA, the NVIDIA logo, and NVIDIA Inception are
             trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other
             countries.
           </p>
