@@ -181,6 +181,12 @@ jobs:
       # PR that introduces a known-vulnerable dependency (fail-on-severity:
       # low), and Dependabot alerts watch the standing tree server-side. Both
       # use the GitHub API, not npm's advisory endpoint.
+      #
+      # `pnpm.auditConfig.ignoreGhsas` in package.json skips named advisories.
+      # It holds only advisories with no patched release whose package reaches
+      # build, lint and test tooling alone (`pnpm why <pkg> --prod` is empty),
+      # never what the site ships. Drop an entry once a fix is published:
+      #   GHSA-vfj7-8cjw-p6xm  braces <=3.0.3, via micromatch (fast-glob, jest)
       - name: Run pnpm audit
         env:
           # Fail each attempt fast; the retry loop below owns the backoff.
