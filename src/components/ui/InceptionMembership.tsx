@@ -22,7 +22,7 @@ export default function InceptionMembership({
   return (
     <div className={cn('flex items-center gap-4', className)}>
       <p className={cn('text-sm text-slate-600 dark:text-slate-400', textClassName)}>
-        FaultMaven is a member of the NVIDIA Inception program for startups.
+        FaultMaven is a member of the NVIDIA Inception program.
       </p>
       <Image
         src="/images/nvidia-inception-program-badge.svg"
