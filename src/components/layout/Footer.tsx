@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { IconGithub, IconLinkedin, IconX } from '@/components/icons';
-import InceptionBadge from '@/components/ui/InceptionBadge';
+import InceptionMembership from '@/components/ui/InceptionMembership';
 import Link from '@/components/ui/Link';
 import { COMMUNITY_SLACK_URL, DISCUSSIONS_URL, ENGINE_REPO_URL, SELF_HOST_PATH } from '@/lib/links';
 
@@ -42,9 +42,6 @@ export default function Footer() {
               <a href="https://linkedin.com/company/faultmaven" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
                 <IconLinkedin className="w-5 h-5 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
-            </div>
-            <div className="mt-4">
-              <InceptionBadge className="h-11" />
             </div>
           </div>
 
@@ -93,6 +90,11 @@ export default function Footer() {
 
         {/* Bottom Divider & Copyright */}
         <div className="mt-12 border-t border-slate-200 pt-8 text-center dark:border-slate-800">
+          <InceptionMembership
+            className="mb-6 justify-center"
+            textClassName="text-left"
+            badgeClassName="h-11"
+          />
           <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
             Fair Source · Self-Hostable · No Production Credentials
           </p>

@@ -1,6 +1,6 @@
 import Button from '../ui/Button';
 import DemoVideo from '../slack/DemoVideo';
-import InceptionBadge from '@/components/ui/InceptionBadge';
+import InceptionMembership from '@/components/ui/InceptionMembership';
 import { Badge, pageTitleClass } from '@/components/ui/Section';
 import { SELF_HOST_PATH, TRY_CLOUD_URL } from '@/lib/links';
 
@@ -53,14 +53,16 @@ export default function Hero() {
             </p>
           </div>
           {/* The column is half of max-w-6xl less its gutters and gap: 520px at most.
-              The badge sits in the room above the video, so it is in the first
-              screen without competing with the heading. The 6px margin lets the
-              artwork's built-in clear space overhang, so the badge's border lines
-              up with the text (narrow) or the video's right edge (md and up). */}
+              The membership line sits in the room above the video, so it is in the
+              first screen without competing with the heading. The badge's -mr-1.5
+              lets the artwork's built-in clear space overhang, so its border lines
+              up with the video's right edge. */}
           <div className="flex flex-col gap-4">
-            <div className="-ml-1.5 md:-mr-1.5 md:ml-0 md:self-end">
-              <InceptionBadge className="h-12" />
-            </div>
+            <InceptionMembership
+              className="justify-between"
+              textClassName="max-w-xs"
+              badgeClassName="-mr-1.5 h-12"
+            />
             <DemoVideo
               priority
               sizes="(min-width: 1152px) 520px, (min-width: 768px) calc(50vw - 56px), calc(100vw - 48px)"
