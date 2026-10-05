@@ -20,9 +20,10 @@ export default function InceptionMembership({
   badgeClassName: string;
 }) {
   return (
-    <div className={cn('flex items-center gap-4', className)}>
+    <div className={cn('flex items-center gap-3', className)}>
       <p className={cn('text-sm text-slate-600 dark:text-slate-400', textClassName)}>
-        FaultMaven is a member of the NVIDIA Inception program.
+        FaultMaven is a member of the{' '}
+        <span className="whitespace-nowrap">NVIDIA Inception program.</span>
       </p>
       <Image
         src="/images/nvidia-inception-program-badge.svg"
