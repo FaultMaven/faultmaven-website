@@ -25,6 +25,8 @@ export const metadata = pageMetadata({
 // During beta a workspace is connected to its FaultMaven account by hand after
 // the app is installed, so a team's cases land in its own account rather than
 // a shared one. The steps below match the ones in the community workspace.
+// Slack's "not approved" install warning in step 2 is true only until Slack
+// approves the Marketplace submission; remove it then.
 
 const howItWorks = [
   {
@@ -72,7 +74,8 @@ const setupSteps: { title: string; desc: ReactNode }[] = [
         <Link href="/privacy/slack" className={textLinkClass}>
           privacy policy
         </Link>
-        .
+        . While the Slack Marketplace submission is in review, that screen also says &quot;This app is
+        not approved by Slack.&quot;
       </>
     ),
   },
