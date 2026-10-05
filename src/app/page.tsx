@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/sections/Hero';
+import CredentialsStrip from '@/components/sections/CredentialsStrip';
 import ProblemSection from '@/components/sections/ProblemSection';
 import ApproachSection from '@/components/sections/ApproachSection';
 import TieredKnowledgeEngineSection from '@/components/sections/TieredKnowledgeEngineSection';
@@ -19,12 +20,14 @@ export const metadata: Metadata = {
 };
 
 // The layout already wraps every page in <main>. Sections alternate white and
-// muted from the hero down; the tones are set here, in page order, so moving or
+// muted from the hero down (the credentials strip under the hero is a ruled
+// band, not a section); the tones are set here, in page order, so moving or
 // removing a section means editing this list and nothing else.
 export default function Home() {
   return (
     <>
       <Hero />
+      <CredentialsStrip />
       <ProblemSection tone="white" />
       <ApproachSection tone="muted" />
       <TieredKnowledgeEngineSection tone="white" />
