@@ -42,6 +42,24 @@ export default function Footer() {
                 <IconLinkedin className="w-5 h-5 text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200" />
               </a>
             </div>
+            {/* NVIDIA's artwork, unmodified: the file carries its own clear space,
+                and at h-11 the badge itself is ~34px tall (NVIDIA's digital minimum
+                is 30px) and narrower than the FaultMaven logo above it, as the
+                badge guidelines require. */}
+            <a
+              href="https://www.nvidia.com/en-us/startups/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
+              <Image
+                src="/images/nvidia-inception-program-badge.svg"
+                alt="FaultMaven is a member of NVIDIA Inception"
+                width={500}
+                height={216}
+                className="h-11 w-auto"
+              />
+            </a>
           </div>
 
           {/* Product Links */}
@@ -103,6 +121,11 @@ export default function Footer() {
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
             &copy; {new Date().getFullYear()} FaultMaven. All rights reserved.
+          </p>
+          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+            &copy; {new Date().getFullYear()} NVIDIA, the NVIDIA logo, and NVIDIA Inception are
+            trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other
+            countries.
           </p>
         </div>
       </div>
