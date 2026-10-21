@@ -73,8 +73,9 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
         look: 'classic',
         flowchart: { htmlLabels: false, minNodeWidth: 0, wrappingWidth: 200 },
         state: { minNodeWidth: 0, wrappingWidth: 200 },
-        // Top-level layout would replace swimlanes' own (mermaid 11 ships them too).
+        // Top-level layout would replace swimlanes' and mindmaps' own (mermaid 11 ships both).
         swimlane: { layout: 'swimlane' },
+        mindmap: { layout: 'cose-bilkent' },
         theme: isDark ? 'dark' : 'default',
         fontFamily: 'inherit',
       });

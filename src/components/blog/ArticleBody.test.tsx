@@ -37,8 +37,9 @@ describe('ArticleBody', () => {
         // both at 120. These pins restore the 11.x sizing.
         flowchart: expect.objectContaining({ htmlLabels: false, minNodeWidth: 0, wrappingWidth: 200 }),
         state: expect.objectContaining({ minNodeWidth: 0, wrappingWidth: 200 }),
-        // The top-level layout would otherwise replace swimlanes' own.
+        // The top-level layout would otherwise replace swimlanes' and mindmaps' own.
         swimlane: expect.objectContaining({ layout: 'swimlane' }),
+        mindmap: expect.objectContaining({ layout: 'cose-bilkent' }),
         // The sanitizer strips foreignObject content, so labels must stay <text>.
         securityLevel: 'strict',
         htmlLabels: false,
