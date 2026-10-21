@@ -63,11 +63,19 @@ export default function ArticleBody({ html }: ArticleBodyProps) {
         // sanitizer below strips foreignObject's inner HTML unconditionally
         // (it processes the tree in the SVG namespace), which would leave
         // shapes with no words; SVG <text>/<tspan> survive sanitization.
-        // 'strict' forces htmlLabels off; the explicit flag documents intent.
+        // 'strict' does not turn htmlLabels off (mermaid reads only the
+        // flags), so the two explicit flags are what keep labels in <text>.
         // <br/> line breaks still work — mermaid splits them into tspans.
         securityLevel: 'strict',
         htmlLabels: false,
-        flowchart: { htmlLabels: false },
+        // Pin the pre-12 look: dagre, classic, 11.x node sizing (owner ruling, fm#2117).
+        layout: 'dagre',
+        look: 'classic',
+        flowchart: { htmlLabels: false, minNodeWidth: 0, wrappingWidth: 200 },
+        state: { minNodeWidth: 0, wrappingWidth: 200 },
+        // Top-level layout would replace swimlanes' and mindmaps' own (mermaid 11 ships both).
+        swimlane: { layout: 'swimlane' },
+        mindmap: { layout: 'cose-bilkent' },
         theme: isDark ? 'dark' : 'default',
         fontFamily: 'inherit',
       });
