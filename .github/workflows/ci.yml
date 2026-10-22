@@ -173,11 +173,13 @@ jobs:
       # in .github/actions/lockfile-audit, which the daily scheduled-audit.yml
       # also runs against main (faultmaven#2159), so both use one level.
       #
-      # Advisories still fail the build. Only a transport failure is tolerated
-      # here (`on-unreachable: warn`), and only loudly: it emits a warning
-      # annotation and says in the job summary that the gate did not run. That
-      # is deliberate rather than `--ignore-registry-errors`, which would exit 0
-      # on a registry error with no trace, turning the gate into a silent no-op.
+      # Advisories still fail the build. Only an outage is tolerated here
+      # (`on-unreachable: warn`): the endpoint unreachable, answering only 5xx,
+      # 408 or 429, or stalled, for all four attempts. Even that only loudly: it
+      # emits a warning annotation and says in the job summary that the gate did
+      # not run. That is deliberate rather than `--ignore-registry-errors`, which
+      # would exit 0 on a registry error with no trace, turning the gate into a
+      # silent no-op.
       # The scheduled run uses `fail`, so a day it could not audit reads red.
       #
       # What still covers us while it is degraded: Dependency Review blocks any
