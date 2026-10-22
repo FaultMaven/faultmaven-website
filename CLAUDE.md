@@ -24,7 +24,7 @@ node scripts/brand-lint.mjs  # brand terminology lint, stdlib only
 | Workflow | Runs |
 |---|---|
 | `ci.yml` | `pnpm run lint` + `tsc --noEmit` + `pnpm test` (jest), then (after lint) `pnpm run build` + `pnpm run test:build` (headers, 404s, redirects, titles against the built site) + `pnpm run test:browser` (Playwright/Chromium); `pnpm audit --audit-level=moderate` (`.github/actions/lockfile-audit`) runs in parallel |
-| `scheduled-audit.yml` | the same lockfile audit against `main` daily at 06:23 UTC, and on dispatch; fails when the audit could not run (faultmaven#2159) |
+| `scheduled-audit.yml` | the same lockfile audit (no install) against `main` daily at 06:23 UTC; also on dispatch (it audits the ref it starts from) and on PRs touching it or `.github/actions/lockfile-audit/`; fails when the audit could not run (faultmaven#2159) |
 | `brand-lint.yml` | `node scripts/brand-lint.mjs` on push to `main`, and on PRs touching `README.md`, `src/**`, the script or its workflow |
 | `dependency-review.yml` | fails a PR that adds a dependency with a known advisory |
 | `policy-no-direct-k8s-deploy.yml` | PRs touching `*.yml`/`*.yaml`/`*.sh`: substring greps over `.github/workflows/`, case-sensitive for `kubectl`/`helm`, case-insensitive for `kubectl apply`/`kustomize`/`kubernetes` |

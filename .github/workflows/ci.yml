@@ -199,6 +199,7 @@ jobs:
       - name: Say what still covers an audit that did not run
         if: steps.audit.outputs.result == 'unreachable'
         run: |
+          echo "::warning::Dependency Review and Dependabot alerts still apply."
           {
             echo ""
             echo "Still in force: Dependency Review (fails on any known-vulnerable"
