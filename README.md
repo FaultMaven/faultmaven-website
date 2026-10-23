@@ -39,7 +39,7 @@ This is the official source code for the **FaultMaven** website. It is built wit
 
 ## 🛠️ Local Development
 
-**Prerequisites:** the Node major in `package.json` `engines.node`, and [pnpm](https://pnpm.io/). pnpm switches itself to the version `packageManager` names. CI and Vercel read both fields too.
+**Prerequisites:** the Node major in `package.json` `engines.node`, and [pnpm](https://pnpm.io/) at the version `packageManager` names. pnpm 10 or later switches to that version by itself; with an older pnpm, run `corepack enable`. CI reads both fields, and Vercel reads `engines.node`.
 
 To run the website locally for editing documentation or landing pages:
 
