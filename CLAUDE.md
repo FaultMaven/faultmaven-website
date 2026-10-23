@@ -7,7 +7,7 @@ previews from pull requests); GitHub Actions only verifies. The product itself l
 
 ## Commands
 
-pnpm is the package manager (`pnpm-lock.yaml`); CI runs Node 20 and pnpm 10.
+pnpm is the package manager (`pnpm-lock.yaml`). The Node and pnpm versions are declared once, in `package.json`: `engines.node` and `packageManager`. CI's workflows and Vercel's builds read them there, so never pin a version in a workflow.
 
 ```bash
 pnpm install --frozen-lockfile
