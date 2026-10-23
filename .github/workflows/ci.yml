@@ -162,7 +162,7 @@ jobs:
       # reach npm's advisory endpoint, so the two were indistinguishable: an
       # npm-side outage looked exactly like a vulnerability and blocked every
       # PR. This separates them. The retry and the transport-error grammar live
-      # in .github/actions/lockfile-audit, which the daily scheduled-audit.yml
+      # in FaultMaven/ci-actions/lockfile-audit, which the daily scheduled-audit.yml
       # also runs against main (faultmaven#2159), so both use one level.
       #
       # Advisories still fail the build. Only an outage is tolerated here
@@ -186,7 +186,7 @@ jobs:
       #   GHSA-vfj7-8cjw-p6xm  braces <=3.0.3, via micromatch (fast-glob, jest)
       - name: Run pnpm audit
         id: audit
-        uses: ./.github/actions/lockfile-audit
+        uses: FaultMaven/ci-actions/lockfile-audit@3d24d91b3eff1001ebd151243095efd7bc225ff2 # v1.1.0
         with:
           on-unreachable: warn
 
