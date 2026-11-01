@@ -153,10 +153,12 @@ jobs:
       # use the GitHub API, not npm's advisory endpoint.
       #
       # `pnpm.auditConfig.ignoreGhsas` in package.json skips named advisories.
-      # It holds only advisories with no patched release whose package reaches
-      # build, lint and test tooling alone (`pnpm why <pkg> --prod` is empty),
-      # never what the site ships. Drop an entry once a fix is published:
-      #   GHSA-g3hv-75wg-m249  minimatch <11.0.1, no 9.x fix; via eslint, glob (jest)
+      # It holds only advisories with no patched release that this tree's
+      # consumers can take, whose package reaches build, lint and test tooling
+      # alone (`pnpm why <pkg> --prod` is empty), never what the site ships.
+      # Drop an entry once its consumers can take a fixed release:
+      #   GHSA-g3hv-75wg-m249  minimatch <11.0.1, fixed only in 11.x; via eslint and
+      #                        its plugins, typescript-eslint, test-exclude (jest coverage)
       #   GHSA-vfj7-8cjw-p6xm  braces <=3.0.3, via micromatch (fast-glob, jest)
       - name: Run pnpm audit
         id: audit
