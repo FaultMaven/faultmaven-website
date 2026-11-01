@@ -153,10 +153,11 @@ jobs:
       # use the GitHub API, not npm's advisory endpoint.
       #
       # `pnpm.auditConfig.ignoreGhsas` in package.json skips named advisories.
-      # It holds only advisories with no patched release whose package reaches
-      # build, lint and test tooling alone (`pnpm why <pkg> --prod` is empty),
-      # never what the site ships. Drop an entry once a fix is published:
-      #   GHSA-vfj7-8cjw-p6xm  braces <=3.0.3, via micromatch (fast-glob, jest)
+      # Add an entry only when `pnpm why <pkg> --prod` prints nothing, and record
+      # its reach and when to remove it on a FaultMaven/faultmaven issue, not in
+      # this comment. Entries and their tracking issues:
+      #   GHSA-g3hv-75wg-m249  minimatch, FaultMaven/faultmaven#2443
+      #   GHSA-vfj7-8cjw-p6xm  braces, FaultMaven/faultmaven#2160
       - name: Run pnpm audit
         id: audit
         uses: FaultMaven/ci-actions/lockfile-audit@6d03d98637a9a4ae9d0d57580408c3299f5d5c0f # v1.3.1
