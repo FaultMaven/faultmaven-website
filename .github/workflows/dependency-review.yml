@@ -26,6 +26,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      # One list feeds both gates: the advisories pnpm audit ignores
+      # (package.json pnpm.auditConfig.ignoreGhsas) are the ones allowed here,
+      # so the two cannot drift (FaultMaven/faultmaven#2913, #2912).
+      - name: Read ignored advisories
+        id: ignored
+        run: |
+          ghsas=$(jq -r '.pnpm.auditConfig.ignoreGhsas // [] | join(",")' package.json)
+          echo "ghsas=$ghsas" >> "$GITHUB_OUTPUT"
+
       - name: Dependency review
         uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
@@ -33,4 +42,5 @@ jobs:
           # This is diff-scoped (only deps the PR adds/changes), so a strict
           # threshold stays low-noise.
           fail-on-severity: low
+          allow-ghsas: ${{ steps.ignored.outputs.ghsas }}
           comment-summary-in-pr: on-failure
