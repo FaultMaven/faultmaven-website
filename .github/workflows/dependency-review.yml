@@ -6,6 +6,14 @@ name: Dependency Review
 # PR diff, while pnpm audit scans the full resolved tree at moderate+.
 # Note: this gate only evaluates future pull requests; it does not scan
 # dependencies already on main.
+#
+# It deliberately does NOT read the audit's ignore list
+# (`pnpm.auditConfig.ignoreGhsas` in package.json) and sets no `allow-ghsas`.
+# That list admits advisories the repo has ruled out of reach to the
+# full-tree audit; this gate stays the stricter, diff-scoped backstop for new
+# and production dependencies, independent of it. A PR it blocks for an
+# advisory the audit ignores needs a reviewed exception, not an allow-list
+# copied from package.json (FaultMaven/faultmaven#2913).
 
 on:
   pull_request:

@@ -155,7 +155,11 @@ jobs:
       # `pnpm.auditConfig.ignoreGhsas` in package.json skips named advisories.
       # Add an entry only when `pnpm why <pkg> --prod` prints nothing, and record
       # its reach and when to remove it on a FaultMaven/faultmaven issue, not in
-      # this comment. Entries and their tracking issues:
+      # this comment. Dependency Review (dependency-review.yml) deliberately
+      # does not read this list: it is the stricter, diff-scoped backstop for
+      # new and production dependencies, and a PR it blocks for an advisory
+      # ignored here needs a reviewed exception (FaultMaven/faultmaven#2913).
+      # Entries and their tracking issues:
       #   GHSA-g3hv-75wg-m249  minimatch, FaultMaven/faultmaven#2443
       #   GHSA-vfj7-8cjw-p6xm  braces, FaultMaven/faultmaven#2160
       #   GHSA-fc5q-39xc-vjpf  picomatch, FaultMaven/faultmaven#2912
