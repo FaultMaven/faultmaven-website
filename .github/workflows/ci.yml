@@ -158,6 +158,7 @@ jobs:
       # this comment. Entries and their tracking issues:
       #   GHSA-g3hv-75wg-m249  minimatch, FaultMaven/faultmaven#2443
       #   GHSA-vfj7-8cjw-p6xm  braces, FaultMaven/faultmaven#2160
+      #   GHSA-fc5q-39xc-vjpf  picomatch, FaultMaven/faultmaven#2912
       - name: Run pnpm audit
         id: audit
         uses: FaultMaven/ci-actions/lockfile-audit@6d03d98637a9a4ae9d0d57580408c3299f5d5c0f # v1.3.1
