@@ -6,6 +6,16 @@ name: Dependency Review
 # PR diff, while pnpm audit scans the full resolved tree at moderate+.
 # Note: this gate only evaluates future pull requests; it does not scan
 # dependencies already on main.
+#
+# It does not read the audit's ignore list, `pnpm.auditConfig.ignoreGhsas` in
+# package.json (FaultMaven/faultmaven#2913). It fails a PR that adds or
+# changes any package with a known advisory, dev or production alike: the
+# dependency graph tags every pnpm dependency `runtime`, the action's default
+# fail scope. That includes a package whose advisory the audit ignores. It is
+# not a required check, so a maintainer may merge past it, but only after
+# recording the advisory's reach on the PR. Do not add `allow-ghsas`, by hand
+# or copied from package.json: this file is read from the PR itself, so the
+# PR would grant its own exception.
 
 on:
   pull_request:

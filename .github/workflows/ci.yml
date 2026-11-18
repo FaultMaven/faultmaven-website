@@ -153,6 +153,7 @@ jobs:
       # use the GitHub API, not npm's advisory endpoint.
       #
       # `pnpm.auditConfig.ignoreGhsas` in package.json skips named advisories.
+      # Dependency Review does not read this list; see dependency-review.yml.
       # Add an entry only when `pnpm why <pkg> --prod` prints nothing, and record
       # its reach and when to remove it on a FaultMaven/faultmaven issue, not in
       # this comment. Entries and their tracking issues:
