@@ -36,11 +36,10 @@ const accessTable = [
     why: 'To continue the investigation without re-summoning',
   },
   {
-    data: 'A pseudonym of the person who asked (never their Slack ID)',
-    when: 'With each message forwarded to the FaultMaven backend',
-    where:
-      'Sent to the FaultMaven backend, which holds it in memory only while your workspace has work waiting, and never stores it',
-    why: 'So people in one workspace take turns when FaultMaven is busy. It is a keyed one-way hash; the backend cannot turn it back into your Slack identity',
+    data: 'A pseudonym of the person who asked',
+    when: 'With each message, button click or form you send that reaches the FaultMaven backend',
+    where: 'Forwarded to the FaultMaven backend; held in memory, never stored',
+    why: 'So the backend shares its file-processing and runbook jobs fairly between the people using the same FaultMaven Slack connection',
   },
   {
     data: 'Files you share with it',
@@ -267,6 +266,10 @@ export default function SlackPrivacyPolicyPage() {
               follow along with channel conversations, build a record of who
               said what, or act on messages that neither summon it nor
               continue an investigation it owns.
+              The pseudonym in §2 is a keyed hash of your workspace and Slack
+              user ID: FaultMaven&apos;s Slack service holds the key and could
+              link it back to you, but the backend neither keeps it nor ties
+              it to your messages.
             </li>
             <li>
               <strong>No third-party analytics or trackers.</strong> The app
