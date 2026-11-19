@@ -37,7 +37,7 @@ const accessTable = [
   },
   {
     data: 'A pseudonym of the person who asked',
-    when: 'With each message, button click or form you send that reaches the FaultMaven backend',
+    when: 'With each message, "Ask" shortcut, button click or form of yours that reaches the FaultMaven backend',
     where: 'Forwarded to the FaultMaven backend; held in memory, never stored',
     why: 'So the backend shares its file-processing and runbook jobs fairly between the people using the same FaultMaven Slack connection',
   },
@@ -266,10 +266,11 @@ export default function SlackPrivacyPolicyPage() {
               follow along with channel conversations, build a record of who
               said what, or act on messages that neither summon it nor
               continue an investigation it owns.
-              The pseudonym in §2 is a keyed hash of your workspace and Slack
-              user ID: FaultMaven&apos;s Slack service holds the key and could
-              link it back to you, but the backend neither keeps it nor ties
-              it to your messages.
+              The pseudonym in §2 is a keyed hash of your Slack user ID and
+              your workspace (on Enterprise Grid, your organization):
+              FaultMaven&apos;s Slack service holds the key and could link it
+              back to you, but the backend never stores it or records it with
+              your messages.
             </li>
             <li>
               <strong>No third-party analytics or trackers.</strong> The app
