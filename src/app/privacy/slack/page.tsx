@@ -36,6 +36,13 @@ const accessTable = [
     why: 'To continue the investigation without re-summoning',
   },
   {
+    data: 'A pseudonym of the person who asked (never their Slack ID)',
+    when: 'With each message forwarded to the FaultMaven backend',
+    where:
+      'Sent to the FaultMaven backend, which holds it in memory only while your workspace has work waiting, and never stores it',
+    why: 'So people in one workspace take turns when FaultMaven is busy. It is a keyed one-way hash; the backend cannot turn it back into your Slack identity',
+  },
+  {
     data: 'Files you share with it',
     when: 'When you attach a file to a message that summons or continues an investigation',
     where: 'Downloaded and forwarded to the FaultMaven backend',
@@ -101,7 +108,7 @@ export default function SlackPrivacyPolicyPage() {
           <p className="text-sm text-slate-500 dark:text-slate-400">
             <em>Effective Date: June 2, 2025</em>
             <br />
-            <em>Last Updated: August 7, 2026</em>
+            <em>Last Updated: November 19, 2026</em>
             <br />
             <em>Applies to: the FaultMaven app for Slack</em>
           </p>
